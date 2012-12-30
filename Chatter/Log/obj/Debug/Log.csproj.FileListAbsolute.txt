@@ -1,0 +1,7 @@
+E:\code\myRepo\Chatter\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
+E:\code\myRepo\Chatter\Log\bin\Debug\Log.dll.config
+E:\code\myRepo\Chatter\Log\bin\Debug\Log.dll
+E:\code\myRepo\Chatter\Log\bin\Debug\Log.pdb
+E:\code\myRepo\Chatter\Log\bin\Debug\log4net.DLL
+E:\code\myRepo\Chatter\Log\obj\Debug\Log.dll
+E:\code\myRepo\Chatter\Log\obj\Debug\Log.pdb

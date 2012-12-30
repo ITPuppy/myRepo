@@ -3,6 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "Contract\Contract.csproj", "{E26A8512-EFDC-47FB-8AC6-223BEF1EF298}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log", "Log\Log.csproj", "{B13EAA64-9553-45B5-BC60-09E2CCB3F962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{2D7C23C3-74CD-4822-8CAE-001A56739235}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B13EAA64-9553-45B5-BC60-09E2CCB3F962} = {B13EAA64-9553-45B5-BC60-09E2CCB3F962}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +20,14 @@ Global
 		{E26A8512-EFDC-47FB-8AC6-223BEF1EF298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E26A8512-EFDC-47FB-8AC6-223BEF1EF298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E26A8512-EFDC-47FB-8AC6-223BEF1EF298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13EAA64-9553-45B5-BC60-09E2CCB3F962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13EAA64-9553-45B5-BC60-09E2CCB3F962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13EAA64-9553-45B5-BC60-09E2CCB3F962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13EAA64-9553-45B5-BC60-09E2CCB3F962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7C23C3-74CD-4822-8CAE-001A56739235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7C23C3-74CD-4822-8CAE-001A56739235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7C23C3-74CD-4822-8CAE-001A56739235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7C23C3-74CD-4822-8CAE-001A56739235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
