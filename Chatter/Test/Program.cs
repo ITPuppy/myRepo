@@ -11,7 +11,12 @@ namespace Chatter
     {
         static void Main(string[] args)
         {
-            Logger.Debug("adf"); 
+            Logger.Fatal("Fatal");
+            Logger.Error("Error");
+            Logger.Warn("Warn");
+            Logger.Info("Info");
+            Logger.Debug("Debug");
+
             
         }
     }

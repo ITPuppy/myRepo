@@ -16,7 +16,7 @@ namespace Chatter
         private string body;
         [DataMember]
         private string tail;
-
+        
         public string Tail
         {
             get { return tail; }

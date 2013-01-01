@@ -1,9 +1,8 @@
-E:\code\myRepo\Chatter\Test\bin\Debug\Test.exe.config
 E:\code\myRepo\Chatter\Test\bin\Debug\Test.exe
 E:\code\myRepo\Chatter\Test\bin\Debug\Test.pdb
-E:\code\myRepo\Chatter\Test\obj\Debug\Test.exe
-E:\code\myRepo\Chatter\Test\obj\Debug\Test.pdb
-E:\code\myRepo\Chatter\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\Test\bin\Debug\Log.dll
 E:\code\myRepo\Chatter\Test\bin\Debug\log4net.dll
 E:\code\myRepo\Chatter\Test\bin\Debug\Log.pdb
+E:\code\myRepo\Chatter\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+E:\code\myRepo\Chatter\Test\obj\Debug\Test.exe
+E:\code\myRepo\Chatter\Test\obj\Debug\Test.pdb

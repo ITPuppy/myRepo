@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using log4net;
+﻿using log4net;
+using System.IO;
 
 namespace Chatter.Log
 {
@@ -11,17 +7,19 @@ namespace Chatter.Log
     {
 
         private static ILog log;
-        public Logger()
+        static  private ILog GetLogger()
         {
-            log4net.Config.XmlConfigurator.Configure();
+            FileInfo fi = new FileInfo("../../../App.config");
+            log4net.Config.XmlConfigurator.Configure(fi);
             log = log4net.LogManager.GetLogger("");
+            return log;
         }
 
         public static void Fatal(string mesg)
         {
             if (log == null)
             {
-                log = log4net.LogManager.GetLogger("");
+                log = GetLogger();
             }
             log.Fatal(mesg);
         }
@@ -30,7 +28,7 @@ namespace Chatter.Log
         {
             if (log == null)
             {
-                log = log4net.LogManager.GetLogger("");
+                log = GetLogger();
             }
             log.Debug(mesg);
         }
@@ -39,7 +37,7 @@ namespace Chatter.Log
         {
             if (log == null)
             {
-                log = log4net.LogManager.GetLogger("");
+                log = GetLogger();
             }
             log.Info(mesg);
         }
@@ -47,7 +45,7 @@ namespace Chatter.Log
         {
             if (log == null)
             {
-                log = log4net.LogManager.GetLogger("");
+                log = GetLogger();
             }
             log.Error(mesg);
         }
@@ -55,7 +53,7 @@ namespace Chatter.Log
         {
             if (log == null)
             {
-                log = log4net.LogManager.GetLogger("");
+                log = GetLogger();
             }
             log.Warn(mesg);
         }
