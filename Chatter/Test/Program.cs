@@ -17,7 +17,7 @@ namespace Chatter
             Logger.Info("Info");
             Logger.Debug("Debug");
 
-            
+          
         }
     }
 }

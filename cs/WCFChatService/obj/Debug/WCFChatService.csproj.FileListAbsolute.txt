@@ -1,0 +1,24 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChat\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChat\bin\Debug\WCFChatService.exe.config
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChat\bin\Debug\WCFChatService.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChat\bin\Debug\WCFChatService.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChat\obj\Debug\WCFChatService.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChat\obj\Debug\WCFChatService.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatService\bin\Debug\WCFChatService.exe.config
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatService\bin\Debug\WCFChatService.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatService\bin\Debug\WCFChatService.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatService\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatService\obj\Debug\WCFChatService.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatService\obj\Debug\WCFChatService.pdb
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatService\bin\Debug\WCFChatService.exe.config
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatService\obj\Debug\WCFChatService.exe
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatService\obj\Debug\WCFChatService.pdb
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatService\bin\Debug\WCFChatService.exe
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatService\bin\Debug\WCFChatService.pdb
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatService\bin\Debug\WCFChatService.exe.config
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatService\obj\Debug\WCFChatService.exe
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatService\obj\Debug\WCFChatService.pdb
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatService\bin\Debug\WCFChatService.exe
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatService\bin\Debug\WCFChatService.pdb
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatService\obj\Debug\WCFChatService.csprojResolveAssemblyReference.cache

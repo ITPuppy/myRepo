@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFChatClient", "WCFChatClient\WCFChatClient.csproj", "{AFC36CF6-E69C-486A-8E69-8720A289CEFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFChatService", "WCFChatService\WCFChatService.csproj", "{4EE057FD-AAB5-41A2-A170-3E4C118EC403}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFC36CF6-E69C-486A-8E69-8720A289CEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC36CF6-E69C-486A-8E69-8720A289CEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC36CF6-E69C-486A-8E69-8720A289CEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC36CF6-E69C-486A-8E69-8720A289CEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE057FD-AAB5-41A2-A170-3E4C118EC403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE057FD-AAB5-41A2-A170-3E4C118EC403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE057FD-AAB5-41A2-A170-3E4C118EC403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE057FD-AAB5-41A2-A170-3E4C118EC403}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

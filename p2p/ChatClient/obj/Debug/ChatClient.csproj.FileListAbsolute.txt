@@ -1,0 +1,12 @@
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.ChatClient.resources
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.pdb
+F:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.exe.config
+F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.exe
+F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.pdb

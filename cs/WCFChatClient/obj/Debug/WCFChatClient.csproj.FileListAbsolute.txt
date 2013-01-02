@@ -1,0 +1,36 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.Properties.Resources.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.ChatForm.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.LoginForm.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.WaitForm.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.exe.config
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.exe.config
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.exe
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.pdb
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.ChatForm.resources
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.LoginForm.resources
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.Properties.Resources.resources
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.WaitForm.resources
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.csproj.GenerateResource.Cache
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.exe
+C:\Documents and Settings\jinjiaxing\桌面\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.pdb
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.exe.config
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.exe
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.pdb
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.exe
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\bin\Debug\WCFChatClient.pdb
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.csprojResolveAssemblyReference.cache
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.ChatForm.resources
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.LoginForm.resources
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.Properties.Resources.resources
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.WaitForm.resources
+C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.csproj.GenerateResource.Cache
+F:\code\myRepo\cs\WCFChatClient\bin\Debug\WCFChatClient.exe.config
+F:\code\myRepo\cs\WCFChatClient\obj\Debug\WCFChatClient.exe
+F:\code\myRepo\cs\WCFChatClient\obj\Debug\WCFChatClient.pdb

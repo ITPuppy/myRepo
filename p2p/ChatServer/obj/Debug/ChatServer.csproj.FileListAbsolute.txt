@@ -1,0 +1,9 @@
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\bin\Debug\ChatServer.exe.config
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.csprojResolveAssemblyReference.cache
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.ChatServer.resources
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.Properties.Resources.resources
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.csproj.GenerateResource.Cache
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\bin\Debug\ChatServer.exe
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\bin\Debug\ChatServer.pdb
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.exe
+C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.pdb

@@ -6,3 +6,11 @@ E:\code\myRepo\Chatter\Test\bin\Debug\Log.pdb
 E:\code\myRepo\Chatter\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\Test\obj\Debug\Test.exe
 E:\code\myRepo\Chatter\Test\obj\Debug\Test.pdb
+F:\code\myRepo\Chatter\Test\obj\Debug\Test.exe
+F:\code\myRepo\Chatter\Test\obj\Debug\Test.pdb
+F:\code\myRepo\Chatter\Test\bin\Debug\Test.exe
+F:\code\myRepo\Chatter\Test\bin\Debug\Test.pdb
+F:\code\myRepo\Chatter\Test\bin\Debug\Log.dll
+F:\code\myRepo\Chatter\Test\bin\Debug\log4net.dll
+F:\code\myRepo\Chatter\Test\bin\Debug\Log.pdb
+F:\code\myRepo\Chatter\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
