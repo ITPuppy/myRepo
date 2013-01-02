@@ -34,3 +34,6 @@ C:\Users\cfchen\Desktop\WCFChat\WCFChat\WCFChatClient\obj\Debug\WCFChatClient.cs
 F:\code\myRepo\cs\WCFChatClient\bin\Debug\WCFChatClient.exe.config
 F:\code\myRepo\cs\WCFChatClient\obj\Debug\WCFChatClient.exe
 F:\code\myRepo\cs\WCFChatClient\obj\Debug\WCFChatClient.pdb
+E:\code\myRepo\cs\WCFChatClient\bin\Debug\WCFChatClient.exe.config
+E:\code\myRepo\cs\WCFChatClient\obj\Debug\WCFChatClient.exe
+E:\code\myRepo\cs\WCFChatClient\obj\Debug\WCFChatClient.pdb
