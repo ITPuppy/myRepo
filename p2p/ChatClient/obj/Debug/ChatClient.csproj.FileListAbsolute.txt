@@ -10,3 +10,9 @@ C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient
 F:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.exe.config
 F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.exe
 F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.pdb
+F:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.exe
+F:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.pdb
+F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.ChatClient.resources
+F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache

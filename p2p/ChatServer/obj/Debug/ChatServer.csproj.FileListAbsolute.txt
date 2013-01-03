@@ -7,3 +7,12 @@ C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer
 C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\bin\Debug\ChatServer.pdb
 C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.exe
 C:\Users\cfchen\Desktop\Chat_application_using_WC_src\ChatApplication\ChatServer\obj\Debug\ChatServer.pdb
+F:\code\myRepo\p2p\ChatServer\bin\Debug\ChatServer.exe.config
+F:\code\myRepo\p2p\ChatServer\obj\Debug\ChatServer.exe
+F:\code\myRepo\p2p\ChatServer\obj\Debug\ChatServer.pdb
+F:\code\myRepo\p2p\ChatServer\bin\Debug\ChatServer.exe
+F:\code\myRepo\p2p\ChatServer\bin\Debug\ChatServer.pdb
+F:\code\myRepo\p2p\ChatServer\obj\Debug\ChatServer.csprojResolveAssemblyReference.cache
+F:\code\myRepo\p2p\ChatServer\obj\Debug\ChatServer.ChatServer.resources
+F:\code\myRepo\p2p\ChatServer\obj\Debug\ChatServer.Properties.Resources.resources
+F:\code\myRepo\p2p\ChatServer\obj\Debug\ChatServer.csproj.GenerateResource.Cache
