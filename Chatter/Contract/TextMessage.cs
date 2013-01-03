@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Chatter.Contract
 {
     [DataContract]
-    class TextMessage:Message
+   public  class TextMessage:Message
     {
         [DataMember]
         private string msg;

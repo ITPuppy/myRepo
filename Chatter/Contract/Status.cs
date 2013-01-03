@@ -7,18 +7,15 @@ using System.Text;
 namespace Chatter.Contract
 {
     [DataContract]
-    public enum MessageType
+    public enum Status
     {
         [EnumMember]
-        TextMessage,
+        OK = 0,
         [EnumMember]
-        File,
+        Failed = 1,
         [EnumMember]
-        Video,
+        Accept = 2,
         [EnumMember]
-        Audio,
-        [EnumMember]
-        Command
-
+        Refuse = 3
     }
 }

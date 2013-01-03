@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
+
 namespace Chatter.Contract
 {
     [DataContract]
+    [KnownType(typeof(TextMessage))]
+    [KnownType(typeof(FileMessage))]
     public class Message
     {
         [DataMember]
