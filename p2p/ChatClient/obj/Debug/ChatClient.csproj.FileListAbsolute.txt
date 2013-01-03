@@ -16,3 +16,12 @@ F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReferenc
 F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.ChatClient.resources
 F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
 F:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
+E:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.exe.config
+E:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.exe
+E:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.pdb
+E:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.exe
+E:\code\myRepo\p2p\ChatClient\bin\Debug\ChatClient.pdb
+E:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+E:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.ChatClient.resources
+E:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+E:\code\myRepo\p2p\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
