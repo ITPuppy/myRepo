@@ -1,0 +1,10 @@
+F:\code\myRepo\Chatter\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\code\myRepo\Chatter\DAL\bin\Debug\DAL.dll
+F:\code\myRepo\Chatter\DAL\bin\Debug\DAL.pdb
+F:\code\myRepo\Chatter\DAL\bin\Debug\Contract.dll
+F:\code\myRepo\Chatter\DAL\bin\Debug\Log.dll
+F:\code\myRepo\Chatter\DAL\bin\Debug\log4net.dll
+F:\code\myRepo\Chatter\DAL\bin\Debug\Contract.pdb
+F:\code\myRepo\Chatter\DAL\bin\Debug\Log.pdb
+F:\code\myRepo\Chatter\DAL\obj\Debug\DAL.dll
+F:\code\myRepo\Chatter\DAL\obj\Debug\DAL.pdb

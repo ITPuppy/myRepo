@@ -17,9 +17,9 @@ namespace Chatter.Contract
             get { return guid; }
             set { guid = value; }
         }
-        private Status status;
+        private MessageStatus status;
 
-        public Status Status
+        public MessageStatus Status
         {
             get { return status; }
             set { status = value; }

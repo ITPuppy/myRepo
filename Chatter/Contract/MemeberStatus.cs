@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Chatter.Contract
 {
     [DataContract]
-    public enum Status
+    public enum MemberStatus
     {
         [EnumMember]
-        OK = 0,
+        Online,
         [EnumMember]
-        Failed = 1,
+        Offline,
         [EnumMember]
-        Accept = 2,
+        Levave,
         [EnumMember]
-        Refuse = 3
+        Busy
     }
 }

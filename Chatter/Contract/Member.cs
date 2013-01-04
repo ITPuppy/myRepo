@@ -50,6 +50,21 @@ namespace Chatter.Contract
             get { return password; }
             set { password = value; }
         }
+        [DataMember]
+        private MemberStatus status;
 
+        public MemberStatus Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+        [DataMember]
+        private string infomation;
+
+        public string Infomation
+        {
+            get { return infomation; }
+            set { infomation = value; }
+        }
     }
 }
