@@ -1,0 +1,12 @@
+E:\code\myRepo\Chatter\Service\bin\Debug\Service.dll
+E:\code\myRepo\Chatter\Service\bin\Debug\Service.pdb
+E:\code\myRepo\Chatter\Service\bin\Debug\Contract.dll
+E:\code\myRepo\Chatter\Service\bin\Debug\DAL.dll
+E:\code\myRepo\Chatter\Service\bin\Debug\Log.dll
+E:\code\myRepo\Chatter\Service\bin\Debug\log4net.dll
+E:\code\myRepo\Chatter\Service\bin\Debug\Contract.pdb
+E:\code\myRepo\Chatter\Service\bin\Debug\DAL.pdb
+E:\code\myRepo\Chatter\Service\bin\Debug\Log.pdb
+E:\code\myRepo\Chatter\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\code\myRepo\Chatter\Service\obj\Debug\Service.dll
+E:\code\myRepo\Chatter\Service\obj\Debug\Service.pdb

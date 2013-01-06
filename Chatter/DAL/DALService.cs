@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Chatter.Contract;
 using Chatter.Log;
+using Chatter.Contract.DataContract;
 
-namespace DAL
+namespace Chatter.DAL
 {
-    class DALService
+    public class DALService
     {
         [Obsolete("Please use Conn")]
         private static SqlConnection conn;
@@ -26,8 +24,20 @@ namespace DAL
                     {
                         conn = new SqlConnection();
                         conn.ConnectionString = ConfigurationManager.AppSettings["connStr"];
+                        conn.Open();
                     }
 
+                    else if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.ConnectionString = ConfigurationManager.AppSettings["connStr"];
+                        conn.Open();
+                    }
+                    else if (conn.State == ConnectionState.Broken)
+                    {
+                        conn.Close();
+                        conn.ConnectionString = ConfigurationManager.AppSettings["connStr"];
+                        conn.Open();
+                    }
                     return conn;
                 }
             }
@@ -43,7 +53,7 @@ namespace DAL
             SqlCommand cmd = null;
             try
             {
-                Conn.Open();
+              
                 string sql = String.Format("insert into tblMember(id,nickName,password,birthday,sex,status,information) values(@id,@nickName,@password,@birthday,@sex,@status,@information)");
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", member.Id);
@@ -53,10 +63,11 @@ namespace DAL
                 cmd.Parameters.AddWithValue("sex", member.Sex);
                 cmd.Parameters.AddWithValue("status", member.Status);
                 cmd.Parameters.AddWithValue("information", member.Infomation);
+                Prepare(cmd.Parameters);
                 int i1 = cmd.ExecuteNonQuery();
 
-                sql = String.Format("insert into tblFreiend(id) values(@id)");
-
+                sql = String.Format("insert into tblFriend(id) values(@id)");
+                cmd.CommandText = sql;
                 int i2=cmd.ExecuteNonQuery();
 
 
@@ -74,11 +85,11 @@ namespace DAL
 
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+               
 
             }
         }
+
 
         /// <summary>
         /// 更新用户状态
@@ -95,6 +106,7 @@ namespace DAL
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("status", status.ToString());
+                Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
                 return i == 1;
@@ -109,8 +121,7 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+               
             }
         }
 
@@ -129,6 +140,7 @@ namespace DAL
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("information", information.ToString());
+                Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
                 return i == 1;
@@ -143,8 +155,7 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+               
             }
         }
         /// <summary>
@@ -162,6 +173,7 @@ namespace DAL
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("friendId", friendId+";");
+                Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
                 return i == 1;
@@ -176,8 +188,7 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+               
             }
         }
 
@@ -194,7 +205,7 @@ namespace DAL
                 string sql = String.Format("select id from tblMember where id=@id");
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
-
+                Prepare(cmd.Parameters);
 
 
                 return null!=cmd.ExecuteScalar(); ;
@@ -209,8 +220,7 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+                
             }
         }
         /// <summary>
@@ -233,7 +243,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("status", member.Status);
                 cmd.Parameters.AddWithValue("information", member.Infomation);
 
-
+                Prepare(cmd.Parameters);
 
                 return 1== cmd.ExecuteNonQuery(); ;
 
@@ -247,8 +257,7 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+               
             }
         }
         /// <summary>
@@ -264,7 +273,9 @@ namespace DAL
             {
                 string sql = String.Format("select friendId from tblFriend  where id=@id");
                 string temp = String.Empty;
+                cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
+                Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -295,6 +306,7 @@ namespace DAL
                 cmd = new SqlCommand(sql, Conn);
                 
                 cmd.Parameters.AddWithValue("friendId", temp );
+                Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
                 return i == 1;
@@ -309,8 +321,7 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+                
             }
         }
 
@@ -327,7 +338,9 @@ namespace DAL
             {
                 string sql = String.Format("select friendId from tblFriend  where id=@id");
                 string temp = String.Empty;
+                cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
+                Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
                 {
 
@@ -335,7 +348,7 @@ namespace DAL
                     {
                         temp = reader["friendId"].ToString();
                        
-                        friends = GetFriendNames(temp);
+                        friends = GetNames(temp);
                     }
                     else
                     {
@@ -358,13 +371,9 @@ namespace DAL
             {
                 if (cmd != null)
                     cmd.Dispose();
-                if (Conn.State == ConnectionState.Open)
-                    Conn.Close();
+                
             }
         }
-
-
-
 
 
         /// <summary>
@@ -383,6 +392,282 @@ namespace DAL
                 temp = temp.Substring(index+1);
             }
             return names;
+        }
+
+
+        /// <summary>
+        /// 添加群组
+        /// </summary>
+        /// <param name="group">群组</param>
+        /// <returns></returns>
+        public static bool AddGroup(Group group)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+              
+                string sql = String.Format("insert into tblGroup(groupId,name,ownerId,groupMember) values(@groupId,@name,@ownerId,@groupMember)");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("groupId",group.GroupId);
+                cmd.Parameters.AddWithValue("name", group.Name);
+                cmd.Parameters.AddWithValue("ownerId", group.OwnerId);
+                Prepare(cmd.Parameters);
+                StringBuilder sb=new StringBuilder();
+                foreach (string temp in group.GroupMember)
+                {
+                    sb.Append(temp+";");
+                }
+                cmd.Parameters.AddWithValue("groupMember",sb.ToString());
+
+                int i1 = cmd.ExecuteNonQuery();
+
+
+               
+
+
+                return i1 == 1 ;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("添加群组出现错误\n" + e.Message);
+
+                return false;
+            }
+
+            finally
+            {
+
+                if (cmd != null)
+                    cmd.Dispose();
+               
+
+            }
+        }
+        /// <summary>
+        /// 群组是否存在
+        /// </summary>
+        /// <param name="groupId">群组id</param>
+        /// <returns></returns>
+        public static bool IsExistGroup(string groupId)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("select groupId from tblGroup where groupId=@groupId");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("groupId", groupId);
+                Prepare(cmd.Parameters);
+                return null != cmd.ExecuteScalar(); ;
+
+            }
+            catch (Exception e)
+            {
+                Logger.Error("查询群组存在出现错误\n" + e.Message);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+              
+            }
+        }
+        /// <summary>
+        /// 删除群组
+        /// </summary>
+        /// <param name="gourpId"></param>
+        /// <returns></returns>
+        public static bool DeleteGroup(string groupId)
+        {
+
+            SqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("delete  from tblGroup  where groupId=@groupId");
+                string temp = String.Empty;
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("groupId",groupId);
+                Prepare(cmd.Parameters);
+                int i = cmd.ExecuteNonQuery();
+                return i == 1;
+
+            }
+            catch (Exception e)
+            {
+                Logger.Error("删除群组出现错误\n" + e.Message);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+                
+            }
+        }
+        /// <summary>
+        /// 添加用户到组
+        /// </summary>
+        /// <param name="groupId">组id</param>
+        /// <param name="memberId">用户id</param>
+        /// <returns></returns>
+        public static bool AddMember2Group(string groupId,string memberId)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("update tblGroup set groupMemeber=groupMember+@groupMember where groupId=@groupId");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("groupId",groupId);
+                cmd.Parameters.AddWithValue("groupMember",memberId+";");
+                Prepare(cmd.Parameters);
+                return cmd.ExecuteNonQuery()==1;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("添加用户到组时出现错误："+e.Message);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+               
+            }
+        }
+        /// <summary>
+        /// 从群组中删除用户
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="memberId"></param>
+        /// <returns></returns>
+        public static bool DeleteMemberFromGroup(string groupId, string memberId)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("select groupMember from tblGroup  where groupId=@groupId");
+                string temp = String.Empty;
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("groupId",groupId);
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        if (reader.Read())
+                        {
+                            temp = reader["groupMember"].ToString();
+                            Logger.Debug("删除前" + temp);
+                            temp = temp.Replace(groupId + ";", "");
+                            Logger.Debug("删除后" + temp);
+                        }
+                        else
+                        {
+                            Logger.Error("从群组中删除用户时候出现错误\n");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        Logger.Error("从群组中删除用户时候没有找到用户id\n");
+                        return false;
+                    }
+                }
+                cmd.Dispose();
+
+
+                sql = String.Format("update tblGroup set groupMember=@groupMember where groupId=@groupId");
+                cmd = new SqlCommand(sql, Conn);
+
+                cmd.Parameters.AddWithValue("groupId", temp);
+                Prepare(cmd.Parameters);
+                int i = cmd.ExecuteNonQuery();
+
+                return i == 1;
+
+            }
+            catch (Exception e)
+            {
+                Logger.Error("从群组中删除用户出现错误\n" + e.Message);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+               
+            }
+        }
+        /// <summary>
+        /// 获取组列表
+        /// </summary>
+        /// <param name="id">用户id</param>
+        /// <returns></returns>
+
+        public static List<Group> GetGroup(string id)
+        {
+            SqlCommand cmd = null;
+            List<Group> groups = new List<Group>();
+            try
+            {
+                string sql = String.Format("select * from tblGroup where ownerId=@ownerId");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("ownerId",id);
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Group g = new Group();
+                        g.GroupId = reader["groupId"].ToString();
+                        g.Name = reader["name"].ToString();
+                        g.OwnerId = reader["ownerId"].ToString();
+                        g.GroupMember = GetNames(reader["groupMember"].ToString());
+                        groups.Add(g);
+                    }
+                }
+                cmd.CommandText = String.Format("select * from tblGroup where groupMember like %@groupMember%");
+                cmd.Parameters.AddWithValue("groupMember",id);
+                cmd.Parameters.AddWithValue("ownerId", id);
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Group g = new Group();
+                        g.GroupId = reader["groupId"].ToString();
+                        g.Name = reader["name"].ToString();
+                        g.OwnerId = reader["ownerId"].ToString();
+                        g.GroupMember = GetNames(reader["groupMember"].ToString());
+                        groups.Add(g);
+                    }
+                }
+
+                return groups;
+
+            }
+            catch (Exception e)
+            {
+                Logger.Error("获取群组时候出现错误"+e.Message);
+                return null;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+              
+ 
+            }
+        }
+
+
+
+        private static void Prepare(SqlParameterCollection parameters)
+        {
+            foreach (SqlParameter paramenter in parameters)
+            {
+                if (paramenter.Value == null)
+                    paramenter.Value = DBNull.Value;
+            }
         }
     }
 }

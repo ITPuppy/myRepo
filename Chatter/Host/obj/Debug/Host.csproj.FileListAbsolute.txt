@@ -1,0 +1,15 @@
+E:\code\myRepo\Chatter\Host\bin\Debug\Host.exe.config
+E:\code\myRepo\Chatter\Host\obj\Debug\Host.csprojResolveAssemblyReference.cache
+E:\code\myRepo\Chatter\Host\bin\Debug\Host.exe
+E:\code\myRepo\Chatter\Host\bin\Debug\Host.pdb
+E:\code\myRepo\Chatter\Host\bin\Debug\Contract.dll
+E:\code\myRepo\Chatter\Host\bin\Debug\Service.dll
+E:\code\myRepo\Chatter\Host\bin\Debug\DAL.dll
+E:\code\myRepo\Chatter\Host\bin\Debug\Log.dll
+E:\code\myRepo\Chatter\Host\bin\Debug\log4net.dll
+E:\code\myRepo\Chatter\Host\bin\Debug\Contract.pdb
+E:\code\myRepo\Chatter\Host\bin\Debug\Service.pdb
+E:\code\myRepo\Chatter\Host\bin\Debug\DAL.pdb
+E:\code\myRepo\Chatter\Host\bin\Debug\Log.pdb
+E:\code\myRepo\Chatter\Host\obj\Debug\Host.exe
+E:\code\myRepo\Chatter\Host\obj\Debug\Host.pdb

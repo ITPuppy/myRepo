@@ -1,6 +1,5 @@
 E:\code\myRepo\Chatter\Contract\bin\Debug\Contract.dll
 E:\code\myRepo\Chatter\Contract\bin\Debug\Contract.pdb
-E:\code\myRepo\Chatter\Contract\obj\Debug\Contract.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\Contract\obj\Debug\Contract.dll
 E:\code\myRepo\Chatter\Contract\obj\Debug\Contract.pdb
 F:\code\myRepo\Chatter\Contract\bin\Debug\Contract.dll

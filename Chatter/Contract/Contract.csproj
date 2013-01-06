@@ -41,17 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileMessage.cs" />
-    <Compile Include="ICallbackSendMessage.cs" />
-    <Compile Include="ISendMessage.cs" />
-    <Compile Include="Member.cs" />
-    <Compile Include="MemeberStatus.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="MessageType.cs" />
+    <Compile Include="DataContract\FileMessage.cs" />
+    <Compile Include="DataContract\Group.cs" />
+    <Compile Include="ServiceContract\ICallbackSendMessage.cs" />
+    <Compile Include="ServiceContract\IRegister.cs" />
+    <Compile Include="ServiceContract\ISendMessage.cs" />
+    <Compile Include="DataContract\Member.cs" />
+    <Compile Include="DataContract\MemeberStatus.cs" />
+    <Compile Include="DataContract\Message.cs" />
+    <Compile Include="DataContract\MessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Result.cs" />
-    <Compile Include="MessageStatus.cs" />
-    <Compile Include="TextMessage.cs" />
+    <Compile Include="DataContract\Result.cs" />
+    <Compile Include="DataContract\MessageStatus.cs" />
+    <Compile Include="DataContract\TextMessage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
