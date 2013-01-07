@@ -192,6 +192,31 @@ namespace Chatter.DAL
             }
         }
 
+
+        static public bool IsMember(string id, string pwd)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("select id from tblMember where id=@id and password=@password");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id",id);
+                cmd.Parameters.AddWithValue("password",pwd);
+                Prepare(cmd.Parameters);
+                return cmd.ExecuteScalar()==null;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("查询是否为合法用户时出现错误"+e.Message);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+            }
+        }
+
         /// <summary>
         /// 查询用户是否存在
         /// </summary>
