@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0ee7a03f-ecd3-4ba3-81a9-8507aa36b971" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="15fc62ed-49dd-44fa-920f-b5470ef0a83b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,13 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://127.0.0.1:8000//mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://127.0.0.1:9878//mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="794b623c-074e-4b06-9d82-cb97de7c2897" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8000//mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4f15c959-6615-4814-99d6-7b3d89ef69dd" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8000//mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="16bd12c2-67fc-4ffb-bc65-b169a8ed6292" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8000//mex" />
-    <MetadataFile FileName="Chatter.Contract.DataContract.xsd" MetadataType="Schema" ID="fb267929-2b7d-464a-81e5-16475d458d70" SourceId="1" SourceUrl="net.tcp://127.0.0.1:8000//mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f8a925ed-1b7b-4776-8f42-dfb8348f2a1a" SourceId="1" SourceUrl="net.tcp://127.0.0.1:9878//mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e576da2d-43dc-48e3-af78-c83416b66f27" SourceId="1" SourceUrl="net.tcp://127.0.0.1:9878//mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="de0efa17-adbe-425b-95a3-b919de61f27a" SourceId="1" SourceUrl="net.tcp://127.0.0.1:9878//mex" />
+    <MetadataFile FileName="Chatter.Contract.DataContract.xsd" MetadataType="Schema" ID="a819c7b1-d816-431e-a1d5-61012dd00e3c" SourceId="1" SourceUrl="net.tcp://127.0.0.1:9878//mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

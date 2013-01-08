@@ -11,18 +11,30 @@ namespace Chatter.Host
     {
         static void Main(string[] args)
         {
-            ServiceHost host=new ServiceHost(typeof(RegisterService));
-            host.Opened += delegate
+            List<ServiceHost> hosts = new List<ServiceHost>();
+            ServiceHost host1 = new ServiceHost(typeof(RegisterService));
+            ServiceHost host2 = new ServiceHost(typeof(ChatterService));
+            hosts.Add(host1);
+            hosts.Add(host2);
+            foreach (ServiceHost host in hosts)
             {
-                Console.WriteLine("Service Start");
-            };
-            host.Closed += delegate
-            {
-                Console.WriteLine("Service Stopped");
-            };
-            host.Open();
+                host.Opened += delegate
+                {
+                    Console.WriteLine(host.ToString()+"Service Start");
+                };
+                host.Closed += delegate
+                {
+                    Console.WriteLine(host.ToString()+"Service Stopped");
+                };
+                host.Open();
+                
+            }
+
             Console.ReadLine();
-            host.Close();
+            foreach (ServiceHost host in hosts)
+            {
+                host.Close();
+            }
         }
     }
 }

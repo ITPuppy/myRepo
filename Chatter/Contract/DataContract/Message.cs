@@ -24,9 +24,9 @@ namespace Chatter.Contract.DataContract
         [DataMember]
         private Member from;
         [DataMember]
-        private Member to;
+        private BaseRole to;
 
-        public  Member To
+        public  BaseRole To
         {
             get { return to; }
             set { to = value; }

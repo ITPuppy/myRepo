@@ -12,8 +12,8 @@ namespace Chatter.Contract.ServiceContract
     [ServiceContract]
     public interface IRegister
     {
-        
-        [OperationContract(IsOneWay=false)]
-       Member Register(Member member);
+
+        [OperationContract(IsOneWay = false)]
+        Member Register(Member member);
     }
 }

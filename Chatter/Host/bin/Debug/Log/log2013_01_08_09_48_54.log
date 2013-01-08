@@ -1,0 +1,22 @@
+
+日志时间：2013-01-08 09:48:54,857 [6152] 
+日志级别：ERROR 
+日 志 类： [(null)] 
+查询用户存在出现错误
+The SELECT permission was denied on the object 'tblMember', database 'DBChatter', schema 'dbo'. 
+
+日志时间：2013-01-08 09:48:54,871 [6152] 
+日志级别：INFO  
+日 志 类： [(null)] 
+生成用户id：2500260 
+
+日志时间：2013-01-08 09:48:54,873 [6152] 
+日志级别：ERROR 
+日 志 类： [(null)] 
+添加用户出现错误
+The INSERT permission was denied on the object 'tblMember', database 'DBChatter', schema 'dbo'. 
+
+日志时间：2013-01-08 09:48:54,874 [6152] 
+日志级别：WARN  
+日 志 类： [(null)] 
+用户添加失败 

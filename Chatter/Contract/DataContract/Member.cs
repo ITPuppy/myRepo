@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Chatter.Contract.DataContract
 {
     [DataContract]
-    public class Member
+    public class Member:BaseRole
     {
         [DataMember]
         private string id;

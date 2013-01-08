@@ -8,8 +8,16 @@ using System.Text;
 namespace Chatter.Contract.ServiceContract
 {
     [ServiceContract]
-   public  interface ICallbackSendMessage
+   public  interface IChatterCallback
     {
+
+        [OperationContract(IsOneWay=true)]
+        void OnLogin(string id);
+
+        [OperationContract(IsOneWay=true)]
         void SendMessageCallback(Result result);
+
+        [OperationContract(IsOneWay = false)]
+        void OnLogoff(string id);
     }
 }

@@ -158,6 +158,58 @@ namespace Chatter.DAL
                
             }
         }
+        static public Member GetMember(string id)
+        {
+            SqlCommand cmd = null;
+            Member member = null;
+            try
+            {
+
+                string sql = String.Format("select * from tblMember where id=@id");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id", id);
+                Prepare(cmd.Parameters);
+
+                using (var reader=cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        member = new Member();
+                        member.Id = id;
+                        member.Password = reader["password"].ToString();
+                        member.Sex = reader["sex"].ToString();
+                        member.NickName = reader["nickName"].ToString();
+                        member.Birthday = Convert.ToDateTime(reader["birthday"]);
+                        member.Infomation = reader["information"].ToString();
+                        if (reader["status"].ToString().Length != 0)
+                        {
+                            MemberStatus status;
+                            Enum.TryParse<MemberStatus>(reader["status"].ToString(),out status);
+                            member.Status = status;
+                        }
+
+                    }
+                }
+
+                return member;
+              
+            }
+            catch (Exception e)
+            {
+                Logger.Error("获得用户出现错误\n" + e.Message);
+
+                return null;
+            }
+
+            finally
+            {
+
+                if (cmd != null)
+                    cmd.Dispose();
+
+
+            }
+        }
         /// <summary>
         /// 添加好友
         /// </summary>
@@ -192,7 +244,12 @@ namespace Chatter.DAL
             }
         }
 
-
+        /// <summary>
+        /// 判断用户是否合法
+        /// </summary>
+        /// <param name="id">用户id</param>
+        /// <param name="pwd">密码</param>
+        /// <returns></returns>
         static public bool IsMember(string id, string pwd)
         {
             SqlCommand cmd = null;
@@ -349,6 +406,8 @@ namespace Chatter.DAL
                 
             }
         }
+
+       
 
         /// <summary>
         /// 获取好友id的List
@@ -532,10 +591,10 @@ namespace Chatter.DAL
         /// <summary>
         /// 添加用户到组
         /// </summary>
+        /// <param name="memberId">好友id</param>
         /// <param name="groupId">组id</param>
-        /// <param name="memberId">用户id</param>
         /// <returns></returns>
-        public static bool AddMember2Group(string groupId,string memberId)
+        public static bool AddMember2Group(string memberId, string groupId)
         {
             SqlCommand cmd = null;
             try

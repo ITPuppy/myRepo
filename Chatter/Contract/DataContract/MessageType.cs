@@ -18,7 +18,17 @@ namespace Chatter.Contract.DataContract
         [EnumMember]
         Audio,
         [EnumMember]
-        Command
+        Command,
+        [EnumMember]
+        Login,
+        [EnumMember]
+        Logoff,
+        [EnumMember]
+        AddFriend,
+        [EnumMember]
+        AddGroup,
+        [EnumMember]
+        AddFriend2Group
 
     }
 }

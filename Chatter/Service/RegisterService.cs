@@ -7,13 +7,17 @@ using System.ServiceModel;
 
 namespace Chatter.Service
 {
-    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession)]
+    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerCall)]
     public class RegisterService:IRegister
     {
-        
+        /// <summary>
+        /// 注册号码
+        /// </summary>
+        /// <param name="member">注册用户信息</param>
+        /// <returns>包含用户号码的用户信息</returns>
         public Member Register(Member member)
         {
-            string id = NewId(7);
+            string id = Util.NewMemberId(7);
             member.Id = id;
             if (DALService.AddMember(member))
             {
@@ -25,23 +29,6 @@ namespace Chatter.Service
                 return null;
             }
         }
-        private string NewId(int length)
-        {
-            string id=NewRandom(length);
-            while (DALService.IsExistMember(id))
-            {
-                id = NewRandom(length);
-            }
-            Logger.Info("生成用户id："+id);
-            return id;
-            
-        }
-
-        private string NewRandom(int length)
-        {
-            Random random = new Random();
-            int id = random.Next((int)Math.Pow(10, length-1), (int)Math.Pow(10,length));
-            return id.ToString();
-        }
+       
     }
 }

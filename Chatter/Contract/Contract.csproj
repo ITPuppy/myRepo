@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContract\BaseRole.cs" />
     <Compile Include="DataContract\FileMessage.cs" />
     <Compile Include="DataContract\Group.cs" />
-    <Compile Include="ServiceContract\ICallbackSendMessage.cs" />
+    <Compile Include="ServiceContract\IChatterCallback.cs" />
     <Compile Include="ServiceContract\IRegister.cs" />
-    <Compile Include="ServiceContract\ISendMessage.cs" />
+    <Compile Include="ServiceContract\IChatter.cs" />
     <Compile Include="DataContract\Member.cs" />
     <Compile Include="DataContract\MemeberStatus.cs" />
     <Compile Include="DataContract\Message.cs" />
