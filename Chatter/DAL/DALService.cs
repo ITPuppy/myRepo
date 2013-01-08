@@ -260,7 +260,7 @@ namespace Chatter.DAL
                 cmd.Parameters.AddWithValue("id",id);
                 cmd.Parameters.AddWithValue("password",pwd);
                 Prepare(cmd.Parameters);
-                return cmd.ExecuteScalar()==null;
+                return cmd.ExecuteScalar()!=null;
             }
             catch (Exception e)
             {

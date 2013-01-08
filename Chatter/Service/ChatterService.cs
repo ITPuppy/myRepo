@@ -18,7 +18,7 @@ namespace Chatter.Service
         private Dictionary<string, ChatEventArgs> Online = new Dictionary<string, ChatEventArgs>();
 
         private  delegate void ChatEventHandler(Object sender,ChatEventArgs e);
-        private event ChatEventHandler ChatEvent;
+        private static event ChatEventHandler ChatEvent;
         private ChatEventHandler myEventHandler;
         private Dictionary<string, Member> friends;
         IChatterCallback callback;
@@ -55,7 +55,7 @@ namespace Chatter.Service
         {
             List<string> friendsId= DALService.GetFriendList(id);
             Dictionary<string,Member> friends=new Dictionary<string,Member>();
-           if(friends!=null)
+           if(friendsId!=null)
            {
                foreach(string friendId in friendsId)
                {
@@ -71,6 +71,8 @@ namespace Chatter.Service
         /// <param name="e"></param>
         private void BroadCatMessage(ChatEventArgs e)
         {
+            if (ChatEvent == null)
+                return;
             foreach( ChatEventHandler hanlder in ChatEvent.GetInvocationList())
             {
                 hanlder.BeginInvoke(this,e,new AsyncCallback(EndAsync),hanlder);
