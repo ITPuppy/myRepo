@@ -40,10 +40,10 @@ namespace Chatter
             InstanceContext context = new InstanceContext(new ChatterCallbackService());
 
             chatterClient = new ChatterClient(context);
-
+            
             chatterClient.LoginCompleted += client_LoginCompleted;
             Test.ChatterService.Member member = new Test.ChatterService.Member();
-            member.id = "870067227";
+            member.id = "776041669";
             member.password = "vbnvbn";
 
             chatterClient.LoginAsync(member);

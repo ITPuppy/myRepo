@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Y6/nhjThVOdp3UCHuZTQv7khDsU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="bt9CUqA8FXC5Aff/wArp65l6hwY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IRegister">
       <properties>
@@ -118,10 +118,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IRegister" contract="RegisterService.IRegister" bindingType="netTcpBinding" address="net.tcp://127.0.0.1:9878//RegisterService" bindingConfiguration="NetTcpBinding_IRegister">
+    <endpoint name="NetTcpBinding_IRegister" contract="RegisterService.IRegister" bindingType="netTcpBinding" address="net.tcp://127.0.0.1:9877/RegisterService" bindingConfiguration="NetTcpBinding_IRegister">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://127.0.0.1:9878//RegisterService</serializedValue>
+          <serializedValue>net.tcp://127.0.0.1:9877/RegisterService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
