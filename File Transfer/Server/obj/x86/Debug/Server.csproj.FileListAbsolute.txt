@@ -1,0 +1,5 @@
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Server\bin\Debug\Server.exe
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Server\bin\Debug\Server.pdb
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Server\obj\x86\Debug\Server.exe
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Server\obj\x86\Debug\Server.pdb
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Server\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache

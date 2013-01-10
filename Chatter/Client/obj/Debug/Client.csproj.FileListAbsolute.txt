@@ -11,3 +11,16 @@ E:\code\myRepo\Chatter\Client\obj\Debug\Client.Properties.Resources.resources
 E:\code\myRepo\Chatter\Client\obj\Debug\Client.csproj.GenerateResource.Cache
 E:\code\myRepo\Chatter\Client\obj\Debug\Client.exe
 E:\code\myRepo\Chatter\Client\obj\Debug\Client.pdb
+F:\code\myRepo\Chatter\Client\bin\Debug\Client.exe.config
+F:\code\myRepo\Chatter\Client\bin\Debug\Client.exe
+F:\code\myRepo\Chatter\Client\bin\Debug\Client.pdb
+F:\code\myRepo\Chatter\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+F:\code\myRepo\Chatter\Client\obj\Debug\App.g.cs
+F:\code\myRepo\Chatter\Client\obj\Debug\Client_MarkupCompile.cache
+F:\code\myRepo\Chatter\Client\obj\Debug\Client.g.resources
+F:\code\myRepo\Chatter\Client\obj\Debug\Client.Properties.Resources.resources
+F:\code\myRepo\Chatter\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+F:\code\myRepo\Chatter\Client\obj\Debug\Client.exe
+F:\code\myRepo\Chatter\Client\obj\Debug\Client.pdb
+F:\code\myRepo\Chatter\Client\obj\Debug\UI\MainWindow.baml
+F:\code\myRepo\Chatter\Client\obj\Debug\UI\MainWindow.g.cs

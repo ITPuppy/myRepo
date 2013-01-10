@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2806b9d6-bb8d-416a-be6e-fb12866b09f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://127.0.0.1:9887/ChatterService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ChatterService.wsdl" MetadataType="Wsdl" ID="9ec8ca09-17df-4a6a-8758-9af3633d2114" SourceId="1" SourceUrl="http://127.0.0.1:9887/ChatterService" />
+    <MetadataFile FileName="ChatterService.xsd" MetadataType="Schema" ID="d2b72b38-bb09-4575-802d-efbf7be7a7f2" SourceId="1" SourceUrl="http://127.0.0.1:9887/ChatterService?xsd=xsd2" />
+    <MetadataFile FileName="ChatterService1.xsd" MetadataType="Schema" ID="e59e372e-0b3f-45e9-ac35-e8501c00875d" SourceId="1" SourceUrl="http://127.0.0.1:9887/ChatterService?xsd=xsd3" />
+    <MetadataFile FileName="ChatterService2.xsd" MetadataType="Schema" ID="8c11c6a4-e862-4020-832f-d9ec2a17c5c9" SourceId="1" SourceUrl="http://127.0.0.1:9887/ChatterService?xsd=xsd0" />
+    <MetadataFile FileName="ChatterService3.xsd" MetadataType="Schema" ID="4ee30a3f-2761-4393-b144-cc4e54e70bb6" SourceId="1" SourceUrl="http://127.0.0.1:9887/ChatterService?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

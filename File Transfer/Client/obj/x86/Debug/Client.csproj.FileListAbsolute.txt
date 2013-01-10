@@ -1,0 +1,5 @@
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Client\bin\Debug\Client.exe
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Client\bin\Debug\Client.pdb
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Client\obj\x86\Debug\Client.exe
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Client\obj\x86\Debug\Client.pdb
+D:\Users\cfchen\Documents\Visual Studio 2010\Projects\test\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
