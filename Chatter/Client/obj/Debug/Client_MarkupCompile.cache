@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\code\myRepo\Chatter\Client\obj\Debug\
+E:\code\myRepo\Chatter\Client\obj\Debug\
 Client
 none
 false
 DEBUG;TRACE
-F:\code\myRepo\Chatter\Client\App.xaml
-11766164458
+E:\code\myRepo\Chatter\Client\App.xaml
+2-1043141275
 
-81154158784
+101235268423
 14-105585256
-UI\MainWindow.xaml;
+UI\LoginWindow.xaml;UI\MainWindow.xaml;
 
 False
 

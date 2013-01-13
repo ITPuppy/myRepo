@@ -24,13 +24,13 @@ namespace Chatter.Service
         IChatterCallback callback;
 
        
-        public MessageStatus Login(Member member)
+        public Result Login(Member member)
         {
             Logger.Info(String.Format("用户{0}登录",member.Id+" "+member.NickName));
 
             if (!DALService.IsMember(member.Id,member.Password))
             {
-                return MessageStatus.Failed;
+                return new Result(){Status =MessageStatus.Failed};
             }
 
             callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
@@ -44,7 +44,7 @@ namespace Chatter.Service
             BroadCatMessage(e);
             ChatEvent += HandleEvent;
 
-            return MessageStatus.OK;
+            return new Result() { Status = MessageStatus.OK, Member = DALService.GetMember(member.Id) };
         }
         /// <summary>
         /// 从数据库查询好友列表
@@ -59,7 +59,12 @@ namespace Chatter.Service
            {
                foreach(string friendId in friendsId)
                {
-                   friends.Add(friendId,DALService.GetMember(friendId));
+                   Member member= DALService.GetMember(friendId);
+                   if (member != null)
+                   {
+                       friends.Add(friendId, member);
+                       Logger.Debug(member.Id+" "+member.NickName);
+                   }
                }
            }
            return friends;
@@ -91,7 +96,8 @@ namespace Chatter.Service
        
         public List<Member> GetFriends(string id)
         {
-            throw new NotImplementedException();
+           
+            return friends.Values.ToList<Member>();
         }
 
        
@@ -123,7 +129,15 @@ namespace Chatter.Service
        
         public MessageStatus Logoff(Member member)
         {
-            throw new NotImplementedException();
+            Logger.Info(String.Format("用户{0}退出", member.Id + " " + member.NickName));
+            ChatEventArgs e = new ChatEventArgs();
+            e.Id = member.Id;
+            e.NickName = member.NickName;
+            e.Type = MessageType.Logoff;
+            ChatEvent -= HandleEvent;
+            BroadCatMessage(e);
+            
+            return MessageStatus.OK;
         }
 
         void HandleEvent(object sender, ChatEventArgs e)

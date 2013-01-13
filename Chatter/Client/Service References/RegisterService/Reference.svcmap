@@ -18,13 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://127.0.0.1:9887/RegisterService" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://127.0.0.1:9876/RegisterService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RegisterService.xsd" MetadataType="Schema" ID="2dda1013-1215-4a5d-89c6-4267fb4ea344" SourceId="1" SourceUrl="http://127.0.0.1:9887/RegisterService?xsd=xsd0" />
-    <MetadataFile FileName="RegisterService1.xsd" MetadataType="Schema" ID="97af92f0-dbf2-4284-bb5f-a1a2fd4f6b88" SourceId="1" SourceUrl="http://127.0.0.1:9887/RegisterService?xsd=xsd1" />
-    <MetadataFile FileName="RegisterService2.xsd" MetadataType="Schema" ID="1427558e-c3ab-4be1-9cac-5db6c2fa934a" SourceId="1" SourceUrl="http://127.0.0.1:9887/RegisterService?xsd=xsd2" />
-    <MetadataFile FileName="RegisterService.wsdl" MetadataType="Wsdl" ID="51b720e5-5ead-4154-b4a0-1c477035d1e8" SourceId="1" SourceUrl="http://127.0.0.1:9887/RegisterService" />
+    <MetadataFile FileName="RegisterService3.xsd" MetadataType="Schema" ID="93652396-6e3f-4c3f-b6f9-26d4173c8081" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd2" />
+    <MetadataFile FileName="RegisterService1.wsdl" MetadataType="Wsdl" ID="ee1d6d98-6cc1-4b78-ae3e-8fe63ce56079" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService" />
+    <MetadataFile FileName="RegisterService31.xsd" MetadataType="Schema" ID="5aa7143c-ace5-4e7c-a444-f77831472788" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd1" />
+    <MetadataFile FileName="RegisterService32.xsd" MetadataType="Schema" ID="d03d1061-7e25-4556-88c6-5ad231c72e32" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

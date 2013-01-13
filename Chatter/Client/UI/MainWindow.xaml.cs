@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ChatterService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ServiceModel;
-using Client.ChatterService;
-using Chatter.Client.Callback;
 
 namespace Chatter.Client.UI
 {
@@ -23,65 +20,87 @@ namespace Chatter.Client.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private ChatterClient client = null;
+        private ChatterClient client;
+        private Member member;
 
         public MainWindow()
         {
             InitializeComponent();
+           
         }
 
-       
+        public MainWindow(ChatterClient client,Member member)
+        {
+           
+            InitializeComponent();
+            this.client = client;
+            this.member = member;
+        }
+        
+        private void init()
+        {
+            ///注册退出事件
+            Application.Current.Exit += new ExitEventHandler((sender, e) => { client.Logoff(member); });
+            ///获得好友列表,加到好友列表
+           Member[] friends= client.GetFriends(member.id);
+            
+           FriendListView.Children.Add(new UserGroupUI("我的好友", friends));
+            ///设置昵称
+           this.txtNickName.Text = member.nickName;
+           
+        }
 
+        /// <summary>
+        /// 拖动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DragForm(object sender, MouseButtonEventArgs e)
         {
             base.DragMove();
         }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// form加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (txtId.Text.Length == 0)
-            {
-                MessageBox.Show("请先输入用户名");
-                return;
-            }
-            else if (txtPwd.Password.Length == 0)
-            {
-                MessageBox.Show("请先输入密码");
-                return;
-            }
-            Member member = new Member();
-            member.id = txtId.Text;
-            member.password = txtPwd.Password;
+            init();
+        }
+        /// <summary>
+        /// 选择显示的列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTab_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
 
-            InstanceContext context = new InstanceContext(new ChatterCallback());
-            client = new ChatterClient(context);
-            client.LoginCompleted += client_LoginCompleted;
-            client.LoginAsync(member);
-
+             Point point = ListGrid.TransformToVisual(MainGrid).Transform(new Point());
+            if (btn.Content.ToString() == "好友")
+            {
+                
+                tabList.SelectedIndex = 0;
+               
+            }
+          
+            else if (btn.Content.ToString() == "最近联系人")
+            {
+                
+                tabList.SelectedIndex = 1;
+            }
+            else if (btn.Content.ToString() == "群组")
+            {
+              
+                tabList.SelectedIndex = 2;
+            }
         }
 
-        void client_LoginCompleted(object sender, LoginCompletedEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            if (e.Result == MessageStatus.OK)
-            {
-                MessageBox.Show("登录成功");
-            }
-            else
-            {
-                MessageBox.Show("登录失败");
-            }
-            client.LoginCompleted -= client_LoginCompleted;
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void LoginForm_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.txtId.Focus();
+            Application.Current.Shutdown();
+            base.OnClosing(e);
         }
     }
 }

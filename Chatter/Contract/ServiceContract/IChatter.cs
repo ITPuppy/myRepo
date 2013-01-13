@@ -10,7 +10,7 @@ namespace Chatter.Contract.ServiceContract
     public interface IChatter
     {
          [OperationContract(IsInitiating = true, IsTerminating = false)]
-        MessageStatus Login(Member member);
+        Result Login(Member member);
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         List<Member> GetFriends(string id);

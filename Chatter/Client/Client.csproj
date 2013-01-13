@@ -66,7 +66,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Page Include="UI\MainWindow.xaml">
+    <Compile Include="UI\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserGroupUI.cs" />
+    <Page Include="UI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -74,10 +78,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="UI\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -97,22 +105,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ChatterService\ChatterService.wsdl" />
-    <None Include="Service References\ChatterService\ChatterService.xsd">
+    <None Include="Service References\ChatterService\ChatterService1.wsdl" />
+    <None Include="Service References\ChatterService\ChatterService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\ChatterService1.xsd">
+    <None Include="Service References\ChatterService\ChatterService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\ChatterService2.xsd">
+    <None Include="Service References\ChatterService\ChatterService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\ChatterService3.xsd">
+    <None Include="Service References\ChatterService\ChatterService43.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ChatterService\Client.ChatterService.Group.datasource">
@@ -124,28 +133,29 @@
     <None Include="Service References\ChatterService\Client.ChatterService.MessageStatus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ChatterService\Client.ChatterService.Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RegisterService\Client.RegisterService.Member.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\RegisterService\RegisterService.wsdl" />
-    <None Include="Service References\RegisterService\RegisterService.xsd">
+    <None Include="Service References\RegisterService\RegisterService1.wsdl" />
+    <None Include="Service References\RegisterService\RegisterService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterService\RegisterService1.xsd">
+    <None Include="Service References\RegisterService\RegisterService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterService\RegisterService2.xsd">
+    <None Include="Service References\RegisterService\RegisterService32.xsd">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\audio\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\img\close.png" />
+    <Resource Include="res\img\rightarrow.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\img\login.jpg" />
@@ -180,6 +190,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\img\main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\img\downarrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\img\default.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

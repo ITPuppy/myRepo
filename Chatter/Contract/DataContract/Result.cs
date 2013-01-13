@@ -17,6 +17,7 @@ namespace Chatter.Contract.DataContract
             get { return guid; }
             set { guid = value; }
         }
+        [DataMember]
         private MessageStatus status;
 
         public MessageStatus Status
@@ -24,7 +25,13 @@ namespace Chatter.Contract.DataContract
             get { return status; }
             set { status = value; }
         }
+        [DataMember]
+        private Member member;
 
-
+        public Member Member
+        {
+            get { return member; }
+            set { member = value; }
+        }
     }
 }

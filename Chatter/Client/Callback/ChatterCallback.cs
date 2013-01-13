@@ -22,7 +22,7 @@ namespace Chatter.Client.Callback
 
         public void OnLogoff(string id)
         {
-            
+            MessageBox.Show(id + "已经退出");
         }
 
 
