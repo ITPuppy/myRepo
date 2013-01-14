@@ -1,6 +1,7 @@
 ﻿<Window x:Class="MetroClient.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:MyControl="clr-namespace:Chatter.MetroClient.UI"
         Title="MainWindow" 
         Height="600" 
         Width="900" 
@@ -20,7 +21,7 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
-
+            
             
             <!--最左面的grid，选择列表-->
             <Grid 
@@ -89,16 +90,19 @@
                     </Grid.RowDefinitions>
 
 
-                    <Rectangle   Width="95" Height="95" Grid.Row="0" Grid.Column="0"    Fill="#b7ba6b" MouseLeave="Button_MouseLeave_1" MouseEnter="Button_MouseEnter_1"></Rectangle>
-                    <Rectangle   Width="95" Height="95"  Grid.Row="0" Grid.Column="1" Fill="#faa755" MouseLeave="Button_MouseLeave_1" MouseEnter="Button_MouseEnter_1"></Rectangle>
-                    <Rectangle   Width="95" Height="95"  Grid.Row="0" Grid.Column="2" Fill="#8a5d19" MouseLeave="Button_MouseLeave_1" MouseEnter="Button_MouseEnter_1"></Rectangle>
-                    <Rectangle   Width="95" Height="95"  Grid.Row="1" Grid.Column="0" Fill="#d71345" MouseLeave="Button_MouseLeave_1" MouseEnter="Button_MouseEnter_1"></Rectangle>
+                    <MyControl:MyButton     Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
+                    <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
+                    <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
+                    <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
                 </Grid>
                 </Grid>
             <Grid
                 Name="RightGrid"
                 Grid.Column="2"
-                ></Grid>
+                >
+               
+
+            </Grid>
         </Grid>
     </Border>
 </Window>

@@ -21,6 +21,12 @@ namespace MetroClient.UI
     {
         Color selectedColor = Color.FromArgb(255, 114, 119, 123);
         Grid selectedGrid;
+        string content;
+        public String Content
+        {
+            get {return "asdf";}
+            set{content=value;}
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -49,14 +55,15 @@ namespace MetroClient.UI
 
         private void Button_MouseEnter_1(object sender, MouseEventArgs e)
         {
-            Rectangle btn = sender as Rectangle;
+            
+            Button btn = sender as Button;
             btn.Width = btn.Width + 15;
             btn.Height = btn.Height + 15;
         }
 
         private void Button_MouseLeave_1(object sender, MouseEventArgs e)
         {
-            Rectangle btn = sender as Rectangle;
+            Button btn = sender as Button;
             btn.Width = btn.Width - 15;
             btn.Height = btn.Height -15;
         }
