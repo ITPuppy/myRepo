@@ -28,11 +28,11 @@
 
             <Grid 
             Grid.Row="0"
-                
+            Background="#4c8dae"
             >
-                <Grid.Background>
+                <!--<Grid.Background>
                     <ImageBrush ImageSource="/Client;component/res/img/main.jpg"/>
-                </Grid.Background>
+                </Grid.Background>-->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -40,17 +40,17 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <TextBlock 
+                    Grid.ColumnSpan="2"
                     Name="txtNickName"
-            HorizontalAlignment="Left" 
-            Margin="20,30,0,0" 
+           
+            Margin="20,0,0,0" 
+                    Height="60"
             TextWrapping="Wrap"
             Text="Wall·e" 
             FontSize="30"
-            VerticalAlignment="Top"
-            Height="40"
            Width="auto"
            
             />

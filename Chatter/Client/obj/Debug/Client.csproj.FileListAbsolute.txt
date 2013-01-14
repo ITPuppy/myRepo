@@ -27,3 +27,6 @@ E:\code\myRepo\Chatter\Client\obj\Debug\Client.exe
 E:\code\myRepo\Chatter\Client\obj\Debug\Client.pdb
 E:\code\myRepo\Chatter\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\Client\obj\Debug\App.baml
+F:\code\myRepo\Chatter\Client\obj\Debug\UI\LoginWindow.baml
+F:\code\myRepo\Chatter\Client\obj\Debug\App.baml
+F:\code\myRepo\Chatter\Client\obj\Debug\UI\LoginWindow.g.cs

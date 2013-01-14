@@ -1,0 +1,15 @@
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.exe.config
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.exe
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.pdb
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csprojResolveAssemblyReference.cache
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.cache
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.g.resources
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.Properties.Resources.resources
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csproj.GenerateResource.Cache
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.exe
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.pdb
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\LoginWindow.baml
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\LoginWindow.g.cs
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MainWindow.baml
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MainWindow.g.cs

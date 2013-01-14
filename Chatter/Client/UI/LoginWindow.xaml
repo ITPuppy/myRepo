@@ -20,12 +20,13 @@
             BorderThickness="1" 
             BorderBrush="Chocolate"  
             CornerRadius="5,5,5,5"
-            
+             Background="#4c8dae"
+            Opacity="0.8"
          
             Name="top">
-            <Border.Background>
+            <!--<Border.Background>
                 <ImageBrush ImageSource="/Client;component/res/img/login.jpg"/>
-            </Border.Background>
+            </Border.Background>-->
             <Grid >
                 <Grid Name="LoginGrid" Visibility="Visible">
             <Grid Margin="0,0,0,0" VerticalAlignment="Stretch">

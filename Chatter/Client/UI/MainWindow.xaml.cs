@@ -40,7 +40,7 @@ namespace Chatter.Client.UI
         private void init()
         {
             ///注册退出事件
-            Application.Current.Exit += new ExitEventHandler((sender, e) => { client.Logoff(member); });
+            Application.Current.Exit += new ExitEventHandler((sender, e) => { if(client!=null&&member!=null) client.Logoff(member); });
             ///获得好友列表,加到好友列表
            Member[] friends= client.GetFriends(member.id);
             
