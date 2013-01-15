@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MetroClient.UI
+namespace Chatter.MetroClient.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -21,17 +21,24 @@ namespace MetroClient.UI
     {
         Color selectedColor = Color.FromArgb(255, 114, 119, 123);
         Grid selectedGrid;
-        string content;
-        public String Content
-        {
-            get {return "asdf";}
-            set{content=value;}
-        }
+     //   Member[] member = new []Member();
+     
         public MainWindow()
         {
             InitializeComponent();
-            selectedGrid = friendGrid;
+            selectedGrid = btnFriend;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
+            MyButton b1 = new MyButton(ButtonType.User, "我的好友", "/MetroClient;component/res/img/default.png", Color.FromArgb(92, 0, 58, 43));
+            MyButton b2 = new MyButton(ButtonType.User, "我的好友", "/MetroClient;component/res/img/default.png", Color.FromArgb(92, 0, 58, 43));
+            Grid.SetRow(b1,1);
+            Grid.SetColumn(b1,1);
+            friendGrid.Children.Add(b1);
+            Grid.SetRow(b2, 2);
+            Grid.SetColumn(b2, 1);
+            grid1.Children.Add(b2);
+            MiddleGrid.Children.Remove(friendGrid);
+            TabControl tab = new TabControl();
+           
         }
 
         

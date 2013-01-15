@@ -1,10 +1,10 @@
-﻿<Window x:Class="MetroClient.UI.MainWindow"
+﻿<Window x:Class="Chatter.MetroClient.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:MyControl="clr-namespace:Chatter.MetroClient.UI"
         Title="MainWindow" 
         Height="600" 
-        Width="900" 
+        Width="1000" 
         AllowsTransparency="True" 
         Background="Transparent" 
         WindowStyle="None"
@@ -18,11 +18,11 @@
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="310"/>
                 <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
-            
-            
+
+
             <!--最左面的grid，选择列表-->
             <Grid 
                 Name="LeftGrid"
@@ -40,24 +40,24 @@
                 </Grid.RowDefinitions>
 
                 <!--选择朋友列表-->
-                <Grid Name="friendGrid" Grid.Row="1"    MouseLeftButtonDown="SelectMode_Click" VerticalAlignment="Stretch" >
+                <Grid Name="btnFriend" Grid.Row="1"    MouseLeftButtonDown="SelectMode_Click" VerticalAlignment="Stretch" >
                     <TextBlock Text="好友" FontSize="25" Foreground="White" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                     <Label VerticalAlignment="Stretch"></Label>
                 </Grid>
                 <!--选择群组列表-->
-                <Grid Name="groupGrid" Grid.Row="2"  MouseLeftButtonDown="SelectMode_Click" >
+                <Grid Name="btnGroupGrid" Grid.Row="2"  MouseLeftButtonDown="SelectMode_Click" >
                     <TextBlock Text="群组" FontSize="25" Foreground="White" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                     <Label VerticalAlignment="Stretch"></Label>
                 </Grid>
                 <!--选择最近联系人列表-->
-                <Grid Name="recentFriendGrid" Grid.Row="3"   MouseLeftButtonDown="SelectMode_Click" >
+                <Grid Name="btnRecentFriendGrid" Grid.Row="3"   MouseLeftButtonDown="SelectMode_Click" >
                     <TextBlock Text="最近联系人" FontSize="25" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Label VerticalAlignment="Stretch"></Label>
                 </Grid>
 
 
             </Grid>
-            
+
             <!--中间的grid-->
             <Grid
                 
@@ -75,32 +75,106 @@
 
                     <TextBlock Text="Walle" FontSize="40" Margin="20,20,0,0"></TextBlock>
                 </Grid>
-                
+
                 <!--下面的grid，好友-->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="100"/>
-                    </Grid.RowDefinitions>
+
+                <TabControl Name="tab"  Grid.Row="1" Margin="0,0,0,0" Background="#4c8dae">
+
+                    <TabControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="TabItem.Visibility" Value="Collapsed"/>
+                        </Style>
+                    </TabControl.ItemContainerStyle>
+                    <TabItem>
+                        
+                    <ScrollViewer  VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                        <ScrollViewer.Content>
+                            <Grid  Name="friendGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                </Grid.RowDefinitions>
 
 
-                    <MyControl:MyButton     Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
-                    <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
-                    <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
-                    <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
-                </Grid>
-                </Grid>
+                                <MyControl:MyButton   Text="asdf"  Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
+                                <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
+                                <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
+                                <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
+
+
+                            </Grid>
+                        </ScrollViewer.Content>
+                    </ScrollViewer >
+                    </TabItem>
+                    <TabItem>
+                        <ScrollViewer  VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                        <ScrollViewer.Content>
+                            <Grid  Name="grid1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                </Grid.RowDefinitions>
+
+
+                                <MyControl:MyButton   Text="asdf"  Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
+                                <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
+                                <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
+                                <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
+
+
+                            </Grid>
+                        </ScrollViewer.Content>
+                    </ScrollViewer >
+                        
+                    </TabItem>
+                    <TabItem>
+                        
+                        <ScrollViewer  VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                            <ScrollViewer.Content>
+                                <Grid  Name="grid2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="100"/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <MyControl:MyButton   Text="asdf"  Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
+                                    <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
+                                    <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
+                                    <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
+
+
+                                </Grid>
+                            </ScrollViewer.Content>
+                        </ScrollViewer >
+
+                    </TabItem>
+                </TabControl>
+                
+            </Grid>
             <Grid
                 Name="RightGrid"
                 Grid.Column="2"
                 >
-               
+
 
             </Grid>
         </Grid>

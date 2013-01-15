@@ -13,7 +13,7 @@ namespace Chatter.Contract.ServiceContract
         Result Login(Member member);
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
-        List<Member> GetFriends(string id);
+         Dictionary<string, List<Friend>> GetFriends(string id);
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         List<Group> GetGroups(string id);
         [OperationContract(IsInitiating = false, IsTerminating = false)]

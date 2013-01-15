@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\Chatter.Client.ChatterService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -103,15 +110,60 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\Chatter.Client.ChatterService\ChatterService.wsdl" />
+    <None Include="Service References\Chatter.Client.ChatterService\ChatterService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\ChatterService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\ChatterService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\ChatterService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.Friend.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.Group.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.MessageStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\image\default.jpg" />
+    <Resource Include="res\img\default.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\image\default.png" />
+    <Resource Include="res\img\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Chatter.Client.ChatterService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Chatter.Client.ChatterService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Chatter.Client.ChatterService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Chatter.Client.ChatterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -66,7 +66,10 @@ namespace Chatter.DAL
                 Prepare(cmd.Parameters);
                 int i1 = cmd.ExecuteNonQuery();
 
-                sql = String.Format("insert into tblFriend(id) values(@id)");
+                sql = String.Format("insert into tblFriend(id，groupId,groupName) values(@id,@groupId,@groupName)");
+                cmd.Parameters.AddWithValue("groupId","0");
+                cmd.Parameters.AddWithValue("groupName", "我的好友");
+                Prepare(cmd.Parameters);
                 cmd.CommandText = sql;
                 int i2=cmd.ExecuteNonQuery();
 
@@ -215,16 +218,18 @@ namespace Chatter.DAL
         /// </summary>
         /// <param name="id">自己id</param>
         /// <param name="friendId">好友id</param>
+        /// <param name="userGroupId">分组id</param>
         /// <returns></returns>
-        static public bool AddFriend(string id, string friendId)
+        static public bool AddFriend(string id, string friendId,string userGroupId="0")
         {
             SqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblFriend set friendId=friendId+@friendId where id=@id");
+                string sql = String.Format("update tblFriend set friendId=friendId+@friendId where id=@id and groupdId=@groupId;");
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("friendId", friendId+";");
+                cmd.Parameters.AddWithValue("groupId", userGroupId );
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
@@ -346,14 +351,15 @@ namespace Chatter.DAL
         /// 删除好友
         /// </summary>
         /// <param name="id">用户id</param>
+        /// <param name="userGroupId">分组id</param>
         /// <param name="friendId">好友id</param>
         /// <returns></returns>
-        static public bool DeleteFriend(string id, string friendId)
+        static public bool DeleteFriend(string id,string userGroupId, string friendId)
         {
             SqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select friendId from tblFriend  where id=@id");
+                string sql = String.Format("select friendId from tblFriend  where id=@id and groupId=@groupId");
                 string temp = String.Empty;
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
@@ -414,13 +420,14 @@ namespace Chatter.DAL
         /// </summary>
         /// <param name="id">用户id</param>
         /// <returns></returns>
-        static public List<string> GetFriendList(string id)
+        static public Dictionary<string,KeyValuePair<string, List<string>>> GetFriendList(string id)
         {
             SqlCommand cmd = null;
+            Dictionary<string, KeyValuePair<string, List<string>>> dicFriends=new Dictionary<string,KeyValuePair<string,List<string>>>();
             List<String> friends =null;
             try
             {
-                string sql = String.Format("select friendId from tblFriend  where id=@id");
+                string sql = String.Format("select friendId,groupId,groupName from tblFriend  where id=@id ");
                 string temp = String.Empty;
                 cmd = new SqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
@@ -428,21 +435,19 @@ namespace Chatter.DAL
                 using (var reader = cmd.ExecuteReader())
                 {
 
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         temp = reader["friendId"].ToString();
-                       
+                        string groupId = reader["groupId"].ToString();
+                        string groupName=reader["groupName"].ToString();
                         friends = GetNames(temp);
+                        dicFriends.Add(groupId, new KeyValuePair<string, List<string>>(groupName, friends));
                     }
-                    else
-                    {
-                        Logger.Debug("获取好友列表失败");
-                        return null;
-                    }
+                    
                     
                 }
 
-                return friends;
+                return dicFriends;
                 
 
             }
@@ -752,6 +757,189 @@ namespace Chatter.DAL
                 if (paramenter.Value == null)
                     paramenter.Value = DBNull.Value;
             }
+        }
+
+       /// <summary>
+       ///判断分组是否存在
+       /// </summary>
+       /// <param name="id">用户id</param>
+       /// <param name="userGroupId">分组id</param>
+       /// <returns></returns>
+        private static bool IsExistUserGroup(string id,string userGroupId)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("select id from tblFriend where id=@id and userGroupId=@userGroupId");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("id", userGroupId);
+                Prepare(cmd.Parameters);
+
+                return null != cmd.ExecuteScalar(); ;
+
+            }
+            catch (Exception e)
+            {
+                Logger.Error("查询分组存在出现错误\n" + e.Message);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+
+            }
+        }
+        /// <summary>
+        /// 添加分组
+        /// </summary>
+        /// <param name="id">用户id</param>
+        /// <param name="userGroupName">分组名</param>
+        /// <returns></returns>
+        public static bool AddUserGroup(string id, string userGroupName)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+
+                string sql = String.Format("insert into tblUserGroup(id,groupId,groupName) values(@id,@groupId,@groupName)");
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id",id);
+                cmd.Parameters.AddWithValue("groupId",NewUserGroupId(2,id));
+                cmd.Parameters.AddWithValue("groupName", userGroupName);
+                Prepare(cmd.Parameters);
+               
+
+                int i1 = cmd.ExecuteNonQuery();
+
+
+
+
+
+                return i1 == 1;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("添加分组出现错误\n" + e.Message);
+
+                return false;
+            }
+
+            finally
+            {
+
+                if (cmd != null)
+                    cmd.Dispose();
+
+
+            }
+        }
+
+        /// <summary>
+        /// 将好友移动至其他分组
+        /// </summary>
+        /// <param name="id">用户id</param>
+        /// <param name="friendId">好友id</param>
+        /// <param name="fromId">之前分组id</param>
+        /// <param name="toId">移动后分组id</param>
+        /// <returns></returns>
+        public static bool MoveFriendToUserGroup(string id,string friendId, string fromId, string toId)
+        {
+            if (!DeleteFriend(id, fromId, friendId))
+            {
+                Logger.Error("移动好友时候，删除好友出错");
+                return false;
+            }
+           return AddFriend(id, friendId, toId);
+
+        }
+
+        /// <summary>
+        /// 删除用户分组
+        /// </summary>
+        /// <param name="id">用户id</param>
+        /// <param name="userGroupId">分组id</param>
+        /// <returns></returns>
+        public static bool DeleteUserGroup(string id, string userGroupId)
+        {
+            if (userGroupId == "0")
+                return false;
+
+            SqlCommand cmd = null;
+         
+            try
+            {
+                string sql = String.Format("select friendId from tblFriend  where id=@id and groupId=@groupId");
+                string temp = String.Empty;
+                cmd = new SqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("groupId",userGroupId);
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+
+                    if (reader.Read())
+                    {
+                        temp = reader["friendId"].ToString();
+
+                    }
+               
+
+                }
+                
+                if (temp != null && temp.Length != 0)
+                {
+                    temp = temp.Remove(temp.LastIndexOf(";"));
+                    AddFriend(id,temp,"0");
+                    sql = String.Format("delete from tblFriend  where id=@id and groupId=@groupId");
+                      cmd = new SqlCommand(sql, Conn);
+                    cmd.Parameters.AddWithValue("id", id);
+                     cmd.Parameters.AddWithValue("groupId",userGroupId);
+                        Prepare(cmd.Parameters);
+                    return 1==cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("删除分组出现错误\n" + e.Message);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+
+            }
+        }
+
+        /// <summary>
+        /// 获得分组id
+        /// </summary>
+        /// <param name="length">分组id长度</param>
+        /// <param name="id">用户id</param>
+        /// <returns></returns>
+        private static string NewUserGroupId(int length,string id)
+        {
+            string userGroupid = NewRandom(length);
+            while (IsExistUserGroup(id,userGroupid))
+            {
+                userGroupid = NewRandom(length);
+            }
+
+            return userGroupid;
+
+        }
+
+       
+
+        private static string NewRandom(int length)
+        {
+            Random random = new Random();
+            int id = random.Next((int)Math.Pow(10, length - 1), (int)Math.Pow(10, length));
+            return id.ToString();
         }
     }
 }

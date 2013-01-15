@@ -12,31 +12,31 @@ using Chatter.Log;
 namespace Chatter.Service
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
-   public class ChatterService:IChatter
+    public class ChatterService : IChatter
     {
 
         private Dictionary<string, ChatEventArgs> Online = new Dictionary<string, ChatEventArgs>();
 
-        private  delegate void ChatEventHandler(Object sender,ChatEventArgs e);
+        private delegate void ChatEventHandler(Object sender, ChatEventArgs e);
         private static event ChatEventHandler ChatEvent;
         private ChatEventHandler myEventHandler;
-        private Dictionary<string, Member> friends;
+        private Dictionary<string, Friend> friends;
         IChatterCallback callback;
 
-       
+
         public Result Login(Member member)
         {
-            Logger.Info(String.Format("用户{0}登录",member.Id+" "+member.NickName));
+            Logger.Info(String.Format("用户{0}登录", member.Id + " " + member.NickName));
 
-            if (!DALService.IsMember(member.Id,member.Password))
+            if (!DALService.IsMember(member.Id, member.Password))
             {
-                return new Result(){Status =MessageStatus.Failed};
+                return new Result() { Status = MessageStatus.Failed };
             }
 
             callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
             friends = GetFriendsList(member.Id);
             myEventHandler = new ChatEventHandler(HandleEvent);
-            
+
             ChatEventArgs e = new ChatEventArgs();
             e.Id = member.Id;
             e.NickName = member.NickName;
@@ -51,23 +51,26 @@ namespace Chatter.Service
         /// </summary>
         /// <param name="p">id</param>
         /// <returns></returns>
-        private Dictionary<string, Member> GetFriendsList(string id)
+        private Dictionary<string, Friend> GetFriendsList(string id)
         {
-            List<string> friendsId= DALService.GetFriendList(id);
-            Dictionary<string,Member> friends=new Dictionary<string,Member>();
-           if(friendsId!=null)
-           {
-               foreach(string friendId in friendsId)
-               {
-                   Member member= DALService.GetMember(friendId);
-                   if (member != null)
-                   {
-                       friends.Add(friendId, member);
-                       Logger.Debug(member.Id+" "+member.NickName);
-                   }
-               }
-           }
-           return friends;
+            Dictionary<string, KeyValuePair<string, List<string>>> dicFriend = DALService.GetFriendList(id);
+            Dictionary<string, Friend> friends = new Dictionary<string, Friend>();
+            if (dicFriend != null)
+            {
+                foreach (KeyValuePair<string, List<string>> userGroupFriends in dicFriend.Values)
+                {
+                    foreach (string friendId in userGroupFriends.Value)
+                    {
+                        Member member = DALService.GetMember(friendId);
+                        if (member != null)
+                        {
+                            friends.Add(friendId, new Friend() {Member=member,UserGroupName=userGroupFriends.Key });
+                            Logger.Debug(member.Id + " " + member.NickName);
+                        }
+                    }
+                }
+            }
+            return friends;
         }
 
         /// <summary>
@@ -78,55 +81,79 @@ namespace Chatter.Service
         {
             if (ChatEvent == null)
                 return;
-            foreach( ChatEventHandler hanlder in ChatEvent.GetInvocationList())
+            foreach (ChatEventHandler hanlder in ChatEvent.GetInvocationList())
             {
-                hanlder.BeginInvoke(this,e,new AsyncCallback(EndAsync),hanlder);
+                hanlder.BeginInvoke(this, e, new AsyncCallback(EndAsync), hanlder);
             }
 
         }
 
         private void EndAsync(IAsyncResult ar)
         {
-             ChatEventHandler hanlder= ar.AsyncState as ChatEventHandler;
-             hanlder.EndInvoke(ar);
+            ChatEventHandler hanlder = ar.AsyncState as ChatEventHandler;
+            hanlder.EndInvoke(ar);
         }
 
-        
 
-       
-        public List<Member> GetFriends(string id)
+
+
+        public Dictionary<string, List<Friend>> GetFriends(string id)
         {
-           
-            return friends.Values.ToList<Member>();
+            Dictionary<string, KeyValuePair<string, List<string>>> dicFriend = DALService.GetFriendList(id);
+            Dictionary<string, List<Friend>> friends = new  Dictionary<string, List<Friend>>();
+            if (dicFriend != null)
+            {
+                foreach (KeyValuePair<string,KeyValuePair<string, List<string>>> userGroupFriends in dicFriend)
+                {
+                    List<Friend> friendGroup = null;
+                    foreach (string friendId in userGroupFriends.Value.Value)
+                    {
+                         friendGroup = new List<Friend>();
+                        Member member = DALService.GetMember(friendId);
+                        if (member != null)
+                        {
+                            friendGroup.Add(new Friend() { Member=member,UserGroupName=userGroupFriends.Key,UserGroupId=userGroupFriends.Key});
+                            
+                        }
+
+                       
+                    }
+                    if(friendGroup!=null)
+                        friends.Add(userGroupFriends.Key, friendGroup);
+                }
+                
+            }
+            return friends;
+            
         }
 
-       
+
         public List<Group> GetGroups(string id)
         {
             throw new NotImplementedException();
         }
 
-       
+
         public MessageStatus AddFriend(string id, string friendId)
         {
             throw new NotImplementedException();
         }
-        
+
         public MessageStatus AddGroup(Group group)
         {
             throw new NotImplementedException();
         }
-       
+
         public MessageStatus AddFriend2Group(string friendId, string groupId)
         {
             throw new NotImplementedException();
         }
-       
+
         public MessageStatus SendMesg(Message mesg)
         {
             throw new NotImplementedException();
         }
-       
+
         public MessageStatus Logoff(Member member)
         {
             Logger.Info(String.Format("用户{0}退出", member.Id + " " + member.NickName));
@@ -136,7 +163,7 @@ namespace Chatter.Service
             e.Type = MessageType.Logoff;
             ChatEvent -= HandleEvent;
             BroadCatMessage(e);
-            
+
             return MessageStatus.OK;
         }
 

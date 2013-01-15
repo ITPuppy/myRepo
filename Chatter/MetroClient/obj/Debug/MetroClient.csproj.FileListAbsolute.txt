@@ -32,3 +32,7 @@ E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.lref
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.baml
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.g.cs
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.lref

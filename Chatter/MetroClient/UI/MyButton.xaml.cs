@@ -20,31 +20,101 @@ namespace Chatter.MetroClient.UI
     /// </summary>
     public partial class MyButton :Grid
     {
+        private double height = 95;
+        private double weight = 95;
+        private double zoomHeight = 105;
+        private double zoomWidth = 105;
+        private double fontSize = 15;
+        private double zoomFontSize = 20;
+        private double imageSize = 35;
+        private double zoomImageSize = 40;
+
+        public String Text
+        {
+            get { return txtName.Text; }
+            set { txtName.Text = value; }
+        }
        
+      
         public MyButton( )
         {
             InitializeComponent();
            
         }
      
-       
+       public MyButton(ButtonType  type,string name,string imagesouce,Color color)
+       {
+           if (type == ButtonType.UserGroup)
+           {
+               txtName = new TextBlock();
+               txtName.Text = name;
+               txtName.FontSize = 20;
+               txtName.Foreground = new SolidColorBrush(Colors.White);
+               txtName.VerticalAlignment = VerticalAlignment.Center;
+               txtName.HorizontalAlignment = HorizontalAlignment.Center;
+               this.Children.Add(txtName);
+               this.Background = new SolidColorBrush(color);
+           }
+           else if (type == ButtonType.User)
+           {
+               RowDefinition row1 =new RowDefinition();
+               row1.Height = new GridLength(zoomImageSize);
+               RowDefinition row2 = new RowDefinition();
+             //  row2.Height = new GridLength(imageHeight);
+               this.RowDefinitions.Add(row1);
+               this.RowDefinitions.Add(row2);
+
+               image = new Image();
+               image.Source = new BitmapImage(new Uri(imagesouce, UriKind.Relative));
+               image.Height = imageSize;
+               image.Width = imageSize;
+               Grid.SetRow(image,0);
+
+               txtName = new TextBlock();
+               txtName.Text = name;
+               txtName.FontSize = fontSize;
+               txtName.Foreground = new SolidColorBrush(Colors.White);
+               txtName.VerticalAlignment = VerticalAlignment.Center;
+               txtName.HorizontalAlignment = HorizontalAlignment.Center;
+               Grid.SetRow(txtName,1);
+               this.Children.Add(image);
+               this.Children.Add(txtName);
+               this.Background = new SolidColorBrush(color);
+           }
+           this.Width = weight;
+           this.Height = height;
+           this.MouseEnter += MyButton_MouseEnter;
+           this.MouseLeave+=MyButton_MouseLeave;
+       }
       
 
         private void MyButton_MouseLeave(object sender, MouseEventArgs e)
         {
             Grid btn = sender as Grid;
             
-          
-            btn.Width = btn.Width - 15;
-            btn.Height = btn.Height - 15;
-          
+            btn.Width =height;
+            btn.Height = Width;
+            txtName.FontSize = fontSize;
+            image.Height=  imageSize;
+            image.Width = imageSize;
         }
 
         private void MyButton_MouseEnter(object sender, MouseEventArgs e)
         {
             Grid btn = sender as Grid;
-            btn.Width = btn.Width + 15;
-            btn.Height = btn.Height + 15;
+            btn.Width = zoomWidth;
+            btn.Height = zoomHeight;
+            txtName.FontSize = zoomFontSize;
+            image.Height  = zoomImageSize;
+            image.Width = zoomImageSize;
         }
+    }
+
+
+
+    public enum ButtonType
+    {
+        UserGroup,
+        User
     }
 }

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ChatterService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IChatter_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" />
+      <xsd:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IChatter_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_GetFriends_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriends" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_GetFriends_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_GetGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_GetGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddFriend2Group_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend2Group" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddFriend2Group_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend2GroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_SendMesg_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMesg" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_SendMesg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMesgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_Logoff_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logoff" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_Logoff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_OnLogin_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnLogin" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_SendMessageCallback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageCallback" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_OnLogoff_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnLogoff" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_OnLogoff_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnLogoffResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IChatter">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/Login" message="tns:IChatter_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/LoginResponse" message="tns:IChatter_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="GetFriends">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/GetFriends" message="tns:IChatter_GetFriends_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/GetFriendsResponse" message="tns:IChatter_GetFriends_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="GetGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/GetGroups" message="tns:IChatter_GetGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/GetGroupsResponse" message="tns:IChatter_GetGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddFriend" message="tns:IChatter_AddFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddFriendResponse" message="tns:IChatter_AddFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddGroup" message="tns:IChatter_AddGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddGroupResponse" message="tns:IChatter_AddGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddFriend2Group">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddFriend2Group" message="tns:IChatter_AddFriend2Group_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddFriend2GroupResponse" message="tns:IChatter_AddFriend2Group_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="SendMesg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/SendMesg" message="tns:IChatter_SendMesg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMesgResponse" message="tns:IChatter_SendMesg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="true" name="Logoff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/Logoff" message="tns:IChatter_Logoff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/LogoffResponse" message="tns:IChatter_Logoff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogin">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogin" message="tns:IChatter_OnLogin_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendMessageCallback">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMessageCallback" message="tns:IChatter_SendMessageCallback_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogoff">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogoff" message="tns:IChatter_OnLogoff_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/OnLogoffResponse" message="tns:IChatter_OnLogoff_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IChatter" type="tns:IChatter">
+    <wsp:PolicyReference URI="#NetTcpBinding_IChatter_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriends">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/GetFriends" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/GetGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/AddFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/AddGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend2Group">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/AddFriend2Group" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMesg">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/SendMesg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logoff">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/Logoff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnLogin">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/OnLogin" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageCallback">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/SendMessageCallback" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnLogoff">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/OnLogoff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChatterService">
+    <wsdl:port name="NetTcpBinding_IChatter" binding="tns:NetTcpBinding_IChatter">
+      <soap12:address location="net.tcp://127.0.0.1:9877/ChatterService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://127.0.0.1:9877/ChatterService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

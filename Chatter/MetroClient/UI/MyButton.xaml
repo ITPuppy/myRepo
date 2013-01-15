@@ -11,4 +11,6 @@
              MouseEnter="MyButton_MouseEnter"
               >
     
+    <TextBlock Name="txtName" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
+    <Image Name="image"/>
 </Grid>
