@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Service References\Chatter.Client.ChatterService\Reference.cs">
+    <Compile Include="Service References\ChatterService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -66,6 +66,8 @@
     <Compile Include="UI\MyButton.xaml.cs">
       <DependentUpon>MyButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\MyGrid.cs" />
+    <Compile Include="UI\MyTabControl.cs" />
     <Page Include="UI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,29 +112,29 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\Chatter.Client.ChatterService\ChatterService.wsdl" />
-    <None Include="Service References\Chatter.Client.ChatterService\ChatterService.xsd">
+    <None Include="Service References\ChatterService\ChatterService.wsdl" />
+    <None Include="Service References\ChatterService\ChatterService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\ChatterService1.xsd">
+    <None Include="Service References\ChatterService\ChatterService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\ChatterService2.xsd">
+    <None Include="Service References\ChatterService\ChatterService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\ChatterService3.xsd">
+    <None Include="Service References\ChatterService\ChatterService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.Friend.datasource">
+    <None Include="Service References\ChatterService\MetroClient.ChatterService.Friend.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.Group.datasource">
+    <None Include="Service References\ChatterService\MetroClient.ChatterService.Group.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.MessageStatus.datasource">
+    <None Include="Service References\ChatterService\MetroClient.ChatterService.MessageStatus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\Chatter.Client.ChatterService\MetroClient.Chatter.Client.ChatterService.Result.datasource">
+    <None Include="Service References\ChatterService\MetroClient.ChatterService.Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -151,16 +153,16 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Chatter.Client.ChatterService\" />
+    <WCFMetadataStorage Include="Service References\ChatterService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Chatter.Client.ChatterService\configuration91.svcinfo" />
+    <None Include="Service References\ChatterService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Chatter.Client.ChatterService\configuration.svcinfo" />
+    <None Include="Service References\ChatterService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Chatter.Client.ChatterService\Reference.svcmap">
+    <None Include="Service References\ChatterService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

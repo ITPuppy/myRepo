@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace Chatter.Contract.DataContract
 {
      [DataContract]
-    public class Friend
+    public class Friend:BaseRole
     {
          [DataMember]
         Member member;

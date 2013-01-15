@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using MetroClient.ChatterService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +30,7 @@ namespace Chatter.MetroClient.UI
         private double zoomFontSize = 20;
         private double imageSize = 35;
         private double zoomImageSize = 40;
+        public Friend friend;
 
         public String Text
         {
@@ -42,13 +45,24 @@ namespace Chatter.MetroClient.UI
            
         }
      
-       public MyButton(ButtonType  type,string name,string imagesouce,Color color)
+       public MyButton(ButtonType  type,Object obj,string imagesouce,Color color)
        {
+           string name;
+           if (obj is Friend)
+           {
+               this.friend = obj as Friend;
+               name = friend.member.nickName;
+           }
+           else
+           {
+               name = obj.ToString();
+           }
+           
            if (type == ButtonType.UserGroup)
            {
                txtName = new TextBlock();
                txtName.Text = name;
-               txtName.FontSize = 20;
+               txtName.FontSize = fontSize;
                txtName.Foreground = new SolidColorBrush(Colors.White);
                txtName.VerticalAlignment = VerticalAlignment.Center;
                txtName.HorizontalAlignment = HorizontalAlignment.Center;

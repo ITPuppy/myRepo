@@ -9,6 +9,7 @@
         Background="Transparent" 
         WindowStyle="None"
         MouseLeftButtonDown="MainWindow_Drag"
+        Loaded="MainWindow_Loaded"
         >
     <Border 
         Background="#4c8dae"

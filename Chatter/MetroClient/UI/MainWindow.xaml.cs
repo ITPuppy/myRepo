@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.UI
 {
@@ -21,26 +23,24 @@ namespace Chatter.MetroClient.UI
     {
         Color selectedColor = Color.FromArgb(255, 114, 119, 123);
         Grid selectedGrid;
-     //   Member[] member = new []Member();
-     
+        ChatterClient client;
+        Member member;
+        Dictionary<string, Friend[]> dicFriends;
         public MainWindow()
         {
             InitializeComponent();
-            selectedGrid = btnFriend;
-            selectedGrid.Background = new SolidColorBrush(selectedColor);
-            MyButton b1 = new MyButton(ButtonType.User, "我的好友", "/MetroClient;component/res/img/default.png", Color.FromArgb(92, 0, 58, 43));
-            MyButton b2 = new MyButton(ButtonType.User, "我的好友", "/MetroClient;component/res/img/default.png", Color.FromArgb(92, 0, 58, 43));
-            Grid.SetRow(b1,1);
-            Grid.SetColumn(b1,1);
-            friendGrid.Children.Add(b1);
-            Grid.SetRow(b2, 2);
-            Grid.SetColumn(b2, 1);
-            grid1.Children.Add(b2);
-            MiddleGrid.Children.Remove(friendGrid);
-            TabControl tab = new TabControl();
+            
+          
            
         }
+        public MainWindow(ChatterClient client, Member member)
+        {
+          
 
+            InitializeComponent();
+            this.client = client;
+            this.member = member;
+        }
         
 
         private void MainWindow_Drag(object sender, MouseButtonEventArgs e)
@@ -73,6 +73,19 @@ namespace Chatter.MetroClient.UI
             Button btn = sender as Button;
             btn.Width = btn.Width - 15;
             btn.Height = btn.Height -15;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            init();
+        }
+
+        private void init()
+        {
+            selectedGrid = btnFriend;
+            selectedGrid.Background = new SolidColorBrush(selectedColor);
+          dicFriends=  client.GetFriends(member.id);
+          MyTabControl tabControl = new MyTabControl(dicFriends);
         }
     }
 }
