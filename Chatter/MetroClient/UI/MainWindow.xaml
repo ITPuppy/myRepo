@@ -13,13 +13,13 @@
         >
     <Border 
         Background="#4c8dae"
-        Opacity="0.90"
+        Opacity="0.95"
         CornerRadius="5,5,5,5"
         >
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="310"/>
+                <ColumnDefinition Width="330"/>
                 <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
 
@@ -41,8 +41,8 @@
                 </Grid.RowDefinitions>
 
                 <!--选择朋友列表-->
-                <Grid Name="btnFriend" Grid.Row="1"    MouseLeftButtonDown="SelectMode_Click" VerticalAlignment="Stretch" >
-                    <TextBlock Text="好友" FontSize="25" Foreground="White" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                <Grid Name="btnFriendGrid" Grid.Row="1"    MouseLeftButtonDown="SelectMode_Click" VerticalAlignment="Stretch" >
+                    <TextBlock  Text="好友" FontSize="25" Foreground="White" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                     <Label VerticalAlignment="Stretch"></Label>
                 </Grid>
                 <!--选择群组列表-->
@@ -79,7 +79,7 @@
 
                 <!--下面的grid，好友-->
 
-                <TabControl Name="tab"  Grid.Row="1" Margin="0,0,0,0" Background="#4c8dae">
+                <!--<TabControl Name="tab"  Grid.Row="1" Margin="0,0,0,0" Background="#4c8dae">
 
                     <TabControl.ItemContainerStyle>
                         <Style>
@@ -168,7 +168,7 @@
                         </ScrollViewer >
 
                     </TabItem>
-                </TabControl>
+                </TabControl>-->
                 
             </Grid>
             <Grid
