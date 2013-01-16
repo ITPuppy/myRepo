@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Chatter.Client.UI
+namespace Chatter.MetroClient.UI
 {
     public class UserGroupUI : StackPanel
     {

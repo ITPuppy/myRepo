@@ -3,9 +3,9 @@ using System.Windows;
 using System.Windows.Input;
 using System.ServiceModel;
 using Client.ChatterService;
-using Chatter.Client.Callback;
+using Chatter.MetroClient.Callback;
 
-namespace Chatter.Client.UI
+namespace Chatter.MetroClient.UI
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑

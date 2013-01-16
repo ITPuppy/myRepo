@@ -621,50 +621,66 @@ namespace MetroClient.ChatterService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatter/Login", ReplyAction="http://tempuri.org/IChatter/LoginResponse")]
         MetroClient.ChatterService.Result Login(MetroClient.ChatterService.Member member);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatter/Login", ReplyAction="http://tempuri.org/IChatter/LoginResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.Result> LoginAsync(MetroClient.ChatterService.Member member);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatter/Login", ReplyAction="http://tempuri.org/IChatter/LoginResponse")]
+        System.IAsyncResult BeginLogin(MetroClient.ChatterService.Member member, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.Result EndLogin(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/GetFriends", ReplyAction="http://tempuri.org/IChatter/GetFriendsResponse")]
         System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]> GetFriends(string id);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/GetFriends", ReplyAction="http://tempuri.org/IChatter/GetFriendsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]>> GetFriendsAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/GetFriends", ReplyAction="http://tempuri.org/IChatter/GetFriendsResponse")]
+        System.IAsyncResult BeginGetFriends(string id, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]> EndGetFriends(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/GetGroups", ReplyAction="http://tempuri.org/IChatter/GetGroupsResponse")]
         MetroClient.ChatterService.Group[] GetGroups(string id);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/GetGroups", ReplyAction="http://tempuri.org/IChatter/GetGroupsResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.Group[]> GetGroupsAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/GetGroups", ReplyAction="http://tempuri.org/IChatter/GetGroupsResponse")]
+        System.IAsyncResult BeginGetGroups(string id, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.Group[] EndGetGroups(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend", ReplyAction="http://tempuri.org/IChatter/AddFriendResponse")]
         MetroClient.ChatterService.MessageStatus AddFriend(string id, string friendId);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend", ReplyAction="http://tempuri.org/IChatter/AddFriendResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> AddFriendAsync(string id, string friendId);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/AddFriend", ReplyAction="http://tempuri.org/IChatter/AddFriendResponse")]
+        System.IAsyncResult BeginAddFriend(string id, string friendId, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.MessageStatus EndAddFriend(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddGroup", ReplyAction="http://tempuri.org/IChatter/AddGroupResponse")]
         MetroClient.ChatterService.MessageStatus AddGroup(MetroClient.ChatterService.Group group);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddGroup", ReplyAction="http://tempuri.org/IChatter/AddGroupResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> AddGroupAsync(MetroClient.ChatterService.Group group);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/AddGroup", ReplyAction="http://tempuri.org/IChatter/AddGroupResponse")]
+        System.IAsyncResult BeginAddGroup(MetroClient.ChatterService.Group group, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.MessageStatus EndAddGroup(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend2Group", ReplyAction="http://tempuri.org/IChatter/AddFriend2GroupResponse")]
         MetroClient.ChatterService.MessageStatus AddFriend2Group(string friendId, string groupId);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend2Group", ReplyAction="http://tempuri.org/IChatter/AddFriend2GroupResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> AddFriend2GroupAsync(string friendId, string groupId);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/AddFriend2Group", ReplyAction="http://tempuri.org/IChatter/AddFriend2GroupResponse")]
+        System.IAsyncResult BeginAddFriend2Group(string friendId, string groupId, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.MessageStatus EndAddFriend2Group(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/SendMesg", ReplyAction="http://tempuri.org/IChatter/SendMesgResponse")]
         MetroClient.ChatterService.MessageStatus SendMesg(MetroClient.ChatterService.Message mesg);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/SendMesg", ReplyAction="http://tempuri.org/IChatter/SendMesgResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> SendMesgAsync(MetroClient.ChatterService.Message mesg);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/SendMesg", ReplyAction="http://tempuri.org/IChatter/SendMesgResponse")]
+        System.IAsyncResult BeginSendMesg(MetroClient.ChatterService.Message mesg, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.MessageStatus EndSendMesg(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsTerminating=true, IsInitiating=false, Action="http://tempuri.org/IChatter/Logoff", ReplyAction="http://tempuri.org/IChatter/LogoffResponse")]
         MetroClient.ChatterService.MessageStatus Logoff(MetroClient.ChatterService.Member member);
         
-        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, IsInitiating=false, Action="http://tempuri.org/IChatter/Logoff", ReplyAction="http://tempuri.org/IChatter/LogoffResponse")]
-        System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> LogoffAsync(MetroClient.ChatterService.Member member);
+        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/Logoff", ReplyAction="http://tempuri.org/IChatter/LogoffResponse")]
+        System.IAsyncResult BeginLogoff(MetroClient.ChatterService.Member member, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.MessageStatus EndLogoff(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -673,11 +689,26 @@ namespace MetroClient.ChatterService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatter/OnLogin")]
         void OnLogin(string id);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatter/OnLogin")]
+        System.IAsyncResult BeginOnLogin(string id, System.AsyncCallback callback, object asyncState);
+        
+        void EndOnLogin(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatter/SendMessageCallback")]
         void SendMessageCallback(MetroClient.ChatterService.Result result);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatter/SendMessageCallback")]
+        System.IAsyncResult BeginSendMessageCallback(MetroClient.ChatterService.Result result, System.AsyncCallback callback, object asyncState);
+        
+        void EndSendMessageCallback(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatter/OnLogoff", ReplyAction="http://tempuri.org/IChatter/OnLogoffResponse")]
         void OnLogoff(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatter/OnLogoff", ReplyAction="http://tempuri.org/IChatter/OnLogoffResponse")]
+        System.IAsyncResult BeginOnLogoff(string id, System.AsyncCallback callback, object asyncState);
+        
+        void EndOnLogoff(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -686,7 +717,207 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public LoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.Result Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.Result)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetFriendsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetFriendsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetGroupsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetGroupsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.Group[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.Group[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddFriendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddFriendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.MessageStatus Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddGroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddGroupCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.MessageStatus Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddFriend2GroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddFriend2GroupCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.MessageStatus Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SendMesgCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SendMesgCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.MessageStatus Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LogoffCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public LogoffCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.MessageStatus Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ChatterClient : System.ServiceModel.DuplexClientBase<MetroClient.ChatterService.IChatter>, MetroClient.ChatterService.IChatter {
+        
+        private BeginOperationDelegate onBeginLoginDelegate;
+        
+        private EndOperationDelegate onEndLoginDelegate;
+        
+        private System.Threading.SendOrPostCallback onLoginCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetFriendsDelegate;
+        
+        private EndOperationDelegate onEndGetFriendsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetFriendsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetGroupsDelegate;
+        
+        private EndOperationDelegate onEndGetGroupsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetGroupsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddFriendDelegate;
+        
+        private EndOperationDelegate onEndAddFriendDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddFriendCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddGroupDelegate;
+        
+        private EndOperationDelegate onEndAddGroupDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddGroupCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddFriend2GroupDelegate;
+        
+        private EndOperationDelegate onEndAddFriend2GroupDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddFriend2GroupCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSendMesgDelegate;
+        
+        private EndOperationDelegate onEndSendMesgDelegate;
+        
+        private System.Threading.SendOrPostCallback onSendMesgCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginLogoffDelegate;
+        
+        private EndOperationDelegate onEndLogoffDelegate;
+        
+        private System.Threading.SendOrPostCallback onLogoffCompletedDelegate;
         
         public ChatterClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -708,68 +939,424 @@ namespace MetroClient.ChatterService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
+        public event System.EventHandler<LoginCompletedEventArgs> LoginCompleted;
+        
+        public event System.EventHandler<GetFriendsCompletedEventArgs> GetFriendsCompleted;
+        
+        public event System.EventHandler<GetGroupsCompletedEventArgs> GetGroupsCompleted;
+        
+        public event System.EventHandler<AddFriendCompletedEventArgs> AddFriendCompleted;
+        
+        public event System.EventHandler<AddGroupCompletedEventArgs> AddGroupCompleted;
+        
+        public event System.EventHandler<AddFriend2GroupCompletedEventArgs> AddFriend2GroupCompleted;
+        
+        public event System.EventHandler<SendMesgCompletedEventArgs> SendMesgCompleted;
+        
+        public event System.EventHandler<LogoffCompletedEventArgs> LogoffCompleted;
+        
         public MetroClient.ChatterService.Result Login(MetroClient.ChatterService.Member member) {
             return base.Channel.Login(member);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.Result> LoginAsync(MetroClient.ChatterService.Member member) {
-            return base.Channel.LoginAsync(member);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginLogin(MetroClient.ChatterService.Member member, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLogin(member, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.Result EndLogin(System.IAsyncResult result) {
+            return base.Channel.EndLogin(result);
+        }
+        
+        private System.IAsyncResult OnBeginLogin(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MetroClient.ChatterService.Member member = ((MetroClient.ChatterService.Member)(inValues[0]));
+            return this.BeginLogin(member, callback, asyncState);
+        }
+        
+        private object[] OnEndLogin(System.IAsyncResult result) {
+            MetroClient.ChatterService.Result retVal = this.EndLogin(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnLoginCompleted(object state) {
+            if ((this.LoginCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.LoginCompleted(this, new LoginCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void LoginAsync(MetroClient.ChatterService.Member member) {
+            this.LoginAsync(member, null);
+        }
+        
+        public void LoginAsync(MetroClient.ChatterService.Member member, object userState) {
+            if ((this.onBeginLoginDelegate == null)) {
+                this.onBeginLoginDelegate = new BeginOperationDelegate(this.OnBeginLogin);
+            }
+            if ((this.onEndLoginDelegate == null)) {
+                this.onEndLoginDelegate = new EndOperationDelegate(this.OnEndLogin);
+            }
+            if ((this.onLoginCompletedDelegate == null)) {
+                this.onLoginCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnLoginCompleted);
+            }
+            base.InvokeAsync(this.onBeginLoginDelegate, new object[] {
+                        member}, this.onEndLoginDelegate, this.onLoginCompletedDelegate, userState);
         }
         
         public System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]> GetFriends(string id) {
             return base.Channel.GetFriends(id);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]>> GetFriendsAsync(string id) {
-            return base.Channel.GetFriendsAsync(id);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetFriends(string id, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetFriends(id, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]> EndGetFriends(System.IAsyncResult result) {
+            return base.Channel.EndGetFriends(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetFriends(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string id = ((string)(inValues[0]));
+            return this.BeginGetFriends(id, callback, asyncState);
+        }
+        
+        private object[] OnEndGetFriends(System.IAsyncResult result) {
+            System.Collections.Generic.Dictionary<string, MetroClient.ChatterService.Friend[]> retVal = this.EndGetFriends(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetFriendsCompleted(object state) {
+            if ((this.GetFriendsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetFriendsCompleted(this, new GetFriendsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetFriendsAsync(string id) {
+            this.GetFriendsAsync(id, null);
+        }
+        
+        public void GetFriendsAsync(string id, object userState) {
+            if ((this.onBeginGetFriendsDelegate == null)) {
+                this.onBeginGetFriendsDelegate = new BeginOperationDelegate(this.OnBeginGetFriends);
+            }
+            if ((this.onEndGetFriendsDelegate == null)) {
+                this.onEndGetFriendsDelegate = new EndOperationDelegate(this.OnEndGetFriends);
+            }
+            if ((this.onGetFriendsCompletedDelegate == null)) {
+                this.onGetFriendsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetFriendsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetFriendsDelegate, new object[] {
+                        id}, this.onEndGetFriendsDelegate, this.onGetFriendsCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.Group[] GetGroups(string id) {
             return base.Channel.GetGroups(id);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.Group[]> GetGroupsAsync(string id) {
-            return base.Channel.GetGroupsAsync(id);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetGroups(string id, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetGroups(id, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.Group[] EndGetGroups(System.IAsyncResult result) {
+            return base.Channel.EndGetGroups(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetGroups(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string id = ((string)(inValues[0]));
+            return this.BeginGetGroups(id, callback, asyncState);
+        }
+        
+        private object[] OnEndGetGroups(System.IAsyncResult result) {
+            MetroClient.ChatterService.Group[] retVal = this.EndGetGroups(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetGroupsCompleted(object state) {
+            if ((this.GetGroupsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetGroupsCompleted(this, new GetGroupsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetGroupsAsync(string id) {
+            this.GetGroupsAsync(id, null);
+        }
+        
+        public void GetGroupsAsync(string id, object userState) {
+            if ((this.onBeginGetGroupsDelegate == null)) {
+                this.onBeginGetGroupsDelegate = new BeginOperationDelegate(this.OnBeginGetGroups);
+            }
+            if ((this.onEndGetGroupsDelegate == null)) {
+                this.onEndGetGroupsDelegate = new EndOperationDelegate(this.OnEndGetGroups);
+            }
+            if ((this.onGetGroupsCompletedDelegate == null)) {
+                this.onGetGroupsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetGroupsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetGroupsDelegate, new object[] {
+                        id}, this.onEndGetGroupsDelegate, this.onGetGroupsCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.MessageStatus AddFriend(string id, string friendId) {
             return base.Channel.AddFriend(id, friendId);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> AddFriendAsync(string id, string friendId) {
-            return base.Channel.AddFriendAsync(id, friendId);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginAddFriend(string id, string friendId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddFriend(id, friendId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.MessageStatus EndAddFriend(System.IAsyncResult result) {
+            return base.Channel.EndAddFriend(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddFriend(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string id = ((string)(inValues[0]));
+            string friendId = ((string)(inValues[1]));
+            return this.BeginAddFriend(id, friendId, callback, asyncState);
+        }
+        
+        private object[] OnEndAddFriend(System.IAsyncResult result) {
+            MetroClient.ChatterService.MessageStatus retVal = this.EndAddFriend(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddFriendCompleted(object state) {
+            if ((this.AddFriendCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddFriendCompleted(this, new AddFriendCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddFriendAsync(string id, string friendId) {
+            this.AddFriendAsync(id, friendId, null);
+        }
+        
+        public void AddFriendAsync(string id, string friendId, object userState) {
+            if ((this.onBeginAddFriendDelegate == null)) {
+                this.onBeginAddFriendDelegate = new BeginOperationDelegate(this.OnBeginAddFriend);
+            }
+            if ((this.onEndAddFriendDelegate == null)) {
+                this.onEndAddFriendDelegate = new EndOperationDelegate(this.OnEndAddFriend);
+            }
+            if ((this.onAddFriendCompletedDelegate == null)) {
+                this.onAddFriendCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddFriendCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddFriendDelegate, new object[] {
+                        id,
+                        friendId}, this.onEndAddFriendDelegate, this.onAddFriendCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.MessageStatus AddGroup(MetroClient.ChatterService.Group group) {
             return base.Channel.AddGroup(group);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> AddGroupAsync(MetroClient.ChatterService.Group group) {
-            return base.Channel.AddGroupAsync(group);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginAddGroup(MetroClient.ChatterService.Group group, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddGroup(group, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.MessageStatus EndAddGroup(System.IAsyncResult result) {
+            return base.Channel.EndAddGroup(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddGroup(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MetroClient.ChatterService.Group group = ((MetroClient.ChatterService.Group)(inValues[0]));
+            return this.BeginAddGroup(group, callback, asyncState);
+        }
+        
+        private object[] OnEndAddGroup(System.IAsyncResult result) {
+            MetroClient.ChatterService.MessageStatus retVal = this.EndAddGroup(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddGroupCompleted(object state) {
+            if ((this.AddGroupCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddGroupCompleted(this, new AddGroupCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddGroupAsync(MetroClient.ChatterService.Group group) {
+            this.AddGroupAsync(group, null);
+        }
+        
+        public void AddGroupAsync(MetroClient.ChatterService.Group group, object userState) {
+            if ((this.onBeginAddGroupDelegate == null)) {
+                this.onBeginAddGroupDelegate = new BeginOperationDelegate(this.OnBeginAddGroup);
+            }
+            if ((this.onEndAddGroupDelegate == null)) {
+                this.onEndAddGroupDelegate = new EndOperationDelegate(this.OnEndAddGroup);
+            }
+            if ((this.onAddGroupCompletedDelegate == null)) {
+                this.onAddGroupCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddGroupCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddGroupDelegate, new object[] {
+                        group}, this.onEndAddGroupDelegate, this.onAddGroupCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.MessageStatus AddFriend2Group(string friendId, string groupId) {
             return base.Channel.AddFriend2Group(friendId, groupId);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> AddFriend2GroupAsync(string friendId, string groupId) {
-            return base.Channel.AddFriend2GroupAsync(friendId, groupId);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginAddFriend2Group(string friendId, string groupId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddFriend2Group(friendId, groupId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.MessageStatus EndAddFriend2Group(System.IAsyncResult result) {
+            return base.Channel.EndAddFriend2Group(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddFriend2Group(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string friendId = ((string)(inValues[0]));
+            string groupId = ((string)(inValues[1]));
+            return this.BeginAddFriend2Group(friendId, groupId, callback, asyncState);
+        }
+        
+        private object[] OnEndAddFriend2Group(System.IAsyncResult result) {
+            MetroClient.ChatterService.MessageStatus retVal = this.EndAddFriend2Group(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddFriend2GroupCompleted(object state) {
+            if ((this.AddFriend2GroupCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddFriend2GroupCompleted(this, new AddFriend2GroupCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddFriend2GroupAsync(string friendId, string groupId) {
+            this.AddFriend2GroupAsync(friendId, groupId, null);
+        }
+        
+        public void AddFriend2GroupAsync(string friendId, string groupId, object userState) {
+            if ((this.onBeginAddFriend2GroupDelegate == null)) {
+                this.onBeginAddFriend2GroupDelegate = new BeginOperationDelegate(this.OnBeginAddFriend2Group);
+            }
+            if ((this.onEndAddFriend2GroupDelegate == null)) {
+                this.onEndAddFriend2GroupDelegate = new EndOperationDelegate(this.OnEndAddFriend2Group);
+            }
+            if ((this.onAddFriend2GroupCompletedDelegate == null)) {
+                this.onAddFriend2GroupCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddFriend2GroupCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddFriend2GroupDelegate, new object[] {
+                        friendId,
+                        groupId}, this.onEndAddFriend2GroupDelegate, this.onAddFriend2GroupCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.MessageStatus SendMesg(MetroClient.ChatterService.Message mesg) {
             return base.Channel.SendMesg(mesg);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> SendMesgAsync(MetroClient.ChatterService.Message mesg) {
-            return base.Channel.SendMesgAsync(mesg);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSendMesg(MetroClient.ChatterService.Message mesg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSendMesg(mesg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.MessageStatus EndSendMesg(System.IAsyncResult result) {
+            return base.Channel.EndSendMesg(result);
+        }
+        
+        private System.IAsyncResult OnBeginSendMesg(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MetroClient.ChatterService.Message mesg = ((MetroClient.ChatterService.Message)(inValues[0]));
+            return this.BeginSendMesg(mesg, callback, asyncState);
+        }
+        
+        private object[] OnEndSendMesg(System.IAsyncResult result) {
+            MetroClient.ChatterService.MessageStatus retVal = this.EndSendMesg(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSendMesgCompleted(object state) {
+            if ((this.SendMesgCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SendMesgCompleted(this, new SendMesgCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SendMesgAsync(MetroClient.ChatterService.Message mesg) {
+            this.SendMesgAsync(mesg, null);
+        }
+        
+        public void SendMesgAsync(MetroClient.ChatterService.Message mesg, object userState) {
+            if ((this.onBeginSendMesgDelegate == null)) {
+                this.onBeginSendMesgDelegate = new BeginOperationDelegate(this.OnBeginSendMesg);
+            }
+            if ((this.onEndSendMesgDelegate == null)) {
+                this.onEndSendMesgDelegate = new EndOperationDelegate(this.OnEndSendMesg);
+            }
+            if ((this.onSendMesgCompletedDelegate == null)) {
+                this.onSendMesgCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSendMesgCompleted);
+            }
+            base.InvokeAsync(this.onBeginSendMesgDelegate, new object[] {
+                        mesg}, this.onEndSendMesgDelegate, this.onSendMesgCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.MessageStatus Logoff(MetroClient.ChatterService.Member member) {
             return base.Channel.Logoff(member);
         }
         
-        public System.Threading.Tasks.Task<MetroClient.ChatterService.MessageStatus> LogoffAsync(MetroClient.ChatterService.Member member) {
-            return base.Channel.LogoffAsync(member);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginLogoff(MetroClient.ChatterService.Member member, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLogoff(member, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.MessageStatus EndLogoff(System.IAsyncResult result) {
+            return base.Channel.EndLogoff(result);
+        }
+        
+        private System.IAsyncResult OnBeginLogoff(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MetroClient.ChatterService.Member member = ((MetroClient.ChatterService.Member)(inValues[0]));
+            return this.BeginLogoff(member, callback, asyncState);
+        }
+        
+        private object[] OnEndLogoff(System.IAsyncResult result) {
+            MetroClient.ChatterService.MessageStatus retVal = this.EndLogoff(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnLogoffCompleted(object state) {
+            if ((this.LogoffCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.LogoffCompleted(this, new LogoffCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void LogoffAsync(MetroClient.ChatterService.Member member) {
+            this.LogoffAsync(member, null);
+        }
+        
+        public void LogoffAsync(MetroClient.ChatterService.Member member, object userState) {
+            if ((this.onBeginLogoffDelegate == null)) {
+                this.onBeginLogoffDelegate = new BeginOperationDelegate(this.OnBeginLogoff);
+            }
+            if ((this.onEndLogoffDelegate == null)) {
+                this.onEndLogoffDelegate = new EndOperationDelegate(this.OnEndLogoff);
+            }
+            if ((this.onLogoffCompletedDelegate == null)) {
+                this.onLogoffCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnLogoffCompleted);
+            }
+            base.InvokeAsync(this.onBeginLogoffDelegate, new object[] {
+                        member}, this.onEndLogoffDelegate, this.onLogoffCompletedDelegate, userState);
         }
     }
 }

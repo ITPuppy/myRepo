@@ -30,7 +30,6 @@ E:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.Properties.Resources.re
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csproj.GenerateResource.Cache
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.g.cs
-E:\code\myRepo\Chatter\MetroClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.lref
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.baml
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.g.cs
