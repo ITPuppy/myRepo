@@ -112,16 +112,28 @@ namespace Chatter.MetroClient.UI
             dicFriends.Add("1223aa", friends5);
 
             init();
+
+            Application.Current.Exit += new ExitEventHandler((obj, args) => {
+                if (client != null)
+                    client.Logoff(member);
+            });
         }
 
         private void init()
         {
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
-         // dicFriends=  client.GetFriends(member.id);
+          dicFriends=  client.GetFriends(member.id);
            tabControl = new MyTabControl(dicFriends);
           Grid.SetRow(tabControl,1);
           MiddleGrid.Children.Add(tabControl);
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+
+            Application.Current.Shutdown();
+            base.OnClosing(e);
         }
     }
 }

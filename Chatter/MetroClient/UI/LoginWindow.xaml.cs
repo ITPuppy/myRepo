@@ -31,6 +31,8 @@ namespace Chatter.MetroClient.UI
         public LoginWindow()
         {
             InitializeComponent();
+           
+           
         }
 
 
@@ -141,6 +143,14 @@ namespace Chatter.MetroClient.UI
         private void btnCancel_Quit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+       
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow rw = new RegisterWindow();
+            rw.ShowDialog();
         }
 
 

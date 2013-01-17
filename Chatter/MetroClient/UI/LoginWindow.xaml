@@ -21,7 +21,7 @@
         <Border 
             BorderThickness="1" 
             BorderBrush="Chocolate"  
-            CornerRadius="5,5,5,5"
+            
              Background="#4c8dae"
             Opacity="0.8"
          
@@ -120,6 +120,8 @@
                                 </LinearGradientBrush>
                             </Button.Background>
                         </Button>
+
+                        <Image HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="2"  />
                     </Grid>
                 </Grid>
 
@@ -135,7 +137,31 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
+                    
+                    
+                   
                 </Grid>
+                <TextBlock 
+                    Name="txtRegister"  
+                    
+                    HorizontalAlignment="Left" 
+                    Margin="383,121,0,0"
+                    VerticalAlignment="Top"
+              
+                    Width="auto"
+                    >
+                    <Hyperlink
+                        NavigateUri="http://www.baidu.com"
+                        Foreground="White" 
+                      FontSize="15"
+                         Click="register_Click"
+                        >
+                         注册账号
+                    </Hyperlink>
+                    
+                </TextBlock>
+                
+                
             </Grid>
         </Border>
     </Grid>

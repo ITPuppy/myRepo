@@ -112,7 +112,7 @@ namespace Chatter.Service
                         Member member = DALService.GetMember(friendId);
                         if (member != null)
                         {
-                            friendGroup.Add(new Friend() { Member=member,UserGroupName=userGroupFriends.Key,UserGroupId=userGroupFriends.Key});
+                            friendGroup.Add(new Friend() { Member=member,UserGroupName=userGroupFriends.Value.Key,UserGroupId=userGroupFriends.Key});
                             
                         }
 

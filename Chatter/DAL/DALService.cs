@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Text;
 using Chatter.Log;
 using Chatter.Contract.DataContract;
+using System.Data;
 
 namespace Chatter.DAL
 {
     public class DALService
     {
         [Obsolete("Please use Conn")]
-        private static SqlConnection conn;
+        private static MySqlConnection conn;
         private static Object obj = new object();
-        private static SqlConnection Conn
+        private static MySqlConnection Conn
         {
             get
             {
@@ -22,7 +22,7 @@ namespace Chatter.DAL
                 {
                     if (conn == null)
                     {
-                        conn = new SqlConnection();
+                        conn = new MySqlConnection();
                         conn.ConnectionString = ConfigurationManager.AppSettings["connStr"];
                         conn.Open();
                     }
@@ -50,12 +50,12 @@ namespace Chatter.DAL
         /// <returns>添加成功返回true，添加失败返回false</returns>
         static public bool AddMember(Member member)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
               
-                string sql = String.Format("insert into tblMember(id,nickName,password,birthday,sex,status,information) values(@id,@nickName,@password,@birthday,@sex,@status,@information)");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("insert into tblMember(id,nickName,password,birthday,sex,status,information) values(?id,?nickName,?password,?birthday,?sex,?status,?information)");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", member.Id);
                 cmd.Parameters.AddWithValue("password", member.Password);
                 cmd.Parameters.AddWithValue("nickName", member.NickName);
@@ -66,7 +66,7 @@ namespace Chatter.DAL
                 Prepare(cmd.Parameters);
                 int i1 = cmd.ExecuteNonQuery();
 
-                sql = String.Format("insert into tblFriend(id，groupId,groupName) values(@id,@groupId,@groupName)");
+                sql = String.Format("insert into tblFriend(id，groupId,groupName) values(?id,?groupId,?groupName)");
                 cmd.Parameters.AddWithValue("groupId","0");
                 cmd.Parameters.AddWithValue("groupName", "我的好友");
                 Prepare(cmd.Parameters);
@@ -102,11 +102,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool UpdateMemberStatus(string id, MemberStatus status)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblMember set status=@status where id=@id");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("update tblMember set status=?status where id=?id");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("status", status.ToString());
                 Prepare(cmd.Parameters);
@@ -136,11 +136,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool UpdateMemberInfomation(string id, string information)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblMember set information=@information where id=@id");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("update tblMember set information=?information where id=?id");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("information", information.ToString());
                 Prepare(cmd.Parameters);
@@ -163,13 +163,13 @@ namespace Chatter.DAL
         }
         static public Member GetMember(string id)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             Member member = null;
             try
             {
 
-                string sql = String.Format("select * from tblMember where id=@id");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("select * from tblMember where id=?id");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
 
@@ -222,11 +222,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool AddFriend(string id, string friendId,string userGroupId="0")
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblFriend set friendId=friendId+@friendId where id=@id and groupdId=@groupId;");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("update tblFriend set friendId=friendId+?friendId where id=?id and groupdId=?groupId;");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("friendId", friendId+";");
                 cmd.Parameters.AddWithValue("groupId", userGroupId );
@@ -257,11 +257,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool IsMember(string id, string pwd)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select id from tblMember where id=@id and password=@password");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("select id from tblMember where id=?id and password=?password");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id",id);
                 cmd.Parameters.AddWithValue("password",pwd);
                 Prepare(cmd.Parameters);
@@ -286,11 +286,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool IsExistMember(string id)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select id from tblMember where id=@id");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("select id from tblMember where id=?id");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
 
@@ -317,11 +317,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool UpdateMemeber(Member member)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblMember set password=@password,sex=@sex,nickName=@nickName,status=@status,information=@information birthday=@birthday where id=@id");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("update tblMember set password=?password,sex=?sex,nickName=?nickName,status=?status,information=?information birthday=?birthday where id=?id");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", member.Id);
                 cmd.Parameters.AddWithValue("password", member.Password);
                 cmd.Parameters.AddWithValue("nickName", member.NickName);
@@ -356,12 +356,12 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public bool DeleteFriend(string id,string userGroupId, string friendId)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select friendId from tblFriend  where id=@id and groupId=@groupId");
+                string sql = String.Format("select friendId from tblFriend  where id=?id and groupId=?groupId");
                 string temp = String.Empty;
-                cmd = new SqlCommand(sql, Conn);
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
@@ -390,8 +390,8 @@ namespace Chatter.DAL
                 cmd.Dispose();
 
 
-                sql = String.Format("update tblFriend set friendId=@friendId where id=@id");
-                cmd = new SqlCommand(sql, Conn);
+                sql = String.Format("update tblFriend set friendId=?friendId where id=?id");
+                cmd = new MySqlCommand(sql, Conn);
                 
                 cmd.Parameters.AddWithValue("friendId", temp );
                 Prepare(cmd.Parameters);
@@ -422,14 +422,14 @@ namespace Chatter.DAL
         /// <returns></returns>
         static public Dictionary<string,KeyValuePair<string, List<string>>> GetFriendList(string id)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             Dictionary<string, KeyValuePair<string, List<string>>> dicFriends=new Dictionary<string,KeyValuePair<string,List<string>>>();
             List<String> friends =null;
             try
             {
-                string sql = String.Format("select friendId,groupId,groupName from tblFriend  where id=@id ");
+                string sql = String.Format("select friendId,groupId,groupName from tblFriend  where id=?id ");
                 string temp = String.Empty;
-                cmd = new SqlCommand(sql, Conn);
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
@@ -491,12 +491,12 @@ namespace Chatter.DAL
         /// <returns></returns>
         public static bool AddGroup(Group group)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
               
-                string sql = String.Format("insert into tblGroup(groupId,name,ownerId,groupMember) values(@groupId,@name,@ownerId,@groupMember)");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("insert into tblGroup(groupId,name,ownerId,groupMember) values(?groupId,?name,?ownerId,?groupMember)");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId",group.GroupId);
                 cmd.Parameters.AddWithValue("name", group.Name);
                 cmd.Parameters.AddWithValue("ownerId", group.OwnerId);
@@ -539,11 +539,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         public static bool IsExistGroup(string groupId)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select groupId from tblGroup where groupId=@groupId");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("select groupId from tblGroup where groupId=?groupId");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId", groupId);
                 Prepare(cmd.Parameters);
                 return null != cmd.ExecuteScalar(); ;
@@ -569,12 +569,12 @@ namespace Chatter.DAL
         public static bool DeleteGroup(string groupId)
         {
 
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("delete  from tblGroup  where groupId=@groupId");
+                string sql = String.Format("delete  from tblGroup  where groupId=?groupId");
                 string temp = String.Empty;
-                cmd = new SqlCommand(sql, Conn);
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId",groupId);
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
@@ -601,11 +601,11 @@ namespace Chatter.DAL
         /// <returns></returns>
         public static bool AddMember2Group(string memberId, string groupId)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblGroup set groupMemeber=groupMember+@groupMember where groupId=@groupId");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("update tblGroup set groupMemeber=groupMember+?groupMember where groupId=?groupId");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId",groupId);
                 cmd.Parameters.AddWithValue("groupMember",memberId+";");
                 Prepare(cmd.Parameters);
@@ -630,12 +630,12 @@ namespace Chatter.DAL
         /// <returns></returns>
         public static bool DeleteMemberFromGroup(string groupId, string memberId)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select groupMember from tblGroup  where groupId=@groupId");
+                string sql = String.Format("select groupMember from tblGroup  where groupId=?groupId");
                 string temp = String.Empty;
-                cmd = new SqlCommand(sql, Conn);
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId",groupId);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
@@ -664,8 +664,8 @@ namespace Chatter.DAL
                 cmd.Dispose();
 
 
-                sql = String.Format("update tblGroup set groupMember=@groupMember where groupId=@groupId");
-                cmd = new SqlCommand(sql, Conn);
+                sql = String.Format("update tblGroup set groupMember=?groupMember where groupId=?groupId");
+                cmd = new MySqlCommand(sql, Conn);
 
                 cmd.Parameters.AddWithValue("groupId", temp);
                 Prepare(cmd.Parameters);
@@ -694,12 +694,12 @@ namespace Chatter.DAL
 
         public static List<Group> GetGroup(string id)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             List<Group> groups = new List<Group>();
             try
             {
-                string sql = String.Format("select * from tblGroup where ownerId=@ownerId");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("select * from tblGroup where ownerId=?ownerId");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("ownerId",id);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
@@ -714,7 +714,7 @@ namespace Chatter.DAL
                         groups.Add(g);
                     }
                 }
-                cmd.CommandText = String.Format("select * from tblGroup where groupMember like %@groupMember%");
+                cmd.CommandText = String.Format("select * from tblGroup where groupMember like %?groupMember%");
                 cmd.Parameters.AddWithValue("groupMember",id);
                 cmd.Parameters.AddWithValue("ownerId", id);
                 Prepare(cmd.Parameters);
@@ -730,7 +730,6 @@ namespace Chatter.DAL
                         groups.Add(g);
                     }
                 }
-
                 return groups;
 
             }
@@ -750,9 +749,9 @@ namespace Chatter.DAL
 
 
 
-        private static void Prepare(SqlParameterCollection parameters)
+        private static void Prepare(MySqlParameterCollection parameters)
         {
-            foreach (SqlParameter paramenter in parameters)
+            foreach (MySqlParameter paramenter in parameters)
             {
                 if (paramenter.Value == null)
                     paramenter.Value = DBNull.Value;
@@ -767,11 +766,11 @@ namespace Chatter.DAL
        /// <returns></returns>
         private static bool IsExistUserGroup(string id,string userGroupId)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select id from tblFriend where id=@id and userGroupId=@userGroupId");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("select id from tblFriend where id=?id and userGroupId=?userGroupId");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("id", userGroupId);
                 Prepare(cmd.Parameters);
@@ -799,12 +798,12 @@ namespace Chatter.DAL
         /// <returns></returns>
         public static bool AddUserGroup(string id, string userGroupName)
         {
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
             try
             {
 
-                string sql = String.Format("insert into tblUserGroup(id,groupId,groupName) values(@id,@groupId,@groupName)");
-                cmd = new SqlCommand(sql, Conn);
+                string sql = String.Format("insert into tblUserGroup(id,groupId,groupName) values(?id,?groupId,?groupName)");
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id",id);
                 cmd.Parameters.AddWithValue("groupId",NewUserGroupId(2,id));
                 cmd.Parameters.AddWithValue("groupName", userGroupName);
@@ -866,13 +865,13 @@ namespace Chatter.DAL
             if (userGroupId == "0")
                 return false;
 
-            SqlCommand cmd = null;
+            MySqlCommand cmd = null;
          
             try
             {
-                string sql = String.Format("select friendId from tblFriend  where id=@id and groupId=@groupId");
+                string sql = String.Format("select friendId from tblFriend  where id=?id and groupId=?groupId");
                 string temp = String.Empty;
-                cmd = new SqlCommand(sql, Conn);
+                cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("groupId",userGroupId);
                 Prepare(cmd.Parameters);
@@ -892,8 +891,8 @@ namespace Chatter.DAL
                 {
                     temp = temp.Remove(temp.LastIndexOf(";"));
                     AddFriend(id,temp,"0");
-                    sql = String.Format("delete from tblFriend  where id=@id and groupId=@groupId");
-                      cmd = new SqlCommand(sql, Conn);
+                    sql = String.Format("delete from tblFriend  where id=?id and groupId=?groupId");
+                      cmd = new MySqlCommand(sql, Conn);
                     cmd.Parameters.AddWithValue("id", id);
                      cmd.Parameters.AddWithValue("groupId",userGroupId);
                         Prepare(cmd.Parameters);
