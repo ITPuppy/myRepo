@@ -17,7 +17,7 @@ namespace Chatter.MetroClient.UI
         private int rowCount = 0;
         private int columnCount = 3;
         private string imageSouce = "/MetroClient;component/res/img/default.png";
-        
+
         private int[,] colors = new int[,]
         {
                                   
@@ -56,8 +56,9 @@ namespace Chatter.MetroClient.UI
                    
 
                                 };
+        private UserGroup[] userGroups;
 
-        public MyGrid(Friend[] friends)
+        public MyGrid(Member[] friends)
             : base()
         {
             rowCount = friends.Length / columnCount + 1;
@@ -77,17 +78,22 @@ namespace Chatter.MetroClient.UI
 
         }
 
-        public MyGrid(Dictionary<string, string> userGroups)
+
+
+        public MyGrid(UserGroup[] userGroups)
             : base()
         {
-            rowCount = userGroups.Count / columnCount + 1;
+
+            this.userGroups = userGroups;
+
+            rowCount = userGroups.Length / columnCount + 1;
             InitRowAndColumn();
             int i = 0;
             Random random = new Random((int)DateTime.Now.Ticks);
-            foreach (KeyValuePair<string, string> keyValue in userGroups)
+            foreach (UserGroup userGroup in userGroups)
             {
                 int j = random.Next(colors.Length / 3);
-                MyButton button = new MyButton(ButtonType.UserGroup, keyValue.Value, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
+                MyButton button = new MyButton(ButtonType.UserGroup, userGroup, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
                 Grid.SetColumn(button, i % columnCount);
                 Grid.SetRow(button, i / columnCount);
                 this.Children.Add(button);

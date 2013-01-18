@@ -30,7 +30,7 @@ namespace Chatter.MetroClient.UI
         private double zoomFontSize = 20;
         private double imageSize = 35;
         private double zoomImageSize = 40;
-        public Friend friend;
+        public BaseRole baseRole;
         private ButtonType type;
         private int index=0;
         public String Text
@@ -40,31 +40,26 @@ namespace Chatter.MetroClient.UI
         }
 
 
-        public MyButton()
+        public MyButton():base()
         {
             InitializeComponent();
 
         }
 
-        public MyButton(ButtonType type, Object obj, string imagesouce, Color color,int index)
+        public MyButton(ButtonType type, BaseRole baseRole, string imagesouce, Color color,int index):base()
         {
             this.index = index;
             this.type = type;
-            string name;
-            if (obj is Friend)
-            {
-                this.friend = obj as Friend;
-                name = friend.member.nickName;
-            }
-            else
-            {
-                name = obj.ToString();
-            }
+            this.baseRole=baseRole;
+            
+           
+           
 
             if (type == ButtonType.UserGroup)
             {
+                UserGroup userGroup= baseRole as UserGroup;
                 txtName = new TextBlock();
-                txtName.Text = name;
+                txtName.Text = userGroup.userGroupName;
                 txtName.FontSize = fontSize;
                 txtName.Foreground = new SolidColorBrush(Colors.White);
                 txtName.VerticalAlignment = VerticalAlignment.Center;
@@ -74,6 +69,7 @@ namespace Chatter.MetroClient.UI
             }
             else if (type == ButtonType.User)
             {
+                Member member = baseRole as Member;
                 RowDefinition row1 = new RowDefinition();
                 row1.Height = new GridLength(zoomImageSize);
                 RowDefinition row2 = new RowDefinition();
@@ -88,7 +84,7 @@ namespace Chatter.MetroClient.UI
                 Grid.SetRow(image, 0);
 
                 txtName = new TextBlock();
-                txtName.Text = name;
+                txtName.Text = member.nickName;
                 txtName.FontSize = fontSize;
                 txtName.Foreground = new SolidColorBrush(Colors.White);
                 txtName.VerticalAlignment = VerticalAlignment.Center;

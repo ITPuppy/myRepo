@@ -25,7 +25,7 @@ namespace Chatter.MetroClient.UI
         Grid selectedGrid;
         ChatterClient client;
         Member member;
-        Dictionary<string, Friend[]> dicFriends;
+        UserGroup[] userGroups;
         private MyTabControl tabControl;
         public MainWindow()
         {
@@ -71,60 +71,20 @@ namespace Chatter.MetroClient.UI
        
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Friend[] friends1 = new Friend[24] {
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } ,
-                 new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } ,
-                 new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } ,
-                 new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } ,
-                 new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } ,
-                 new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }, 
-                new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } 
-
-            };
-            Friend[] friends2 = new Friend[2] { new Friend() { member = new Member() { nickName = "曾令根" }, userGroupName = "大学同学", userGroupId = "23423" }, new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } };
-
-            Friend[] friends3 = new Friend[2] { new Friend() { member = new Member() { nickName = "丁得健" }, userGroupName = "高中同学", userGroupId = "23423" }, new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } };
-            Friend[] friends4 = new Friend[2] { new Friend() { member = new Member() { nickName = "eva" }, userGroupName = "我的家人", userGroupId = "23423" }, new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" }};
-            Friend[] friends5 = new Friend[2] { new Friend() { member = new Member() { nickName = "陈达" }, userGroupName = "朋友", userGroupId = "23423" }, new Friend() { member = new Member() { nickName = "walle" }, userGroupName = "我的好友", userGroupId = "23423" } };
-            dicFriends = new Dictionary<string, Friend[]>();
-            dicFriends.Add("1223",friends1);
-            dicFriends.Add("124323", friends2);
-            dicFriends.Add("122af3", friends3);
-
-            dicFriends.Add("122e3", friends4);
-            dicFriends.Add("1223aa", friends5);
+           
 
             init();
 
-            Application.Current.Exit += new ExitEventHandler((obj, args) => {
-                if (client != null)
-                    client.Logoff(member);
-            });
+         
         }
 
         private void init()
         {
+            txtNickName.Text = member.nickName;
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
-          dicFriends=  client.GetFriends(member.id);
-           tabControl = new MyTabControl(dicFriends);
+          userGroups=  client.GetFriends(member.id);
+           tabControl = new MyTabControl(userGroups);
           Grid.SetRow(tabControl,1);
           MiddleGrid.Children.Add(tabControl);
         }
@@ -132,6 +92,9 @@ namespace Chatter.MetroClient.UI
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
 
+            if (client != null)
+                client.Logoff(member);
+                 
             Application.Current.Shutdown();
             base.OnClosing(e);
         }

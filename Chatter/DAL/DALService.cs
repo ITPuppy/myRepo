@@ -420,10 +420,10 @@ namespace Chatter.DAL
         /// </summary>
         /// <param name="id">用户id</param>
         /// <returns></returns>
-        static public Dictionary<string,KeyValuePair<string, List<string>>> GetFriendList(string id)
+        static public List<UserGroup> GetFriendList(string id)
         {
             MySqlCommand cmd = null;
-            Dictionary<string, KeyValuePair<string, List<string>>> dicFriends=new Dictionary<string,KeyValuePair<string,List<string>>>();
+            List<UserGroup> userGroups = new List<UserGroup>();
             List<String> friends =null;
             try
             {
@@ -432,28 +432,50 @@ namespace Chatter.DAL
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
+                List<Tuple<string, string, List<string>>> userGroupList = new List<Tuple<string, string, List<string>>> ();
                 using (var reader = cmd.ExecuteReader())
                 {
-
+                    
                     while (reader.Read())
                     {
-                        temp = reader["friendId"].ToString();
+                       
                         string groupId = reader["groupId"].ToString();
                         string groupName=reader["groupName"].ToString();
+
+                        temp = reader["friendId"].ToString();
                         friends = GetNames(temp);
-                        dicFriends.Add(groupId, new KeyValuePair<string, List<string>>(groupName, friends));
+
+                        userGroupList.Add(new Tuple<string, string, List<string>>(groupId,groupName,friends));
+
+                      
                     }
                     
                     
                 }
 
-                return dicFriends;
+                foreach (Tuple<string, string, List<string>> tuple in userGroupList)
+                {
+                    List<Member> members = new List<Member>();
+                    foreach (string tempid in tuple.Item3)
+                    {
+                        Member member = GetMember(tempid);
+                        members.Add(member);
+                    }
+                    UserGroup userGroup = new UserGroup();
+                    userGroup.UserGroupId = tuple.Item1;
+                    userGroup.UserGroupName = tuple.Item2;
+                    userGroup.Members = members;
+                    userGroups.Add(userGroup);
+
+                }
+
+                return userGroups;
                 
 
             }
             catch (Exception e)
             {
-                Logger.Error("删除好友出现错误\n" + e.Message);
+                Logger.Error("获取好友列表出现错误\n" + e.Message);
                 return null;
             }
             finally

@@ -12,15 +12,17 @@ namespace Chatter.MetroClient.UI
 {
     class MyTabControl:TabControl
     {
-        private Dictionary<string, Friend[]> dicFriends;
+      
         private TabItem userGroupTabItem;
         private TabItem groupTabItem;
         private TabItem recentFriendTabItem;
+        private UserGroup[] userGroups;
 
-        public MyTabControl(Dictionary<string,Friend[]> dicFriends):base()
+
+        public MyTabControl(UserGroup[] userGroups):base()
         {
-            
-            this.dicFriends = dicFriends;
+           
+            this.userGroups = userGroups;
             this.Background = new SolidColorBrush(Color.FromArgb(255, 76, 141, 174));
             Style s = new Style();
             s.TargetType = typeof(TabItem);
@@ -28,22 +30,20 @@ namespace Chatter.MetroClient.UI
             this.ItemContainerStyle = s;
 
             ///好友列表
-            userGroupTabItem=NewUserGroupTab();
+            userGroupTabItem = NewUserGroupTab();
             this.Items.Add(userGroupTabItem);
             ///群组列表
             this.Items.Add(new TabItem());
             ///最近联系人列表
             this.Items.Add(new TabItem());
 
-            foreach(KeyValuePair<string,Friend[]> userGroup in dicFriends)
+            foreach (UserGroup userGroup in userGroups)
             {
-                this.Items.Add(NewFriendTab(userGroup.Value));
+                this.Items.Add(NewFriendTab(userGroup.members));
             }
-
-            
         }
 
-        private TabItem NewFriendTab(Friend[] friends)
+        private TabItem NewFriendTab(Member[] friends)
         {
             TabItem tabItem = new TabItem();
             ScrollViewer scrollViewer = new ScrollViewer();
@@ -64,12 +64,9 @@ namespace Chatter.MetroClient.UI
             scrollViewer.VerticalAlignment = VerticalAlignment.Stretch;
             scrollViewer.Foreground = new SolidColorBrush(Colors.Red);
             scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            foreach (KeyValuePair<string, Friend[]> keyValue in dicFriends)
-            {
-                dic.Add(keyValue.Key,keyValue.Value[0].userGroupName);
-            }
-             MyGrid grid= new MyGrid(dic);
+          
+           
+             MyGrid grid= new MyGrid(userGroups);
             scrollViewer.Content=grid;
             tabItem.Content = scrollViewer;
             return tabItem;

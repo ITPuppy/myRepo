@@ -15,9 +15,9 @@ namespace Chatter.Contract.ServiceContract
         void OnLogin(string id);
 
         [OperationContract(IsOneWay=true)]
-        void SendMessageCallback(Result result);
+        void OnSendMessage(Result result);
 
-        [OperationContract(IsOneWay = false)]
+        [OperationContract(IsOneWay = true)]
         void OnLogoff(string id);
     }
 }

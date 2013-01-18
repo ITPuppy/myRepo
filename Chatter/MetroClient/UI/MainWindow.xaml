@@ -74,7 +74,7 @@
                 <!--上面的grid，昵称，资料-->
                 <Grid >
 
-                    <TextBlock Text="Walle" FontSize="40" Margin="20,20,0,0"></TextBlock>
+                    <TextBlock Name="txtNickName"  FontSize="40" Margin="20,20,0,0"></TextBlock>
                 </Grid>
 
                 <!--下面的grid，好友-->

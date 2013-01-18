@@ -133,9 +133,6 @@
     <None Include="Service References\ChatterService\ChatterService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\MetroClient.ChatterService.Friend.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ChatterService\MetroClient.ChatterService.Group.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -170,6 +167,9 @@
     <None Include="Service References\ChatterService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ChatterService\MetroClient.ChatterService.UserGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ChatterService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

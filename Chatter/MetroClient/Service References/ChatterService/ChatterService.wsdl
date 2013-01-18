@@ -77,9 +77,6 @@
   <wsdl:message name="IChatter_OnLogoff_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnLogoff" />
   </wsdl:message>
-  <wsdl:message name="IChatter_OnLogoff_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:OnLogoffResponse" />
-  </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IChatter">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/Login" message="tns:IChatter_Login_InputMessage" />
@@ -121,7 +118,6 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogoff">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogoff" message="tns:IChatter_OnLogoff_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/OnLogoffResponse" message="tns:IChatter_OnLogoff_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IChatter" type="tns:IChatter">
@@ -213,9 +209,6 @@
     </wsdl:operation>
     <wsdl:operation name="OnLogoff">
       <soap12:operation soapAction="http://tempuri.org/IChatter/OnLogoff" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
