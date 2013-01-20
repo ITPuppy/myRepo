@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Chatter.Contract.DataContract
 {
+    /// <summary>
+    /// 结果
+    /// </summary>
     [DataContract]
     public class Result
     {
@@ -33,5 +36,14 @@ namespace Chatter.Contract.DataContract
             get { return member; }
             set { member = value; }
         }
+        [DataMember]
+        private UserGroup userGroup;
+
+        public UserGroup UserGroup
+        {
+            get { return userGroup; }
+            set { userGroup = value; }
+        }
+
     }
 }

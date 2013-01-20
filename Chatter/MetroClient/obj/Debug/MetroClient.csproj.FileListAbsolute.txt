@@ -36,3 +36,5 @@ F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.g.cs
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.lref
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.baml
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.g.cs
+E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.baml
+E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.g.cs

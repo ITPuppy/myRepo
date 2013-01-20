@@ -101,17 +101,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddUserGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="userGroup" nillable="true" type="q11:UserGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddUserGroupResult" nillable="true" type="q12:Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Logoff">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="member" nillable="true" type="q11:Member" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="member" nillable="true" type="q13:Member" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LogoffResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="LogoffResult" type="q12:MessageStatus" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="LogoffResult" type="q14:MessageStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -122,10 +136,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendMessageCallback">
+  <xs:element name="OnSendMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="result" nillable="true" type="q13:Result" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="result" nillable="true" type="q15:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

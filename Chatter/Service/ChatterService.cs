@@ -44,6 +44,10 @@ namespace Chatter.Service
         IChatterCallback callback;
 
         static private object lockObj = new object();
+        /// <summary>
+        /// 保存当前用户
+        /// </summary>
+        private Member member;
 
         /// <summary>
         /// 处理用户登录
@@ -64,6 +68,7 @@ namespace Chatter.Service
                 {
                     return new Result() { Status = MessageStatus.Failed };
                 }
+                this.member = member;
                 ///获得回调句柄
                 callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
                 ///获得好友们的id
@@ -275,6 +280,20 @@ namespace Chatter.Service
 
             Logger.Info("当前在线人数:" + Online.Count);
 
+        }
+
+        /// <summary>
+        /// 添加用户组
+        /// </summary>
+        /// <param name="userGroup">用户组信息</param>
+        /// <returns>包含用户组id的Result</returns>
+        public Result AddUserGroup(UserGroup userGroup)
+        {
+           string userGroupId= DALService.AddUserGroup(member.Id, userGroup.UserGroupName);
+           if (userGroupId == null)
+               return new Result() { Status = MessageStatus.Failed };
+           else
+               return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() {  UserGroupId=userGroupId} };
         }
     }
 

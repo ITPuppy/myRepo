@@ -46,33 +46,32 @@
                 Text="注册" 
                 Foreground="White"
                 VerticalAlignment="Center"/>
-            <TextBox Grid.Row="1" Width="180" Height="30" Text=""    >
+            <TextBox Name="txtNickName" Grid.Row="1" Width="180" Height="30" Text=""    >
 
                
             </TextBox>
-            <PasswordBox Grid.Row="2" Width="180" Height="30" Tag="密码">
+            <PasswordBox Name="txtPwd" Grid.Row="2" Width="180" Height="30" Tag="密码">
                 <ToolTipService.ToolTip>
                     <TextBlock>密码</TextBlock>
                 </ToolTipService.ToolTip>
             </PasswordBox>
-            <PasswordBox Grid.Row="3" Width="180" Height="30" Tag="确认密码">
+            <PasswordBox Name="txtRepeatPwd" Grid.Row="3" Width="180" Height="30" Tag="确认密码">
                 <ToolTipService.ToolTip>
                     <TextBlock>确认密码</TextBlock>
                 </ToolTipService.ToolTip>
             </PasswordBox>
-            <ComboBox Grid.Row="4" Width="180" Height="30" Tag="性别" Background="White"  Foreground="Black">
-                <ComboBoxItem >男性</ComboBoxItem>
-                <ComboBoxItem >女性</ComboBoxItem>
+            <ComboBox Name="cmboSex" Grid.Row="4" Width="180" Height="30" Tag="性别" Background="White"  Foreground="Black">
+    
                 <ToolTipService.ToolTip>
                     <TextBlock>性别</TextBlock>
                 </ToolTipService.ToolTip>
             </ComboBox>
             <StackPanel Grid.Row="5" Orientation="Horizontal">
-                <TextBox  VerticalAlignment="Center" Height="25" Margin="110,16,0,16"  Text=""  Width="45"/>
+                <ComboBox Name="cmboYear" VerticalAlignment="Center" Height="25" Margin="110,16,0,16"  Text=""  Width="60"   SelectionChanged="YearMonth_Changed"/>
                 <TextBlock   Grid.Row="5" TextWrapping="Wrap" Margin="5,0,0,0" Text="年" Foreground="White" VerticalAlignment="Center" Width="20" />
-                <TextBox  VerticalAlignment="Center" Height="25"  Text=""  Width="35"/>
+                <ComboBox  Name="cmboMonth" VerticalAlignment="Center" Height="25"  Text=""  Width="35" SelectionChanged="YearMonth_Changed" />
                 <TextBlock  Grid.Row="5" TextWrapping="Wrap" Margin="5,0,0,0" Text="月" Foreground="White" VerticalAlignment="Center" Width="20" />
-                <TextBox  VerticalAlignment="Center" Height="25"  TextWrapping="Wrap" Text=""  Width="30"/>
+                <ComboBox Name="cmboDay" VerticalAlignment="Center" Height="25"   Text=""  Width="30"/>
 
 
                 <TextBlock  Grid.Row="5" TextWrapping="Wrap" Text="日" Foreground="White" VerticalAlignment="Center" Width="20" />
@@ -82,7 +81,7 @@
                     Height="40"
                     Margin="0,0,0,0"
                     VerticalAlignment="Top"
-                    
+                    Click="bntRegister_Click"
                     >
                 注册
             </Button>

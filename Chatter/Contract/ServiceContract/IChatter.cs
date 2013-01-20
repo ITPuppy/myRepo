@@ -24,7 +24,10 @@ namespace Chatter.Contract.ServiceContract
         MessageStatus AddFriend2Group(string friendId, string groupId);
          [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus SendMesg(Message mesg);
+         [OperationContract(IsInitiating = false, IsTerminating = false)]
+        Result AddUserGroup(UserGroup userGroup);
         [OperationContract(IsInitiating = false, IsTerminating = true)]
         MessageStatus Logoff(Member member);
+        
     }
 }

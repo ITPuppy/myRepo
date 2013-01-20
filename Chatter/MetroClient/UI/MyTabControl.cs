@@ -17,11 +17,12 @@ namespace Chatter.MetroClient.UI
         private TabItem groupTabItem;
         private TabItem recentFriendTabItem;
         private UserGroup[] userGroups;
+        private ChatterClient client;
 
 
-        public MyTabControl(UserGroup[] userGroups):base()
+        public MyTabControl(UserGroup[] userGroups,ChatterClient client):base()
         {
-           
+            this.client = client;
             this.userGroups = userGroups;
             this.Background = new SolidColorBrush(Color.FromArgb(255, 76, 141, 174));
             Style s = new Style();
@@ -30,47 +31,24 @@ namespace Chatter.MetroClient.UI
             this.ItemContainerStyle = s;
 
             ///好友列表
-            userGroupTabItem = NewUserGroupTab();
+            userGroupTabItem = new MyTabItem(MyType.UserGroup, userGroups, client);
             this.Items.Add(userGroupTabItem);
             ///群组列表
             this.Items.Add(new TabItem());
             ///最近联系人列表
             this.Items.Add(new TabItem());
-
+            ///设置
+            this.Items.Add(new TabItem());
+            
             foreach (UserGroup userGroup in userGroups)
             {
-                this.Items.Add(NewFriendTab(userGroup.members));
+                this.Items.Add(new MyTabItem(MyType.User,userGroup.members,client));
             }
         }
 
-        private TabItem NewFriendTab(Member[] friends)
-        {
-            TabItem tabItem = new TabItem();
-            ScrollViewer scrollViewer = new ScrollViewer();
-            scrollViewer.VerticalAlignment = VerticalAlignment.Stretch;
-           
-            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-            scrollViewer.HorizontalAlignment = HorizontalAlignment.Stretch;
-            MyGrid grid = new MyGrid(friends);
-            scrollViewer.Content = grid;
-            tabItem.Content = scrollViewer;
-            return tabItem;
-        }
+      
 
-        private TabItem NewUserGroupTab()
-        {
-            TabItem tabItem = new TabItem();
-            ScrollViewer scrollViewer = new ScrollViewer();
-            scrollViewer.VerticalAlignment = VerticalAlignment.Stretch;
-            scrollViewer.Foreground = new SolidColorBrush(Colors.Red);
-            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-          
-           
-             MyGrid grid= new MyGrid(userGroups);
-            scrollViewer.Content=grid;
-            tabItem.Content = scrollViewer;
-            return tabItem;
-            
-        }
+      
+
     }
 }

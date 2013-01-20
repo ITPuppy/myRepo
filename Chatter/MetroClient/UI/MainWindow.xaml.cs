@@ -64,6 +64,10 @@ namespace Chatter.MetroClient.UI
                 tabControl.SelectedIndex = 1;
             else if (grid.Name == "btnRecentFriendGrid")
                 tabControl.SelectedIndex = 2;
+            else if (grid.Name == "btnSetting")
+            {
+                tabControl.SelectedIndex = 3;
+            }
           
         }
 
@@ -84,7 +88,7 @@ namespace Chatter.MetroClient.UI
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
           userGroups=  client.GetFriends(member.id);
-           tabControl = new MyTabControl(userGroups);
+           tabControl = new MyTabControl(userGroups,client);
           Grid.SetRow(tabControl,1);
           MiddleGrid.Children.Add(tabControl);
         }

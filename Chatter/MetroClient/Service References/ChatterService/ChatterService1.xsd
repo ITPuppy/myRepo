@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="Member">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRole">
@@ -22,38 +22,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="BaseRole" nillable="true" type="tns:BaseRole" />
-  <xs:simpleType name="MemberStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Online" />
-      <xs:enumeration value="Offline" />
-      <xs:enumeration value="Levave" />
-      <xs:enumeration value="Busy" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="MemberStatus" nillable="true" type="tns:MemberStatus" />
-  <xs:complexType name="Result">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="guid" type="ser:guid" />
-      <xs:element minOccurs="0" name="member" nillable="true" type="tns:Member" />
-      <xs:element minOccurs="0" name="status" type="tns:MessageStatus" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Result" nillable="true" type="tns:Result" />
-  <xs:simpleType name="MessageStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="OK" />
-      <xs:enumeration value="Failed" />
-      <xs:enumeration value="Accept" />
-      <xs:enumeration value="Refuse" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="MessageStatus" nillable="true" type="tns:MessageStatus" />
-  <xs:complexType name="ArrayOfUserGroup">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfUserGroup" nillable="true" type="tns:ArrayOfUserGroup" />
   <xs:complexType name="UserGroup">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRole">
@@ -72,12 +40,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfMember" nillable="true" type="tns:ArrayOfMember" />
-  <xs:complexType name="ArrayOfGroup">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGroup" nillable="true" type="tns:ArrayOfGroup" />
   <xs:complexType name="Group">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRole">
@@ -91,6 +53,45 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Group" nillable="true" type="tns:Group" />
+  <xs:simpleType name="MemberStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Online" />
+      <xs:enumeration value="Offline" />
+      <xs:enumeration value="Levave" />
+      <xs:enumeration value="Busy" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MemberStatus" nillable="true" type="tns:MemberStatus" />
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="member" nillable="true" type="tns:Member" />
+      <xs:element minOccurs="0" name="status" type="tns:MessageStatus" />
+      <xs:element minOccurs="0" name="userGroup" nillable="true" type="tns:UserGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Result" nillable="true" type="tns:Result" />
+  <xs:simpleType name="MessageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="Failed" />
+      <xs:enumeration value="Accept" />
+      <xs:enumeration value="Refuse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageStatus" nillable="true" type="tns:MessageStatus" />
+  <xs:complexType name="ArrayOfUserGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserGroup" nillable="true" type="tns:ArrayOfUserGroup" />
+  <xs:complexType name="ArrayOfGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroup" nillable="true" type="tns:ArrayOfGroup" />
   <xs:complexType name="Message">
     <xs:sequence>
       <xs:element minOccurs="0" name="from" nillable="true" type="tns:Member" />

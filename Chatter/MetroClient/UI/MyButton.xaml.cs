@@ -31,7 +31,7 @@ namespace Chatter.MetroClient.UI
         private double imageSize = 35;
         private double zoomImageSize = 40;
         public BaseRole baseRole;
-        private ButtonType type;
+        private MyType type;
         private int index=0;
         public String Text
         {
@@ -46,7 +46,7 @@ namespace Chatter.MetroClient.UI
 
         }
 
-        public MyButton(ButtonType type, BaseRole baseRole, string imagesouce, Color color,int index):base()
+        public MyButton(MyType type, BaseRole baseRole, string imagesouce, Color color,int index):base()
         {
             this.index = index;
             this.type = type;
@@ -55,7 +55,7 @@ namespace Chatter.MetroClient.UI
            
            
 
-            if (type == ButtonType.UserGroup)
+            if (type == MyType.UserGroup)
             {
                 UserGroup userGroup= baseRole as UserGroup;
                 txtName = new TextBlock();
@@ -66,8 +66,23 @@ namespace Chatter.MetroClient.UI
                 txtName.HorizontalAlignment = HorizontalAlignment.Center;
                 this.Children.Add(txtName);
                 this.Background = new SolidColorBrush(color);
+                ///右键菜单
+                ContextMenu cm = new ContextMenu();
+                cm.Background = new SolidColorBrush(Color.FromArgb(255, 114, 119, 123));
+                cm.Foreground = new SolidColorBrush(Colors.White);
+                MenuItem deleteUserGroupMenuItem = new MenuItem();
+                deleteUserGroupMenuItem.Header = "删除分组";
+                deleteUserGroupMenuItem.Click += deleteUserGroupMenuItem_Click;
+                cm.Items.Add(deleteUserGroupMenuItem);
+                MenuItem changeUserGroupNameItem = new MenuItem();
+                changeUserGroupNameItem.Header = "更改分组名";
+                changeUserGroupNameItem.Click += changeUserGroupNameItem_Click;
+                
+                cm.Items.Add(changeUserGroupNameItem);
+                
+                this.ContextMenu = cm;
             }
-            else if (type == ButtonType.User)
+            else if (type == MyType.User)
             {
                 Member member = baseRole as Member;
                 RowDefinition row1 = new RowDefinition();
@@ -90,9 +105,12 @@ namespace Chatter.MetroClient.UI
                 txtName.VerticalAlignment = VerticalAlignment.Center;
                 txtName.HorizontalAlignment = HorizontalAlignment.Center;
                 Grid.SetRow(txtName, 1);
+                ///用户图片
                 this.Children.Add(image);
+                ///昵称
                 this.Children.Add(txtName);
                 this.Background = new SolidColorBrush(color);
+                
             }
             this.Width = weight;
             this.Height = height;
@@ -101,16 +119,33 @@ namespace Chatter.MetroClient.UI
             this.MouseLeftButtonUp += MyButton_LeftButtonDown;
         }
 
+        void changeUserGroupNameItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("确定要更改");
+        }
+
+        void deleteUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            UserGroup userGroup = baseRole as UserGroup;
+            MessageBoxResult result= MessageBox.Show("确定要删除"+userGroup.userGroupName+"?","删除",MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+
+            }
+
+        }
+
         private void MyButton_LeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             switch (type)
             {
-                case ButtonType.User:
+                case MyType.User:
                     {
                         MessageBox.Show("聊天");
                         break;
                     }
-                case ButtonType.UserGroup:
+                case MyType.UserGroup:
                     {
 
 
@@ -118,7 +153,7 @@ namespace Chatter.MetroClient.UI
                         ScrollViewer scrollViewer = grid.Parent as ScrollViewer;
                         TabItem tabItem = scrollViewer.Parent as TabItem;
                         TabControl tabControl = tabItem.Parent as TabControl;
-                        tabControl.SelectedIndex = index + 3;
+                        tabControl.SelectedIndex = index + 4;
 
                         break;
                     }
@@ -156,7 +191,7 @@ namespace Chatter.MetroClient.UI
 
 
 
-    public enum ButtonType
+    public enum MyType
     {
         UserGroup,
         User,

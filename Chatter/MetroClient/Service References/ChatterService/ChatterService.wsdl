@@ -62,6 +62,12 @@
   <wsdl:message name="IChatter_SendMesg_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendMesgResponse" />
   </wsdl:message>
+  <wsdl:message name="IChatter_AddUserGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserGroup" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_AddUserGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserGroupResponse" />
+  </wsdl:message>
   <wsdl:message name="IChatter_Logoff_InputMessage">
     <wsdl:part name="parameters" element="tns:Logoff" />
   </wsdl:message>
@@ -71,8 +77,8 @@
   <wsdl:message name="IChatter_OnLogin_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnLogin" />
   </wsdl:message>
-  <wsdl:message name="IChatter_SendMessageCallback_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:SendMessageCallback" />
+  <wsdl:message name="IChatter_OnSendMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnSendMessage" />
   </wsdl:message>
   <wsdl:message name="IChatter_OnLogoff_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnLogoff" />
@@ -106,6 +112,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/SendMesg" message="tns:IChatter_SendMesg_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMesgResponse" message="tns:IChatter_SendMesg_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddUserGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddUserGroup" message="tns:IChatter_AddUserGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddUserGroupResponse" message="tns:IChatter_AddUserGroup_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="true" name="Logoff">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/Logoff" message="tns:IChatter_Logoff_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/LogoffResponse" message="tns:IChatter_Logoff_OutputMessage" />
@@ -113,8 +123,8 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogin">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogin" message="tns:IChatter_OnLogin_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendMessageCallback">
-      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMessageCallback" message="tns:IChatter_SendMessageCallback_OutputCallbackMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnSendMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnSendMessage" message="tns:IChatter_OnSendMessage_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogoff">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogoff" message="tns:IChatter_OnLogoff_OutputCallbackMessage" />
@@ -186,6 +196,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddUserGroup">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/AddUserGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Logoff">
       <soap12:operation soapAction="http://tempuri.org/IChatter/Logoff" style="document" />
       <wsdl:input>
@@ -201,8 +220,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SendMessageCallback">
-      <soap12:operation soapAction="http://tempuri.org/IChatter/SendMessageCallback" style="document" />
+    <wsdl:operation name="OnSendMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/OnSendMessage" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

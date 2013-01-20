@@ -56,6 +56,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Callback\ChatterCallback.cs" />
+    <Compile Include="Service References\RegisterService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MyTabItem.cs" />
     <Compile Include="UI\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,22 @@
     <None Include="Service References\ChatterService\MetroClient.ChatterService.Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\RegisterService\MetroClient.RegisterService.Member.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RegisterService\RegisterService.wsdl" />
+    <None Include="Service References\RegisterService\RegisterService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RegisterService\RegisterService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RegisterService\RegisterService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RegisterService\RegisterService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -159,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ChatterService\" />
+    <WCFMetadataStorage Include="Service References\RegisterService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ChatterService\configuration91.svcinfo" />
@@ -177,6 +200,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RegisterService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RegisterService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RegisterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

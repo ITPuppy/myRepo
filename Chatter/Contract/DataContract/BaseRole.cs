@@ -11,6 +11,10 @@ namespace Chatter.Contract.DataContract
     /// Member 和 Group的基类
     /// </summary>
     [DataContract]
+    [KnownType(typeof(Member))]
+    [KnownType(typeof(Group))]
+    [KnownType(typeof(UserGroup))]
+
    public class BaseRole
     {
 

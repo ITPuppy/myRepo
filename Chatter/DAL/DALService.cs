@@ -66,7 +66,7 @@ namespace Chatter.DAL
                 Prepare(cmd.Parameters);
                 int i1 = cmd.ExecuteNonQuery();
 
-                sql = String.Format("insert into tblFriend(id，groupId,groupName) values(?id,?groupId,?groupName)");
+                sql = String.Format("insert into tblFriend(id,groupId,groupName) values(?id,?groupId,?groupName)");
                 cmd.Parameters.AddWithValue("groupId","0");
                 cmd.Parameters.AddWithValue("groupName", "我的好友");
                 Prepare(cmd.Parameters);
@@ -818,7 +818,7 @@ namespace Chatter.DAL
         /// <param name="id">用户id</param>
         /// <param name="userGroupName">分组名</param>
         /// <returns></returns>
-        public static bool AddUserGroup(string id, string userGroupName)
+        public static string AddUserGroup(string id, string userGroupName)
         {
             MySqlCommand cmd = null;
             try
@@ -827,7 +827,8 @@ namespace Chatter.DAL
                 string sql = String.Format("insert into tblUserGroup(id,groupId,groupName) values(?id,?groupId,?groupName)");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id",id);
-                cmd.Parameters.AddWithValue("groupId",NewUserGroupId(2,id));
+                string groupId=NewUserGroupId(2,id);
+                cmd.Parameters.AddWithValue("groupId",groupId);
                 cmd.Parameters.AddWithValue("groupName", userGroupName);
                 Prepare(cmd.Parameters);
                
@@ -838,13 +839,13 @@ namespace Chatter.DAL
 
 
 
-                return i1 == 1;
+                return groupId;
             }
             catch (Exception e)
             {
                 Logger.Error("添加分组出现错误\n" + e.Message);
 
-                return false;
+                return null;
             }
 
             finally

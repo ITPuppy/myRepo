@@ -20,7 +20,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="330"/>
-                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500*"/>
             </Grid.ColumnDefinitions>
 
 
@@ -55,7 +55,10 @@
                     <TextBlock Text="最近联系人" FontSize="25" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Label VerticalAlignment="Stretch"></Label>
                 </Grid>
-
+                <Grid Name="btnSetting" Grid.Row="4"   MouseLeftButtonDown="SelectMode_Click" >
+                    <TextBlock Text="设置" FontSize="25" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label VerticalAlignment="Stretch"></Label>
+                </Grid>
 
             </Grid>
 

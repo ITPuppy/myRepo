@@ -15,7 +15,7 @@ namespace Chatter.MetroClient.Callback
             MessageBox.Show(id+"已经登录");
         }
 
-        public void SendMessageCallback(Result result)
+        public void OnSendMessageCallback(Result result)
         {
             
         }
@@ -36,15 +36,9 @@ namespace Chatter.MetroClient.Callback
            
         }
 
-        public IAsyncResult BeginSendMessageCallback(Result result, AsyncCallback callback, object asyncState)
-        {
-            return null;
-        }
+       
 
-        public void EndSendMessageCallback(IAsyncResult result)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public IAsyncResult BeginOnLogoff(string id, AsyncCallback callback, object asyncState)
         {
@@ -54,6 +48,22 @@ namespace Chatter.MetroClient.Callback
         public void EndOnLogoff(IAsyncResult result)
         {
             
+        }
+
+
+        public void OnSendMessage(Result result)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAsyncResult BeginOnSendMessage(Result result, AsyncCallback callback, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndOnSendMessage(IAsyncResult result)
+        {
+            throw new NotImplementedException();
         }
     }
 }

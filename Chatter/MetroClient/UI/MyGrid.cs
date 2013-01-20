@@ -69,7 +69,7 @@ namespace Chatter.MetroClient.UI
             for (int i = 0; i < friends.Length; i++)
             {
                 int j = random.Next(colors.Length / 3);
-                MyButton button = new MyButton(ButtonType.User, friends[i], imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
+                MyButton button = new MyButton(MyType.User, friends[i], imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
                 Grid.SetColumn(button, i % columnCount);
                 Grid.SetRow(button, i / columnCount);
                 this.Children.Add(button);
@@ -93,7 +93,7 @@ namespace Chatter.MetroClient.UI
             foreach (UserGroup userGroup in userGroups)
             {
                 int j = random.Next(colors.Length / 3);
-                MyButton button = new MyButton(ButtonType.UserGroup, userGroup, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
+                MyButton button = new MyButton(MyType.UserGroup, userGroup, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
                 Grid.SetColumn(button, i % columnCount);
                 Grid.SetRow(button, i / columnCount);
                 this.Children.Add(button);
