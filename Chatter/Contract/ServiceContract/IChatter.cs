@@ -14,20 +14,27 @@ namespace Chatter.Contract.ServiceContract
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
          List<UserGroup> GetFriends(string id);
+
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         List<Group> GetGroups(string id);
+
         [OperationContract(IsInitiating = false, IsTerminating = false)]
-        MessageStatus AddFriend(string id, string friendId);
+        Result AddFriend( string friendId, string userGroupId = "0");
+
          [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus AddGroup(Group group);
+
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus AddFriend2Group(string friendId, string groupId);
+
          [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus SendMesg(Message mesg);
+
          [OperationContract(IsInitiating = false, IsTerminating = false)]
         Result AddUserGroup(UserGroup userGroup);
+
         [OperationContract(IsInitiating = false, IsTerminating = true)]
-        MessageStatus Logoff(Member member);
+        MessageStatus Logoff(Member member);                                                                                                                                                                                                                                                                                                                                          
         
     }
 }

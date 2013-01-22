@@ -22,42 +22,101 @@ namespace Chatter.MetroClient.UI
     /// </summary>
     public partial class MyButton : Grid
     {
+        /// <summary>
+        /// Button高度
+        /// </summary>
         private double height = 95;
+        /// <summary>
+        /// Button宽度
+        /// </summary>
         private double weight = 95;
+        /// <summary>
+        /// 放大的时候的高度
+        /// </summary>
         private double zoomHeight = 105;
+        /// <summary>
+        /// 放大的时候的宽度
+        /// </summary>
         private double zoomWidth = 105;
+        /// <summary>
+        /// 名称字体的大小
+        /// </summary>
         private double fontSize = 15;
+        /// <summary>
+        /// 放大的时候的名称字体大小
+        /// </summary>
         private double zoomFontSize = 20;
+        /// <summary>
+        /// 图片大小
+        /// </summary>
         private double imageSize = 35;
+        /// <summary>
+        /// 放大图片大小
+        /// </summary>
         private double zoomImageSize = 40;
+        /// <summary>
+        /// 存放当前对象，Member或者UserGroup或者Group
+        /// </summary>
         public BaseRole baseRole;
+        /// <summary>
+        /// Button类型
+        /// </summary>
         private MyType type;
-        private int index=0;
+        /// <summary>
+        /// 当前Button在MyGrid中的index，用于指定位置
+        /// </summary>
+        private string userGroupId;
         public String Text
         {
             get { return txtName.Text; }
             set { txtName.Text = value; }
         }
+        private MyTabControl parentTabControl ;
+        public MyTabControl ParentTabControl 
+        {
 
+            get
+            {
+                if (parentTabControl != null)
+                    return parentTabControl;
+
+                MyGrid grid = this.Parent as MyGrid;
+                ScrollViewer scrollViewer = grid.Parent as ScrollViewer;
+                TabItem tabItem = scrollViewer.Parent as TabItem;
+                parentTabControl = tabItem.Parent as MyTabControl;
+                return parentTabControl;
+            }
+        
+    }
 
         public MyButton():base()
         {
             InitializeComponent();
 
         }
-
-        public MyButton(MyType type, BaseRole baseRole, string imagesouce, Color color,int index):base()
+        /// <summary>
+        /// MyButton构造函数
+        /// </summary>
+        /// <param name="type">Button类型</param>
+        /// <param name="baseRole">Member或者UserGroup或者Group</param>
+        /// <param name="imagesouce">如果是用户，用户头像，其他目前为空</param>
+        /// <param name="color">Button颜色</param>
+        public MyButton(MyType type, BaseRole baseRole, string imagesouce, Color color,string userGroupId="-1"):base()
         {
-            this.index = index;
+            ///设置分组ID
+            this.userGroupId = userGroupId;
+            ///设置类型
             this.type = type;
+            ///设置对象Member或者UserGroup或者Group
             this.baseRole=baseRole;
             
            
            
-
+            ///分组
             if (type == MyType.UserGroup)
             {
                 UserGroup userGroup= baseRole as UserGroup;
+                ///分组名称
                 txtName = new TextBlock();
                 txtName.Text = userGroup.userGroupName;
                 txtName.FontSize = fontSize;
@@ -65,17 +124,28 @@ namespace Chatter.MetroClient.UI
                 txtName.VerticalAlignment = VerticalAlignment.Center;
                 txtName.HorizontalAlignment = HorizontalAlignment.Center;
                 this.Children.Add(txtName);
-                this.Background = new SolidColorBrush(color);
+
+
+                
+
+
                 ///右键菜单
                 ContextMenu cm = new ContextMenu();
+                ///菜单的背景色
                 cm.Background = new SolidColorBrush(Color.FromArgb(255, 114, 119, 123));
+                ///菜单的前景色
                 cm.Foreground = new SolidColorBrush(Colors.White);
+                ///删除分组菜单项
                 MenuItem deleteUserGroupMenuItem = new MenuItem();
                 deleteUserGroupMenuItem.Header = "删除分组";
+                ///删除分组事件
                 deleteUserGroupMenuItem.Click += deleteUserGroupMenuItem_Click;
                 cm.Items.Add(deleteUserGroupMenuItem);
+
+                ///更改分组名菜单项
                 MenuItem changeUserGroupNameItem = new MenuItem();
                 changeUserGroupNameItem.Header = "更改分组名";
+                ///更改分组名事件
                 changeUserGroupNameItem.Click += changeUserGroupNameItem_Click;
                 
                 cm.Items.Add(changeUserGroupNameItem);
@@ -85,19 +155,23 @@ namespace Chatter.MetroClient.UI
             else if (type == MyType.User)
             {
                 Member member = baseRole as Member;
+
+                ///第一行用来放置头像
                 RowDefinition row1 = new RowDefinition();
                 row1.Height = new GridLength(zoomImageSize);
+                ///第二行用来放置昵称
                 RowDefinition row2 = new RowDefinition();
                 //  row2.Height = new GridLength(imageHeight);
                 this.RowDefinitions.Add(row1);
                 this.RowDefinitions.Add(row2);
 
+                ///用户头像
                 image = new Image();
                 image.Source = new BitmapImage(new Uri(imagesouce, UriKind.Relative));
                 image.Height = imageSize;
                 image.Width = imageSize;
                 Grid.SetRow(image, 0);
-
+                ///用户昵称
                 txtName = new TextBlock();
                 txtName.Text = member.nickName;
                 txtName.FontSize = fontSize;
@@ -105,37 +179,111 @@ namespace Chatter.MetroClient.UI
                 txtName.VerticalAlignment = VerticalAlignment.Center;
                 txtName.HorizontalAlignment = HorizontalAlignment.Center;
                 Grid.SetRow(txtName, 1);
-                ///用户图片
+                ///添加用户头像
                 this.Children.Add(image);
-                ///昵称
+                ///添加昵称
                 this.Children.Add(txtName);
-                this.Background = new SolidColorBrush(color);
+              
                 
             }
+
+            ///背景色为MyGrid里面传进来的颜色
+            this.Background = new SolidColorBrush(color);
             this.Width = weight;
             this.Height = height;
+
+            ///鼠标进入事件，放大
             this.MouseEnter += MyButton_MouseEnter;
+            ///鼠标离开事件，恢复
             this.MouseLeave += MyButton_MouseLeave;
+
+            ///鼠标点击事件
             this.MouseLeftButtonUp += MyButton_LeftButtonDown;
         }
 
+        /// <summary>
+        /// 更改分组名称
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void changeUserGroupNameItem_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("确定要更改");
         }
 
+
+        /// <summary>
+        /// 删除分组
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void deleteUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
             //throw new NotImplementedException();
             UserGroup userGroup = baseRole as UserGroup;
-            MessageBoxResult result= MessageBox.Show("确定要删除"+userGroup.userGroupName+"?","删除",MessageBoxButton.OKCancel);
+            if (userGroup.userGroupId == "0")
+            {
+                MessageBox.Show("默认分组不允许删除");
+                return;
+            }
+            MessageBoxResult result= MessageBox.Show("确定要删除"+userGroup.userGroupName+",并将分组下好友移至默认分组?","确认",MessageBoxButton.OKCancel);
+           
             if (result == MessageBoxResult.OK)
             {
 
+
+                ///将好友移至默认分组
+
+                MyTabItem tabItem = ParentTabControl.friendTabItems[userGroup.userGroupId];
+                MyButton[] friendArray = new MyButton[tabItem.myGrid.Children.Count];
+                tabItem.myGrid.Children.CopyTo(friendArray, 0);
+
+                MyTabItem defaultTabItem = ParentTabControl.friendTabItems["0"];
+                for (int i = 0; i < friendArray.Length; i++)
+                {
+                    defaultTabItem.myGrid.AddButton(MyType.User, (friendArray[i].baseRole as Member));
+                }
+
+
+                ///删除原分组。并将后面的分组前移
+                MyGrid myGrid = this.Parent as MyGrid;
+
+                int currentIndex = myGrid.Children.IndexOf(this);
+                ///删掉分组对应的好友分组
+                ParentTabControl.Items.Remove(ParentTabControl.friendTabItems[userGroup.userGroupId]);
+                ParentTabControl.friendTabItems.Remove(userGroup.userGroupId);
+                ///删掉分组
+                myGrid.Children.Remove(this);
+                ///删除全局的分组记录
+                DataUtil.DeleteUserGroup(userGroup.userGroupId);
+
+
+                ///将后面的分组移除
+                List<MyButton> temp = new List<MyButton>();
+                for (; currentIndex < myGrid.Children.Count; )
+                {
+                    temp.Add(myGrid.Children[currentIndex] as MyButton);
+                    myGrid.Children.RemoveAt(currentIndex);
+                   
+                }
+                ///将后面的分组前移后加上
+                foreach (MyButton button in temp)
+                {
+                    Grid.SetRow(button, currentIndex / 3);
+                    Grid.SetColumn(button, currentIndex % 3);
+                    myGrid.Children.Add(button);
+                    currentIndex++;
+                }
             }
 
         }
 
+
+        /// <summary>
+        /// 点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyButton_LeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             switch (type)
@@ -147,20 +295,21 @@ namespace Chatter.MetroClient.UI
                     }
                 case MyType.UserGroup:
                     {
-
-
-                        Grid grid = this.Parent as Grid;
-                        ScrollViewer scrollViewer = grid.Parent as ScrollViewer;
-                        TabItem tabItem = scrollViewer.Parent as TabItem;
-                        TabControl tabControl = tabItem.Parent as TabControl;
-                        tabControl.SelectedIndex = index + 4;
-
+                        UserGroup userGroup=baseRole as UserGroup;
+                        ///根据分组名查找好友列表（字典实现）
+                        ParentTabControl.SelectedItem = ParentTabControl.friendTabItems[userGroup.userGroupId];
                         break;
                     }
             }
         }
 
+       
 
+        /// <summary>
+        /// 鼠标离开恢复事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyButton_MouseLeave(object sender, MouseEventArgs e)
         {
             Grid btn = sender as Grid;
@@ -174,7 +323,11 @@ namespace Chatter.MetroClient.UI
                 image.Width = imageSize;
             }
         }
-
+        /// <summary>
+        /// 鼠标进入放大事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyButton_MouseEnter(object sender, MouseEventArgs e)
         {
             Grid btn = sender as Grid;

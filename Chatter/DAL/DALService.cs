@@ -220,7 +220,7 @@ namespace Chatter.DAL
         /// <param name="friendId">好友id</param>
         /// <param name="userGroupId">分组id</param>
         /// <returns></returns>
-        static public bool AddFriend(string id, string friendId,string userGroupId="0")
+        static public Member AddFriend(string id, string friendId,string userGroupId="0")
         {
             MySqlCommand cmd = null;
             try
@@ -233,13 +233,17 @@ namespace Chatter.DAL
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
-                return i == 1;
+                if (i == 1)
+                {
+                    return GetMember(friendId);
+                }
+                else return null;
 
             }
             catch (Exception e)
             {
                 Logger.Error("添加好友出现错误\n" + e.Message);
-                return false;
+                return null;
             }
             finally
             {
@@ -791,19 +795,18 @@ namespace Chatter.DAL
             MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("select id from tblFriend where id=?id and userGroupId=?userGroupId");
+                string sql = String.Format("select id from tblFriend where id=?id and groupId=?userGroupId");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
-                cmd.Parameters.AddWithValue("id", userGroupId);
+                cmd.Parameters.AddWithValue("userGroupId", userGroupId);
                 Prepare(cmd.Parameters);
-
                 return null != cmd.ExecuteScalar(); ;
 
             }
             catch (Exception e)
             {
                 Logger.Error("查询分组存在出现错误\n" + e.Message);
-                return false;
+                return true;
             }
             finally
             {
@@ -824,7 +827,7 @@ namespace Chatter.DAL
             try
             {
 
-                string sql = String.Format("insert into tblUserGroup(id,groupId,groupName) values(?id,?groupId,?groupName)");
+                string sql = String.Format("insert into tblFriend(id,groupId,groupName) values(?id,?groupId,?groupName)");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id",id);
                 string groupId=NewUserGroupId(2,id);
@@ -873,7 +876,7 @@ namespace Chatter.DAL
                 Logger.Error("移动好友时候，删除好友出错");
                 return false;
             }
-           return AddFriend(id, friendId, toId);
+            return AddFriend(id, friendId, toId) == null?false:true ;
 
         }
 

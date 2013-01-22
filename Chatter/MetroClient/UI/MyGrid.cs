@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace Chatter.MetroClient.UI
 {
-    class MyGrid : Grid
+    public class MyGrid : Grid
     {
         private double columnWidth = 100;
         private double rowHeigth = 100;
@@ -21,9 +21,6 @@ namespace Chatter.MetroClient.UI
         private int[,] colors = new int[,]
         {
                                   
-
-
-
             ///faa755" 
               // #8a5d19"
                //"#d71345
@@ -56,61 +53,121 @@ namespace Chatter.MetroClient.UI
                    
 
                                 };
-        private UserGroup[] userGroups;
-
-        public MyGrid(Member[] friends)
-            : base()
-        {
-            rowCount = friends.Length / columnCount + 1;
-            InitRowAndColumn();
-
-            Random random = new Random((int)DateTime.Now.Ticks);
-
-            for (int i = 0; i < friends.Length; i++)
-            {
-                int j = random.Next(colors.Length / 3);
-                MyButton button = new MyButton(MyType.User, friends[i], imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
-                Grid.SetColumn(button, i % columnCount);
-                Grid.SetRow(button, i / columnCount);
-                this.Children.Add(button);
-            }
-
-
-        }
 
 
 
-        public MyGrid(UserGroup[] userGroups)
+        public MyGrid(MyType type, string userGroupId = "-1")
             : base()
         {
 
-            this.userGroups = userGroups;
 
-            rowCount = userGroups.Length / columnCount + 1;
-            InitRowAndColumn();
+
             int i = 0;
             Random random = new Random((int)DateTime.Now.Ticks);
-            foreach (UserGroup userGroup in userGroups)
+            if (type == MyType.User)
             {
-                int j = random.Next(colors.Length / 3);
-                MyButton button = new MyButton(MyType.UserGroup, userGroup, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]), i);
-                Grid.SetColumn(button, i % columnCount);
-                Grid.SetRow(button, i / columnCount);
-                this.Children.Add(button);
-                i++;
+
+
+                List<Member> friends = DataUtil.GetMemberList(userGroupId);
+                InitRowAndColumn();
+
+
+                rowCount = friends.Count / columnCount + 1;
+                for (i = 0; i < friends.Count; i++)
+                {
+                    int j = random.Next(colors.Length / 3);
+                    MyButton button = new MyButton(MyType.User, friends[i], imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]),userGroupId);
+                    Grid.SetColumn(button, i % columnCount);
+                    Grid.SetRow(button, i / columnCount);
+                    this.Children.Add(button);
+                }
             }
+            else if (type == MyType.UserGroup)
+            {
+
+                List<UserGroup> userGroups = DataUtil.UserGroups;
+                rowCount = userGroups.Count / columnCount + 1;
+                InitRowAndColumn();
+
+
+
+
+                for (i = 0; i < userGroups.Count; i++)
+                {
+                    int j = random.Next(colors.Length / 3);
+                    MyButton button = new MyButton(MyType.UserGroup, userGroups[i], null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]));
+                    Grid.SetColumn(button, i % columnCount);
+                    Grid.SetRow(button, i / columnCount);
+                    this.Children.Add(button);
+
+                }
+            }
+
+
+
+
         }
 
+
+
+
+        /// <summary>
+        /// 初始化行列
+        /// 根据内容的多少，创建行列
+        /// </summary
         private void InitRowAndColumn()
         {
-            for (int i = 0; i < columnCount; i++)
+
+            while (this.ColumnDefinitions.Count < columnCount)
             {
                 this.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(columnWidth) });
             }
-            for (int i = 0; i < rowCount; i++)
+            while (this.RowDefinitions.Count < rowCount + 1)
             {
                 this.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(rowHeigth) });
             }
+        }
+
+        /// <summary>
+        /// 添加MyButton
+        /// </summary>
+        /// <param name="type">Button的类型</param>
+        /// <param name="role">Member或者UserGroup 或者Group</param>
+        public void 
+            AddButton(MyType type, BaseRole role,string userGroupId="-1")
+        {
+            int index = DataUtil.UserGroups.Count - 1;
+
+            rowCount = (index) / columnCount + 1;
+            InitRowAndColumn();
+            if (type == MyType.UserGroup)
+            {
+                Random random = new Random((int)DateTime.Now.Ticks);
+                int j = random.Next(colors.Length / 3);
+
+                UserGroup userGroup = role as UserGroup;
+                MyButton button = new MyButton(MyType.UserGroup, userGroup, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]));
+                Grid.SetColumn(button, index % columnCount);
+                Grid.SetRow(button, index / columnCount);
+                this.Children.Add(button);
+
+            }
+
+            else if (type == MyType.User)
+            {
+
+                Member member = role as Member;
+                Random random = new Random((int)DateTime.Now.Ticks);
+
+                int j = random.Next(colors.Length / 3);
+                MyButton button = new MyButton(MyType.User, member, imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]),userGroupId);
+                Grid.SetColumn(button, index % columnCount);
+                Grid.SetRow(button, index / columnCount);
+                this.Children.Add(button);
+
+            }
+
+
         }
     }
 }

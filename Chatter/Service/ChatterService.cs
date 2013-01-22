@@ -194,10 +194,7 @@ namespace Chatter.Service
         }
 
 
-        public MessageStatus AddFriend(string id, string friendId)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public MessageStatus AddGroup(Group group)
         {
@@ -293,7 +290,18 @@ namespace Chatter.Service
            if (userGroupId == null)
                return new Result() { Status = MessageStatus.Failed };
            else
-               return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() {  UserGroupId=userGroupId} };
+               return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() {  UserGroupId=userGroupId,UserGroupName=userGroup.UserGroupName} };
+        }
+
+      
+
+
+        Result IChatter.AddFriend( string friendId, string userGroupId)
+        {
+            ///添加完好友把 所属的UserGroup信息填上
+            ///得先请求好友同意
+            Member friend = DALService.AddFriend(this.member.Id, friendId, userGroupId);
+            return new Result() { Member = friend };
         }
     }
 

@@ -56,10 +56,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Callback\ChatterCallback.cs" />
+    <Compile Include="DataUtil.cs" />
     <Compile Include="Service References\RegisterService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddBaseRoleDialog.xaml.cs">
+      <DependentUpon>AddBaseRoleDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\MyTabItem.cs" />
     <Compile Include="UI\RegisterWindow.xaml.cs">
@@ -78,6 +82,10 @@
     </Compile>
     <Compile Include="UI\MyGrid.cs" />
     <Compile Include="UI\MyTabControl.cs" />
+    <Page Include="UI\AddBaseRoleDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

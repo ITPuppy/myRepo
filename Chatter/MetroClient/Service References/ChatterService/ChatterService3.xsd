@@ -46,15 +46,15 @@
   <xs:element name="AddFriend">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="friendId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userGroupId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddFriendResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddFriendResult" type="q5:MessageStatus" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddFriendResult" nillable="true" type="q5:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

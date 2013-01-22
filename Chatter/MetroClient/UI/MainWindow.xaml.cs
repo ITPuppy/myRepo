@@ -25,7 +25,7 @@ namespace Chatter.MetroClient.UI
         Grid selectedGrid;
         ChatterClient client;
         Member member;
-        UserGroup[] userGroups;
+     
         private MyTabControl tabControl;
         public MainWindow()
         {
@@ -87,8 +87,8 @@ namespace Chatter.MetroClient.UI
             txtNickName.Text = member.nickName;
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
-          userGroups=  client.GetFriends(member.id);
-           tabControl = new MyTabControl(userGroups,client);
+          DataUtil.UserGroups=  client.GetFriends(member.id).ToList<UserGroup>();
+          tabControl = new MyTabControl( client);
           Grid.SetRow(tabControl,1);
           MiddleGrid.Children.Add(tabControl);
         }

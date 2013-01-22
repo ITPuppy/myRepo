@@ -10,20 +10,20 @@ using System.Windows.Media;
 
 namespace Chatter.MetroClient.UI
 {
-    class MyTabControl:TabControl
+    public class MyTabControl:TabControl
     {
       
         private TabItem userGroupTabItem;
         private TabItem groupTabItem;
         private TabItem recentFriendTabItem;
-        private UserGroup[] userGroups;
+      
         private ChatterClient client;
+        public Dictionary<string, MyTabItem> friendTabItems = new Dictionary<string, MyTabItem>();
 
-
-        public MyTabControl(UserGroup[] userGroups,ChatterClient client):base()
+        public MyTabControl(ChatterClient client):base()
         {
             this.client = client;
-            this.userGroups = userGroups;
+           
             this.Background = new SolidColorBrush(Color.FromArgb(255, 76, 141, 174));
             Style s = new Style();
             s.TargetType = typeof(TabItem);
@@ -31,7 +31,7 @@ namespace Chatter.MetroClient.UI
             this.ItemContainerStyle = s;
 
             ///好友列表
-            userGroupTabItem = new MyTabItem(MyType.UserGroup, userGroups, client);
+            userGroupTabItem = new MyTabItem(MyType.UserGroup,  client);
             this.Items.Add(userGroupTabItem);
             ///群组列表
             this.Items.Add(new TabItem());
@@ -40,9 +40,11 @@ namespace Chatter.MetroClient.UI
             ///设置
             this.Items.Add(new TabItem());
             
-            foreach (UserGroup userGroup in userGroups)
+            foreach (UserGroup userGroup in DataUtil.UserGroups)
             {
-                this.Items.Add(new MyTabItem(MyType.User,userGroup.members,client));
+                MyTabItem tabItem= new MyTabItem(MyType.User,client,userGroup.userGroupId);
+                this.Items.Add(tabItem);
+                friendTabItems.Add(userGroup.userGroupId, tabItem);
             }
         }
 
