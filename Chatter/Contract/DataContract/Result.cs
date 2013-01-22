@@ -12,14 +12,7 @@ namespace Chatter.Contract.DataContract
     [DataContract]
     public class Result
     {
-        [DataMember]
-        private Guid guid;
-
-        public Guid Guid
-        {
-            get { return guid; }
-            set { guid = value; }
-        }
+        
         [DataMember]
         private MessageStatus status;
 
@@ -43,6 +36,14 @@ namespace Chatter.Contract.DataContract
         {
             get { return userGroup; }
             set { userGroup = value; }
+        }
+        [DataMember]
+        private String mesg;
+
+        public String Mesg
+        {
+            get { return mesg; }
+            set { mesg = value; }
         }
 
     }

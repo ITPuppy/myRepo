@@ -17,12 +17,12 @@ namespace Chatter.MetroClient.UI
         private TabItem groupTabItem;
         private TabItem recentFriendTabItem;
       
-        private ChatterClient client;
+      
         public Dictionary<string, MyTabItem> friendTabItems = new Dictionary<string, MyTabItem>();
 
-        public MyTabControl(ChatterClient client):base()
+        public MyTabControl():base()
         {
-            this.client = client;
+            
            
             this.Background = new SolidColorBrush(Color.FromArgb(255, 76, 141, 174));
             Style s = new Style();
@@ -31,7 +31,7 @@ namespace Chatter.MetroClient.UI
             this.ItemContainerStyle = s;
 
             ///好友列表
-            userGroupTabItem = new MyTabItem(MyType.UserGroup,  client);
+            userGroupTabItem = new MyTabItem(MyType.UserGroup);
             this.Items.Add(userGroupTabItem);
             ///群组列表
             this.Items.Add(new TabItem());
@@ -42,7 +42,7 @@ namespace Chatter.MetroClient.UI
             
             foreach (UserGroup userGroup in DataUtil.UserGroups)
             {
-                MyTabItem tabItem= new MyTabItem(MyType.User,client,userGroup.userGroupId);
+                MyTabItem tabItem= new MyTabItem(MyType.User,userGroup.userGroupId);
                 this.Items.Add(tabItem);
                 friendTabItems.Add(userGroup.userGroupId, tabItem);
             }

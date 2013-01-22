@@ -19,5 +19,11 @@ namespace Chatter.Contract.ServiceContract
 
         [OperationContract(IsOneWay = true)]
         void OnLogoff(string id);
+
+        [OperationContract(IsOneWay = true)]
+        void RequestToTargetClient(Message mesg);
+
+        [OperationContract(IsOneWay = true)]
+        void ReponseToSouceClient(Result result);
     }
 }

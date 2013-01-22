@@ -53,6 +53,7 @@ namespace Chatter.MetroClient.UI
                    
 
                                 };
+        private string userGroupId;
 
 
 
@@ -60,7 +61,7 @@ namespace Chatter.MetroClient.UI
             : base()
         {
 
-
+            this.userGroupId = userGroupId;
 
             int i = 0;
             Random random = new Random((int)DateTime.Now.Ticks);
@@ -134,14 +135,15 @@ namespace Chatter.MetroClient.UI
         /// <param name="type">Button的类型</param>
         /// <param name="role">Member或者UserGroup 或者Group</param>
         public void 
-            AddButton(MyType type, BaseRole role,string userGroupId="-1")
+            AddButton(MyType type, BaseRole role)
         {
-            int index = DataUtil.UserGroups.Count - 1;
-
-            rowCount = (index) / columnCount + 1;
-            InitRowAndColumn();
+            
             if (type == MyType.UserGroup)
             {
+                int index = DataUtil.UserGroups.Count ;
+
+                rowCount = (index) / columnCount + 1;
+                InitRowAndColumn();
                 Random random = new Random((int)DateTime.Now.Ticks);
                 int j = random.Next(colors.Length / 3);
 
@@ -150,11 +152,16 @@ namespace Chatter.MetroClient.UI
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
+                DataUtil.UserGroups.Add(userGroup);
 
             }
 
             else if (type == MyType.User)
             {
+                int index = DataUtil.GetMemberList(userGroupId).Count;
+
+                rowCount = (index) / columnCount + 1;
+                InitRowAndColumn();
 
                 Member member = role as Member;
                 Random random = new Random((int)DateTime.Now.Ticks);
@@ -165,6 +172,8 @@ namespace Chatter.MetroClient.UI
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
 
+
+                DataUtil.AddMemberTo(member,userGroupId);
             }
 
 

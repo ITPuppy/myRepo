@@ -19,7 +19,10 @@ namespace Chatter.Contract.ServiceContract
         List<Group> GetGroups(string id);
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
-        Result AddFriend( string friendId, string userGroupId = "0");
+        void AddFriend( string friendId, string userGroupId = "0");
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        Result ResponseToAddFriend(Result result);
+
 
          [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus AddGroup(Group group);
@@ -31,7 +34,9 @@ namespace Chatter.Contract.ServiceContract
         MessageStatus SendMesg(Message mesg);
 
          [OperationContract(IsInitiating = false, IsTerminating = false)]
-        Result AddUserGroup(UserGroup userGroup);
+         Result AddUserGroup(UserGroup userGroup);
+         [OperationContract(IsInitiating = false, IsTerminating = false)]
+         Result DeleteUserGroup(string id,UserGroup userGroup);
 
         [OperationContract(IsInitiating = false, IsTerminating = true)]
         MessageStatus Logoff(Member member);                                                                                                                                                                                                                                                                                                                                          

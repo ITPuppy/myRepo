@@ -24,13 +24,12 @@ namespace Chatter.MetroClient.UI
         /// <summary>
         /// 代理Client
         /// </summary>
-        private ChatterClient client;
     
         /// <summary>
         /// 如果当前TabItem是用来放置好友列表，则userGroupId为当前好友的分组ID，其他时候为-1
         /// </summary>
         private string userGroupId=String.Empty;
-
+      
 
         private MyTabControl parentTabControl ;
         public MyTabControl ParentTabControl
@@ -45,11 +44,10 @@ namespace Chatter.MetroClient.UI
                 return parentTabControl;
             }
         }
-        public MyTabItem(MyType type,ChatterClient client,string userGroupId="-1")
+        public MyTabItem(MyType type,string userGroupId="-1")
         {
 
-            ///设置client
-            this.client = client;
+ 
          
             ///设置分组ID
             this.userGroupId = userGroupId;
@@ -89,7 +87,7 @@ namespace Chatter.MetroClient.UI
                         ///新建分组MyGrid
                          myGrid = new MyGrid(MyType.UserGroup);
                         ///添加分组结束后回调函数，此行代码不能放到事件处理函数中，因为会多次注册事件
-                         client.AddUserGroupCompleted += client_AddUserGroupCompleted;
+                         DataUtil.Client.AddUserGroupCompleted += client_AddUserGroupCompleted;
                        
                         break;
                     }
@@ -111,8 +109,8 @@ namespace Chatter.MetroClient.UI
                         this.ContextMenu = cm;
                      
                          myGrid = new MyGrid(MyType.User,this.userGroupId);
-                       
-                      
+
+                    
 
                         break;
                     }
@@ -138,55 +136,58 @@ namespace Chatter.MetroClient.UI
             if (friendId == null || friendId.Length == 0)
                 return;
            ///需要添加是否已经是好友的判断
-           ///
 
-            client.AddFriendCompleted += client_AddFriendCompleted;
-           client.AddFriendAsync(friendId,userGroupId);
+            if (DataUtil.IsFriend(friendId))
+            {
+                MessageBox.Show("对方已经是您的好友");
+            }
+          
+            DataUtil.Client.AddFriend(friendId, userGroupId);
             
 
         }
-        /// <summary>
-        /// 添加好友回调函数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void client_AddFriendCompleted(object sender, AddFriendCompletedEventArgs e)
-        {
+        ///// <summary>
+        ///// 添加好友回调函数
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void client_AddFriendCompleted(object sender, AddFriendCompletedEventArgs e)
+        //{
 
-            try
-            {
-                if (e.Error != null)
-                    throw e.Error;
+        //    try
+        //    {
+        //        if (e.Error != null)
+        //            throw e.Error;
 
-                if (e.Result.status == MessageStatus.Failed)
-                {
-                    MessageBox.Show("对方不在线");
-                    return;
-                }
-                else if (e.Result.status == MessageStatus.Refuse)
-                {
-                    MessageBox.Show("对方拒绝了您的请求");
-                    return;
-                }
-                Member friend = e.Result.member;
-                if (friend == null)
-                {
-                    MessageBox.Show("添加好友失败");
-                    return;
-                }
-                ///将好友加到UI上面
-                else
-                {
-                    myGrid.AddButton(MyType.User, friend,e.Result.userGroup.userGroupId);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("网络出现异常，请检查网络连接");
-                return;
-            }
+        //        if (e.Result.status == MessageStatus.Failed)
+        //        {
+        //            MessageBox.Show("对方不在线");
+        //            return;
+        //        }
+        //        else if (e.Result.status == MessageStatus.Refuse)
+        //        {
+        //            MessageBox.Show("对方拒绝了您的请求");
+        //            return;
+        //        }
+        //        Member friend = e.Result.member;
+        //        if (friend == null)
+        //        {
+        //            MessageBox.Show("添加好友失败");
+        //            return;
+        //        }
+        //        ///将好友加到UI上面
+        //        else
+        //        {
+        //            myGrid.AddButton(MyType.User, friend);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("网络出现异常，请检查网络连接");
+        //        return;
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// 添加分组回调函数
@@ -217,13 +218,13 @@ namespace Chatter.MetroClient.UI
                     ///将新添加的分组加到 数组里面记录
                 
                     UserGroup ug = new UserGroup() { userGroupId = userGroupId, userGroupName = userGroupName };
-                    DataUtil.UserGroups.Add(ug);
+                   
                
                     ///在界面上添加分组
                     myGrid.AddButton(MyType.UserGroup, ug);
                     TabControl tabControl = this.Parent as TabControl;
                     ///添加分组对应的好友的TabItem
-                    MyTabItem tabItem= new MyTabItem(MyType.User, client, ug.userGroupId);
+                    MyTabItem tabItem= new MyTabItem(MyType.User,  ug.userGroupId);
                     tabControl.Items.Add(tabItem);
                     ParentTabControl.friendTabItems.Add(ug.userGroupId,tabItem);
                     
@@ -261,7 +262,7 @@ namespace Chatter.MetroClient.UI
                 MessageBox.Show("分组"+userGroupName+"已经存在");
                 return;
             }
-            client.AddUserGroupAsync(new UserGroup() { userGroupName = userGroupName });
+            DataUtil.Client.AddUserGroupAsync(new UserGroup() { userGroupName = userGroupName });
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Chatter.MetroClient.UI
     public partial class LoginWindow : Window
     {
 
-        private ChatterClient client = null;
+     
         /// <summary>
         /// 当前调用是否取消
         /// </summary>
@@ -59,11 +59,11 @@ namespace Chatter.MetroClient.UI
             member.password = txtPwd.Password;
 
             InstanceContext context = new InstanceContext(new ChatterCallback());
-            client = new ChatterClient(context);
+            DataUtil.Client = new ChatterClient(context);
             begin++;
             IsCurrentCanceled = false;
-            client.LoginCompleted += client_LoginCompleted;
-            client.LoginAsync(member);
+            DataUtil.Client.LoginCompleted += client_LoginCompleted;
+            DataUtil.Client.LoginAsync(member);
 
             LoginGrid.Visibility = Visibility.Collapsed;
             WaitGrid.Visibility = Visibility.Visible;
@@ -89,7 +89,8 @@ namespace Chatter.MetroClient.UI
                     throw (e.Error);
                 if (e.Result.status == MessageStatus.OK)
                 {
-                    MainWindow mainWindow = new MainWindow(client, e.Result.member);
+                    DataUtil.Member = e.Result.member;
+                    MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Visibility = Visibility.Collapsed;
                 }
@@ -123,7 +124,7 @@ namespace Chatter.MetroClient.UI
             }
             finally
             {
-                client.LoginCompleted -= client_LoginCompleted;
+                DataUtil.Client.LoginCompleted -= client_LoginCompleted;
             }
         }
 

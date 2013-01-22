@@ -217,7 +217,7 @@ namespace Chatter.MetroClient.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void deleteUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
+       public  void deleteUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
             //throw new NotImplementedException();
             UserGroup userGroup = baseRole as UserGroup;
@@ -230,7 +230,34 @@ namespace Chatter.MetroClient.UI
            
             if (result == MessageBoxResult.OK)
             {
+                DataUtil.Client.DeleteUserGroupCompleted += Client_DeleteUserGroupCompleted;
+                DataUtil.Client.DeleteUserGroupAsync(DataUtil.Member.id,userGroup);
 
+
+                
+            }
+
+        }
+
+        void Client_DeleteUserGroupCompleted(object sender, DeleteUserGroupCompletedEventArgs e)
+        {
+
+            try
+            {
+                if (e.Error != null)
+                    throw e.Error;
+                if (e.Result.status == MessageStatus.Failed)
+                {
+                    MessageBox.Show("删除失败");
+                    return;
+                }
+
+               
+
+                UserGroup userGroup = baseRole as UserGroup;
+
+
+               
 
                 ///将好友移至默认分组
 
@@ -254,9 +281,9 @@ namespace Chatter.MetroClient.UI
                 ParentTabControl.friendTabItems.Remove(userGroup.userGroupId);
                 ///删掉分组
                 myGrid.Children.Remove(this);
+
                 ///删除全局的分组记录
                 DataUtil.DeleteUserGroup(userGroup.userGroupId);
-
 
                 ///将后面的分组移除
                 List<MyButton> temp = new List<MyButton>();
@@ -264,7 +291,7 @@ namespace Chatter.MetroClient.UI
                 {
                     temp.Add(myGrid.Children[currentIndex] as MyButton);
                     myGrid.Children.RemoveAt(currentIndex);
-                   
+
                 }
                 ///将后面的分组前移后加上
                 foreach (MyButton button in temp)
@@ -275,7 +302,14 @@ namespace Chatter.MetroClient.UI
                     currentIndex++;
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("删除失败，出现异常");
+            }
+            finally
+            {
+                DataUtil.Client.DeleteUserGroupCompleted -= Client_DeleteUserGroupCompleted;
+            }
         }
 
 

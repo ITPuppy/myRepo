@@ -12,7 +12,7 @@ using Chatter.Log;
 
 namespace Chatter.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession,ConcurrencyMode=ConcurrencyMode.Reentrant)]
     public class ChatterService : IChatter
     {
         /// <summary>
@@ -183,8 +183,18 @@ namespace Chatter.Service
         /// <returns></returns>
         public List<UserGroup> GetFriends(string id)
         {
-            return DALService.GetFriendList(id);
-
+            List<UserGroup> ugs= DALService.GetFriendList(id);
+            foreach (UserGroup ug in ugs)
+            {
+                foreach (Member member in ug.Members)
+                {
+                    if (Online.ContainsKey(member.Id))
+                        member.Status = MemberStatus.Online;
+                    else
+                        member.Status = MemberStatus.Offline;
+                }
+            }
+            return ugs;
         }
 
 
@@ -296,12 +306,56 @@ namespace Chatter.Service
       
 
 
-        Result IChatter.AddFriend( string friendId, string userGroupId)
+        void IChatter.AddFriend( string friendId, string userGroupId)
         {
             ///添加完好友把 所属的UserGroup信息填上
             ///得先请求好友同意
-            Member friend = DALService.AddFriend(this.member.Id, friendId, userGroupId);
-            return new Result() { Member = friend };
+            ///
+
+            if (!Online.ContainsKey(friendId))
+            {
+                 callback.ReponseToSouceClient( new Result() {Status=MessageStatus.Failed,Mesg="对方不在线"});
+            }
+
+           
+            ChatEventHandler handler  = Online[friendId] as ChatEventHandler;
+            ChatterService service = handler.Target as ChatterService;
+
+            service.callback.RequestToTargetClient(new Message() { 
+                Type = MessageType.AddFriend,
+                From = this.member, 
+                ///此处TO保存了分组
+                To = new UserGroup() { UserGroupId=userGroupId} });
+            
+        }
+
+
+        public Result DeleteUserGroup(string id, UserGroup userGroup)
+        {
+            if (DALService.DeleteUserGroup(id, userGroup.UserGroupId))
+                return new Result() { Status = MessageStatus.OK };
+            else return new Result() { Status=MessageStatus.Failed};
+        }
+
+
+        public Result ResponseToAddFriend(Result result)
+        {
+            if (!Online.ContainsKey(result.Member.Id))
+            {
+                return new Result() {Status=MessageStatus.OK,Mesg="对方已经下线" };
+            }
+
+            if (result.Status == MessageStatus.Accept)
+            {
+                ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
+                ChatterService service = handler.Target as ChatterService;
+                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
+                DALService.AddFriend(this.member.Id, result.Member.Id);
+
+                DALService.AddFriend( result.Member.Id,this.member.Id,result.UserGroup.UserGroupId);
+            }
+
+            return new Result() { Status=MessageStatus.OK,Mesg="成功通知对方"};
         }
     }
 

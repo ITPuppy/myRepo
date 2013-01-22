@@ -44,6 +44,12 @@
   <wsdl:message name="IChatter_AddFriend_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddFriendResponse" />
   </wsdl:message>
+  <wsdl:message name="IChatter_ResponseToAddFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResponseToAddFriend" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_ResponseToAddFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResponseToAddFriendResponse" />
+  </wsdl:message>
   <wsdl:message name="IChatter_AddGroup_InputMessage">
     <wsdl:part name="parameters" element="tns:AddGroup" />
   </wsdl:message>
@@ -68,6 +74,12 @@
   <wsdl:message name="IChatter_AddUserGroup_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddUserGroupResponse" />
   </wsdl:message>
+  <wsdl:message name="IChatter_DeleteUserGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserGroup" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_DeleteUserGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserGroupResponse" />
+  </wsdl:message>
   <wsdl:message name="IChatter_Logoff_InputMessage">
     <wsdl:part name="parameters" element="tns:Logoff" />
   </wsdl:message>
@@ -82,6 +94,12 @@
   </wsdl:message>
   <wsdl:message name="IChatter_OnLogoff_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnLogoff" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_RequestToTargetClient_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RequestToTargetClient" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_ReponseToSouceClient_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReponseToSouceClient" />
   </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IChatter">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
@@ -100,6 +118,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddFriend" message="tns:IChatter_AddFriend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddFriendResponse" message="tns:IChatter_AddFriend_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="ResponseToAddFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/ResponseToAddFriend" message="tns:IChatter_ResponseToAddFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ResponseToAddFriendResponse" message="tns:IChatter_ResponseToAddFriend_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddGroup">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddGroup" message="tns:IChatter_AddGroup_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddGroupResponse" message="tns:IChatter_AddGroup_OutputMessage" />
@@ -116,6 +138,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddUserGroup" message="tns:IChatter_AddUserGroup_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddUserGroupResponse" message="tns:IChatter_AddUserGroup_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="DeleteUserGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/DeleteUserGroup" message="tns:IChatter_DeleteUserGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/DeleteUserGroupResponse" message="tns:IChatter_DeleteUserGroup_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="true" name="Logoff">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/Logoff" message="tns:IChatter_Logoff_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/LogoffResponse" message="tns:IChatter_Logoff_OutputMessage" />
@@ -128,6 +154,12 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogoff">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogoff" message="tns:IChatter_OnLogoff_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RequestToTargetClient">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/RequestToTargetClient" message="tns:IChatter_RequestToTargetClient_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReponseToSouceClient">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ReponseToSouceClient" message="tns:IChatter_ReponseToSouceClient_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IChatter" type="tns:IChatter">
@@ -162,6 +194,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddFriend">
       <soap12:operation soapAction="http://tempuri.org/IChatter/AddFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResponseToAddFriend">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/ResponseToAddFriend" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -205,6 +246,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteUserGroup">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/DeleteUserGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Logoff">
       <soap12:operation soapAction="http://tempuri.org/IChatter/Logoff" style="document" />
       <wsdl:input>
@@ -228,6 +278,18 @@
     </wsdl:operation>
     <wsdl:operation name="OnLogoff">
       <soap12:operation soapAction="http://tempuri.org/IChatter/OnLogoff" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestToTargetClient">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/RequestToTargetClient" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReponseToSouceClient">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/ReponseToSouceClient" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

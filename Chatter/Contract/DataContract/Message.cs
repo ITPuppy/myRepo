@@ -22,7 +22,7 @@ namespace Chatter.Contract.DataContract
             set { type = value; }
         }
         [DataMember]
-        private Member from;
+        private BaseRole from;
         [DataMember]
         private BaseRole to;
 
@@ -32,7 +32,7 @@ namespace Chatter.Contract.DataContract
             set { to = value; }
         }
 
-        public Member From
+        public BaseRole From
         {
             get { return from; }
             set { from = value; }

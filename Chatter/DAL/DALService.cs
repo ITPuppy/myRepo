@@ -225,7 +225,7 @@ namespace Chatter.DAL
             MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblFriend set friendId=friendId+?friendId where id=?id and groupdId=?groupId;");
+                string sql = String.Format("update tblFriend set friendId=CONCAT(friendId,?friendId) where id=?id and groupId=?groupId;");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("friendId", friendId+";");
@@ -235,6 +235,12 @@ namespace Chatter.DAL
 
                 if (i == 1)
                 {
+                    
+                    if (friendId.IndexOf(";") != -1)
+                    {
+                        ///说明是deleteUserGroup调用，用于转移好友
+                        friendId = friendId.Substring(0, friendId.IndexOf(";"));
+                    }
                     return GetMember(friendId);
                 }
                 else return null;
@@ -463,7 +469,8 @@ namespace Chatter.DAL
                     foreach (string tempid in tuple.Item3)
                     {
                         Member member = GetMember(tempid);
-                        members.Add(member);
+                        if(member!=null)
+                         members.Add(member);
                     }
                     UserGroup userGroup = new UserGroup();
                     userGroup.UserGroupId = tuple.Item1;
@@ -630,7 +637,7 @@ namespace Chatter.DAL
             MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblGroup set groupMemeber=groupMember+?groupMember where groupId=?groupId");
+                string sql = String.Format("update tblGroup set groupMemeber=CONCAT（groupMember，?groupMember） where groupId=?groupId");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId",groupId);
                 cmd.Parameters.AddWithValue("groupMember",memberId+";");
@@ -916,16 +923,17 @@ namespace Chatter.DAL
                 if (temp != null && temp.Length != 0)
                 {
                     temp = temp.Remove(temp.LastIndexOf(";"));
-                    AddFriend(id,temp,"0");
-                    sql = String.Format("delete from tblFriend  where id=?id and groupId=?groupId");
-                      cmd = new MySqlCommand(sql, Conn);
-                    cmd.Parameters.AddWithValue("id", id);
-                     cmd.Parameters.AddWithValue("groupId",userGroupId);
-                        Prepare(cmd.Parameters);
-                    return 1==cmd.ExecuteNonQuery();
+                    if (AddFriend(id, temp, "0") == null)
+                        throw new Exception("转移好友失败");
+                   
                 }
-
-                return true;
+                sql = String.Format("delete from tblFriend  where id=?id and groupId=?groupId");
+                cmd = new MySqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("groupId", userGroupId);
+                Prepare(cmd.Parameters);
+                return 1 == cmd.ExecuteNonQuery();
+               
             }
             catch (Exception e)
             {

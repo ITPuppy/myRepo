@@ -23,8 +23,8 @@ namespace Chatter.MetroClient.UI
     {
         Color selectedColor = Color.FromArgb(255, 114, 119, 123);
         Grid selectedGrid;
-        ChatterClient client;
-        Member member;
+       
+       
      
         private MyTabControl tabControl;
         public MainWindow()
@@ -34,14 +34,7 @@ namespace Chatter.MetroClient.UI
           
            
         }
-        public MainWindow(ChatterClient client, Member member)
-        {
-          
-
-            InitializeComponent();
-            this.client = client;
-            this.member = member;
-        }
+       
         
 
         private void MainWindow_Drag(object sender, MouseButtonEventArgs e)
@@ -84,23 +77,32 @@ namespace Chatter.MetroClient.UI
 
         private void init()
         {
-            txtNickName.Text = member.nickName;
+            txtNickName.Text = DataUtil.Member.nickName;
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
-          DataUtil.UserGroups=  client.GetFriends(member.id).ToList<UserGroup>();
-          tabControl = new MyTabControl( client);
+            DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
+          tabControl = new MyTabControl();
           Grid.SetRow(tabControl,1);
           MiddleGrid.Children.Add(tabControl);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
+            try
+            {
+                if (DataUtil.Client != null)
+                    DataUtil.Client.Logoff(DataUtil.Member);
+            }
+            catch (Exception ex)
+            {
 
-            if (client != null)
-                client.Logoff(member);
-                 
-            Application.Current.Shutdown();
-            base.OnClosing(e);
+            }
+            finally
+            {
+
+                Application.Current.Shutdown();
+                base.OnClosing(e);
+            }
         }
     }
 }
