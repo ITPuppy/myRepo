@@ -41,9 +41,6 @@
   <wsdl:message name="IChatter_AddFriend_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFriend" />
   </wsdl:message>
-  <wsdl:message name="IChatter_AddFriend_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
-  </wsdl:message>
   <wsdl:message name="IChatter_ResponseToAddFriend_InputMessage">
     <wsdl:part name="parameters" element="tns:ResponseToAddFriend" />
   </wsdl:message>
@@ -116,7 +113,6 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddFriend" message="tns:IChatter_AddFriend_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddFriendResponse" message="tns:IChatter_AddFriend_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="ResponseToAddFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/ResponseToAddFriend" message="tns:IChatter_ResponseToAddFriend_InputMessage" />
@@ -197,9 +193,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ResponseToAddFriend">
       <soap12:operation soapAction="http://tempuri.org/IChatter/ResponseToAddFriend" style="document" />

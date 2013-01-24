@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Chatter.MetroClient.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows;
 using MetroClient.ChatterService;
+using System.Windows.Threading;
+
+
 
 namespace Chatter.MetroClient.Callback
 {
@@ -71,7 +77,11 @@ namespace Chatter.MetroClient.Callback
         {
             MessageBox.Show("对方请求添加好友是否同意");
             DataUtil.Client.ResponseToAddFriendCompleted += Client_ResponseToAddFriendCompleted;
-            DataUtil.Client.ResponseToAddFriendAsync(new Result() {  member=mesg.from as Member,userGroup=mesg.to as UserGroup, status=MessageStatus.Accept});
+            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => {
+                DataUtil.Client.ResponseToAddFriendAsync(new Result() { member = mesg.from as Member, userGroup = mesg.to as UserGroup, status = MessageStatus.Accept }); }));
+
+
+           
         }
 
         void Client_ResponseToAddFriendCompleted(object sender, ResponseToAddFriendCompletedEventArgs e)

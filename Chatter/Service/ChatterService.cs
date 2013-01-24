@@ -9,6 +9,8 @@ using Chatter.Contract.DataContract;
 using Chatter.Contract.ServiceContract;
 using Chatter.DAL;
 using Chatter.Log;
+using System.Threading;
+
 
 namespace Chatter.Service
 {
@@ -315,17 +317,23 @@ namespace Chatter.Service
             if (!Online.ContainsKey(friendId))
             {
                  callback.ReponseToSouceClient( new Result() {Status=MessageStatus.Failed,Mesg="对方不在线"});
+                 return;
             }
 
            
             ChatEventHandler handler  = Online[friendId] as ChatEventHandler;
             ChatterService service = handler.Target as ChatterService;
 
-            service.callback.RequestToTargetClient(new Message() { 
-                Type = MessageType.AddFriend,
-                From = this.member, 
-                ///此处TO保存了分组
-                To = new UserGroup() { UserGroupId=userGroupId} });
+            new Thread(new ThreadStart(() =>
+            {
+                service.callback.RequestToTargetClient(new Message()
+                {
+                    Type = MessageType.AddFriend,
+                    From = this.member,
+                    ///此处TO保存了分组
+                    To = new UserGroup() { UserGroupId = userGroupId }
+                });
+            })).Start();
             
         }
 

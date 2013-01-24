@@ -1,9 +1,5 @@
-﻿using Chatter.MetroClient.UI;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
@@ -141,8 +137,8 @@ namespace Chatter.MetroClient.UI
             {
                 MessageBox.Show("对方已经是您的好友");
             }
-          
-            DataUtil.Client.AddFriend(friendId, userGroupId);
+
+            Dispatcher.Invoke(new Action(() => { DataUtil.Client.AddFriend(friendId, userGroupId); }));
             
 
         }

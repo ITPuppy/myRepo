@@ -18,7 +18,7 @@ namespace Chatter.Contract.ServiceContract
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         List<Group> GetGroups(string id);
 
-        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        [OperationContract(IsInitiating = false, IsTerminating = false,IsOneWay=true)]
         void AddFriend( string friendId, string userGroupId = "0");
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         Result ResponseToAddFriend(Result result);
