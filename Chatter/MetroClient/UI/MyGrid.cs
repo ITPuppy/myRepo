@@ -178,5 +178,38 @@ namespace Chatter.MetroClient.UI
 
 
         }
+
+        public MyButton GetButton(MyType myType, string id)
+        {
+            MyButton button = null;
+            switch (myType)
+            {
+                case MyType.User:
+                    {
+                        foreach(MyButton btn in  this.Children)
+                        {
+                            if ((btn.baseRole as Member).id == id)
+                                button = btn;
+                            break;
+                        }
+                        break;
+                    }
+                case MyType.UserGroup:
+                    {
+                        foreach (MyButton btn in this.Children)
+                        {
+                            if ((btn.baseRole as UserGroup).userGroupId == id)
+                                button = btn;
+                            break;
+                        }
+                        break;
+                    }
+
+                   
+            }
+
+            return button;
+        }
+
     }
 }

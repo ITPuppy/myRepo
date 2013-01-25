@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Chatter.MetroClient.UI;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient
@@ -12,6 +13,7 @@ namespace Chatter.MetroClient
         public static ChatterClient Client;
         public static List<UserGroup> UserGroups;
         public static Member Member;
+        public static Dictionary<string, MyTabItem> FriendTabItems = new Dictionary<string, MyTabItem>();
         public static List<Member> GetMemberList(string userGroupId)
         {
             List<Member> members = new List<Member>();
@@ -56,6 +58,19 @@ namespace Chatter.MetroClient
                     return true;
             }
             return false;
+        }
+
+        public static string GetUserGroupIdByMember(string id)
+        {
+            foreach (UserGroup ug in UserGroups)
+            {
+                foreach (Member member in ug.members)
+                {
+                    if (member.id == id)
+                        return ug.userGroupId;
+                }
+            }
+            return null;
         }
     }
 }

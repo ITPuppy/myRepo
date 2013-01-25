@@ -70,7 +70,8 @@ namespace Chatter.Service
                 {
                     return new Result() { Status = MessageStatus.Failed };
                 }
-                this.member = member;
+                this.member = DALService.GetMember(member.Id);
+               
                 ///获得回调句柄
                 callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
                 ///获得好友们的id
@@ -350,20 +351,20 @@ namespace Chatter.Service
         {
             if (!Online.ContainsKey(result.Member.Id))
             {
-                return new Result() {Status=MessageStatus.OK,Mesg="对方已经下线" };
+                return new Result() {Status=MessageStatus.Failed,Mesg="对方已经下线" };
             }
 
             if (result.Status == MessageStatus.Accept)
             {
                 ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
                 ChatterService service = handler.Target as ChatterService;
-                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
+                service.callback.ReponseToSouceClient(new Result() {Mesg="对方同意添加好友请求", Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
                 DALService.AddFriend(this.member.Id, result.Member.Id);
 
                 DALService.AddFriend( result.Member.Id,this.member.Id,result.UserGroup.UserGroupId);
             }
 
-            return new Result() { Status=MessageStatus.OK,Mesg="成功通知对方"};
+            return new Result() { Status=MessageStatus.OK,Mesg="成功通知对方",Member=result.Member};
         }
     }
 

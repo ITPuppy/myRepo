@@ -136,8 +136,13 @@ namespace Chatter.MetroClient.UI
             if (DataUtil.IsFriend(friendId))
             {
                 MessageBox.Show("对方已经是您的好友");
+                return;
             }
-
+            if (DataUtil.Member.id == friendId)
+            {
+                MessageBox.Show("您不能添加自己为好友");
+                return;
+            }
             Dispatcher.Invoke(new Action(() => { DataUtil.Client.AddFriend(friendId, userGroupId); }));
             
 
@@ -222,7 +227,7 @@ namespace Chatter.MetroClient.UI
                     ///添加分组对应的好友的TabItem
                     MyTabItem tabItem= new MyTabItem(MyType.User,  ug.userGroupId);
                     tabControl.Items.Add(tabItem);
-                    ParentTabControl.friendTabItems.Add(ug.userGroupId,tabItem);
+                    DataUtil.FriendTabItems.Add(ug.userGroupId,tabItem);
                     
                 }
             }

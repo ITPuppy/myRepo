@@ -18,7 +18,7 @@ namespace Chatter.MetroClient.UI
         private TabItem recentFriendTabItem;
       
       
-        public Dictionary<string, MyTabItem> friendTabItems = new Dictionary<string, MyTabItem>();
+       
 
         public MyTabControl():base()
         {
@@ -44,7 +44,7 @@ namespace Chatter.MetroClient.UI
             {
                 MyTabItem tabItem= new MyTabItem(MyType.User,userGroup.userGroupId);
                 this.Items.Add(tabItem);
-                friendTabItems.Add(userGroup.userGroupId, tabItem);
+                DataUtil.FriendTabItems.Add(userGroup.userGroupId, tabItem);
             }
         }
 

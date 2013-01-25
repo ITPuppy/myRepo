@@ -104,5 +104,25 @@ namespace Chatter.MetroClient.UI
                 base.OnClosing(e);
             }
         }
+
+      
+
+        private void txtInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (!Keyboard.IsKeyDown(Key.LeftShift))
+                {
+                    txtDisplay.AppendText(txtInput.Text);
+                    txtDisplay.AppendText(Environment.NewLine);
+                    txtInput.Text = "";
+                    txtDisplay.ScrollToEnd();
+                }
+                else
+                {
+                    txtInput.AppendText(Environment.NewLine);
+                }
+            }
+        }
     }
 }

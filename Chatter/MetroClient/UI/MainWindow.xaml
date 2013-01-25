@@ -13,7 +13,7 @@
         >
     <Border 
         Background="#4c8dae"
-        Opacity="0.95"
+     
         CornerRadius="5,5,5,5"
         >
         <Grid >
@@ -175,11 +175,31 @@
                 
             </Grid>
             <Grid
+               
                 Name="RightGrid"
                 Grid.Column="2"
+                Opacity="1"
                 >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="10*"/>
+                   
+                </Grid.RowDefinitions >
+                <StackPanel Orientation="Horizontal">
+                   
+                </StackPanel>
+                <Border  Grid.Row="1"  BorderThickness="1"  BorderBrush="LightGray">
+                    <RichTextBox Name="txtDisplay" Background="Transparent" Foreground="White" FontSize="15"  ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                        <FlowDocument LineHeight="0.1"></FlowDocument>
 
-
+                    </RichTextBox>
+                </Border>
+                <Border Grid.Row="2" BorderBrush="SkyBlue"   BorderThickness="2">
+                    <TextBox Name="txtInput" Background="White" FontSize="15" Margin="2,3,0,20" ScrollViewer.VerticalScrollBarVisibility="Auto"  KeyDown="txtInput_KeyDown" >
+                       
+                    </TextBox>
+                </Border>
             </Grid>
         </Grid>
     </Border>

@@ -14,21 +14,44 @@ using System.Windows.Threading;
 
 namespace Chatter.MetroClient.Callback
 {
-    class ChatterCallback:IChatterCallback
+    class ChatterCallback : IChatterCallback
     {
         public void OnLogin(string id)
         {
-            MessageBox.Show(id+"已经登录");
+            string userGroupId = DataUtil.GetUserGroupIdByMember(id);
+            if (userGroupId != null)
+            {
+                MyTabItem tabItem=DataUtil.FriendTabItems[userGroupId];
+                MyButton btn=tabItem.myGrid.GetButton(MyType.User,id);
+
+                btn.ChangeMemberStatus(MemberStatus.Online);
+            }
+            else
+            {
+                MessageBox.Show("没有这个好友"+id);
+            }
+
         }
 
         public void OnSendMessageCallback(Result result)
         {
-            
+
         }
 
         public void OnLogoff(string id)
         {
-            MessageBox.Show(id + "已经退出");
+            string userGroupId = DataUtil.GetUserGroupIdByMember(id);
+            if (userGroupId != null)
+            {
+                MyTabItem tabItem = DataUtil.FriendTabItems[userGroupId];
+                MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
+
+                btn.ChangeMemberStatus(MemberStatus.Offline);
+            }
+            else
+            {
+                MessageBox.Show("没有这个好友" + id);
+            }
         }
 
 
@@ -39,12 +62,12 @@ namespace Chatter.MetroClient.Callback
 
         public void EndOnLogin(IAsyncResult result)
         {
-           
+
         }
 
-       
 
-       
+
+
 
         public IAsyncResult BeginOnLogoff(string id, AsyncCallback callback, object asyncState)
         {
@@ -53,7 +76,7 @@ namespace Chatter.MetroClient.Callback
 
         public void EndOnLogoff(IAsyncResult result)
         {
-            
+
         }
 
 
@@ -75,18 +98,64 @@ namespace Chatter.MetroClient.Callback
 
         public void RequestToTargetClient(Message mesg)
         {
-            MessageBox.Show("对方请求添加好友是否同意");
-            DataUtil.Client.ResponseToAddFriendCompleted += Client_ResponseToAddFriendCompleted;
-            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => {
-                DataUtil.Client.ResponseToAddFriendAsync(new Result() { member = mesg.from as Member, userGroup = mesg.to as UserGroup, status = MessageStatus.Accept }); }));
+
+            switch (mesg.type)
+            {
+                case MessageType.AddFriend:
+                    {
+
+                        Member friend = mesg.from as Member;
+
+                        MessageBoxResult mbr = MessageBox.Show(friend.id + friend.nickName + "请求添加好友", "请求", MessageBoxButton.YesNoCancel);
+                        MessageStatus status=MessageStatus.Refuse;
+                    if (mbr == MessageBoxResult.Yes)
+                    {
+                        status=MessageStatus.Accept;
+                    }
+                    else if (mbr ==MessageBoxResult.No)
+                    {
+                          status=MessageStatus.Refuse;
+                    }
+                    else 
+                    {
+                        return;
+                    }
+                       
+                        
+                        DataUtil.Client.ResponseToAddFriendCompleted += Client_ResponseToAddFriendCompleted;
+                        Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
+                        {
+                            DataUtil.Client.ResponseToAddFriendAsync(new Result() { member = friend, userGroup = mesg.to as UserGroup, status = status });
+                        }));
+                        break;
+                    }
+            }
 
 
-           
         }
 
         void Client_ResponseToAddFriendCompleted(object sender, ResponseToAddFriendCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.mesg);
+            try
+            {
+                if (e.Result.status == MessageStatus.Failed)
+                {
+                    MessageBox.Show(e.Result.mesg);
+                }
+                else if(e.Result.status==MessageStatus.OK)
+                {
+                    MyTabItem tabItem=DataUtil.FriendTabItems["0"];
+                    tabItem.myGrid.AddButton(MyType.User, e.Result.member);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                DataUtil.Client.ResponseToAddFriendCompleted -= Client_ResponseToAddFriendCompleted;
+            }
         }
 
         public IAsyncResult BeginRequestToTargetClient(Message mesg, AsyncCallback callback, object asyncState)
@@ -101,7 +170,12 @@ namespace Chatter.MetroClient.Callback
 
         public void ReponseToSouceClient(Result result)
         {
-            MessageBox.Show(result.mesg);
+            if (result.status == MessageStatus.Accept)
+            {
+                MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
+                MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
+                tabItem.myGrid.AddButton(MyType.User, result.member);
+            }
         }
 
         public IAsyncResult BeginReponseToSouceClient(Result result, AsyncCallback callback, object asyncState)

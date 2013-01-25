@@ -66,13 +66,17 @@ namespace Chatter.MetroClient.UI
         /// 当前Button在MyGrid中的index，用于指定位置
         /// </summary>
         private string userGroupId;
+
+
+        private Color offlineColor = Color.FromArgb(255,192, 192, 192);
+        private Color onlineColor = Colors.OrangeRed;
         public String Text
         {
             get { return txtName.Text; }
             set { txtName.Text = value; }
         }
-        private MyTabControl parentTabControl ;
-        public MyTabControl ParentTabControl 
+        private MyTabControl parentTabControl;
+        public MyTabControl ParentTabControl
         {
 
             get
@@ -86,10 +90,11 @@ namespace Chatter.MetroClient.UI
                 parentTabControl = tabItem.Parent as MyTabControl;
                 return parentTabControl;
             }
-        
-    }
 
-        public MyButton():base()
+        }
+
+        public MyButton()
+            : base()
         {
             InitializeComponent();
 
@@ -101,21 +106,22 @@ namespace Chatter.MetroClient.UI
         /// <param name="baseRole">Member或者UserGroup或者Group</param>
         /// <param name="imagesouce">如果是用户，用户头像，其他目前为空</param>
         /// <param name="color">Button颜色</param>
-        public MyButton(MyType type, BaseRole baseRole, string imagesouce, Color color,string userGroupId="-1"):base()
+        public MyButton(MyType type, BaseRole baseRole, string imagesouce, Color color, string userGroupId = "-1")
+            : base()
         {
             ///设置分组ID
             this.userGroupId = userGroupId;
             ///设置类型
             this.type = type;
             ///设置对象Member或者UserGroup或者Group
-            this.baseRole=baseRole;
-            
-           
-           
-            ///分组
+            this.baseRole = baseRole;
+            this.onlineColor = color;
+
+
+            #region 分组
             if (type == MyType.UserGroup)
             {
-                UserGroup userGroup= baseRole as UserGroup;
+                UserGroup userGroup = baseRole as UserGroup;
                 ///分组名称
                 txtName = new TextBlock();
                 txtName.Text = userGroup.userGroupName;
@@ -126,7 +132,7 @@ namespace Chatter.MetroClient.UI
                 this.Children.Add(txtName);
 
 
-                
+
 
 
                 ///右键菜单
@@ -147,11 +153,15 @@ namespace Chatter.MetroClient.UI
                 changeUserGroupNameItem.Header = "更改分组名";
                 ///更改分组名事件
                 changeUserGroupNameItem.Click += changeUserGroupNameItem_Click;
-                
+
                 cm.Items.Add(changeUserGroupNameItem);
-                
+
                 this.ContextMenu = cm;
+                this.Background = new SolidColorBrush(color);
             }
+            #endregion
+
+            #region 好友
             else if (type == MyType.User)
             {
                 Member member = baseRole as Member;
@@ -183,12 +193,42 @@ namespace Chatter.MetroClient.UI
                 this.Children.Add(image);
                 ///添加昵称
                 this.Children.Add(txtName);
-              
+
+
+
+                ///右键菜单
+                ContextMenu cm = new ContextMenu();
+                ///菜单的背景色
+                cm.Background = new SolidColorBrush(Color.FromArgb(255, 114, 119, 123));
+                ///菜单的前景色
+                cm.Foreground = new SolidColorBrush(Colors.White);
+                ///删除好友菜单项
+                MenuItem deleteFriendMenuItem = new MenuItem();
+                deleteFriendMenuItem.Header = "删除好友";
+                ///删除好友事件
+                deleteFriendMenuItem.Click += deleteFriendMenuItem_Click;
+                cm.Items.Add(deleteFriendMenuItem);
+
+                ///查看好友资料菜单项
+                MenuItem viewFriendMenuItemItem = new MenuItem();
+                viewFriendMenuItemItem.Header = "查看资料";
+                ///更改分组名事件
+                viewFriendMenuItemItem.Click += viewFriendMenuItemItem_Click;
+
+                cm.Items.Add(viewFriendMenuItemItem);
+
+                this.ContextMenu = cm;
+                if (member.status == MemberStatus.Online)
+                    this.Background = new SolidColorBrush(onlineColor);
+                else if (member.status == MemberStatus.Offline)
+                    this.Background = new SolidColorBrush(offlineColor);
                 
+
+            #endregion
             }
 
             ///背景色为MyGrid里面传进来的颜色
-            this.Background = new SolidColorBrush(color);
+           
             this.Width = weight;
             this.Height = height;
 
@@ -199,6 +239,24 @@ namespace Chatter.MetroClient.UI
 
             ///鼠标点击事件
             this.MouseLeftButtonUp += MyButton_LeftButtonDown;
+        }
+       /// <summary>
+       /// 删除好友出发事件
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
+        void deleteFriendMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+        /// <summary>
+        /// 查看好友资料
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void viewFriendMenuItemItem_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         /// <summary>
@@ -217,7 +275,7 @@ namespace Chatter.MetroClient.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       public  void deleteUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
+        public void deleteUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
             //throw new NotImplementedException();
             UserGroup userGroup = baseRole as UserGroup;
@@ -226,19 +284,23 @@ namespace Chatter.MetroClient.UI
                 MessageBox.Show("默认分组不允许删除");
                 return;
             }
-            MessageBoxResult result= MessageBox.Show("确定要删除"+userGroup.userGroupName+",并将分组下好友移至默认分组?","确认",MessageBoxButton.OKCancel);
-           
+            MessageBoxResult result = MessageBox.Show("确定要删除" + userGroup.userGroupName + ",并将分组下好友移至默认分组?", "确认", MessageBoxButton.OKCancel);
+
             if (result == MessageBoxResult.OK)
             {
                 DataUtil.Client.DeleteUserGroupCompleted += Client_DeleteUserGroupCompleted;
-                DataUtil.Client.DeleteUserGroupAsync(DataUtil.Member.id,userGroup);
+                DataUtil.Client.DeleteUserGroupAsync(DataUtil.Member.id, userGroup);
 
 
-                
+
             }
 
         }
-
+        /// <summary>
+        /// 删除分组回调函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Client_DeleteUserGroupCompleted(object sender, DeleteUserGroupCompletedEventArgs e)
         {
 
@@ -252,20 +314,20 @@ namespace Chatter.MetroClient.UI
                     return;
                 }
 
-               
+
 
                 UserGroup userGroup = baseRole as UserGroup;
 
 
-               
+
 
                 ///将好友移至默认分组
 
-                MyTabItem tabItem = ParentTabControl.friendTabItems[userGroup.userGroupId];
+                MyTabItem tabItem = DataUtil.FriendTabItems[userGroup.userGroupId];
                 MyButton[] friendArray = new MyButton[tabItem.myGrid.Children.Count];
                 tabItem.myGrid.Children.CopyTo(friendArray, 0);
 
-                MyTabItem defaultTabItem = ParentTabControl.friendTabItems["0"];
+                MyTabItem defaultTabItem = DataUtil.FriendTabItems["0"];
                 for (int i = 0; i < friendArray.Length; i++)
                 {
                     defaultTabItem.myGrid.AddButton(MyType.User, (friendArray[i].baseRole as Member));
@@ -277,8 +339,8 @@ namespace Chatter.MetroClient.UI
 
                 int currentIndex = myGrid.Children.IndexOf(this);
                 ///删掉分组对应的好友分组
-                ParentTabControl.Items.Remove(ParentTabControl.friendTabItems[userGroup.userGroupId]);
-                ParentTabControl.friendTabItems.Remove(userGroup.userGroupId);
+                ParentTabControl.Items.Remove(DataUtil.FriendTabItems[userGroup.userGroupId]);
+                DataUtil.FriendTabItems.Remove(userGroup.userGroupId);
                 ///删掉分组
                 myGrid.Children.Remove(this);
 
@@ -329,15 +391,15 @@ namespace Chatter.MetroClient.UI
                     }
                 case MyType.UserGroup:
                     {
-                        UserGroup userGroup=baseRole as UserGroup;
+                        UserGroup userGroup = baseRole as UserGroup;
                         ///根据分组名查找好友列表（字典实现）
-                        ParentTabControl.SelectedItem = ParentTabControl.friendTabItems[userGroup.userGroupId];
+                        ParentTabControl.SelectedItem = DataUtil.FriendTabItems[userGroup.userGroupId];
                         break;
                     }
             }
         }
 
-       
+
 
         /// <summary>
         /// 鼠标离开恢复事件
@@ -372,6 +434,25 @@ namespace Chatter.MetroClient.UI
             {
                 image.Height = zoomImageSize;
                 image.Width = zoomImageSize;
+            }
+        }
+
+
+        public void ChangeMemberStatus(MemberStatus status)
+        {
+            switch(status)
+            {
+                case MemberStatus.Online:
+                    {
+                        this.Background=new SolidColorBrush(onlineColor);
+                        break;
+                    }
+                case MemberStatus.Offline:
+                    {
+                        this.Background=new SolidColorBrush(offlineColor);
+                        break;
+                    }
+
             }
         }
     }
