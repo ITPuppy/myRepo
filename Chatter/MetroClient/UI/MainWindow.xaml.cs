@@ -115,8 +115,10 @@ namespace Chatter.MetroClient.UI
                 {
                     txtDisplay.AppendText(txtInput.Text);
                     txtDisplay.AppendText(Environment.NewLine);
+                    
                     txtInput.Text = "";
                     txtDisplay.ScrollToEnd();
+                    
                 }
                 else
                 {

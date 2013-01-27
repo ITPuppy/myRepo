@@ -143,7 +143,7 @@ namespace Chatter.MetroClient.UI
                 MessageBox.Show("您不能添加自己为好友");
                 return;
             }
-            Dispatcher.Invoke(new Action(() => { DataUtil.Client.AddFriend(friendId, userGroupId); }));
+             DataUtil.Client.AddFriend(friendId, userGroupId);
             
 
         }
@@ -217,8 +217,8 @@ namespace Chatter.MetroClient.UI
 
 
                     ///将新添加的分组加到 数组里面记录
-                
-                    UserGroup ug = new UserGroup() { userGroupId = userGroupId, userGroupName = userGroupName };
+
+                    UserGroup ug = new UserGroup() { userGroupId = userGroupId, userGroupName = userGroupName, members = new Member[0] { } };
                    
                
                     ///在界面上添加分组
@@ -228,6 +228,7 @@ namespace Chatter.MetroClient.UI
                     MyTabItem tabItem= new MyTabItem(MyType.User,  ug.userGroupId);
                     tabControl.Items.Add(tabItem);
                     DataUtil.FriendTabItems.Add(ug.userGroupId,tabItem);
+                    DataUtil.UserGroups.Add(ug);
                     
                 }
             }

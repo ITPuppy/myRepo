@@ -10,6 +10,8 @@ namespace Chatter.MetroClient
 {
     public class DataUtil
     {
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static BaseRole CurrentRole;
         public static ChatterClient Client;
         public static List<UserGroup> UserGroups;
         public static Member Member;

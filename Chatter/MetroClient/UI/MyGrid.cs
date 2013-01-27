@@ -70,10 +70,11 @@ namespace Chatter.MetroClient.UI
 
 
                 List<Member> friends = DataUtil.GetMemberList(userGroupId);
+                rowCount = friends.Count / columnCount + 1;
                 InitRowAndColumn();
 
 
-                rowCount = friends.Count / columnCount + 1;
+               
                 for (i = 0; i < friends.Count; i++)
                 {
                     int j = random.Next(colors.Length / 3);
@@ -189,8 +190,10 @@ namespace Chatter.MetroClient.UI
                         foreach(MyButton btn in  this.Children)
                         {
                             if ((btn.baseRole as Member).id == id)
+                            {
                                 button = btn;
-                            break;
+                                break;
+                            }
                         }
                         break;
                     }
@@ -199,8 +202,10 @@ namespace Chatter.MetroClient.UI
                         foreach (MyButton btn in this.Children)
                         {
                             if ((btn.baseRole as UserGroup).userGroupId == id)
+                            {
                                 button = btn;
-                            break;
+                                break;
+                            }
                         }
                         break;
                     }

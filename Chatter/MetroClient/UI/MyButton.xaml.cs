@@ -292,7 +292,6 @@ namespace Chatter.MetroClient.UI
                 DataUtil.Client.DeleteUserGroupAsync(DataUtil.Member.id, userGroup);
 
 
-
             }
 
         }
@@ -386,7 +385,9 @@ namespace Chatter.MetroClient.UI
             {
                 case MyType.User:
                     {
-                        MessageBox.Show("聊天");
+                        DataUtil.CurrentRole = this.baseRole;
+
+                      //  DataUtil.ShowMesgWindow();
                         break;
                     }
                 case MyType.UserGroup:

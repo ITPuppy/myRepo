@@ -176,7 +176,12 @@ namespace Chatter.MetroClient.Callback
                 MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
                 tabItem.myGrid.AddButton(MyType.User, result.member);
             }
+            else
+            {
+                MessageBox.Show(result.mesg);
+            }
         }
+
 
         public IAsyncResult BeginReponseToSouceClient(Result result, AsyncCallback callback, object asyncState)
         {

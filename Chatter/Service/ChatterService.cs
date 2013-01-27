@@ -249,8 +249,8 @@ namespace Chatter.Service
 
 
             ///  判断是否为自己的好友，正常情况都是 ，因为只给好友广播消息
-            if (friends.ContainsKey(e.Id))
-            {
+          ///  if (friends.ContainsKey(e.Id))
+          ///  {
                 try
                 {
                     switch (e.Type)
@@ -281,7 +281,7 @@ namespace Chatter.Service
                 {
                     Logger.Error("回调出现问题"+ex.Message);
                 }
-            }
+           /// }
         }
 
 
@@ -309,7 +309,7 @@ namespace Chatter.Service
       
 
 
-        void IChatter.AddFriend( string friendId, string userGroupId)
+      public  void AddFriend( string friendId, string userGroupId)
         {
             ///添加完好友把 所属的UserGroup信息填上
             ///得先请求好友同意
@@ -317,8 +317,12 @@ namespace Chatter.Service
 
             if (!Online.ContainsKey(friendId))
             {
-                 callback.ReponseToSouceClient( new Result() {Status=MessageStatus.Failed,Mesg="对方不在线"});
-                 return;
+                new Thread(new ThreadStart(() =>
+           {
+               callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Failed, Mesg = "对方不在线" });
+               
+           })).Start();
+                return;
             }
 
            
@@ -360,7 +364,10 @@ namespace Chatter.Service
                 ChatterService service = handler.Target as ChatterService;
                 service.callback.ReponseToSouceClient(new Result() {Mesg="对方同意添加好友请求", Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
                 DALService.AddFriend(this.member.Id, result.Member.Id);
-
+               ///相互绑定登录退出事件
+                ChatEvent+=Online[result.Member.Id] as ChatEventHandler;
+                service.ChatEvent += this.myEventHandler;
+                
                 DALService.AddFriend( result.Member.Id,this.member.Id,result.UserGroup.UserGroupId);
             }
 
