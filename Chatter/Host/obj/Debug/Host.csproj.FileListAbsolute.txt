@@ -13,6 +13,7 @@ E:\code\myRepo\Chatter\Host\bin\Debug\DAL.pdb
 E:\code\myRepo\Chatter\Host\bin\Debug\Log.pdb
 E:\code\myRepo\Chatter\Host\obj\Debug\Host.exe
 E:\code\myRepo\Chatter\Host\obj\Debug\Host.pdb
+F:\code\myRepo\Chatter\Host\obj\Debug\Host.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Host\bin\Debug\Host.exe.config
 F:\code\myRepo\Chatter\Host\bin\Debug\Host.exe
 F:\code\myRepo\Chatter\Host\bin\Debug\Host.pdb
@@ -25,6 +26,5 @@ F:\code\myRepo\Chatter\Host\bin\Debug\Contract.pdb
 F:\code\myRepo\Chatter\Host\bin\Debug\Service.pdb
 F:\code\myRepo\Chatter\Host\bin\Debug\Log.pdb
 F:\code\myRepo\Chatter\Host\bin\Debug\DAL.pdb
-F:\code\myRepo\Chatter\Host\obj\Debug\Host.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Host\obj\Debug\Host.exe
 F:\code\myRepo\Chatter\Host\obj\Debug\Host.pdb

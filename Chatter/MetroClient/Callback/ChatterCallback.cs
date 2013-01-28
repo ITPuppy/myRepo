@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows;
 using MetroClient.ChatterService;
 using System.Windows.Threading;
+using Chatter.Log;
 
 
 
@@ -150,7 +151,7 @@ namespace Chatter.MetroClient.Callback
             }
             catch (Exception ex)
             {
-
+             //  Logger.Error("在响应添加好友时候出错"+ex.Message);
             }
             finally
             {
@@ -170,15 +171,23 @@ namespace Chatter.MetroClient.Callback
 
         public void ReponseToSouceClient(Result result)
         {
-            if (result.status == MessageStatus.Accept)
+            try
             {
-                MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
-                MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
-                tabItem.myGrid.AddButton(MyType.User, result.member);
+               
+                if (result.status == MessageStatus.Accept)
+                {
+                    MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
+                    MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
+                    tabItem.myGrid.AddButton(MyType.User, result.member);
+                }
+                else
+                {
+                    MessageBox.Show(result.mesg);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(result.mesg);
+               MyLogger.Logger.Error("接收服务器加好友相应出错" ,ex);
             }
         }
 

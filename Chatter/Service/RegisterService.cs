@@ -25,7 +25,7 @@ namespace Chatter.Service
             }
             else
             {
-                Logger.Warn("用户添加失败");
+               MyLogger.Logger.Warn("用户添加失败");
                 return null;
             }
         }

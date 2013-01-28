@@ -115,16 +115,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="MessageType" nillable="true" type="tns:MessageType" />
-  <xs:complexType name="TextMessage">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Message">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TextMessage" nillable="true" type="tns:TextMessage" />
   <xs:complexType name="FileMessage">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Message">
@@ -136,4 +126,14 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="FileMessage" nillable="true" type="tns:FileMessage" />
+  <xs:complexType name="TextMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextMessage" nillable="true" type="tns:TextMessage" />
 </xs:schema>

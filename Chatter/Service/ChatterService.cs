@@ -14,9 +14,11 @@ using System.Threading;
 
 namespace Chatter.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession,ConcurrencyMode=ConcurrencyMode.Reentrant)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ChatterService : IChatter
     {
+
+        #region 属性
         /// <summary>
         /// 保存在线人的信息，键为id，值为ChatterEventHandler，通过ChatterEvent可以获取所在对象的信息
         /// 类所有
@@ -51,6 +53,11 @@ namespace Chatter.Service
         /// </summary>
         private Member member;
 
+        #endregion
+
+        #region 函数
+
+        #region 登录退出
         /// <summary>
         /// 处理用户登录
         /// </summary>
@@ -60,8 +67,8 @@ namespace Chatter.Service
         {
 
 
-            Logger.Info(String.Format("用户{0}登录", member.Id + " " + member.NickName));
-
+           MyLogger.Logger.Info(String.Format("用户{0}登录", member.Id + " " + member.NickName));
+          
 
             try
             {
@@ -71,7 +78,7 @@ namespace Chatter.Service
                     return new Result() { Status = MessageStatus.Failed };
                 }
                 this.member = DALService.GetMember(member.Id);
-               
+
                 ///获得回调句柄
                 callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
                 ///获得好友们的id
@@ -115,13 +122,90 @@ namespace Chatter.Service
             }
             catch (Exception e)
             {
-                Logger.Error(member.Id + "登录时候出现错误" + e.Message);
+               MyLogger.Logger.Error(member.Id + "登录时候出现错误" ,e);
                 return new Result() { Status = MessageStatus.Failed, Member = null };
             }
 
             ///返回登录结果
             return new Result() { Status = MessageStatus.OK, Member = DALService.GetMember(member.Id) };
         }
+
+
+
+        public MessageStatus Logoff(Member member)
+        {
+           MyLogger.Logger.Info(String.Format("用户{0}退出", member.Id + " " + member.NickName));
+            ChatEventArgs e = new ChatEventArgs();
+            e.Id = member.Id;
+            e.NickName = member.NickName;
+            e.Type = MessageType.Logoff;
+            Online.Remove(member.Id);
+            BroadCatMessage(e);
+
+            PrintOnLineNumber();
+            return MessageStatus.OK;
+        }
+
+        #endregion
+
+
+
+
+
+        #region 获取列表：分组，群
+
+        /// <summary>
+        /// 获取好友列表。包括分组信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<UserGroup> GetFriends(string id)
+        {
+            List<UserGroup> ugs = DALService.GetFriendList(id);
+            foreach (UserGroup ug in ugs)
+            {
+                foreach (Member member in ug.Members)
+                {
+                    if (Online.ContainsKey(member.Id))
+                        member.Status = MemberStatus.Online;
+                    else
+                        member.Status = MemberStatus.Offline;
+                }
+            }
+            return ugs;
+        }
+
+
+        public List<Group> GetGroups(string id)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region 群
+
+        public MessageStatus AddGroup(Group group)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MessageStatus AddFriend2Group(string friendId, string groupId)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region 消息
+        public MessageStatus SendMesg(Message mesg)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region 服务器处理
+
         /// <summary>
         /// 从数据库查询好友列表
         /// </summary>
@@ -174,68 +258,7 @@ namespace Chatter.Service
             ///阻塞等待异步调用结束
             hanlder.EndInvoke(ar);
 
-             
-        }
 
-
-
-        /// <summary>
-        /// 获取好友列表。包括分组信息
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public List<UserGroup> GetFriends(string id)
-        {
-            List<UserGroup> ugs= DALService.GetFriendList(id);
-            foreach (UserGroup ug in ugs)
-            {
-                foreach (Member member in ug.Members)
-                {
-                    if (Online.ContainsKey(member.Id))
-                        member.Status = MemberStatus.Online;
-                    else
-                        member.Status = MemberStatus.Offline;
-                }
-            }
-            return ugs;
-        }
-
-
-        public List<Group> GetGroups(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-
-       
-
-        public MessageStatus AddGroup(Group group)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MessageStatus AddFriend2Group(string friendId, string groupId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MessageStatus SendMesg(Message mesg)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MessageStatus Logoff(Member member)
-        {
-            Logger.Info(String.Format("用户{0}退出", member.Id + " " + member.NickName));
-            ChatEventArgs e = new ChatEventArgs();
-            e.Id = member.Id;
-            e.NickName = member.NickName;
-            e.Type = MessageType.Logoff;
-            Online.Remove(member.Id);
-            BroadCatMessage(e);
-
-            PrintOnLineNumber();
-            return MessageStatus.OK;
         }
         /// <summary>
         /// 事件处理函数，用户向好友广播消息，登录、退出
@@ -249,48 +272,52 @@ namespace Chatter.Service
 
 
             ///  判断是否为自己的好友，正常情况都是 ，因为只给好友广播消息
-          ///  if (friends.ContainsKey(e.Id))
-          ///  {
-                try
+            ///  if (friends.ContainsKey(e.Id))
+            ///  {
+            try
+            {
+                switch (e.Type)
                 {
-                    switch (e.Type)
-                    {
 
 
 
-                        ///账户为id的好友登录
-                        case MessageType.Login:
-                            {
-                                ///为好友订阅事件，以便自己登录退出通知他
-                                ChatEvent += friendChatterService.myEventHandler;
-                                callback.OnLogin(e.Id);
-                                break;
-                            }
-                        ///用户名为id的好友退出
-                        case MessageType.Logoff:
-                            {
-                                ///为好友取消订阅
-                                ChatEvent -= friendChatterService.myEventHandler;
-                                callback.OnLogoff(e.Id);
-                                break;
-                            }
+                    ///账户为id的好友登录
+                    case MessageType.Login:
+                        {
+                            ///为好友订阅事件，以便自己登录退出通知他
+                            ChatEvent += friendChatterService.myEventHandler;
+                            callback.OnLogin(e.Id);
+                            break;
+                        }
+                    ///用户名为id的好友退出
+                    case MessageType.Logoff:
+                        {
+                            ///为好友取消订阅
+                            ChatEvent -= friendChatterService.myEventHandler;
+                            callback.OnLogoff(e.Id);
+                            break;
+                        }
 
-                    }
                 }
-                catch (Exception ex)
-                {
-                    Logger.Error("回调出现问题"+ex.Message);
-                }
-           /// }
+            }
+            catch (Exception ex)
+            {
+               MyLogger.Logger.Error("回调出现问题" ,ex);
+            }
+            /// }
         }
 
 
         void PrintOnLineNumber()
         {
 
-            Logger.Info("当前在线人数:" + Online.Count);
+           MyLogger.Logger.Info("当前在线人数:" + Online.Count);
 
         }
+
+        #endregion
+
+        #region 分组
 
         /// <summary>
         /// 添加用户组
@@ -299,17 +326,32 @@ namespace Chatter.Service
         /// <returns>包含用户组id的Result</returns>
         public Result AddUserGroup(UserGroup userGroup)
         {
-           string userGroupId= DALService.AddUserGroup(member.Id, userGroup.UserGroupName);
-           if (userGroupId == null)
-               return new Result() { Status = MessageStatus.Failed };
-           else
-               return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() {  UserGroupId=userGroupId,UserGroupName=userGroup.UserGroupName} };
+            string userGroupId = DALService.AddUserGroup(member.Id, userGroup.UserGroupName);
+            if (userGroupId == null)
+                return new Result() { Status = MessageStatus.Failed };
+            else
+                return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() { UserGroupId = userGroupId, UserGroupName = userGroup.UserGroupName } };
         }
 
-      
 
 
-      public  void AddFriend( string friendId, string userGroupId)
+
+
+
+
+        public Result DeleteUserGroup(string id, UserGroup userGroup)
+        {
+            if (DALService.DeleteUserGroup(id, userGroup.UserGroupId))
+                return new Result() { Status = MessageStatus.OK };
+            else return new Result() { Status = MessageStatus.Failed };
+        }
+
+        #endregion
+
+        #region 好友
+
+
+        public void AddFriend(string friendId, string userGroupId)
         {
             ///添加完好友把 所属的UserGroup信息填上
             ///得先请求好友同意
@@ -318,15 +360,15 @@ namespace Chatter.Service
             if (!Online.ContainsKey(friendId))
             {
                 new Thread(new ThreadStart(() =>
-           {
-               callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Failed, Mesg = "对方不在线" });
-               
-           })).Start();
+                {
+                    callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Failed, Mesg = "对方不在线" });
+
+                })).Start();
                 return;
             }
 
-           
-            ChatEventHandler handler  = Online[friendId] as ChatEventHandler;
+
+            ChatEventHandler handler = Online[friendId] as ChatEventHandler;
             ChatterService service = handler.Target as ChatterService;
 
             new Thread(new ThreadStart(() =>
@@ -339,43 +381,52 @@ namespace Chatter.Service
                     To = new UserGroup() { UserGroupId = userGroupId }
                 });
             })).Start();
-            
+
         }
-
-
-        public Result DeleteUserGroup(string id, UserGroup userGroup)
-        {
-            if (DALService.DeleteUserGroup(id, userGroup.UserGroupId))
-                return new Result() { Status = MessageStatus.OK };
-            else return new Result() { Status=MessageStatus.Failed};
-        }
-
-
         public Result ResponseToAddFriend(Result result)
         {
             if (!Online.ContainsKey(result.Member.Id))
             {
-                return new Result() {Status=MessageStatus.Failed,Mesg="对方已经下线" };
+                return new Result() { Status = MessageStatus.Failed, Mesg = "对方已经下线" };
             }
 
             if (result.Status == MessageStatus.Accept)
             {
                 ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
                 ChatterService service = handler.Target as ChatterService;
-                service.callback.ReponseToSouceClient(new Result() {Mesg="对方同意添加好友请求", Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
+                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方同意添加好友请求", Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
                 DALService.AddFriend(this.member.Id, result.Member.Id);
-               ///相互绑定登录退出事件
-                ChatEvent+=Online[result.Member.Id] as ChatEventHandler;
+                ///相互绑定登录退出事件
+                ChatEvent += Online[result.Member.Id] as ChatEventHandler;
                 service.ChatEvent += this.myEventHandler;
-                
-                DALService.AddFriend( result.Member.Id,this.member.Id,result.UserGroup.UserGroupId);
+
+                DALService.AddFriend(result.Member.Id, this.member.Id, result.UserGroup.UserGroupId);
             }
 
-            return new Result() { Status=MessageStatus.OK,Mesg="成功通知对方",Member=result.Member};
+            return new Result() { Status = MessageStatus.OK, Mesg = "成功通知对方", Member = result.Member };
         }
+
+
+        public Result DeleteFriend(string id, string userGroupId, string friendId)
+        {
+            if (DALService.DeleteFriend(id, userGroupId, friendId))
+            {
+                return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() { UserGroupId = userGroupId }, Member = new Member() { Id = friendId } };
+            }
+            else
+            {
+                return new Result() { Status = MessageStatus.Failed, UserGroup = new UserGroup() { UserGroupId = userGroupId }, Member = new Member() { Id = friendId } };
+            }
+        }
+        #endregion
+
+        #endregion
     }
 
 
+
+
+    #region 自定义事件参数
     /// <summary>
     /// 自定义事件参数
     /// </summary>
@@ -404,4 +455,5 @@ namespace Chatter.Service
             set { type = value; }
         }
     }
+    #endregion
 }

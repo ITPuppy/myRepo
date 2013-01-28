@@ -17,7 +17,7 @@ namespace Chatter.Service
             {
                 id = NewRandom(length);
             }
-            Logger.Info("生成用户id：" + id);
+           MyLogger.Logger.Info("生成用户id：" + id);
             return id;
 
         }

@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using System.Text;
-using Chatter.Log;
 using Chatter.Contract.DataContract;
 using System.Data;
+using Chatter.Log;
+
 
 namespace Chatter.DAL
 {
     public class DALService
     {
+        
+
+        
         [Obsolete("Please use Conn")]
         private static MySqlConnection conn;
         private static Object obj = new object();
         private static MySqlConnection Conn
         {
+           
             get
             {
                 lock (obj)
@@ -50,6 +55,7 @@ namespace Chatter.DAL
         /// <returns>添加成功返回true，添加失败返回false</returns>
         static public bool AddMember(Member member)
         {
+           
             MySqlCommand cmd = null;
             try
             {
@@ -78,14 +84,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("添加用户出现错误\n" + e.Message);
-
+               MyLogger.Logger.Error("添加用户出现错误\n" , e);
+                
                 return false;
             }
 
             finally
             {
-
+               
                 if (cmd != null)
                     cmd.Dispose();
                
@@ -117,7 +123,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("更新状态出现错误\n" + e.Message);
+               MyLogger.Logger.Error("更新状态出现错误\n" ,e);
                 return false;
             }
             finally
@@ -151,7 +157,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("更新资料出现错误\n" + e.Message);
+               MyLogger.Logger.Error("更新资料出现错误\n",e);
                 return false;
             }
             finally
@@ -199,7 +205,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("获得用户出现错误\n" + e.Message);
+               MyLogger.Logger.Error("获得用户出现错误\n" ,e);
 
                 return null;
             }
@@ -248,7 +254,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("添加好友出现错误\n" + e.Message);
+               MyLogger.Logger.Error("添加好友出现错误\n" , e);
                 return null;
             }
             finally
@@ -279,7 +285,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("查询是否为合法用户时出现错误"+e.Message);
+               MyLogger.Logger.Error("查询是否为合法用户时出现错误",e);
                 return false;
             }
             finally
@@ -310,7 +316,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("查询用户存在出现错误\n" + e.Message);
+               MyLogger.Logger.Error("查询用户存在出现错误\n" , e);
                 return false;
             }
             finally
@@ -347,7 +353,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("更新用户信息出现错误\n" + e.Message);
+               MyLogger.Logger.Error("更新用户信息出现错误\n" , e);
                 return false;
             }
             finally
@@ -381,19 +387,23 @@ namespace Chatter.DAL
                         if (reader.Read())
                         {
                             temp=reader["friendId"].ToString();
-                            Logger.Debug("删除前"+temp);
+                           MyLogger.Logger.Debug("删除前"+temp);
+                          
+                          
                             temp=temp.Replace(friendId+";","");
-                            Logger.Debug("删除后"+temp);
+                         MyLogger.Logger.Debug("删除后" + temp);
+
+                   
                         }
                         else
                         {
-                            Logger.Error("删除好友时候出现错误\n");
+                           MyLogger.Logger.Error("删除好友时候出现错误\n");
                             return false;
                         }
                     }
                     else
                     {
-                        Logger.Error("删除好友时候没有找到用户id\n");
+                       MyLogger.Logger.Error("删除好友时候没有找到用户id\n");
                         return false;
                     }
                 }
@@ -412,7 +422,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("删除好友出现错误\n" + e.Message);
+               MyLogger.Logger.Error("删除好友出现错误\n" , e);
                 return false;
             }
             finally
@@ -486,7 +496,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("获取好友列表出现错误\n" + e.Message);
+               MyLogger.Logger.Error("获取好友列表出现错误\n" , e);
                 return null;
             }
             finally
@@ -551,7 +561,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("添加群组出现错误\n" + e.Message);
+               MyLogger.Logger.Error("添加群组出现错误\n" , e);
 
                 return false;
             }
@@ -584,7 +594,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("查询群组存在出现错误\n" + e.Message);
+               MyLogger.Logger.Error(String.Format("查询群组存在出现错误\n" , e));
                 return false;
             }
             finally
@@ -616,7 +626,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("删除群组出现错误\n" + e.Message);
+               MyLogger.Logger.Error("删除群组出现错误\n" , e);
                 return false;
             }
             finally
@@ -646,7 +656,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("添加用户到组时出现错误："+e.Message);
+               MyLogger.Logger.Error("添加用户到组时出现错误：",e);
                 return false;
             }
             finally
@@ -678,19 +688,19 @@ namespace Chatter.DAL
                         if (reader.Read())
                         {
                             temp = reader["groupMember"].ToString();
-                            Logger.Debug("删除前" + temp);
+                           MyLogger.Logger.Debug("删除前" + temp);
                             temp = temp.Replace(groupId + ";", "");
-                            Logger.Debug("删除后" + temp);
+                           MyLogger.Logger.Debug("删除后" + temp);
                         }
                         else
                         {
-                            Logger.Error("从群组中删除用户时候出现错误\n");
+                           MyLogger.Logger.Error("从群组中删除用户时候出现错误\n");
                             return false;
                         }
                     }
                     else
                     {
-                        Logger.Error("从群组中删除用户时候没有找到用户id\n");
+                       MyLogger.Logger.Error("从群组中删除用户时候没有找到用户id\n");
                         return false;
                     }
                 }
@@ -709,7 +719,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("从群组中删除用户出现错误\n" + e.Message);
+               MyLogger.Logger.Error("从群组中删除用户出现错误\n" , e);
                 return false;
             }
             finally
@@ -768,7 +778,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("获取群组时候出现错误"+e.Message);
+               MyLogger.Logger.Error("获取群组时候出现错误",e);
                 return null;
             }
             finally
@@ -812,7 +822,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("查询分组存在出现错误\n" + e.Message);
+               MyLogger.Logger.Error("查询分组存在出现错误\n" , e);
                 return true;
             }
             finally
@@ -853,7 +863,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("添加分组出现错误\n" + e.Message);
+               MyLogger.Logger.Error("添加分组出现错误\n" , e);
 
                 return null;
             }
@@ -880,7 +890,7 @@ namespace Chatter.DAL
         {
             if (!DeleteFriend(id, fromId, friendId))
             {
-                Logger.Error("移动好友时候，删除好友出错");
+               MyLogger.Logger.Error("移动好友时候，删除好友出错");
                 return false;
             }
             return AddFriend(id, friendId, toId) == null?false:true ;
@@ -937,7 +947,8 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-                Logger.Error("删除分组出现错误\n" + e.Message);
+               MyLogger.Logger.Error(String.Format("删除分组出现错误\n" , e));
+          
                 return false;
             }
             finally

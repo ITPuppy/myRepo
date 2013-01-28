@@ -10,6 +10,7 @@ E:\code\myRepo\Chatter\Service\bin\Debug\Log.pdb
 E:\code\myRepo\Chatter\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\Service\obj\Debug\Service.dll
 E:\code\myRepo\Chatter\Service\obj\Debug\Service.pdb
+F:\code\myRepo\Chatter\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Service\bin\Debug\Service.dll
 F:\code\myRepo\Chatter\Service\bin\Debug\Service.pdb
 F:\code\myRepo\Chatter\Service\bin\Debug\Contract.dll
@@ -19,6 +20,5 @@ F:\code\myRepo\Chatter\Service\bin\Debug\log4net.dll
 F:\code\myRepo\Chatter\Service\bin\Debug\Contract.pdb
 F:\code\myRepo\Chatter\Service\bin\Debug\DAL.pdb
 F:\code\myRepo\Chatter\Service\bin\Debug\Log.pdb
-F:\code\myRepo\Chatter\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Service\obj\Debug\Service.dll
 F:\code\myRepo\Chatter\Service\obj\Debug\Service.pdb

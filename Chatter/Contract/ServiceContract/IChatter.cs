@@ -6,40 +6,58 @@ using Chatter.Contract.DataContract;
 namespace Chatter.Contract.ServiceContract
 {
     [ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(IChatterCallback))]
-    
+
     public interface IChatter
     {
-         [OperationContract(IsInitiating = true, IsTerminating = false)]
+        #region 登录退出
+        [OperationContract(IsInitiating = true, IsTerminating = false)]
         Result Login(Member member);
+        [OperationContract(IsInitiating = false, IsTerminating = true)]
+        MessageStatus Logoff(Member member);
+        #endregion
 
+
+        #region 获取列表：好友群组
         [OperationContract(IsInitiating = false, IsTerminating = false)]
-         List<UserGroup> GetFriends(string id);
+        List<UserGroup> GetFriends(string id);
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         List<Group> GetGroups(string id);
+        #endregion
 
-        [OperationContract(IsInitiating = false, IsTerminating = false,IsOneWay=true)]
-        void AddFriend( string friendId, string userGroupId = "0");
+        #region 好友操作：添加，删除
+        [OperationContract(IsInitiating = false, IsTerminating = false, IsOneWay = true)]
+        void AddFriend(string friendId, string userGroupId = "0");
+
+
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         Result ResponseToAddFriend(Result result);
 
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        Result DeleteFriend(string id, string userGroupId,string friend);
+        #endregion
 
-         [OperationContract(IsInitiating = false, IsTerminating = false)]
+        #region 群相关
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus AddGroup(Group group);
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus AddFriend2Group(string friendId, string groupId);
 
-         [OperationContract(IsInitiating = false, IsTerminating = false)]
+        #endregion
+
+        #region 发送消息
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus SendMesg(Message mesg);
+        #endregion
+        #region 分组相关
 
-         [OperationContract(IsInitiating = false, IsTerminating = false)]
-         Result AddUserGroup(UserGroup userGroup);
-         [OperationContract(IsInitiating = false, IsTerminating = false)]
-         Result DeleteUserGroup(string id,UserGroup userGroup);
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        Result AddUserGroup(UserGroup userGroup);
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        Result DeleteUserGroup(string id, UserGroup userGroup);
+        #endregion
 
-        [OperationContract(IsInitiating = false, IsTerminating = true)]
-        MessageStatus Logoff(Member member);                                                                                                                                                                                                                                                                                                                                          
-        
+
     }
 }

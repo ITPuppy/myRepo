@@ -17,7 +17,6 @@ E:\code\myRepo\Chatter\Client\obj\Debug\App.baml
 F:\code\myRepo\Chatter\Client\bin\Debug\Client.exe.config
 F:\code\myRepo\Chatter\Client\bin\Debug\Client.exe
 F:\code\myRepo\Chatter\Client\bin\Debug\Client.pdb
-F:\code\myRepo\Chatter\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Client\obj\Debug\UI\LoginWindow.baml
 F:\code\myRepo\Chatter\Client\obj\Debug\UI\MainWindow.baml
 F:\code\myRepo\Chatter\Client\obj\Debug\App.baml
