@@ -25,5 +25,8 @@ namespace Chatter.Contract.ServiceContract
 
         [OperationContract(IsOneWay = true)]
         void ReponseToSouceClient(Result result);
+
+        [OperationContract(IsOneWay = false)]
+        string  SendHeartBeat();
     }
 }

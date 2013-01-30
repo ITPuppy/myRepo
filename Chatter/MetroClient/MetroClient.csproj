@@ -139,16 +139,16 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\ChatterService\ChatterService.wsdl" />
-    <None Include="Service References\ChatterService\ChatterService.xsd">
+    <None Include="Service References\ChatterService\ChatterService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\ChatterService1.xsd">
+    <None Include="Service References\ChatterService\ChatterService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\ChatterService2.xsd">
+    <None Include="Service References\ChatterService\ChatterService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatterService\ChatterService3.xsd">
+    <None Include="Service References\ChatterService\ChatterService43.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ChatterService\MetroClient.ChatterService.Group.datasource">
@@ -164,16 +164,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RegisterService\RegisterService.wsdl" />
-    <None Include="Service References\RegisterService\RegisterService.xsd">
+    <None Include="Service References\RegisterService\RegisterService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterService\RegisterService1.xsd">
+    <None Include="Service References\RegisterService\RegisterService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterService\RegisterService2.xsd">
+    <None Include="Service References\RegisterService\RegisterService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterService\RegisterService3.xsd">
+    <None Include="Service References\RegisterService\RegisterService43.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

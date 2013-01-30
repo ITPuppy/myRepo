@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Chatter.Log;
 
 namespace Chatter.MetroClient.UI
 {
@@ -22,6 +23,7 @@ namespace Chatter.MetroClient.UI
     /// </summary>
     public partial class MyButton : Grid
     {
+        #region 属性
         /// <summary>
         /// Button高度
         /// </summary>
@@ -68,7 +70,7 @@ namespace Chatter.MetroClient.UI
         private string userGroupId;
 
 
-        private Color offlineColor = Color.FromArgb(255,192, 192, 192);
+        private Color offlineColor = Color.FromArgb(255, 192, 192, 192);
         private Color onlineColor = Colors.OrangeRed;
         public String Text
         {
@@ -92,7 +94,9 @@ namespace Chatter.MetroClient.UI
             }
 
         }
+        #endregion
 
+        #region 构造函数
         public MyButton()
             : base()
         {
@@ -222,13 +226,15 @@ namespace Chatter.MetroClient.UI
                     this.Background = new SolidColorBrush(onlineColor);
                 else if (member.status == MemberStatus.Offline)
                     this.Background = new SolidColorBrush(offlineColor);
-                
 
-            #endregion
+
+
             }
+            #endregion
+
 
             ///背景色为MyGrid里面传进来的颜色
-           
+
             this.Width = weight;
             this.Height = height;
 
@@ -240,14 +246,88 @@ namespace Chatter.MetroClient.UI
             ///鼠标点击事件
             this.MouseLeftButtonUp += MyButton_LeftButtonDown;
         }
-       /// <summary>
-       /// 删除好友出发事件
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
+
+        #endregion
+
+
+
+        #region 函数
+        /// <summary>
+        /// 删除好友出发事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void deleteFriendMenuItem_Click(object sender, RoutedEventArgs e)
         {
-           
+
+            Member member=baseRole as Member;
+            MessageBoxResult result= MessageBox.Show("确定要删除？", "确认", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                DataUtil.Client.DeleteFriendCompleted += Client_DeleteFriendCompleted;
+                DataUtil.Client.DeleteFriendAsync(DataUtil.Member.id,this.userGroupId,member.id);
+            }
+
+        }
+
+        void Client_DeleteFriendCompleted(object sender, DeleteFriendCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    throw e.Error;
+                }
+
+                if (e.Result.status == MessageStatus.Failed)
+                {
+                    MessageBox.Show("删除好友失败");
+                }
+                else if(e.Result.status==MessageStatus.OK)
+                {
+
+                    Member member= this.baseRole as Member;
+
+
+                    ///删除好友图标。并将后面的好友前移
+                    MyGrid myGrid = this.Parent as MyGrid;
+
+                    int currentIndex = myGrid.Children.IndexOf(this);
+                   
+                    ///删掉分组
+                    myGrid.Children.Remove(this);
+
+                    ///删除全局的分组记录
+                    DataUtil.DeleteFriend(member.id,this.userGroupId);
+
+                    ///将后面的分组移除
+                    List<MyButton> temp = new List<MyButton>();
+                    for (; currentIndex < myGrid.Children.Count; )
+                    {
+                        temp.Add(myGrid.Children[currentIndex] as MyButton);
+                        myGrid.Children.RemoveAt(currentIndex);
+
+                    }
+                    ///将后面的分组前移后加上
+                    foreach (MyButton button in temp)
+                    {
+                        Grid.SetRow(button, currentIndex / 3);
+                        Grid.SetColumn(button, currentIndex % 3);
+                        myGrid.Children.Add(button);
+                        currentIndex++;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("删除好友操作超时");
+                MyLogger.Logger.Error("删除好友出错", ex);
+            }
+            finally
+            {
+                DataUtil.Client.DeleteFriendCompleted -= Client_DeleteFriendCompleted;
+            }
         }
         /// <summary>
         /// 查看好友资料
@@ -256,7 +336,7 @@ namespace Chatter.MetroClient.UI
         /// <param name="e"></param>
         void viewFriendMenuItemItem_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         /// <summary>
@@ -316,8 +396,6 @@ namespace Chatter.MetroClient.UI
 
 
                 UserGroup userGroup = baseRole as UserGroup;
-
-
 
 
                 ///将好友移至默认分组
@@ -387,7 +465,7 @@ namespace Chatter.MetroClient.UI
                     {
                         DataUtil.CurrentRole = this.baseRole;
 
-                      //  DataUtil.ShowMesgWindow();
+                        //  DataUtil.ShowMesgWindow();
                         break;
                     }
                 case MyType.UserGroup:
@@ -441,21 +519,22 @@ namespace Chatter.MetroClient.UI
 
         public void ChangeMemberStatus(MemberStatus status)
         {
-            switch(status)
+            switch (status)
             {
                 case MemberStatus.Online:
                     {
-                        this.Background=new SolidColorBrush(onlineColor);
+                        this.Background = new SolidColorBrush(onlineColor);
                         break;
                     }
                 case MemberStatus.Offline:
                     {
-                        this.Background=new SolidColorBrush(offlineColor);
+                        this.Background = new SolidColorBrush(offlineColor);
                         break;
                     }
 
             }
         }
+        #endregion
     }
 
 

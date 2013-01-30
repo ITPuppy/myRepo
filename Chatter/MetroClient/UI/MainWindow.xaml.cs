@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Chatter.Log;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.UI
@@ -90,12 +91,11 @@ namespace Chatter.MetroClient.UI
         {
             try
             {
-                if (DataUtil.Client != null)
-                    DataUtil.Client.Logoff(DataUtil.Member);
+                DataUtil.Client.Abort();
             }
             catch (Exception ex)
             {
-
+                MyLogger.Logger.Error("退出出现问题",ex);
             }
             finally
             {

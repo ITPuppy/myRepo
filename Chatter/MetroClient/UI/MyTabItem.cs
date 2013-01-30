@@ -216,7 +216,7 @@ namespace Chatter.MetroClient.UI
                     string userGroupName = e.Result.userGroup.userGroupName;
 
 
-                    ///将新添加的分组加到 数组里面记录
+                    
 
                     UserGroup ug = new UserGroup() { userGroupId = userGroupId, userGroupName = userGroupName, members = new Member[0] { } };
                    
@@ -228,6 +228,7 @@ namespace Chatter.MetroClient.UI
                     MyTabItem tabItem= new MyTabItem(MyType.User,  ug.userGroupId);
                     tabControl.Items.Add(tabItem);
                     DataUtil.FriendTabItems.Add(ug.userGroupId,tabItem);
+                     ///将分组添加到记录里面
                     DataUtil.UserGroups.Add(ug);
                     
                 }

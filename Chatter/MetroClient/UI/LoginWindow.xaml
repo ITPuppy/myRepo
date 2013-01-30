@@ -57,7 +57,7 @@
 			        Height="31" 
                     Width="206"
                      FontSize="15"
-			        TextWrapping="Wrap" 
+			       
 			       
                    
                     BorderThickness="0"
@@ -87,17 +87,23 @@
                         </Border>
                         <CheckBox 
                     Grid.Row="4"
+                            Name="cbSavePwd"
                     Width="80"
                     Height="20"
-                    Content="记住密码" Margin="134,10,259,24" TabIndex="5"
+                    Content="记住密码"
+                            Margin="134,10,259,24" 
+                            TabIndex="5"
+                        Unchecked="cbSavePwd_UnChecked"
                           />
                         <CheckBox 
+                            Name="cbAutoLogin"
                     Grid.Row="4"
                     Width="80"
                     Height="20"
                     Content="自动登录" 
-                    Margin="260,10,133,24" TabIndex="4"
-                    
+                    Margin="260,10,133,24" 
+                            TabIndex="4"
+                    Checked="cbAutoLogin_Checked"
                           />
                         <Button Name="btnLogin" Content="登录" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.098,0.364" Grid.Row="5" Height="33" Click="btnLogin_Click" TabIndex="3">
                             <Button.Background>

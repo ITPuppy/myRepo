@@ -1,0 +1,93 @@
+日 志 时 间:  2013-01-29 11:42:54,393 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.UI.MyButton.Client_DeleteFriendCompleted(f:\code\myRepo\Chatter\MetroClient\UI\MyButton.xaml.cs:325)
+日 志 内 容:  删除好友出错
+ System.TimeoutException: This request operation sent to net.tcp://127.0.0.1:9877/ChatterService did not receive a reply within the configured timeout (00:01:10).  The time allotted to this operation may have been a portion of a longer timeout.  This may be because the service is still processing the operation or because the service was unable to send a reply message.  Please consider increasing the operation timeout (by casting the channel/proxy to IContextChannel and setting the OperationTimeout property) and ensure that the service is able to connect to the client.
+
+Server stack trace: 
+   at System.Runtime.AsyncResult.End[TAsyncResult](IAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.End(SendAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannel.EndCall(String action, Object[] outs, IAsyncResult result)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeEndService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at Chatter.MetroClient.UI.MyButton.Client_DeleteFriendCompleted(Object sender, DeleteFriendCompletedEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MyButton.xaml.cs:line 279
+
+
+日 志 时 间:  2013-01-29 15:31:08,323 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.UI.MainWindow.OnClosing(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:99)
+日 志 内 容:  退出出现问题
+ System.ServiceModel.CommunicationException: The server did not provide a meaningful reply; this might be caused by a contract mismatch, a premature session shutdown or an internal server error.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at MetroClient.ChatterService.IChatter.Logoff(Member member)
+   at MetroClient.ChatterService.ChatterClient.Logoff(Member member) in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1141
+   at Chatter.MetroClient.UI.MainWindow.OnClosing(CancelEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 95
+
+
+日 志 时 间:  2013-01-29 15:36:18,780 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.UI.MainWindow.OnClosing(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:99)
+日 志 内 容:  退出出现问题
+ System.ServiceModel.ProtocolException: The session was closed before message transfer was complete.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.InterruptibleWaitObject.Wait(TimeSpan timeout, Boolean throwTimeoutException)
+   at System.ServiceModel.Channels.ReliableInputConnection.Close(TimeSpan timeout)
+   at System.ServiceModel.Channels.ReliableDuplexSessionChannel.OnClose(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnClose(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Close(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnClose(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Close(TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.TerminatingOperationBehavior.AfterReply(ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at MetroClient.ChatterService.IChatter.Logoff(Member member)
+   at MetroClient.ChatterService.ChatterClient.Logoff(Member member) in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1122
+   at Chatter.MetroClient.UI.MainWindow.OnClosing(CancelEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 95
+
+
+日 志 时 间:  2013-01-29 15:37:44,712 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.UI.MainWindow.OnClosing(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:99)
+日 志 内 容:  退出出现问题
+ System.ServiceModel.ProtocolException: The session was closed before message transfer was complete.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.InterruptibleWaitObject.Wait(TimeSpan timeout, Boolean throwTimeoutException)
+   at System.ServiceModel.Channels.ReliableOutputConnection.Close(TimeSpan timeout)
+   at System.ServiceModel.Channels.ReliableDuplexSessionChannel.InternalCloseOutputSession(TimeSpan timeout)
+   at System.ServiceModel.Channels.ReliableDuplexSessionChannel.OnClose(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnClose(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Close(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnClose(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Close(TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.TerminatingOperationBehavior.AfterReply(ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at MetroClient.ChatterService.IChatter.Logoff(Member member)
+   at MetroClient.ChatterService.ChatterClient.Logoff(Member member) in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1122
+   at Chatter.MetroClient.UI.MainWindow.OnClosing(CancelEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 95
+
+

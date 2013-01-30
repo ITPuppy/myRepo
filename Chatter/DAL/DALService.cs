@@ -265,6 +265,38 @@ namespace Chatter.DAL
             }
         }
 
+
+        /// <summary>
+        /// 判断是否为自己好友
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <param name="friendId">好友ID</param>
+        /// <returns></returns>
+        static public bool IsFriend(string id, string friendId)
+        {
+            MySqlCommand cmd = null;
+            try
+            {
+                string sql = String.Format("select id from tblFriend where id=?id and friendId like ?friendId");
+                cmd = new MySqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("friendId","%"+friendId+"%");
+                Prepare(cmd.Parameters);
+
+                return cmd.ExecuteScalar() != null;
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("查询是否为好友的时候出现错误", ex);
+                return false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+            }
+        }
+
         /// <summary>
         /// 判断用户是否合法
         /// </summary>
@@ -379,6 +411,7 @@ namespace Chatter.DAL
                 string temp = String.Empty;
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("groupId", userGroupId);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -410,10 +443,11 @@ namespace Chatter.DAL
                 cmd.Dispose();
 
 
-                sql = String.Format("update tblFriend set friendId=?friendId where id=?id");
+                sql = String.Format("update tblFriend set friendId=?friendId where id=?id  and groupId=?groupId ");
                 cmd = new MySqlCommand(sql, Conn);
-                
+                cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("friendId", temp );
+                cmd.Parameters.AddWithValue("groupId", userGroupId);
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 

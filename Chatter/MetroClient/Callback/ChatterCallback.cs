@@ -10,6 +10,7 @@ using System.Windows;
 using MetroClient.ChatterService;
 using System.Windows.Threading;
 using Chatter.Log;
+using System.Threading;
 
 
 
@@ -105,10 +106,22 @@ namespace Chatter.MetroClient.Callback
                 case MessageType.AddFriend:
                     {
 
-                        Member friend = mesg.from as Member;
+                       
 
+                        Member friend = mesg.from as Member;
+                        MessageStatus status = MessageStatus.Refuse;
+                        if (DataUtil.IsFriend(friend.id))
+                        {
+                            this.OnLogin(friend.id);
+                           new Thread(
+                               new ThreadStart(
+                                   ()=>{
+                                       DataUtil.Client.ResponseToAddFriend(new Result() { member = friend, userGroup = mesg.to as UserGroup, status = MessageStatus.Accept });
+                                   })).Start();
+                           return;
+                        }
                         MessageBoxResult mbr = MessageBox.Show(friend.id + friend.nickName + "请求添加好友", "请求", MessageBoxButton.YesNoCancel);
-                        MessageStatus status=MessageStatus.Refuse;
+                     
                     if (mbr == MessageBoxResult.Yes)
                     {
                         status=MessageStatus.Accept;
@@ -139,13 +152,19 @@ namespace Chatter.MetroClient.Callback
         {
             try
             {
-                if (e.Result.status == MessageStatus.Failed)
+                if (e.Result.status == MessageStatus.Refuse)
+                {
+                   
+                    return;
+                }
+                else if (e.Result.status == MessageStatus.Failed)
                 {
                     MessageBox.Show(e.Result.mesg);
+                    return;
                 }
-                else if(e.Result.status==MessageStatus.OK)
+                else if (e.Result.status == MessageStatus.OK)
                 {
-                    MyTabItem tabItem=DataUtil.FriendTabItems["0"];
+                    MyTabItem tabItem = DataUtil.FriendTabItems["0"];
                     tabItem.myGrid.AddButton(MyType.User, e.Result.member);
                 }
             }
@@ -198,6 +217,22 @@ namespace Chatter.MetroClient.Callback
         }
 
         public void EndReponseToSouceClient(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public string SendHeartBeat()
+        {
+            return "1";
+        }
+
+        public IAsyncResult BeginSendHeartBeat(AsyncCallback callback, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string EndSendHeartBeat(IAsyncResult result)
         {
             throw new NotImplementedException();
         }

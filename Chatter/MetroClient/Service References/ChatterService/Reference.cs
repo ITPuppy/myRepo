@@ -621,13 +621,13 @@ namespace MetroClient.ChatterService {
         
         MetroClient.ChatterService.Result EndLogin(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, IsInitiating=false, Action="http://tempuri.org/IChatter/Logoff", ReplyAction="http://tempuri.org/IChatter/LogoffResponse")]
-        MetroClient.ChatterService.MessageStatus Logoff(MetroClient.ChatterService.Member member);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, IsInitiating=false, Action="http://tempuri.org/IChatter/Logoff")]
+        void Logoff(MetroClient.ChatterService.Member member);
         
-        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/Logoff", ReplyAction="http://tempuri.org/IChatter/LogoffResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/Logoff")]
         System.IAsyncResult BeginLogoff(MetroClient.ChatterService.Member member, System.AsyncCallback callback, object asyncState);
         
-        MetroClient.ChatterService.MessageStatus EndLogoff(System.IAsyncResult result);
+        void EndLogoff(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/GetFriends", ReplyAction="http://tempuri.org/IChatter/GetFriendsResponse")]
         MetroClient.ChatterService.UserGroup[] GetFriends(string id);
@@ -752,6 +752,14 @@ namespace MetroClient.ChatterService {
         System.IAsyncResult BeginReponseToSouceClient(MetroClient.ChatterService.Result result, System.AsyncCallback callback, object asyncState);
         
         void EndReponseToSouceClient(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatter/SendHeartBeat", ReplyAction="http://tempuri.org/IChatter/SendHeartBeatResponse")]
+        string SendHeartBeat();
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatter/SendHeartBeat", ReplyAction="http://tempuri.org/IChatter/SendHeartBeatResponse")]
+        System.IAsyncResult BeginSendHeartBeat(System.AsyncCallback callback, object asyncState);
+        
+        string EndSendHeartBeat(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -773,25 +781,6 @@ namespace MetroClient.ChatterService {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((MetroClient.ChatterService.Result)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class LogoffCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public LogoffCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public MetroClient.ChatterService.MessageStatus Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
             }
         }
     }
@@ -1065,7 +1054,7 @@ namespace MetroClient.ChatterService {
         
         public event System.EventHandler<LoginCompletedEventArgs> LoginCompleted;
         
-        public event System.EventHandler<LogoffCompletedEventArgs> LogoffCompleted;
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> LogoffCompleted;
         
         public event System.EventHandler<GetFriendsCompletedEventArgs> GetFriendsCompleted;
         
@@ -1137,8 +1126,8 @@ namespace MetroClient.ChatterService {
                         member}, this.onEndLoginDelegate, this.onLoginCompletedDelegate, userState);
         }
         
-        public MetroClient.ChatterService.MessageStatus Logoff(MetroClient.ChatterService.Member member) {
-            return base.Channel.Logoff(member);
+        public void Logoff(MetroClient.ChatterService.Member member) {
+            base.Channel.Logoff(member);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1147,8 +1136,8 @@ namespace MetroClient.ChatterService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public MetroClient.ChatterService.MessageStatus EndLogoff(System.IAsyncResult result) {
-            return base.Channel.EndLogoff(result);
+        public void EndLogoff(System.IAsyncResult result) {
+            base.Channel.EndLogoff(result);
         }
         
         private System.IAsyncResult OnBeginLogoff(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -1157,15 +1146,14 @@ namespace MetroClient.ChatterService {
         }
         
         private object[] OnEndLogoff(System.IAsyncResult result) {
-            MetroClient.ChatterService.MessageStatus retVal = this.EndLogoff(result);
-            return new object[] {
-                    retVal};
+            this.EndLogoff(result);
+            return null;
         }
         
         private void OnLogoffCompleted(object state) {
             if ((this.LogoffCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.LogoffCompleted(this, new LogoffCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.LogoffCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
             }
         }
         

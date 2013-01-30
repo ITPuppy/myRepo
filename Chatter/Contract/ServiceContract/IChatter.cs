@@ -12,8 +12,8 @@ namespace Chatter.Contract.ServiceContract
         #region 登录退出
         [OperationContract(IsInitiating = true, IsTerminating = false)]
         Result Login(Member member);
-        [OperationContract(IsInitiating = false, IsTerminating = true)]
-        MessageStatus Logoff(Member member);
+        [OperationContract(IsInitiating = false, IsTerminating = true,IsOneWay=true)]
+        void Logoff(Member member);
         #endregion
 
 

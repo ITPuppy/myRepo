@@ -4,6 +4,11 @@ using System.Windows.Input;
 using System.ServiceModel;
 using MetroClient.ChatterService;
 using Chatter.MetroClient.Callback;
+using System.IO;
+using Chatter.Log;
+using System.Text;
+using System.Security.Cryptography;
+using System.Threading;
 
 namespace Chatter.MetroClient.UI
 {
@@ -13,7 +18,7 @@ namespace Chatter.MetroClient.UI
     public partial class LoginWindow : Window
     {
 
-     
+
         /// <summary>
         /// 当前调用是否取消
         /// </summary>
@@ -31,8 +36,8 @@ namespace Chatter.MetroClient.UI
         public LoginWindow()
         {
             InitializeComponent();
-           
-           
+
+
         }
 
 
@@ -62,11 +67,14 @@ namespace Chatter.MetroClient.UI
             DataUtil.Client = new ChatterClient(context);
             begin++;
             IsCurrentCanceled = false;
+
             DataUtil.Client.LoginCompleted += client_LoginCompleted;
             DataUtil.Client.LoginAsync(member);
 
             LoginGrid.Visibility = Visibility.Collapsed;
             WaitGrid.Visibility = Visibility.Visible;
+
+
 
         }
 
@@ -90,9 +98,13 @@ namespace Chatter.MetroClient.UI
                 if (e.Result.status == MessageStatus.OK)
                 {
                     DataUtil.Member = e.Result.member;
+
                     MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
                     this.Visibility = Visibility.Collapsed;
+                    mainWindow.Show();
+
+                    
+
                 }
                 else
                 {
@@ -101,6 +113,7 @@ namespace Chatter.MetroClient.UI
                     LoginGrid.Visibility = Visibility.Visible;
                 }
 
+                WriteIDAndPwd();
             }
 
             catch (EndpointNotFoundException ex)
@@ -128,30 +141,175 @@ namespace Chatter.MetroClient.UI
             }
         }
 
+
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             WaitGrid.Visibility = Visibility.Collapsed;
             LoginGrid.Visibility = Visibility.Visible;
 
+            
             IsCurrentCanceled = true;
+            DataUtil.Client.Abort();
         }
 
         private void LoginForm_Loaded(object sender, RoutedEventArgs e)
         {
             this.txtId.Focus();
+
+             LoadIDAndPwd(); 
+        }
+        private void WriteIDAndPwd()
+        {
+            FileStream fs = null;
+            string path = DataUtil.Path + "\\Netalk\\data.db";
+            try
+            {
+                if ((bool)cbSavePwd.IsChecked)
+                {
+
+                    if (!Directory.Exists(DataUtil.Path))
+                        Directory.CreateDirectory(path);
+                    if (!Directory.Exists(path.Substring(0, path.LastIndexOf("\\"))))
+                        Directory.CreateDirectory(path.Substring(0, path.LastIndexOf("\\")));
+
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+
+
+
+                    fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+
+                    StringBuilder data = new StringBuilder();
+                    data.Append(member.id + "_" + member.password + "_");
+                    bool isAutoLogin = false;
+                    if ((bool)cbAutoLogin.IsChecked)
+                    {
+                        isAutoLogin = true;
+                    }
+                    else
+                    {
+                        isAutoLogin = false;
+                    }
+                    data.Append(isAutoLogin.ToString());
+
+                    byte[] byteArray = Encrypt(Encoding.ASCII.GetBytes(data.ToString()), "netalk24");
+
+                    fs.Write(byteArray, 0, byteArray.Length);
+
+                    fs.Flush();
+
+
+                }
+                else
+                {
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Warn("储存密码出错", ex);
+            }
+            finally
+            {
+                if (fs != null)
+                    fs.Close();
+            }
+        }
+        private void LoadIDAndPwd()
+        {
+            string path = DataUtil.Path + "\\Netalk\\data.db";
+            FileStream fs = null;
+            if (!File.Exists(path))
+            {
+                return;
+            }
+            try
+            {
+
+                fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+
+                byte[] byteArray = new byte[fs.Length];
+
+                int n = fs.Read(byteArray, 0, byteArray.Length);
+                fs.Close();
+
+                string text = Encoding.ASCII.GetString(Decrypt(byteArray, "netalk24"));
+                string[] s = text.Split('_');
+                txtId.Text = s[0];
+                txtPwd.Password = s[1];
+                cbAutoLogin.IsChecked = Boolean.Parse(s[2]);
+                cbSavePwd.IsChecked = true;
+
+                if ((bool)cbAutoLogin.IsChecked)
+                {
+                    this.btnLogin_Click(btnLogin, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Warn("创建信息文件出错", ex);
+
+                File.Delete(path);
+            }
+
         }
 
+        private byte[] Encrypt(byte[] sourcebytes, string key)
+        {
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+            byte[] keyIV = keyBytes;
+            byte[] inputByteArray = sourcebytes;
+            DESCryptoServiceProvider desProvider = new DESCryptoServiceProvider();
+            MemoryStream memStream = new MemoryStream();
+            CryptoStream crypStream = new CryptoStream(memStream, desProvider.CreateEncryptor(keyBytes, keyIV), CryptoStreamMode.Write);
+            crypStream.Write(inputByteArray, 0, inputByteArray.Length);
+            crypStream.FlushFinalBlock();
+            return memStream.ToArray();
+        }
+
+        private byte[] Decrypt(byte[] encryptBytes, string key)
+        {
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+            byte[] keyIV = keyBytes;
+            byte[] inputByteArray = encryptBytes;
+            DESCryptoServiceProvider desProvider = new DESCryptoServiceProvider();
+            MemoryStream memStream = new MemoryStream();
+            CryptoStream crypStream = new CryptoStream(memStream, desProvider.CreateDecryptor(keyBytes, keyIV), CryptoStreamMode.Write);
+            crypStream.Write(inputByteArray, 0, inputByteArray.Length);
+            crypStream.FlushFinalBlock();
+            return memStream.ToArray();
+        }
         private void btnCancel_Quit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-       
+
 
         private void register_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow rw = new RegisterWindow();
             rw.ShowDialog();
+        }
+
+
+
+
+        private void cbAutoLogin_Checked(object sender, RoutedEventArgs e)
+        {
+            cbSavePwd.IsChecked = true;
+
+        }
+
+        private void cbSavePwd_UnChecked(object sender, RoutedEventArgs e)
+        {
+            cbAutoLogin.IsChecked = false;
         }
 
 
