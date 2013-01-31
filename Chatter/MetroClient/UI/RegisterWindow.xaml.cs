@@ -40,16 +40,15 @@ namespace Chatter.MetroClient.UI
             base.DragMove();
         }
 
-        private void bntRegister_Click(object sender, MouseButtonEventArgs e)
-        {
-
-
-        }
+       
 
         private void YearMonth_Changed(object sender, SelectionChangedEventArgs e)
         {
             if (cmboYear.SelectedIndex == -1 || cmboMonth.SelectedIndex == -1)
                 return;
+            string s=String.Empty;
+            if(cmboDay.SelectedItem !=null)
+             s = cmboDay.SelectedItem.ToString();
             cmboDay.Items.Clear();
             year = Convert.ToInt32(cmboYear.SelectedItem.ToString());
             string  strI = cmboMonth.SelectedItem.ToString();
@@ -89,6 +88,8 @@ namespace Chatter.MetroClient.UI
 
                 
             }
+            if(s!=null&&s!=string.Empty)
+            cmboDay.SelectedIndex = Convert.ToInt32(s)-1;
         }
 
         private void bntRegister_Click(object sender, RoutedEventArgs e)

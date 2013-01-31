@@ -155,8 +155,7 @@ namespace Chatter.MetroClient.UI
 
         private void LoginForm_Loaded(object sender, RoutedEventArgs e)
         {
-            this.txtId.Focus();
-
+           
              LoadIDAndPwd(); 
         }
         private void WriteIDAndPwd()
@@ -245,7 +244,8 @@ namespace Chatter.MetroClient.UI
                 txtPwd.Password = s[1];
                 cbAutoLogin.IsChecked = Boolean.Parse(s[2]);
                 cbSavePwd.IsChecked = true;
-
+                txtId.SelectionStart = txtId.Text.Length + 12;
+                this.txtId.Focus();
                 if ((bool)cbAutoLogin.IsChecked)
                 {
                     this.btnLogin_Click(btnLogin, null);
@@ -310,6 +310,23 @@ namespace Chatter.MetroClient.UI
         private void cbSavePwd_UnChecked(object sender, RoutedEventArgs e)
         {
             cbAutoLogin.IsChecked = false;
+        }
+
+        private void txtId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtPwd.Focus();
+                txtPwd.SelectAll();
+            }
+        }
+
+        private void txtPwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogin_Click(btnLogin, e);
+            }
         }
 
 

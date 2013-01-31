@@ -7,4 +7,3 @@ F:\code\myRepo\Chatter\Contract\bin\Debug\Contract.dll
 F:\code\myRepo\Chatter\Contract\bin\Debug\Contract.pdb
 F:\code\myRepo\Chatter\Contract\obj\Debug\Contract.dll
 F:\code\myRepo\Chatter\Contract\obj\Debug\Contract.pdb
-F:\code\myRepo\Chatter\Contract\obj\Debug\Contract.csprojResolveAssemblyReference.cache

@@ -69,9 +69,9 @@
             <StackPanel Grid.Row="5" Orientation="Horizontal">
                 <ComboBox Name="cmboYear" VerticalAlignment="Center" Height="25" Margin="110,16,0,16"  Text=""  Width="60"   SelectionChanged="YearMonth_Changed"/>
                 <TextBlock   Grid.Row="5" TextWrapping="Wrap" Margin="5,0,0,0" Text="年" Foreground="White" VerticalAlignment="Center" Width="20" />
-                <ComboBox  Name="cmboMonth" VerticalAlignment="Center" Height="25"  Text=""  Width="35" SelectionChanged="YearMonth_Changed" />
+                <ComboBox  Name="cmboMonth" VerticalAlignment="Center" Height="25"  Text=""  Width="40" SelectionChanged="YearMonth_Changed" />
                 <TextBlock  Grid.Row="5" TextWrapping="Wrap" Margin="5,0,0,0" Text="月" Foreground="White" VerticalAlignment="Center" Width="20" />
-                <ComboBox Name="cmboDay" VerticalAlignment="Center" Height="25"   Text=""  Width="30"/>
+                <ComboBox Name="cmboDay" VerticalAlignment="Center" Height="25"   Text=""  Width="40"/>
 
 
                 <TextBlock  Grid.Row="5" TextWrapping="Wrap" Text="日" Foreground="White" VerticalAlignment="Center" Width="20" />

@@ -58,10 +58,10 @@
                     Width="206"
                      FontSize="15"
 			       
-			       
+			      
                    
                     BorderThickness="0"
-                        Margin="5,10,0,0" TabIndex="1"
+                        Margin="5,10,0,0" TabIndex="1" KeyDown="txtId_KeyDown"
                     />
                         </Border>
 
@@ -82,7 +82,7 @@
                     Width="206"
                      FontSize="15"
 			       
-                    BorderThickness="0" TabIndex="2"
+                    BorderThickness="0" TabIndex="2" KeyDown="txtPwd_KeyDown"
                     />
                         </Border>
                         <CheckBox 

@@ -99,7 +99,7 @@ namespace Chatter.MetroClient.UI
             }
             finally
             {
-
+                
                 Application.Current.Shutdown();
                 base.OnClosing(e);
             }

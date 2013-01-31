@@ -491,7 +491,7 @@ namespace Chatter.Service
         }
         #endregion
 
-        #endregion
+
 
         public void Dispose()
         {
@@ -518,6 +518,9 @@ namespace Chatter.Service
 
 
         }
+        #endregion
+
+       
     }
 
 

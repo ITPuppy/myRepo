@@ -20,6 +20,12 @@ E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AddBaseRoleDialog.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AddBaseRoleDialog.g.cs
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.exe.config
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.exe
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.pdb
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\Log.dll
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\log4net.DLL
+F:\code\myRepo\Chatter\MetroClient\bin\Debug\Log.pdb
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AddBaseRoleDialog.baml
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.baml
@@ -33,12 +39,6 @@ F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.g.cs
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.cache
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient_MarkupCompile.lref
-F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.exe.config
-F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.exe
-F:\code\myRepo\Chatter\MetroClient\bin\Debug\MetroClient.pdb
-F:\code\myRepo\Chatter\MetroClient\bin\Debug\Log.dll
-F:\code\myRepo\Chatter\MetroClient\bin\Debug\log4net.dll
-F:\code\myRepo\Chatter\MetroClient\bin\Debug\Log.pdb
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MainWindow.baml
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.g.resources
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.Properties.Resources.resources
