@@ -67,7 +67,7 @@ namespace Chatter.Service
         {
 
 
-            MyLogger.Logger.Info(String.Format("用户{0}登录", member.Id + " " + member.NickName));
+            MyLogger.Logger.Info(String.Format("用户{0}请求登录", member.Id + " " + member.NickName));
 
 
             try
@@ -75,7 +75,9 @@ namespace Chatter.Service
                 ///判断用户名和密码是否正确
                 if (!DALService.IsMember(member.Id, member.Password))
                 {
+                    MyLogger.Logger.Info(String.Format("用户{0}登录失败", member.Id + " " + member.NickName));
                     return new Result() { Status = MessageStatus.Failed };
+                 
                 }
 
                 this.member = DALService.GetMember(member.Id);
@@ -116,6 +118,8 @@ namespace Chatter.Service
                     Online.Add(member.Id, myEventHandler);
 
                 }
+
+                MyLogger.Logger.Info(String.Format("用户{0}登录成功", member.Id + " " + member.NickName));
                 ///打印在线人数
                 PrintOnLineNumber();
             }

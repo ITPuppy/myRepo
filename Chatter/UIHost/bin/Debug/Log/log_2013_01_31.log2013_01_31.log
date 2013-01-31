@@ -1,0 +1,36 @@
+日 志 时 间:  2013-01-31 20:25:10,125 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.UIHost.MainWindow+<>c__DisplayClass5.<btnStart_Click>b__0(e:\code\myRepo\Chatter\UIHost\MainWindow.xaml.cs:62)
+日 志 内 容:  System.ServiceModel.ServiceHostService Start
+ 
+
+日 志 时 间:  2013-01-31 20:25:10,193 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.UIHost.MainWindow+<>c__DisplayClass5.<btnStart_Click>b__0(e:\code\myRepo\Chatter\UIHost\MainWindow.xaml.cs:62)
+日 志 内 容:  System.ServiceModel.ServiceHostService Start
+ 
+
+日 志 时 间:  2013-01-31 20:25:10,206 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.UIHost.MainWindow.<btnStart_Click>b__2(e:\code\myRepo\Chatter\UIHost\MainWindow.xaml.cs:75)
+日 志 内 容:  开始发送心跳包
+ 
+
+日 志 时 间:  2013-01-31 20:25:20,803 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.UIHost.MainWindow+<>c__DisplayClass5.<btnStart_Click>b__1(e:\code\myRepo\Chatter\UIHost\MainWindow.xaml.cs:66)
+日 志 内 容:  System.ServiceModel.ServiceHostService Stopped
+ 
+
+日 志 时 间:  2013-01-31 20:25:22,738 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.UIHost.MainWindow.<btnStart_Click>b__2(e:\code\myRepo\Chatter\UIHost\MainWindow.xaml.cs:87)
+日 志 内 容:  停止发送心跳包
+ 
+
+日 志 时 间:  2013-01-31 20:25:33,503 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.UIHost.MainWindow+<>c__DisplayClass5.<btnStart_Click>b__1(e:\code\myRepo\Chatter\UIHost\MainWindow.xaml.cs:66)
+日 志 内 容:  System.ServiceModel.ServiceHostService Stopped
+ 
+

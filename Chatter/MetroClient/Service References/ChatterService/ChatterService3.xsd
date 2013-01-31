@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.2.5.57:9876/ChatterService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" />
+  <xs:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" />
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>

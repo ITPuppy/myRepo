@@ -45,3 +45,6 @@ F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.Properties.Resources.re
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csproj.GenerateResource.Cache
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.exe
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.pdb
+E:\code\myRepo\Chatter\MetroClient\bin\Debug\Log.dll
+E:\code\myRepo\Chatter\MetroClient\bin\Debug\log4net.DLL
+E:\code\myRepo\Chatter\MetroClient\bin\Debug\Log.pdb

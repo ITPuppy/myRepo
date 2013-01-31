@@ -21,11 +21,11 @@
     <MetadataSource Address="http://127.0.0.1:9876/ChatterService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ChatterService4.xsd" MetadataType="Schema" ID="84b0ae41-02fa-4b2c-b0ed-7ad70cae1215" SourceId="1" SourceUrl="http://10.2.5.57:9876/ChatterService?xsd=xsd1" />
-    <MetadataFile FileName="ChatterService41.xsd" MetadataType="Schema" ID="a06af668-a3a5-4c7a-bd0e-8077f7d93aa2" SourceId="1" SourceUrl="http://10.2.5.57:9876/ChatterService?xsd=xsd2" />
-    <MetadataFile FileName="ChatterService42.xsd" MetadataType="Schema" ID="ba3212f9-e802-4c51-bb8e-768246fa839d" SourceId="1" SourceUrl="http://10.2.5.57:9876/ChatterService?xsd=xsd3" />
     <MetadataFile FileName="ChatterService.wsdl" MetadataType="Wsdl" ID="fc5341e9-15a3-458d-9414-b94350ca89ba" SourceId="1" SourceUrl="http://127.0.0.1:9876/ChatterService" />
-    <MetadataFile FileName="ChatterService43.xsd" MetadataType="Schema" ID="420dbfe5-d98d-45a6-aa8e-ac22dbd78ed1" SourceId="1" SourceUrl="http://10.2.5.57:9876/ChatterService?xsd=xsd0" />
+    <MetadataFile FileName="ChatterService.xsd" MetadataType="Schema" ID="1c889ac6-dc8c-40dc-9df4-45c2c5efe6f9" SourceId="1" SourceUrl="http://127.0.0.1:9876/ChatterService?xsd=xsd1" />
+    <MetadataFile FileName="ChatterService1.xsd" MetadataType="Schema" ID="aaeee323-8530-4893-a056-e5c6a9165a4a" SourceId="1" SourceUrl="http://127.0.0.1:9876/ChatterService?xsd=xsd2" />
+    <MetadataFile FileName="ChatterService2.xsd" MetadataType="Schema" ID="65580d14-7b02-4bef-b05a-8d179bb43ab9" SourceId="1" SourceUrl="http://127.0.0.1:9876/ChatterService?xsd=xsd3" />
+    <MetadataFile FileName="ChatterService3.xsd" MetadataType="Schema" ID="51cf506b-fd6f-42df-9256-d89831b859fc" SourceId="1" SourceUrl="http://127.0.0.1:9876/ChatterService?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

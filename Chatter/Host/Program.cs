@@ -17,19 +17,24 @@ namespace Chatter.Host
         {
             List<ServiceHost> hosts = new List<ServiceHost>();
             ServiceHost host1 = new ServiceHost(typeof(RegisterService));
-            
+         
             ServiceHost host2 = new ServiceHost(typeof(ChatterService));
             hosts.Add(host1);
             hosts.Add(host2);
+
+            Console.WriteLine("***************输入\"exit\" 关闭程序***************");
+            Console.WriteLine();
             foreach (ServiceHost host in hosts)
             {
                 host.Opened += delegate
                 {
-                    Console.WriteLine(host.ToString()+"Service Start");
+                   ;
+                   MyLogger.Logger.Info(host.Description.Name+"已经启动");
                 };
                 host.Closed += delegate
                 {
-                    Console.WriteLine(host.ToString()+"Service Stopped");
+                    
+                    MyLogger.Logger.Info(host.Description.Name+"已经关闭");
                 };
                 host.Open();
                 
@@ -38,6 +43,7 @@ namespace Chatter.Host
 
             new Thread(new ThreadStart(() => {
                 MyLogger.Logger.Info("开始发送心跳包");
+
                 while (isAlive)
                 {
                     Thread.Sleep(1000);
@@ -52,7 +58,12 @@ namespace Chatter.Host
                 MyLogger.Logger.Info("停止发送心跳包");
             })).Start();
 
-            Console.ReadLine();
+            string s=String.Empty;
+            while(s.Trim().ToLower()!="exit")
+            {
+                s=Console.ReadLine();
+            }
+
             isAlive=false;
             foreach (ServiceHost host in hosts)
             {

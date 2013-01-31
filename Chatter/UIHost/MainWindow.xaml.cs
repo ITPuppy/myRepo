@@ -17,26 +17,72 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Chatter.Log;
 using Chatter.Service;
-using log4net.Appender;
+using log4net.Appender;  
+using log4net.Filter;  
+using log4net.Util;  
+using log4net.Layout;  
+using log4net.Core;  
+using System.IO;
 
 namespace Chatter.UIHost
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IAppender
+    public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            ((log4net.Repository.Hierarchy.Hierarchy)log4net.LogManager.GetLoggerRepository()).Root.AddAppender(this);  
-            InitializeComponent();
-            btnStop.IsEnabled = false;
-        }
+
         List<ServiceHost> hosts = new List<ServiceHost>();
         bool isAlive = true;
+       
+        
+        public MainWindow()
+        {
+          
+            InitializeComponent();
+           
+            init();
+        }
+
+        private void init()
+        {
+            btnStop.IsEnabled = false;
+
+
+            new Thread(
+                () =>
+                {
+                    while (isAlive)
+                    {
+
+
+                        FileStream fs = new FileStream(@"Log\log_2013_01_31.log",FileMode.Open,FileAccess.Read);
+                        TextReader reader = new StreamReader(fs);
+                        
+                        string s=reader.ReadToEnd();
+
+                        Dispatcher.Invoke(()=>{txtLog.Text=s;});
+
+                        reader.Close();
+                        fs.Close();
+
+                        Thread.Sleep(1000);
+
+                    }
+                }
+                ).Start();
+
+           
+        }
+
+    
+
+       
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
+             
+            txtLog.Text = "abc";
             isAlive = false;
             foreach (ServiceHost host in hosts)
             {
@@ -49,21 +95,22 @@ namespace Chatter.UIHost
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-           
+            hosts.Clear();
             ServiceHost host1 = new ServiceHost(typeof(RegisterService));
 
             ServiceHost host2 = new ServiceHost(typeof(ChatterService));
             hosts.Add(host1);
             hosts.Add(host2);
+          
             foreach (ServiceHost host in hosts)
             {
                 host.Opened += delegate
                 {
-                    Console.WriteLine(host.ToString() + "Service Start");
+                    MyLogger.Logger.Info(host.ToString() + "Service Start");
                 };
                 host.Closed += delegate
                 {
-                    Console.WriteLine(host.ToString() + "Service Stopped");
+                    MyLogger.Logger.Info(host.ToString() + "Service Stopped");
                 };
                 host.Open();
                 btnStart.IsEnabled = false;
@@ -91,10 +138,8 @@ namespace Chatter.UIHost
         }
 
 
-        public void DoAppend(log4net.Core.LoggingEvent loggingEvent)
-        {
-            txtLog.Text = txtLog.Text + String.Format("log4net - {0}: {1}", loggingEvent.Level.Name, loggingEvent.MessageObject.ToString());
+      
 
-        }
+        
     }
 }

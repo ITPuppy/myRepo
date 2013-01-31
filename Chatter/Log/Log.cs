@@ -2,6 +2,8 @@
 using System;
 using System.IO;
 using log4net;
+using log4net.Appender;
+using log4net.Core;
 
 namespace Chatter.Log
 {
@@ -16,6 +18,7 @@ namespace Chatter.Log
             {
                 if (log == null)
                 {
+                    
                     log = GetLogger();
 
                 }
@@ -31,6 +34,7 @@ namespace Chatter.Log
 
             return log;
         }
+
 
     }
     

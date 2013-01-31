@@ -12,7 +12,7 @@
         
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <TextBlock Name="txtLog" TextWrapping="Wrap" >
-                
+                asdf
                 
             </TextBlock>
         </ScrollViewer>
