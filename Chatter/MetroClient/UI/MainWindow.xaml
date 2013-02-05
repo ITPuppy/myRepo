@@ -181,7 +181,7 @@
                 Opacity="1"
                 >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="0*"/>
                     <RowDefinition Height="50*"/>
                     <RowDefinition Height="10*"/>
                    
@@ -190,13 +190,24 @@
                    
                 </StackPanel>
                 <Border  Grid.Row="1"  BorderThickness="1"  BorderBrush="LightGray">
-                    <RichTextBox Name="txtDisplay" Background="Transparent" Foreground="White" FontSize="15"  ScrollViewer.VerticalScrollBarVisibility="Auto" >
-                        <FlowDocument LineHeight="0.1"></FlowDocument>
-
-                    </RichTextBox>
+                    <TabControl Name="mesgTabControl" Background="Transparent" >
+                        <TabControl.ItemContainerStyle>
+                            <Style>
+                                <Setter Property="TabItem.Visibility" Value="Collapsed"/>
+                            </Style>
+                        </TabControl.ItemContainerStyle>
+                        
+                            <!--<TabItem>
+                            <RichTextBox Name="txtDisplay" Background="Transparent" Foreground="White" FontSize="15"  ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                                <FlowDocument LineHeight="0.1">
+                                    
+                                </FlowDocument>
+                            </RichTextBox>
+                        </TabItem>-->
+                    </TabControl>
                 </Border>
                 <Border Grid.Row="2" BorderBrush="SkyBlue"   BorderThickness="2">
-                    <TextBox Name="txtInput" Background="White" FontSize="15" Margin="2,3,0,20" ScrollViewer.VerticalScrollBarVisibility="Auto"  KeyDown="txtInput_KeyDown" >
+                    <TextBox Name="txtInput" TextWrapping="Wrap" Background="White" FontSize="15" Margin="2,3,0,20" ScrollViewer.VerticalScrollBarVisibility="Auto"  KeyDown="txtInput_KeyDown" >
                        
                     </TextBox>
                 </Border>

@@ -79,12 +79,15 @@ namespace Chatter.MetroClient.UI
         private void init()
         {
             txtNickName.Text = DataUtil.Member.nickName;
+            DataUtil.MessageTabControl = this.mesgTabControl ;
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
             DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
           tabControl = new MyTabControl();
           Grid.SetRow(tabControl,1);
           MiddleGrid.Children.Add(tabControl);
+
+           
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -109,20 +112,43 @@ namespace Chatter.MetroClient.UI
 
         private void txtInput_KeyDown(object sender, KeyEventArgs e)
         {
+          
+
+
+        
+
+            MyMessageTabItem item= DataUtil.MessageTabControl.SelectedItem as MyMessageTabItem;
+
+            if (item == null)
+            {
+                return;
+            }
+            if (DataUtil.CurrentRole is Member)
+            {
+                Member member = DataUtil.CurrentRole as Member;
+                if (member.status == MemberStatus.Offline)
+                {
+                    return;
+                }
+            }
+           
+
             if (e.Key == Key.Enter)
             {
                 if (!Keyboard.IsKeyDown(Key.LeftShift))
                 {
-                    txtDisplay.AppendText(txtInput.Text);
-                    txtDisplay.AppendText(Environment.NewLine);
-                    
-                    txtInput.Text = "";
-                    txtDisplay.ScrollToEnd();
-                    
+                    if (txtInput.Text.Trim() != String.Empty)
+                    {
+                        item.SendMesg(txtInput.Text);
+
+                        txtInput.Text = "";
+                      
+                    }
                 }
                 else
                 {
                     txtInput.AppendText(Environment.NewLine);
+                    txtInput.SelectionStart = txtInput.Text.Length;
                 }
             }
         }

@@ -82,7 +82,17 @@ namespace Chatter.MetroClient.UI
                     Grid.SetColumn(button, i % columnCount);
                     Grid.SetRow(button, i / columnCount);
                     this.Children.Add(button);
+
+
+                    var tabItem=new MyMessageTabItem(MyType.User,friends[i]);
+                       DataUtil.MessageTabControl.Items.Add(tabItem);
+                       DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
                 }
+
+
+             
+
+
             }
             else if (type == MyType.UserGroup)
             {

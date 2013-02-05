@@ -244,7 +244,7 @@ namespace Chatter.MetroClient.UI
                 txtPwd.Password = s[1];
                 cbAutoLogin.IsChecked = Boolean.Parse(s[2]);
                 cbSavePwd.IsChecked = true;
-                txtId.SelectionStart = txtId.Text.Length + 12;
+                txtId.SelectionStart = txtId.Text.Length ;
                 this.txtId.Focus();
                 if ((bool)cbAutoLogin.IsChecked)
                 {

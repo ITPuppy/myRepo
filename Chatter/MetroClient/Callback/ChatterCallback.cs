@@ -28,17 +28,11 @@ namespace Chatter.MetroClient.Callback
 
                 btn.ChangeMemberStatus(MemberStatus.Online);
             }
-            else
-            {
-                MessageBox.Show("没有这个好友"+id);
-            }
+           
 
         }
 
-        public void OnSendMessageCallback(Result result)
-        {
-
-        }
+        
 
         public void OnLogoff(string id)
         {
@@ -50,10 +44,7 @@ namespace Chatter.MetroClient.Callback
 
                 btn.ChangeMemberStatus(MemberStatus.Offline);
             }
-            else
-            {
-                MessageBox.Show("没有这个好友" + id);
-            }
+            
         }
 
 
@@ -82,15 +73,26 @@ namespace Chatter.MetroClient.Callback
         }
 
 
-        public void OnSendMessage(Result result)
+        public void OnSendMessage(Message mesg)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (mesg.from is Member)
+                {
+                    Member member = mesg.from as Member;
+                    DataUtil.SetCurrentMessageWindow(member);
+                    MyMessageTabItem item = DataUtil.MessageTabItems[member.id];
+                    if (item != null)
+                        item.ReceiveMessage(mesg);
+                }
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("显示信息出错",ex);
+            }
         }
 
-        public IAsyncResult BeginOnSendMessage(Result result, AsyncCallback callback, object asyncState)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void EndOnSendMessage(IAsyncResult result)
         {
@@ -166,6 +168,12 @@ namespace Chatter.MetroClient.Callback
                 {
                     MyTabItem tabItem = DataUtil.FriendTabItems["0"];
                     tabItem.myGrid.AddButton(MyType.User, e.Result.member);
+
+
+                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, e.Result.member);
+                    DataUtil.MessageTabItems.Add(e.Result.member.id, item);
+                    DataUtil.MessageTabControl.Items.Add(item);
+
                 }
             }
             catch (Exception ex)
@@ -197,7 +205,12 @@ namespace Chatter.MetroClient.Callback
                 {
                     MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
                     MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
+                    result.member.status = MemberStatus.Online;
                     tabItem.myGrid.AddButton(MyType.User, result.member);
+
+                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.member);
+                    DataUtil.MessageTabItems.Add(result.member.id, item);
+                    DataUtil.MessageTabControl.Items.Add(item);
                 }
                 else
                 {
@@ -233,6 +246,12 @@ namespace Chatter.MetroClient.Callback
         }
 
         public string EndSendHeartBeat(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IAsyncResult BeginOnSendMessage(Message mesg, AsyncCallback callback, object asyncState)
         {
             throw new NotImplementedException();
         }

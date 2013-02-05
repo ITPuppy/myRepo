@@ -147,49 +147,7 @@ namespace Chatter.MetroClient.UI
             
 
         }
-        ///// <summary>
-        ///// 添加好友回调函数
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //void client_AddFriendCompleted(object sender, AddFriendCompletedEventArgs e)
-        //{
-
-        //    try
-        //    {
-        //        if (e.Error != null)
-        //            throw e.Error;
-
-        //        if (e.Result.status == MessageStatus.Failed)
-        //        {
-        //            MessageBox.Show("对方不在线");
-        //            return;
-        //        }
-        //        else if (e.Result.status == MessageStatus.Refuse)
-        //        {
-        //            MessageBox.Show("对方拒绝了您的请求");
-        //            return;
-        //        }
-        //        Member friend = e.Result.member;
-        //        if (friend == null)
-        //        {
-        //            MessageBox.Show("添加好友失败");
-        //            return;
-        //        }
-        //        ///将好友加到UI上面
-        //        else
-        //        {
-        //            myGrid.AddButton(MyType.User, friend);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("网络出现异常，请检查网络连接");
-        //        return;
-        //    }
-
-        //}
-
+        
         /// <summary>
         /// 添加分组回调函数
         /// </summary>

@@ -316,6 +316,14 @@ namespace Chatter.MetroClient.UI
                         myGrid.Children.Add(button);
                         currentIndex++;
                     }
+
+
+                    ///将message windows 删掉
+                    DataUtil.MessageTabControl.Items.Remove(DataUtil.MessageTabItems[member.id]);
+                    DataUtil.MessageTabItems.Remove(member.id);
+                    
+
+
                 }
 
             }
@@ -463,9 +471,11 @@ namespace Chatter.MetroClient.UI
             {
                 case MyType.User:
                     {
+                        Member member=this.baseRole as Member;
                         DataUtil.CurrentRole = this.baseRole;
 
-                        //  DataUtil.ShowMesgWindow();
+                        DataUtil.SetCurrentMessageWindow(baseRole);
+                        DataUtil.CurrentRole = this.baseRole;
                         break;
                     }
                 case MyType.UserGroup:
@@ -519,15 +529,21 @@ namespace Chatter.MetroClient.UI
 
         public void ChangeMemberStatus(MemberStatus status)
         {
+
+            Member member=this.baseRole as Member;
             switch (status)
             {
                 case MemberStatus.Online:
                     {
+                        member.status=MemberStatus.Online;
+                        this.baseRole = member;
                         this.Background = new SolidColorBrush(onlineColor);
                         break;
                     }
                 case MemberStatus.Offline:
                     {
+                        member.status = MemberStatus.Offline;
+                        this.baseRole = member;
                         this.Background = new SolidColorBrush(offlineColor);
                         break;
                     }

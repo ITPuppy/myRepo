@@ -69,6 +69,7 @@
     <Compile Include="UI\AddBaseRoleDialog.xaml.cs">
       <DependentUpon>AddBaseRoleDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\MyMessageTabItem.cs" />
     <Compile Include="UI\MyTabItem.cs" />
     <Compile Include="UI\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>

@@ -30,7 +30,7 @@ namespace Chatter.MetroClient.UI
             s.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
             this.ItemContainerStyle = s;
 
-            ///好友列表
+            ///分组列表
             userGroupTabItem = new MyTabItem(MyType.UserGroup);
             this.Items.Add(userGroupTabItem);
             ///群组列表

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Chatter.Log;
 using Chatter.MetroClient.UI;
 using MetroClient.ChatterService;
@@ -12,12 +13,16 @@ namespace Chatter.MetroClient
 {
     public class DataUtil
     {
+
+        public static TabControl MessageTabControl;
+        public static Dictionary<string, MyMessageTabItem> MessageTabItems = new Dictionary<string, MyMessageTabItem>();
         public static string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static BaseRole CurrentRole;
         public static ChatterClient Client;
         public static List<UserGroup> UserGroups;
         public static Member Member;
         public static Dictionary<string, MyTabItem> FriendTabItems = new Dictionary<string, MyTabItem>();
+        public static MyMessageTabItem CurrentMessageTabItem;
         /// <summary>
         /// 根据分组id获取好友列表
         /// </summary>
@@ -125,6 +130,16 @@ namespace Chatter.MetroClient
             {
                 MessageBox.Show("删除好友出错");
                 MyLogger.Logger.Error("删除好友出错",ex);
+            }
+        }
+
+        public static void SetCurrentMessageWindow(BaseRole baseRole)
+        {
+            if(baseRole is Member)
+            {
+                Member member=baseRole as Member;
+                MessageTabControl.SelectedItem = MessageTabItems[member.id];
+                CurrentMessageTabItem=MessageTabItems[member.id];   
             }
         }
     }

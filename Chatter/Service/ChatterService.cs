@@ -198,7 +198,37 @@ namespace Chatter.Service
         #region 消息
         public MessageStatus SendMesg(Message mesg)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (mesg.To is Member)
+                {
+                    Member to = mesg.To as Member;
+                    if (!Online.ContainsKey(to.Id))
+                    {
+                        return MessageStatus.Failed;
+                    }
+
+                    ChatEventHandler handler = Online[to.Id] as ChatEventHandler;
+                    ChatterService service = handler.Target as ChatterService;
+
+                    if (!service.friends.ContainsKey(member.Id))
+                    {
+                        return MessageStatus.Refuse;
+                    }
+
+                   service.callback.OnSendMessage(mesg);
+                }
+
+
+                return MessageStatus.OK;
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("转发信息出错",ex);
+                return MessageStatus.Failed;
+            }
+
+           
         }
 
         #endregion
@@ -224,10 +254,11 @@ namespace Chatter.Service
                     foreach (Member member in userGroup.Members)
                     {
                         friends.Add(member.Id, member);
+                        MyLogger.Logger.Info(member.Id);
                     }
                 }
             }
-
+           
 
         }
 
@@ -483,9 +514,21 @@ namespace Chatter.Service
         {
             if (DALService.DeleteFriend(id, userGroupId, friendId))
             {
-                ChatEventHandler handler = Online[friendId] as ChatEventHandler;
-                ChatterService service = handler.Target as ChatterService;
-                service.ChatEvent -= myEventHandler;
+                if (Online.ContainsKey(friendId))
+                {
+
+                    try
+                    {
+                        ChatEventHandler handler = Online[friendId] as ChatEventHandler;
+                        ChatterService service = handler.Target as ChatterService;
+                        service.ChatEvent -= myEventHandler;
+                        RefreshFriendsList();
+                    }
+                    catch (Exception ex)
+                    {
+                        MyLogger.Logger.Warn("对方已经下线", ex);
+                    }
+                }
                 return new Result() { Status = MessageStatus.OK, UserGroup = new UserGroup() { UserGroupId = userGroupId }, Member = new Member() { Id = friendId } };
             }
             else
@@ -524,7 +567,13 @@ namespace Chatter.Service
         }
         #endregion
 
-       
+
+
+
+        public bool IsOnlie(string friendId)
+        {
+            return Online.ContainsKey(friendId);
+        }
     }
 
 

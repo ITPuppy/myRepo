@@ -23,6 +23,10 @@ namespace Chatter.Contract.ServiceContract
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         List<Group> GetGroups(string id);
+
+
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        bool IsOnlie(string friendId);
         #endregion
 
         #region 好友操作：添加，删除
