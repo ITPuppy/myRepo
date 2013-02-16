@@ -69,7 +69,7 @@ namespace Chatter.MetroClient.UI
         /// </summary>
         private string userGroupId;
 
-
+        private string cachText=String.Empty;
         private Color offlineColor = Color.FromArgb(255, 192, 192, 192);
         private Color onlineColor = Colors.OrangeRed;
         public String Text
@@ -472,7 +472,11 @@ namespace Chatter.MetroClient.UI
                 case MyType.User:
                     {
                         Member member=this.baseRole as Member;
-                        DataUtil.CurrentRole = this.baseRole;
+                        
+
+                            DataUtil.CurrentRole = this.baseRole;
+                            
+                              
 
                         DataUtil.SetCurrentMessageWindow(baseRole);
                         DataUtil.CurrentRole = this.baseRole;

@@ -80,6 +80,7 @@ namespace Chatter.MetroClient.UI
         {
             txtNickName.Text = DataUtil.Member.nickName;
             DataUtil.MessageTabControl = this.mesgTabControl ;
+          
             selectedGrid = btnFriendGrid;
             selectedGrid.Background = new SolidColorBrush(selectedColor);
             DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
@@ -110,47 +111,6 @@ namespace Chatter.MetroClient.UI
 
       
 
-        private void txtInput_KeyDown(object sender, KeyEventArgs e)
-        {
-          
-
-
-        
-
-            MyMessageTabItem item= DataUtil.MessageTabControl.SelectedItem as MyMessageTabItem;
-
-            if (item == null)
-            {
-                return;
-            }
-            if (DataUtil.CurrentRole is Member)
-            {
-                Member member = DataUtil.CurrentRole as Member;
-                if (member.status == MemberStatus.Offline)
-                {
-                    return;
-                }
-            }
-           
-
-            if (e.Key == Key.Enter)
-            {
-                if (!Keyboard.IsKeyDown(Key.LeftShift))
-                {
-                    if (txtInput.Text.Trim() != String.Empty)
-                    {
-                        item.SendMesg(txtInput.Text);
-
-                        txtInput.Text = "";
-                      
-                    }
-                }
-                else
-                {
-                    txtInput.AppendText(Environment.NewLine);
-                    txtInput.SelectionStart = txtInput.Text.Length;
-                }
-            }
-        }
+       
     }
 }

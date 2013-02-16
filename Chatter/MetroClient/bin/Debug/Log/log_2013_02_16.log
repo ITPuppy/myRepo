@@ -1,0 +1,104 @@
+日 志 时 间:  2013-02-16 16:14:25,936 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.UI.MyButton.Client_DeleteFriendCompleted(f:\code\myRepo\Chatter\MetroClient\UI\MyButton.xaml.cs:333)
+日 志 内 容:  删除好友出错
+ System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ClientReliableDuplexSessionChannel, cannot be used for communication because it is in the Faulted state.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.DuplexChannel.BeginSend(Message message, TimeSpan timeout, AsyncCallback callback, Object state)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.BeginRequest(Message message, TimeSpan timeout, AsyncCallback callback, Object state)
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.StartSend(Boolean completedSynchronously)
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.FinishEnsureOpen(IAsyncResult result, Boolean completedSynchronously)
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.StartEnsureOpen(Boolean completedSynchronously)
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.FinishEnsureInteractiveInit(IAsyncResult result, Boolean completedSynchronously)
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.StartEnsureInteractiveInit()
+   at System.ServiceModel.Channels.ServiceChannel.SendAsyncResult.Begin()
+   at System.ServiceModel.Channels.ServiceChannel.BeginCall(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, TimeSpan timeout, AsyncCallback callback, Object asyncState)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeBeginService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at Chatter.MetroClient.UI.MyButton.Client_DeleteFriendCompleted(Object sender, DeleteFriendCompletedEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MyButton.xaml.cs:line 279
+
+
+日 志 时 间:  2013-02-16 16:17:02,038 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:17:03,120 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:17:04,790 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:17:10,545 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:20:25,207 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:20:31,842 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:20:54,123 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+
+日 志 时 间:  2013-02-16 16:21:54,371 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:91)
+日 志 内 容:  显示信息出错
+ System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Chatter.MetroClient.DataUtil.SetCurrentMessageWindow(BaseRole baseRole) in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 142
+   at Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) in f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:line 83
+
+

@@ -254,7 +254,7 @@ namespace Chatter.Service
                     foreach (Member member in userGroup.Members)
                     {
                         friends.Add(member.Id, member);
-                        MyLogger.Logger.Info(member.Id);
+                       
                     }
                 }
             }

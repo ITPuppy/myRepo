@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using MetroClient.ChatterService;
@@ -23,8 +24,8 @@ namespace Chatter.MetroClient.UI
      private string imageSouce = "/MetroClient;component/res/img/default.png";
      private double imageSize = 35;
      private MyType type;
-     private BaseRole role;
-
+     public BaseRole role;
+     private TextBox txtInput;
         public MyMessageTabItem(MyType type, BaseRole role)
         {
             this.type = type;
@@ -40,11 +41,14 @@ namespace Chatter.MetroClient.UI
                         RowDefinition row1 = new RowDefinition();
                         row1.Height = new GridLength(40);
                         RowDefinition row2 = new RowDefinition();
-
+                        RowDefinition row3 = new RowDefinition();
+                        RowDefinition row4 = new RowDefinition();
+                        row4.Height = new GridLength(10);
+                        row3.Height = new GridLength(80);
                         grid.RowDefinitions.Add(row1);
                         grid.RowDefinitions.Add(row2);
-
-
+                        grid.RowDefinitions.Add(row3);
+                        grid.RowDefinitions.Add(row4);
 
 
                         this.rtxtBox.Background = new SolidColorBrush(Colors.Transparent);
@@ -83,6 +87,25 @@ namespace Chatter.MetroClient.UI
                         Grid.SetRow(sp, 0);
                         grid.Children.Add(sp);
 
+
+
+                         txtInput = new TextBox();
+                        txtInput.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                        txtInput.KeyDown += txtInput_KeyDown;
+                        txtInput.FontSize = 15;
+                        txtInput.TextWrapping = TextWrapping.Wrap;
+
+
+                        Border border = new Border();
+                        border.BorderThickness = new Thickness(2);
+                        border.BorderBrush = new SolidColorBrush(Colors.SkyBlue);
+
+                        border.Child = txtInput;
+
+
+                        Grid.SetRow(border,2);
+                        grid.Children.Add(border);
+
                         this.AddChild(grid);
                         
 
@@ -95,6 +118,57 @@ namespace Chatter.MetroClient.UI
            
         }
 
+        void txtInput_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+          
+            MyMessageTabItem item= DataUtil.MessageTabControl.SelectedItem as MyMessageTabItem;
+
+            if (item == null)
+            {
+                return;
+            }
+            if (DataUtil.CurrentRole == null)
+            {
+                DataUtil.CurrentMessageTabItem = DataUtil.MessageTabControl.SelectedItem as MyMessageTabItem;
+                if (DataUtil.CurrentMessageTabItem != null)
+                {
+                    DataUtil.CurrentRole = DataUtil.CurrentMessageTabItem.role;
+                }
+                else
+                    return;
+            }
+
+            if (DataUtil.CurrentRole is Member)
+            {
+                Member member = DataUtil.CurrentRole as Member;
+                if (member.status == MemberStatus.Offline)
+                {
+                    return;
+                }
+            }
+           
+
+            if (e.Key == Key.Enter)
+            {
+                if (!Keyboard.IsKeyDown(Key.LeftShift))
+                {
+                    if (txtInput.Text.Trim() != String.Empty)
+                    {
+                        item.SendMesg(txtInput.Text);
+
+                        txtInput.Text = "";
+                      
+                    }
+                }
+                else
+                {
+                    txtInput.AppendText(Environment.NewLine);
+                    txtInput.SelectionStart = txtInput.Text.Length;
+                }
+            }
+        
+        }
+
        
 
         public void SendMesg(string mesg)
@@ -102,7 +176,27 @@ namespace Chatter.MetroClient.UI
 
             if (this.role is Member)
             {
-               
+
+                TextMessage msg = new TextMessage();
+
+                msg.from = DataUtil.Member;
+                msg.to = role;
+                msg.sendTime = DateTime.Now;
+                msg.type = MessageType.TextMessage;
+                msg.msg = mesg;
+
+
+                var status = DataUtil.Client.SendMesg(msg);
+                if (status == MessageStatus.Failed)
+                {
+
+                }
+                else if (status == MessageStatus.Refuse)
+                {
+                    MessageBox.Show("您不是对方的好友，不可以给对方发消息，你可以先删除该好友然后添加");
+                    return;
+                }
+
 
 
                 Paragraph pa = new Paragraph();
@@ -122,24 +216,9 @@ namespace Chatter.MetroClient.UI
 
 
 
-                TextMessage msg = new TextMessage();
+               
 
-                msg.from = DataUtil.Member;
-                msg.to = role;
-                msg.sendTime = DateTime.Now;
-                msg.type = MessageType.TextMessage;
-                msg.msg = mesg;
-
-
-                var status=DataUtil.Client.SendMesg(msg);
-                if (status == MessageStatus.Failed)
-                {
-
-                }
-                else if (status == MessageStatus.Refuse)
-                {
-                    MessageBox.Show("您不是对方的好友，不可以给对方发消息，你可以先删除该好友然后添加");
-                }
+               
             }
         }
 

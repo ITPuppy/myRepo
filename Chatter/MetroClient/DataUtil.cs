@@ -23,6 +23,7 @@ namespace Chatter.MetroClient
         public static Member Member;
         public static Dictionary<string, MyTabItem> FriendTabItems = new Dictionary<string, MyTabItem>();
         public static MyMessageTabItem CurrentMessageTabItem;
+        public static TextBox InputTextBox;
         /// <summary>
         /// 根据分组id获取好友列表
         /// </summary>
