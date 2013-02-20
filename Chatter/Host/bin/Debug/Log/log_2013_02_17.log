@@ -1,0 +1,196 @@
+日 志 时 间:  2013-02-17 15:25:37,727 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Host.Program+<>c__DisplayClass7.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:32)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-02-17 15:25:37,744 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Host.Program+<>c__DisplayClass7.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:32)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-02-17 15:25:37,745 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Host.Program+<>c__DisplayClass3.<Main>b__2(f:\code\myRepo\Chatter\Host\Program.cs:45)
+日 志 内 容:  开始发送心跳包
+ 
+
+日 志 时 间:  2013-02-17 15:25:42,215 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:70)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-02-17 15:25:43,644 
+日 志 级 别:  ERROR
+日 志 来 源:  Chatter.DAL.DALService.IsMember(f:\code\myRepo\Chatter\DAL\DALService.cs:320)
+日 志 内 容:  查询是否为合法用户时出现错误
+ MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Chatter.DAL.DALService.get_Conn() in f:\code\myRepo\Chatter\DAL\DALService.cs:line 32
+   at Chatter.DAL.DALService.IsMember(String id, String pwd) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 312
+
+
+日 志 时 间:  2013-02-17 15:25:43,648 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:78)
+日 志 内 容:  用户776041668 登录失败
+ 
+
+日 志 时 间:  2013-02-17 15:25:56,752 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:70)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-02-17 15:25:57,196 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:122)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-02-17 15:25:57,197 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-02-17 15:26:11,130 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:70)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-02-17 15:26:11,134 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:122)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-02-17 15:26:11,135 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-02-17 15:26:19,625 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:140)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-02-17 15:26:19,625 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-02-17 15:26:24,887 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:70)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-02-17 15:26:24,899 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:122)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-02-17 15:26:24,900 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-02-17 15:26:35,239 
+日 志 级 别:  DEBUG
+日 志 来 源:  Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:423)
+日 志 内 容:  删除前4177319;88888888;776041669;
+ 
+
+日 志 时 间:  2013-02-17 15:26:35,241 
+日 志 级 别:  DEBUG
+日 志 来 源:  Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:427)
+日 志 内 容:  删除后4177319;88888888;
+ 
+
+日 志 时 间:  2013-02-17 15:26:52,903 
+日 志 级 别:  DEBUG
+日 志 来 源:  Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:423)
+日 志 内 容:  删除前4177319;88888888;776041668;
+ 
+
+日 志 时 间:  2013-02-17 15:26:52,904 
+日 志 级 别:  DEBUG
+日 志 来 源:  Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:427)
+日 志 内 容:  删除后4177319;88888888;
+ 
+
+日 志 时 间:  2013-02-17 17:33:15,214 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:140)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-02-17 17:33:15,619 
+日 志 级 别:  WARN
+日 志 来 源:  Chatter.Service.ChatterService.SendHearBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:561)
+日 志 内 容:  发送心跳包失败776041669_walle
+ 
+
+日 志 时 间:  2013-02-17 17:33:16,801 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:140)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-02-17 17:33:16,802 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-02-17 17:33:16,804 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-02-17 17:33:19,674 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:140)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-02-17 17:33:19,678 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:349)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-02-17 17:33:23,297 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Host.Program+<>c__DisplayClass7.<Main>b__1(f:\code\myRepo\Chatter\Host\Program.cs:37)
+日 志 内 容:  RegisterService已经关闭
+ 
+
+日 志 时 间:  2013-02-17 17:33:23,305 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Host.Program+<>c__DisplayClass7.<Main>b__1(f:\code\myRepo\Chatter\Host\Program.cs:37)
+日 志 内 容:  ChatterService已经关闭
+ 
+
+日 志 时 间:  2013-02-17 17:33:23,812 
+日 志 级 别:  INFO
+日 志 来 源:  Chatter.Host.Program+<>c__DisplayClass3.<Main>b__2(f:\code\myRepo\Chatter\Host\Program.cs:58)
+日 志 内 容:  停止发送心跳包
+ 
+

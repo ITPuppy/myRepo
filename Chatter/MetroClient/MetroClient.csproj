@@ -69,6 +69,10 @@
     <Compile Include="UI\AddBaseRoleDialog.xaml.cs">
       <DependentUpon>AddBaseRoleDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\FileTransferGrid.cs" />
+    <Compile Include="UI\MyMenu.xaml.cs">
+      <DependentUpon>MyMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\MyMessageTabItem.cs" />
     <Compile Include="UI\MyTabItem.cs" />
     <Compile Include="UI\RegisterWindow.xaml.cs">
@@ -87,7 +91,14 @@
     </Compile>
     <Compile Include="UI\MyGrid.cs" />
     <Compile Include="UI\MyTabControl.cs" />
+    <Compile Include="UI\TransferFileWindow.xaml.cs">
+      <DependentUpon>TransferFileWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="UI\AddBaseRoleDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MyMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MyButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TransferFileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

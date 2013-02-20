@@ -31,8 +31,8 @@ namespace Chatter.MetroClient.UI
         public MainWindow()
         {
             InitializeComponent();
-            
-          
+
+           
            
         }
        
@@ -40,8 +40,15 @@ namespace Chatter.MetroClient.UI
 
         private void MainWindow_Drag(object sender, MouseButtonEventArgs e)
         {
-            base.DragMove();
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+              
+                base.DragMove();
+               
+            }
         }
+
+      
 
         private void SelectMode_Click(object sender, MouseButtonEventArgs e)
         {

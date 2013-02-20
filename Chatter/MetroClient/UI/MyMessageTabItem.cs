@@ -20,12 +20,13 @@ namespace Chatter.MetroClient.UI
      private   RichTextBox rtxtBox = new RichTextBox();
      private Grid grid=new Grid();
      private Image image;
-     private StackPanel sp;
+     private Grid menuGrid;
      private string imageSouce = "/MetroClient;component/res/img/default.png";
      private double imageSize = 35;
      private MyType type;
      public BaseRole role;
      private TextBox txtInput;
+     public MyMenu sendFileMenu;
         public MyMessageTabItem(MyType type, BaseRole role)
         {
             this.type = type;
@@ -37,9 +38,9 @@ namespace Chatter.MetroClient.UI
                     {
 
                         Member member = role as Member;
-
+                        sendFileMenu = new MyMenu(role,"发送文件");
                         RowDefinition row1 = new RowDefinition();
-                        row1.Height = new GridLength(40);
+                        row1.Height = new GridLength(50);
                         RowDefinition row2 = new RowDefinition();
                         RowDefinition row3 = new RowDefinition();
                         RowDefinition row4 = new RowDefinition();
@@ -58,6 +59,7 @@ namespace Chatter.MetroClient.UI
                         rtxtBox.Foreground = new SolidColorBrush(Colors.White);
                         rtxtBox.Document.LineHeight = 0.1;
                         rtxtBox.Document.Blocks.Clear();
+                        
 
 
                         Grid.SetRow(rtxtBox, 1);
@@ -65,8 +67,24 @@ namespace Chatter.MetroClient.UI
 
 
 
-                        sp = new StackPanel();
-                        sp.Orientation = Orientation.Horizontal;
+                        menuGrid = new Grid();
+                        ColumnDefinition column1 = new ColumnDefinition();
+                        column1.Width = new GridLength(40);
+                        ColumnDefinition column2 = new ColumnDefinition();
+                        column2.Width = new GridLength(200);
+                        ColumnDefinition column3 = new ColumnDefinition();
+                        column3.Width = new GridLength(40);
+                        ColumnDefinition column4 = new ColumnDefinition();
+                        column4.Width = new GridLength(40);
+                        ColumnDefinition column5 = new ColumnDefinition();
+                        column5.Width = new GridLength(40);
+
+                        menuGrid.ColumnDefinitions.Add(column1);
+                        menuGrid.ColumnDefinitions.Add(column2);
+                        menuGrid.ColumnDefinitions.Add(column3);
+                        menuGrid.ColumnDefinitions.Add(column4);
+                        menuGrid.ColumnDefinitions.Add(column5);
+
 
                         image = new Image();
                         image.Source = new BitmapImage(new Uri(imageSouce, UriKind.Relative));
@@ -81,15 +99,25 @@ namespace Chatter.MetroClient.UI
                         txtName.Foreground = new SolidColorBrush(Colors.SandyBrown);
 
 
-                        sp.Children.Add(image);
-                        sp.Children.Add(txtName);
-                        sp.Margin = new Thickness(10, 0, 0, 10);
-                        Grid.SetRow(sp, 0);
-                        grid.Children.Add(sp);
 
 
 
-                         txtInput = new TextBox();
+                        Grid.SetColumn(image, 0);
+                        menuGrid.Children.Add(image);
+                        Grid.SetColumn(txtName, 1);
+                        menuGrid.Children.Add(txtName);
+                        Grid.SetColumn(sendFileMenu, 2);
+                        menuGrid.Children.Add(sendFileMenu);
+                       
+
+
+
+                        Grid.SetRow(menuGrid, 0);
+                        grid.Children.Add(menuGrid);
+
+
+
+                        txtInput = new TextBox();
                         txtInput.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
                         txtInput.KeyDown += txtInput_KeyDown;
                         txtInput.FontSize = 15;

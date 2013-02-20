@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Chatter.Log;
 using Chatter.MetroClient.UI;
 using MetroClient.ChatterService;
@@ -14,6 +15,44 @@ namespace Chatter.MetroClient
     public class DataUtil
     {
 
+
+
+
+       static private int[,] colors = new int[,]
+        {
+                                  
+            ///faa755" 
+              // #8a5d19"
+               //"#d71345
+               ///b7ba6b
+               {250,167,85},
+               {138,93,27},
+               {215,147,69},
+               {183,186,107},
+               {238,130,238},
+    {255,69,0},
+     {60,179,113},
+               ///石板蓝
+               {106,90,205},
+               ///橙色
+               {255,97,0},
+             ///沙棕色
+            {244,164,0},
+            ///暗青色
+            { 0, 139, 139 }, 
+                              
+              ///草绿色
+                {124,252,0},
+                ///桔黄
+                       {255,128,0},
+                   ///桔红
+                       {255,69,0},
+                   ///土耳其玉色
+                    {0,199,140},
+                              
+                   
+
+                                };
         public static TabControl MessageTabControl;
         public static Dictionary<string, MyMessageTabItem> MessageTabItems = new Dictionary<string, MyMessageTabItem>();
         public static string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -142,6 +181,15 @@ namespace Chatter.MetroClient
                 MessageTabControl.SelectedItem = MessageTabItems[member.id];
                 CurrentMessageTabItem=MessageTabItems[member.id];   
             }
+        }
+
+        public static Color GetRandomColor()
+        {
+            Random random = new Random((int)DateTime.UtcNow.Ticks);
+            int j = random.Next(colors.Length / 3);
+
+
+            return Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]);
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Chatter.MetroClient.Callback
                 MyButton btn=tabItem.myGrid.GetButton(MyType.User,id);
 
                 btn.ChangeMemberStatus(MemberStatus.Online);
+                DataUtil.MessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
             }
            
 
@@ -43,6 +44,7 @@ namespace Chatter.MetroClient.Callback
                 MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
 
                 btn.ChangeMemberStatus(MemberStatus.Offline);
+                DataUtil.MessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
             }
             
         }

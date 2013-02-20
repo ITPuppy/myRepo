@@ -110,7 +110,7 @@ namespace Chatter.MetroClient.UI
         /// <param name="baseRole">Member或者UserGroup或者Group</param>
         /// <param name="imagesouce">如果是用户，用户头像，其他目前为空</param>
         /// <param name="color">Button颜色</param>
-        public MyButton(MyType type, BaseRole baseRole, string imagesouce, Color color, string userGroupId = "-1")
+        public MyButton(MyType type, BaseRole baseRole, string imagesouce,  string userGroupId = "-1")
             : base()
         {
             ///设置分组ID
@@ -119,7 +119,7 @@ namespace Chatter.MetroClient.UI
             this.type = type;
             ///设置对象Member或者UserGroup或者Group
             this.baseRole = baseRole;
-            this.onlineColor = color;
+            this.onlineColor = DataUtil.GetRandomColor();
 
 
             #region 分组
@@ -161,7 +161,7 @@ namespace Chatter.MetroClient.UI
                 cm.Items.Add(changeUserGroupNameItem);
 
                 this.ContextMenu = cm;
-                this.Background = new SolidColorBrush(color);
+                this.Background = new SolidColorBrush(onlineColor);
             }
             #endregion
 
@@ -244,7 +244,8 @@ namespace Chatter.MetroClient.UI
             this.MouseLeave += MyButton_MouseLeave;
 
             ///鼠标点击事件
-            this.MouseLeftButtonUp += MyButton_LeftButtonDown;
+            this.MouseLeftButtonUp += MyButton_LeftButtonUp;
+            
         }
 
         #endregion
@@ -465,7 +466,7 @@ namespace Chatter.MetroClient.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MyButton_LeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MyButton_LeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             switch (type)
             {

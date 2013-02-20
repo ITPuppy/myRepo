@@ -8,6 +8,7 @@
         AllowsTransparency="True" 
         Background="Transparent" 
         WindowStyle="None"
+        
         MouseLeftButtonDown="MainWindow_Drag"
         Loaded="MainWindow_Loaded"
         >

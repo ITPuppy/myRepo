@@ -18,41 +18,7 @@ namespace Chatter.MetroClient.UI
         private int columnCount = 3;
         private string imageSouce = "/MetroClient;component/res/img/default.png";
 
-        private int[,] colors = new int[,]
-        {
-                                  
-            ///faa755" 
-              // #8a5d19"
-               //"#d71345
-               ///b7ba6b
-               {250,167,85},
-               {138,93,27},
-               {215,147,69},
-               {183,186,107},
-               {238,130,238},
-    {255,69,0},
-     {60,179,113},
-               ///石板蓝
-               {106,90,205},
-               ///橙色
-               {255,97,0},
-             ///沙棕色
-            {244,164,0},
-            ///暗青色
-            { 0, 139, 139 }, 
-                              
-              ///草绿色
-                {124,252,0},
-                ///桔黄
-                       {255,128,0},
-                   ///桔红
-                       {255,69,0},
-                   ///土耳其玉色
-                    {0,199,140},
-                              
-                   
-
-                                };
+       
         private string userGroupId;
 
 
@@ -77,8 +43,8 @@ namespace Chatter.MetroClient.UI
                
                 for (i = 0; i < friends.Count; i++)
                 {
-                    int j = random.Next(colors.Length / 3);
-                    MyButton button = new MyButton(MyType.User, friends[i], imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]),userGroupId);
+                   
+                    MyButton button = new MyButton(MyType.User, friends[i], imageSouce,userGroupId);
                     Grid.SetColumn(button, i % columnCount);
                     Grid.SetRow(button, i / columnCount);
                     this.Children.Add(button);
@@ -106,8 +72,8 @@ namespace Chatter.MetroClient.UI
 
                 for (i = 0; i < userGroups.Count; i++)
                 {
-                    int j = random.Next(colors.Length / 3);
-                    MyButton button = new MyButton(MyType.UserGroup, userGroups[i], null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]));
+                   
+                    MyButton button = new MyButton(MyType.UserGroup, userGroups[i], null);
                     Grid.SetColumn(button, i % columnCount);
                     Grid.SetRow(button, i / columnCount);
                     this.Children.Add(button);
@@ -155,15 +121,15 @@ namespace Chatter.MetroClient.UI
 
                 rowCount = (index) / columnCount + 1;
                 InitRowAndColumn();
-                Random random = new Random((int)DateTime.Now.Ticks);
-                int j = random.Next(colors.Length / 3);
+           
+             
 
                 UserGroup userGroup = role as UserGroup;
-                MyButton button = new MyButton(MyType.UserGroup, userGroup, null, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]));
+                MyButton button = new MyButton(MyType.UserGroup, userGroup, null);
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
-                DataUtil.UserGroups.Add(userGroup);
+               // DataUtil.UserGroups.Add(userGroup);
 
             }
 
@@ -177,14 +143,14 @@ namespace Chatter.MetroClient.UI
                 Member member = role as Member;
                 Random random = new Random((int)DateTime.Now.Ticks);
 
-                int j = random.Next(colors.Length / 3);
-                MyButton button = new MyButton(MyType.User, member, imageSouce, Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]),userGroupId);
+              
+                MyButton button = new MyButton(MyType.User, member, imageSouce, userGroupId);
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
 
 
-                DataUtil.AddMemberTo(member,userGroupId);
+               // DataUtil.AddMemberTo(member,userGroupId);
             }
 
 

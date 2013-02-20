@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\code\myRepo\Chatter\MetroClient\App.xaml
-5-426675246
+7-1822534097
 
-17-1899583121
+20-1196907765
 16-623654107
-UI\AddBaseRoleDialog.xaml;UI\RegisterWindow.xaml;UI\LoginWindow.xaml;UI\MainWindow.xaml;UI\MyButton.xaml;
+UI\AddBaseRoleDialog.xaml;UI\MyMenu.xaml;UI\RegisterWindow.xaml;UI\LoginWindow.xaml;UI\MainWindow.xaml;UI\MyButton.xaml;UI\TransferFileWindow.xaml;
 
 False
 
