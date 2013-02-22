@@ -23,17 +23,17 @@ namespace Chatter.MetroClient.Callback
             string userGroupId = DataUtil.GetUserGroupIdByMember(id);
             if (userGroupId != null)
             {
-                MyTabItem tabItem=DataUtil.FriendTabItems[userGroupId];
-                MyButton btn=tabItem.myGrid.GetButton(MyType.User,id);
+                MyTabItem tabItem = DataUtil.FriendTabItems[userGroupId];
+                MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
 
                 btn.ChangeMemberStatus(MemberStatus.Online);
                 DataUtil.MessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
             }
-           
+
 
         }
 
-        
+
 
         public void OnLogoff(string id)
         {
@@ -46,7 +46,7 @@ namespace Chatter.MetroClient.Callback
                 btn.ChangeMemberStatus(MemberStatus.Offline);
                 DataUtil.MessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
             }
-            
+
         }
 
 
@@ -83,10 +83,36 @@ namespace Chatter.MetroClient.Callback
                     ReceiveTextMessage(mesg);
                 else if (mesg is FileMessage)
                     ReceiveFileMessage(mesg);
+                else if (mesg is CommandMessage)
+                {
+                    ReceiveCommandMessage(mesg);
+                }
             }
             catch (Exception ex)
             {
-                MyLogger.Logger.Error("显示信息出错",ex);
+                MyLogger.Logger.Error("显示信息出错", ex);
+            }
+        }
+
+        private void ReceiveCommandMessage(Message mesg)
+        {
+            try
+            {
+                CommandMessage cmdMesg = mesg as CommandMessage;
+                if (cmdMesg.CommandType == MyCommandType.Canceled)
+                {
+                    if (DataUtil.HasTransfer())
+                    {
+                        if (DataUtil.Transfer.transferTask.ContainsKey(cmdMesg.Guid))
+                        {
+                            DataUtil.Transfer.transferTask[cmdMesg.Guid].TheOtherCancel(false);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("收到命令Message，处理出错",ex);
             }
         }
 
@@ -96,7 +122,7 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-        private static void ReceiveTextMessage(Message mesg)
+        private void ReceiveTextMessage(Message mesg)
         {
             if (mesg.from is Member)
             {
@@ -108,7 +134,7 @@ namespace Chatter.MetroClient.Callback
             }
         }
 
-        
+
 
         public void EndOnSendMessage(IAsyncResult result)
         {
@@ -124,36 +150,37 @@ namespace Chatter.MetroClient.Callback
                 case MessageType.AddFriend:
                     {
 
-                       
+
 
                         Member friend = mesg.from as Member;
                         MessageStatus status = MessageStatus.Refuse;
                         if (DataUtil.IsFriend(friend.id))
                         {
                             this.OnLogin(friend.id);
-                           new Thread(
-                               new ThreadStart(
-                                   ()=>{
-                                       DataUtil.Client.ResponseToAddFriend(new Result() { member = friend, userGroup = mesg.to as UserGroup, status = MessageStatus.Accept });
-                                   })).Start();
-                           return;
+                            new Thread(
+                                new ThreadStart(
+                                    () =>
+                                    {
+                                        DataUtil.Client.ResponseToAddFriend(new Result() { member = friend, userGroup = mesg.to as UserGroup, status = MessageStatus.Accept });
+                                    })).Start();
+                            return;
                         }
                         MessageBoxResult mbr = MessageBox.Show(friend.id + friend.nickName + "请求添加好友", "请求", MessageBoxButton.YesNoCancel);
-                     
-                    if (mbr == MessageBoxResult.Yes)
-                    {
-                        status=MessageStatus.Accept;
-                    }
-                    else if (mbr ==MessageBoxResult.No)
-                    {
-                          status=MessageStatus.Refuse;
-                    }
-                    else 
-                    {
-                        return;
-                    }
-                       
-                        
+
+                        if (mbr == MessageBoxResult.Yes)
+                        {
+                            status = MessageStatus.Accept;
+                        }
+                        else if (mbr == MessageBoxResult.No)
+                        {
+                            status = MessageStatus.Refuse;
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+
                         DataUtil.Client.ResponseToAddFriendCompleted += Client_ResponseToAddFriendCompleted;
                         Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                         {
@@ -172,7 +199,7 @@ namespace Chatter.MetroClient.Callback
             {
                 if (e.Result.status == MessageStatus.Refuse)
                 {
-                   
+
                     return;
                 }
                 else if (e.Result.status == MessageStatus.Failed)
@@ -194,7 +221,7 @@ namespace Chatter.MetroClient.Callback
             }
             catch (Exception ex)
             {
-             //  Logger.Error("在响应添加好友时候出错"+ex.Message);
+                //  Logger.Error("在响应添加好友时候出错"+ex.Message);
             }
             finally
             {
@@ -240,19 +267,32 @@ namespace Chatter.MetroClient.Callback
                 {
                     if (result.status == MessageStatus.Accept)
                     {
-                        DataUtil.Transfer.transferTask[result.Guid].BeginSendFile(result.EndPoint);
+
+                        if (DataUtil.HasTransfer())
+                        {
+                            if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
+                            {
+                                DataUtil.Transfer.transferTask[result.Guid].BeginSendFile(result.EndPoint);
+                            }
+                        } 
                     }
 
                     else
                     {
 
-                       ///cancel sending file
+                        if (DataUtil.HasTransfer())
+                        {
+                            if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
+                            {
+                                DataUtil.Transfer.transferTask[result.Guid].TheOtherCancel(true);
+                            }
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-               MyLogger.Logger.Error("接收服务器加好友相应出错" ,ex);
+                MyLogger.Logger.Error("接收服务器回应消息出错", ex);
             }
         }
 

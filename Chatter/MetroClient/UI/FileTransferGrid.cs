@@ -17,11 +17,12 @@ namespace Chatter.MetroClient.UI
     {
 
         TextBlock file;
-        ProgressBar bar;
+        public ProgressBar bar;
         TextBlock saveAsBtn;
         TextBlock cancleBtn;
         Border saveBorder;
         FileMessage fm;
+        private TransferFileUtil transferFileUtil;
         public FileTransferGrid(bool isSend,FileMessage fm)
         {
 
@@ -84,7 +85,7 @@ namespace Chatter.MetroClient.UI
             saveBorder.MouseLeftButtonDown += saveBorder_MouseLeftButtonDown;
            
            cancleBtn = new TextBlock();
-            cancleBtn.Text = "取消";
+          
             cancleBtn.Background = new SolidColorBrush(Colors.Transparent);
             cancleBtn.TextAlignment = TextAlignment.Center;
 
@@ -95,20 +96,24 @@ namespace Chatter.MetroClient.UI
             cancleBorder.BorderBrush = new SolidColorBrush(Colors.Black);
             cancleBorder.BorderThickness = new Thickness(1);
             cancleBorder.Child = cancleBtn;
+            cancleBtn.MouseLeftButtonDown += cancleBtn_MouseLeftButtonDown;
             cancleBorder.Width = 60;
 
             if (isSend)
             {
+                cancleBtn.Text = "取消";
                 Grid.SetRow(cancleBorder, 1);
                 Grid.SetColumn(cancleBorder, 2);
                 this.Children.Add(cancleBorder);
 
-                DataUtil.Client.SendMesg(fm);
+                this.Loaded += FileTransferGrid_Loaded;
+                
 
             }
 
             else
             {
+                cancleBtn.Text = "拒绝";
                 Grid.SetRow(saveBorder, 1);
                 Grid.SetColumn(saveBorder, 2);
                 this.Children.Add(saveBorder);
@@ -119,21 +124,80 @@ namespace Chatter.MetroClient.UI
             }
         }
 
+        void FileTransferGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataUtil.Client.SendMesg(fm);
+        }
+
+      
+
+        void cancleBtn_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+            if (cancleBtn.Text == "拒绝")
+            {
+                DataUtil.Client.ResponseToSendFile(new Result()
+                {
+                    member = fm.from as Member,
+                    status = MessageStatus.Refuse,
+                    Type = MessageType.File,
+                   
+                    Guid = fm.Guid
+                });
+                RemoveMySelf();
+
+            }
+            else if (cancleBtn.Text == "取消")
+            {
+                //已经开始传送
+                if (transferFileUtil != null)
+                {
+                    transferFileUtil.Cancle();
+                }
+                 ///还没有开始
+                else
+                {
+                    CompletSend(TransferState.CanceledByMyself);
+                    CommandMessage cm=new CommandMessage();
+                    cm.from=DataUtil.Member;
+                    cm.to=this.fm.to;
+                    cm.CommandType=MyCommandType.Canceled;
+                    cm.Guid = fm.Guid;
+                    DataUtil.Client.SendMesg(cm);
+                }
+            }
+            else if (cancleBtn.Text == "移除")
+            {
+                RemoveMySelf();
+            }
+
+        }
+
+        private void RemoveMySelf()
+        {
+            StackPanel sp = this.Parent as StackPanel;
+            ScrollViewer scrollViewer = sp.Parent as ScrollViewer;
+            Border border = scrollViewer.Parent as Border;
+            TransferFileWindow tfw = border.Parent as TransferFileWindow;
+
+            tfw.Remove(fm.Guid);
+        }
+
         void saveBorder_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             saveBorder.Visibility = Visibility.Hidden;
-
+            cancleBtn.Text = "取消";
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.FileName = fm.FileName;
             sfd.ShowDialog();
 
             fm.Path = sfd.FileName;
-            ReceiveFileUtil a = new ReceiveFileUtil(fm);
+            transferFileUtil = new ReceiveFileUtil(fm, this);
 
-            int port=a.initTcpHost();
+            int port = ((ReceiveFileUtil)transferFileUtil).initTcpHost();
 
-            
-            a.Receive();
+
+            transferFileUtil.Transfer();
 
             DataUtil.Client.ResponseToSendFile(new Result()
             {
@@ -144,27 +208,7 @@ namespace Chatter.MetroClient.UI
                 Guid=fm.Guid
             });
 
-            int i=0;
-           
-                new Thread(new ThreadStart(() =>
-                {
-
-                    while (i++ <= 100)
-                    {
-                        Dispatcher.Invoke(() =>
-                            {
-                                bar.Value = i;
-
-                            });
-
-
-                        Thread.Sleep(100);
-                    }
-                })
-                    
-                    
-                     
-                     ).Start();
+            
 
                    
             }
@@ -172,10 +216,54 @@ namespace Chatter.MetroClient.UI
         public void BeginSendFile(MyEndPoint endpoint)
         {
             fm.EndPoint = endpoint;
-            SendFileUtil sfutil = new SendFileUtil(fm);
+             transferFileUtil = new SendFileUtil(fm,this);
 
-            sfutil.Send();
+             transferFileUtil.Transfer();
         }
 
+
+        internal void CompletReceive(TransferState transferState)
+        {
+            this.Children.Remove(bar);
+            TextBlock txt = new TextBlock();
+            if (transferState == TransferState.Running)
+                txt.Text = "已接收文件";
+            else if (transferState == TransferState.CanceledByMyself)
+                txt.Text = "已取消接收";
+            else if (transferState == TransferState.CanceledByTheOther)
+                txt.Text = "对方已取消发送";
+            Grid.SetRow(txt, 1);
+            Grid.SetColumn(txt,1);
+            this.Children.Add(txt);
+            this.cancleBtn.Text = "移除";
+        }
+
+        internal void CompletSend(TransferState transferState)
+        {
+            this.Children.Remove(bar);
+            TextBlock txt = new TextBlock();
+            if (transferState == TransferState.Running)
+                txt.Text = "已发送文件";
+            else if (transferState == TransferState.CanceledByMyself)
+                txt.Text = "已取消发送";
+            else if (transferState == TransferState.CanceledByTheOther)
+                txt.Text = "对方已取消接收";
+            else if (transferState == TransferState.RefusedByTheOther)
+                txt.Text = "对方拒绝接收";
+            Grid.SetRow(txt, 1);
+            Grid.SetColumn(txt, 1);
+            this.Children.Add(txt);
+            this.cancleBtn.Text = "移除";
+        }
+
+        internal void TheOtherCancel(bool isSend)
+        {
+            if (!isSend)
+                CompletReceive(TransferState.CanceledByTheOther);
+            else
+                CompletSend(TransferState.RefusedByTheOther);
+            
+            saveBorder.Visibility = Visibility.Collapsed;
+        }
     }
 }

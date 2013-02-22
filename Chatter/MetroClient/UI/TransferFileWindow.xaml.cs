@@ -28,7 +28,7 @@ namespace Chatter.MetroClient.UI
 
         int count = 0;
         StackPanel sp = new StackPanel();
-
+        Border border = new Border();
         public TransferFileWindow()
         {
             InitializeComponent();
@@ -37,7 +37,11 @@ namespace Chatter.MetroClient.UI
            
              ScrollViewer sv=   new ScrollViewer() { VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
              sv.Content = sp;
-            this.AddChild(sv);
+
+             border.BorderBrush = new SolidColorBrush(Colors.White);
+             border.BorderThickness = new Thickness(1);
+             border.Child = sv;
+            this.AddChild(border);
 
            
             this.AddHandler(MouseLeftButtonDownEvent, new MouseButtonEventHandler(Move), true);
@@ -81,5 +85,15 @@ namespace Chatter.MetroClient.UI
 
 
 
+
+        internal void Remove(string guid )
+        {
+            sp.Children.Remove(this.transferTask[guid]);
+            transferTask.Remove(guid);
+            count--;
+
+            if (count <= 0)
+                this.Close();
+        }
     }
 }

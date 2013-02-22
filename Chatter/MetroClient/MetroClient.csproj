@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="TCP\ReceiveFileUtil.cs" />
     <Compile Include="TCP\SendFileUtil.cs" />
+    <Compile Include="TCP\TransferFileUtil.cs" />
     <Compile Include="UI\AddBaseRoleDialog.xaml.cs">
       <DependentUpon>AddBaseRoleDialog.xaml</DependentUpon>
     </Compile>

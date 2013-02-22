@@ -68,5 +68,7 @@ namespace Chatter.Contract.DataContract
             get;
             set;
         }
+
+       
     }
 }

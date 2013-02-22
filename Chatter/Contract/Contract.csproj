@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContract\BaseRole.cs" />
+    <Compile Include="DataContract\CommandMessage.cs" />
     <Compile Include="DataContract\FileMessage.cs" />
     <Compile Include="DataContract\Group.cs" />
+    <Compile Include="DataContract\MyCommandType.cs" />
     <Compile Include="DataContract\MyEndPoint.cs" />
     <Compile Include="DataContract\UserGroup.cs" />
     <Compile Include="ServiceContract\IChatterCallback.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,12 +123,14 @@ namespace Chatter.MetroClient.UI
 
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.ShowDialog();
-
+             
                 FileMessage fm = new FileMessage();
                 fm.from = DataUtil.Member;
                 fm.to = this.baseRole;
 
                 fm.Path = ofd.FileName;
+                if (!File.Exists(fm.Path))
+                    return;    
                 fm.FileName = ofd.SafeFileName;
                 fm.Size = ofd.OpenFile().Length;
                 fm.sendTime = DateTime.Now;

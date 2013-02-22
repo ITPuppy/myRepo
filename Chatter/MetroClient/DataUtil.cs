@@ -199,8 +199,10 @@ namespace Chatter.MetroClient
                 if (transfer == null)
                 {
                     transfer = new TransferFileWindow();
-                    transfer.Show();
+                    transfer.Closed += transfer_Closed;
                 }
+                if(!transfer.Focus())
+                    transfer.Show();
                 return transfer;
             }
             set
@@ -208,6 +210,16 @@ namespace Chatter.MetroClient
                 transfer = value;
             }
 
+        }
+
+        static void transfer_Closed(object sender, EventArgs e)
+        {
+            transfer = null;
+        }
+
+        internal static bool HasTransfer()
+        {
+            return transfer != null;
         }
     }
 }

@@ -230,6 +230,11 @@ namespace Chatter.Service
                 {
                     return SendFileMessage(mesg);
                 }
+                else if (mesg is CommandMessage)
+                {
+                   return SendTextMessage(mesg);
+                }
+
                 else
                 {
                     throw new Exception("not suppor message type");

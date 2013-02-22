@@ -10,23 +10,31 @@ using System.Threading.Tasks;
 using Chatter.Log;
 using MetroClient.ChatterService;
 
+
 namespace Chatter.MetroClient.TCP
 {
-    public class SendFileUtil
+    public class SendFileUtil:TransferFileUtil
     {
-        private FileMessage fm;
-        private TcpClient client;
-        private int BufferSize=1024*1024;
-        public SendFileUtil(FileMessage fm)
-        {
+      
+       
 
-            this.fm = fm;
+        public SendFileUtil(FileMessage fm, UI.FileTransferGrid fileTransferGrid):
+            base(fm,fileTransferGrid)
+        {
         }
 
 
-
-        public void Send()
+        public override void Transfer()
         {
+            Send();
+        }
+
+
+        private void Send()
+        {
+
+            if (transferState != TransferState.Wating)
+                return;
             new Thread(new ThreadStart(() =>
             {
 
@@ -34,7 +42,7 @@ namespace Chatter.MetroClient.TCP
                 {
                     initTCPClient();
 
-
+                   
                     BeginSend();
                     client.Close();
                 }
@@ -51,26 +59,58 @@ namespace Chatter.MetroClient.TCP
         private void BeginSend()
         {
 
-            NetworkStream ns= client.GetStream();
-
-            FileStream fs = new FileStream(fm.Path,FileMode.Open,FileAccess.Read);
-
-            long length=0;
-            byte []array=new byte[BufferSize];
-            while (length<fm.Size)
+            FileStream fs = null;
+            NetworkStream ns = null;
+            try
             {
-               int n= fs.Read(array,0,BufferSize);
 
-               ns.Write(array, 0, n);
-               MyLogger.Logger.Info("发送文件"+n);
-               length += n;
+                transferState = TransferState.Running;
+                ns = client.GetStream();
+
+                fs = new FileStream(fm.Path, FileMode.Open, FileAccess.Read);
+
+                SetProgress();
+                long length = 0;
+                byte[] array = new byte[BufferSize];
+                while (length < fm.Size && transferState == TransferState.Running)
+                {
+                    int n = fs.Read(array, 0, BufferSize);
+
+                    ns.Write(array, 0, n);
+
+                    length += n;
+
+                    progress = (long)((double)length / fm.Size * 100);
+                }
+
+
+
+
+            }
+            catch (IOException ex)
+            {
+                transferState = TransferState.CanceledByTheOther;
+                MyLogger.Logger.Info("对方取消接收", ex);
+            }
+            catch (Exception ex)
+            {
+                transferState = TransferState.InternetError;
+                MyLogger.Logger.Info("网络出现问题", ex);
             }
 
-            fs.Close();
-          
+            finally
+            {
+                if (fs != null)
+                {
 
+                    fs.Close();
 
-
+                }
+                if (ns != null)
+                {
+                    ns.Close();
+                }
+            }
         }
 
         private void initTCPClient()
@@ -80,6 +120,50 @@ namespace Chatter.MetroClient.TCP
 
             client.Connect(address, fm.EndPoint.Port);
 
+        }
+
+
+        private void SetProgress()
+        {
+
+
+
+            new Thread(new ThreadStart(() =>
+            {
+
+                while (progress < 100 && transferState==TransferState.Running)
+                {
+
+
+                    fileTransferGrid.bar.Dispatcher.Invoke(() =>
+                    {
+                        fileTransferGrid.bar.Value = progress;
+
+                    });
+
+
+                    Thread.Sleep(100);
+                }
+
+
+                Completed();
+
+                return;
+            })
+
+
+
+                 ).Start();
+
+        }
+
+        override public void Completed()
+        {
+            fileTransferGrid.bar.Dispatcher.Invoke(() =>
+            {
+                fileTransferGrid.CompletSend(transferState);
+
+            });
         }
     }
 }

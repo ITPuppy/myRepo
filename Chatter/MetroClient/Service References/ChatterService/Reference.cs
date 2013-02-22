@@ -17,8 +17,8 @@ namespace MetroClient.ChatterService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseRole", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.Group))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.UserGroup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.Group))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.Member))]
     public partial class BaseRole : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -41,6 +41,61 @@ namespace MetroClient.ChatterService {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserGroup", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    [System.SerializableAttribute()]
+    public partial class UserGroup : MetroClient.ChatterService.BaseRole {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.Member[] membersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userGroupNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.Member[] members {
+            get {
+                return this.membersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.membersField, value) != true)) {
+                    this.membersField = value;
+                    this.RaisePropertyChanged("members");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userGroupId {
+            get {
+                return this.userGroupIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userGroupIdField, value) != true)) {
+                    this.userGroupIdField = value;
+                    this.RaisePropertyChanged("userGroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userGroupName {
+            get {
+                return this.userGroupNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userGroupNameField, value) != true)) {
+                    this.userGroupNameField = value;
+                    this.RaisePropertyChanged("userGroupName");
+                }
             }
         }
     }
@@ -111,61 +166,6 @@ namespace MetroClient.ChatterService {
                 if ((object.ReferenceEquals(this.ownerIdField, value) != true)) {
                     this.ownerIdField = value;
                     this.RaisePropertyChanged("ownerId");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserGroup", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class UserGroup : MetroClient.ChatterService.BaseRole {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MetroClient.ChatterService.Member[] membersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userGroupIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userGroupNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroClient.ChatterService.Member[] members {
-            get {
-                return this.membersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.membersField, value) != true)) {
-                    this.membersField = value;
-                    this.RaisePropertyChanged("members");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userGroupId {
-            get {
-                return this.userGroupIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userGroupIdField, value) != true)) {
-                    this.userGroupIdField = value;
-                    this.RaisePropertyChanged("userGroupId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userGroupName {
-            get {
-                return this.userGroupNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userGroupNameField, value) != true)) {
-                    this.userGroupNameField = value;
-                    this.RaisePropertyChanged("userGroupName");
                 }
             }
         }
@@ -566,6 +566,7 @@ namespace MetroClient.ChatterService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.TextMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.CommandMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.FileMessage))]
     public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -681,6 +682,45 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CommandMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    [System.SerializableAttribute()]
+    public partial class CommandMessage : MetroClient.ChatterService.Message {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.MyCommandType CommandTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GuidField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.MyCommandType CommandType {
+            get {
+                return this.CommandTypeField;
+            }
+            set {
+                if ((this.CommandTypeField.Equals(value) != true)) {
+                    this.CommandTypeField = value;
+                    this.RaisePropertyChanged("CommandType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Guid {
+            get {
+                return this.GuidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GuidField, value) != true)) {
+                    this.GuidField = value;
+                    this.RaisePropertyChanged("Guid");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FileMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
     public partial class FileMessage : MetroClient.ChatterService.Message {
@@ -764,6 +804,14 @@ namespace MetroClient.ChatterService {
                 }
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MyCommandType", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    public enum MyCommandType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Canceled = 0,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

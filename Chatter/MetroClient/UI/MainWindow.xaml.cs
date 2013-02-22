@@ -85,15 +85,23 @@ namespace Chatter.MetroClient.UI
 
         private void init()
         {
-            txtNickName.Text = DataUtil.Member.nickName;
-            DataUtil.MessageTabControl = this.mesgTabControl ;
-          
-            selectedGrid = btnFriendGrid;
-            selectedGrid.Background = new SolidColorBrush(selectedColor);
-            DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
-          tabControl = new MyTabControl();
-          Grid.SetRow(tabControl,1);
-          MiddleGrid.Children.Add(tabControl);
+            try
+            {
+
+                txtNickName.Text = DataUtil.Member.nickName;
+                DataUtil.MessageTabControl = this.mesgTabControl;
+
+                selectedGrid = btnFriendGrid;
+                selectedGrid.Background = new SolidColorBrush(selectedColor);
+                DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
+                tabControl = new MyTabControl();
+                Grid.SetRow(tabControl, 1);
+                MiddleGrid.Children.Add(tabControl);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("初始化界面出错",ex);
+            }
 
            
         }
