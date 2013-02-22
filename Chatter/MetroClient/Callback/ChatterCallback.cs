@@ -79,18 +79,32 @@ namespace Chatter.MetroClient.Callback
         {
             try
             {
-                if (mesg.from is Member)
-                {
-                    Member member = mesg.from as Member;
-                    DataUtil.SetCurrentMessageWindow(member);
-                    MyMessageTabItem item = DataUtil.MessageTabItems[member.id];
-                    if (item != null)
-                        item.ReceiveMessage(mesg);
-                }
+                if (mesg is TextMessage)
+                    ReceiveTextMessage(mesg);
+                else if (mesg is FileMessage)
+                    ReceiveFileMessage(mesg);
             }
             catch (Exception ex)
             {
                 MyLogger.Logger.Error("显示信息出错",ex);
+            }
+        }
+
+        private void ReceiveFileMessage(Message mesg)
+        {
+            DataUtil.Transfer.ReceiveFile((FileMessage)mesg);
+
+        }
+
+        private static void ReceiveTextMessage(Message mesg)
+        {
+            if (mesg.from is Member)
+            {
+                Member member = mesg.from as Member;
+                DataUtil.SetCurrentMessageWindow(member);
+                MyMessageTabItem item = DataUtil.MessageTabItems[member.id];
+                if (item != null)
+                    item.ReceiveMessage(mesg);
             }
         }
 
@@ -202,21 +216,38 @@ namespace Chatter.MetroClient.Callback
         {
             try
             {
-               
-                if (result.status == MessageStatus.Accept)
-                {
-                    MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
-                    MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
-                    result.member.status = MemberStatus.Online;
-                    tabItem.myGrid.AddButton(MyType.User, result.member);
 
-                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.member);
-                    DataUtil.MessageTabItems.Add(result.member.id, item);
-                    DataUtil.MessageTabControl.Items.Add(item);
-                }
-                else
+                if (result.Type == MessageType.AddFriend)
                 {
-                    MessageBox.Show(result.mesg);
+
+                    if (result.status == MessageStatus.Accept)
+                    {
+                        MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
+                        MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
+                        result.member.status = MemberStatus.Online;
+                        tabItem.myGrid.AddButton(MyType.User, result.member);
+
+                        MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.member);
+                        DataUtil.MessageTabItems.Add(result.member.id, item);
+                        DataUtil.MessageTabControl.Items.Add(item);
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.mesg);
+                    }
+                }
+                else if (result.Type == MessageType.File)
+                {
+                    if (result.status == MessageStatus.Accept)
+                    {
+                        DataUtil.Transfer.transferTask[result.Guid].BeginSendFile(result.EndPoint);
+                    }
+
+                    else
+                    {
+
+                       ///cancel sending file
+                    }
                 }
             }
             catch (Exception ex)

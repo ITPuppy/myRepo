@@ -17,8 +17,8 @@ namespace MetroClient.ChatterService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseRole", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.UserGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.Group))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.UserGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.Member))]
     public partial class BaseRole : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -41,61 +41,6 @@ namespace MetroClient.ChatterService {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserGroup", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class UserGroup : MetroClient.ChatterService.BaseRole {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MetroClient.ChatterService.Member[] membersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userGroupIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userGroupNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroClient.ChatterService.Member[] members {
-            get {
-                return this.membersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.membersField, value) != true)) {
-                    this.membersField = value;
-                    this.RaisePropertyChanged("members");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userGroupId {
-            get {
-                return this.userGroupIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userGroupIdField, value) != true)) {
-                    this.userGroupIdField = value;
-                    this.RaisePropertyChanged("userGroupId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userGroupName {
-            get {
-                return this.userGroupNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userGroupNameField, value) != true)) {
-                    this.userGroupNameField = value;
-                    this.RaisePropertyChanged("userGroupName");
-                }
             }
         }
     }
@@ -166,6 +111,61 @@ namespace MetroClient.ChatterService {
                 if ((object.ReferenceEquals(this.ownerIdField, value) != true)) {
                     this.ownerIdField = value;
                     this.RaisePropertyChanged("ownerId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserGroup", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    [System.SerializableAttribute()]
+    public partial class UserGroup : MetroClient.ChatterService.BaseRole {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.Member[] membersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userGroupNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.Member[] members {
+            get {
+                return this.membersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.membersField, value) != true)) {
+                    this.membersField = value;
+                    this.RaisePropertyChanged("members");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userGroupId {
+            get {
+                return this.userGroupIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userGroupIdField, value) != true)) {
+                    this.userGroupIdField = value;
+                    this.RaisePropertyChanged("userGroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userGroupName {
+            get {
+                return this.userGroupNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userGroupNameField, value) != true)) {
+                    this.userGroupNameField = value;
+                    this.RaisePropertyChanged("userGroupName");
                 }
             }
         }
@@ -317,6 +317,15 @@ namespace MetroClient.ChatterService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.MyEndPoint EndPointField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.MessageType TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MetroClient.ChatterService.Member memberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -335,6 +344,45 @@ namespace MetroClient.ChatterService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.MyEndPoint EndPoint {
+            get {
+                return this.EndPointField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EndPointField, value) != true)) {
+                    this.EndPointField = value;
+                    this.RaisePropertyChanged("EndPoint");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Guid {
+            get {
+                return this.GuidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GuidField, value) != true)) {
+                    this.GuidField = value;
+                    this.RaisePropertyChanged("Guid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.MessageType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
             }
         }
         
@@ -400,6 +448,102 @@ namespace MetroClient.ChatterService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MyEndPoint", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    [System.SerializableAttribute()]
+    public partial class MyEndPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PortField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Port {
+            get {
+                return this.PortField;
+            }
+            set {
+                if ((this.PortField.Equals(value) != true)) {
+                    this.PortField = value;
+                    this.RaisePropertyChanged("Port");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MessageType", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    public enum MessageType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TextMessage = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        File = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Video = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audio = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Command = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Login = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Logoff = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AddFriend = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AddGroup = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AddFriend2Group = 9,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MessageStatus", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     public enum MessageStatus : int {
@@ -421,8 +565,8 @@ namespace MetroClient.ChatterService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.FileMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.TextMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.FileMessage))]
     public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -514,45 +658,6 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FileMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class FileMessage : MetroClient.ChatterService.Message {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fileNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int sizeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fileName {
-            get {
-                return this.fileNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.fileNameField, value) != true)) {
-                    this.fileNameField = value;
-                    this.RaisePropertyChanged("fileName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int size {
-            get {
-                return this.sizeField;
-            }
-            set {
-                if ((this.sizeField.Equals(value) != true)) {
-                    this.sizeField = value;
-                    this.RaisePropertyChanged("size");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TextMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
     public partial class TextMessage : MetroClient.ChatterService.Message {
@@ -574,39 +679,91 @@ namespace MetroClient.ChatterService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MessageType", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
-    public enum MessageType : int {
+    [System.Runtime.Serialization.DataContractAttribute(Name="FileMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    [System.SerializableAttribute()]
+    public partial class FileMessage : MetroClient.ChatterService.Message {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TextMessage = 0,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.MyEndPoint EndPointField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        File = 1,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileNameField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Video = 2,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GuidField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Audio = 3,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PathField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Command = 4,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long SizeField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Login = 5,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.MyEndPoint EndPoint {
+            get {
+                return this.EndPointField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EndPointField, value) != true)) {
+                    this.EndPointField = value;
+                    this.RaisePropertyChanged("EndPoint");
+                }
+            }
+        }
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Logoff = 6,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AddFriend = 7,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Guid {
+            get {
+                return this.GuidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GuidField, value) != true)) {
+                    this.GuidField = value;
+                    this.RaisePropertyChanged("Guid");
+                }
+            }
+        }
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AddGroup = 8,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path {
+            get {
+                return this.PathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PathField, value) != true)) {
+                    this.PathField = value;
+                    this.RaisePropertyChanged("Path");
+                }
+            }
+        }
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AddFriend2Group = 9,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((this.SizeField.Equals(value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -644,6 +801,14 @@ namespace MetroClient.ChatterService {
         System.IAsyncResult BeginGetGroups(string id, System.AsyncCallback callback, object asyncState);
         
         MetroClient.ChatterService.Group[] EndGetGroups(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/IsOnlie", ReplyAction="http://tempuri.org/IChatter/IsOnlieResponse")]
+        bool IsOnlie(string friendId);
+        
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/IsOnlie", ReplyAction="http://tempuri.org/IChatter/IsOnlieResponse")]
+        System.IAsyncResult BeginIsOnlie(string friendId, System.AsyncCallback callback, object asyncState);
+        
+        bool EndIsOnlie(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend")]
         void AddFriend(string friendId, string userGroupId);
@@ -692,6 +857,14 @@ namespace MetroClient.ChatterService {
         System.IAsyncResult BeginSendMesg(MetroClient.ChatterService.Message mesg, System.AsyncCallback callback, object asyncState);
         
         MetroClient.ChatterService.MessageStatus EndSendMesg(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/ResponseToSendFile", ReplyAction="http://tempuri.org/IChatter/ResponseToSendFileResponse")]
+        MetroClient.ChatterService.Result ResponseToSendFile(MetroClient.ChatterService.Result result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/ResponseToSendFile", ReplyAction="http://tempuri.org/IChatter/ResponseToSendFileResponse")]
+        System.IAsyncResult BeginResponseToSendFile(MetroClient.ChatterService.Result result, System.AsyncCallback callback, object asyncState);
+        
+        MetroClient.ChatterService.Result EndResponseToSendFile(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddUserGroup", ReplyAction="http://tempuri.org/IChatter/AddUserGroupResponse")]
         MetroClient.ChatterService.Result AddUserGroup(MetroClient.ChatterService.UserGroup userGroup);
@@ -825,6 +998,25 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class IsOnlieCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public IsOnlieCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ResponseToAddFriendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -920,6 +1112,25 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ResponseToSendFileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ResponseToSendFileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public MetroClient.ChatterService.Result Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((MetroClient.ChatterService.Result)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class AddUserGroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -984,6 +1195,12 @@ namespace MetroClient.ChatterService {
         
         private System.Threading.SendOrPostCallback onGetGroupsCompletedDelegate;
         
+        private BeginOperationDelegate onBeginIsOnlieDelegate;
+        
+        private EndOperationDelegate onEndIsOnlieDelegate;
+        
+        private System.Threading.SendOrPostCallback onIsOnlieCompletedDelegate;
+        
         private BeginOperationDelegate onBeginAddFriendDelegate;
         
         private EndOperationDelegate onEndAddFriendDelegate;
@@ -1019,6 +1236,12 @@ namespace MetroClient.ChatterService {
         private EndOperationDelegate onEndSendMesgDelegate;
         
         private System.Threading.SendOrPostCallback onSendMesgCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginResponseToSendFileDelegate;
+        
+        private EndOperationDelegate onEndResponseToSendFileDelegate;
+        
+        private System.Threading.SendOrPostCallback onResponseToSendFileCompletedDelegate;
         
         private BeginOperationDelegate onBeginAddUserGroupDelegate;
         
@@ -1060,6 +1283,8 @@ namespace MetroClient.ChatterService {
         
         public event System.EventHandler<GetGroupsCompletedEventArgs> GetGroupsCompleted;
         
+        public event System.EventHandler<IsOnlieCompletedEventArgs> IsOnlieCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddFriendCompleted;
         
         public event System.EventHandler<ResponseToAddFriendCompletedEventArgs> ResponseToAddFriendCompleted;
@@ -1071,6 +1296,8 @@ namespace MetroClient.ChatterService {
         public event System.EventHandler<AddFriend2GroupCompletedEventArgs> AddFriend2GroupCompleted;
         
         public event System.EventHandler<SendMesgCompletedEventArgs> SendMesgCompleted;
+        
+        public event System.EventHandler<ResponseToSendFileCompletedEventArgs> ResponseToSendFileCompleted;
         
         public event System.EventHandler<AddUserGroupCompletedEventArgs> AddUserGroupCompleted;
         
@@ -1273,6 +1500,56 @@ namespace MetroClient.ChatterService {
             }
             base.InvokeAsync(this.onBeginGetGroupsDelegate, new object[] {
                         id}, this.onEndGetGroupsDelegate, this.onGetGroupsCompletedDelegate, userState);
+        }
+        
+        public bool IsOnlie(string friendId) {
+            return base.Channel.IsOnlie(friendId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginIsOnlie(string friendId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginIsOnlie(friendId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public bool EndIsOnlie(System.IAsyncResult result) {
+            return base.Channel.EndIsOnlie(result);
+        }
+        
+        private System.IAsyncResult OnBeginIsOnlie(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string friendId = ((string)(inValues[0]));
+            return this.BeginIsOnlie(friendId, callback, asyncState);
+        }
+        
+        private object[] OnEndIsOnlie(System.IAsyncResult result) {
+            bool retVal = this.EndIsOnlie(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnIsOnlieCompleted(object state) {
+            if ((this.IsOnlieCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.IsOnlieCompleted(this, new IsOnlieCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void IsOnlieAsync(string friendId) {
+            this.IsOnlieAsync(friendId, null);
+        }
+        
+        public void IsOnlieAsync(string friendId, object userState) {
+            if ((this.onBeginIsOnlieDelegate == null)) {
+                this.onBeginIsOnlieDelegate = new BeginOperationDelegate(this.OnBeginIsOnlie);
+            }
+            if ((this.onEndIsOnlieDelegate == null)) {
+                this.onEndIsOnlieDelegate = new EndOperationDelegate(this.OnEndIsOnlie);
+            }
+            if ((this.onIsOnlieCompletedDelegate == null)) {
+                this.onIsOnlieCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIsOnlieCompleted);
+            }
+            base.InvokeAsync(this.onBeginIsOnlieDelegate, new object[] {
+                        friendId}, this.onEndIsOnlieDelegate, this.onIsOnlieCompletedDelegate, userState);
         }
         
         public void AddFriend(string friendId, string userGroupId) {
@@ -1580,6 +1857,56 @@ namespace MetroClient.ChatterService {
             }
             base.InvokeAsync(this.onBeginSendMesgDelegate, new object[] {
                         mesg}, this.onEndSendMesgDelegate, this.onSendMesgCompletedDelegate, userState);
+        }
+        
+        public MetroClient.ChatterService.Result ResponseToSendFile(MetroClient.ChatterService.Result result) {
+            return base.Channel.ResponseToSendFile(result);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginResponseToSendFile(MetroClient.ChatterService.Result result, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginResponseToSendFile(result, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public MetroClient.ChatterService.Result EndResponseToSendFile(System.IAsyncResult result) {
+            return base.Channel.EndResponseToSendFile(result);
+        }
+        
+        private System.IAsyncResult OnBeginResponseToSendFile(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            MetroClient.ChatterService.Result result = ((MetroClient.ChatterService.Result)(inValues[0]));
+            return this.BeginResponseToSendFile(result, callback, asyncState);
+        }
+        
+        private object[] OnEndResponseToSendFile(System.IAsyncResult result) {
+            MetroClient.ChatterService.Result retVal = this.EndResponseToSendFile(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnResponseToSendFileCompleted(object state) {
+            if ((this.ResponseToSendFileCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ResponseToSendFileCompleted(this, new ResponseToSendFileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ResponseToSendFileAsync(MetroClient.ChatterService.Result result) {
+            this.ResponseToSendFileAsync(result, null);
+        }
+        
+        public void ResponseToSendFileAsync(MetroClient.ChatterService.Result result, object userState) {
+            if ((this.onBeginResponseToSendFileDelegate == null)) {
+                this.onBeginResponseToSendFileDelegate = new BeginOperationDelegate(this.OnBeginResponseToSendFile);
+            }
+            if ((this.onEndResponseToSendFileDelegate == null)) {
+                this.onEndResponseToSendFileDelegate = new EndOperationDelegate(this.OnEndResponseToSendFile);
+            }
+            if ((this.onResponseToSendFileCompletedDelegate == null)) {
+                this.onResponseToSendFileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnResponseToSendFileCompleted);
+            }
+            base.InvokeAsync(this.onBeginResponseToSendFileDelegate, new object[] {
+                        result}, this.onEndResponseToSendFileDelegate, this.onResponseToSendFileCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.Result AddUserGroup(MetroClient.ChatterService.UserGroup userGroup) {

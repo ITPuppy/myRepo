@@ -12,7 +12,17 @@ namespace Chatter.Contract.DataContract
     [DataContract]
     public class Result
     {
-        
+
+
+        [DataMember]
+        public MessageType Type
+        {
+            get;
+            set;
+        }
+
+
+
         [DataMember]
         private MessageStatus status;
 
@@ -45,6 +55,18 @@ namespace Chatter.Contract.DataContract
             get { return mesg; }
             set { mesg = value; }
         }
+        [DataMember]
+        public MyEndPoint EndPoint
+        {
+            get;
+            set;
+        }
 
+        [DataMember]
+        public string Guid
+        {
+            get;
+            set;
+        }
     }
 }

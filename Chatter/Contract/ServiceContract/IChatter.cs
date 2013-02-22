@@ -54,6 +54,12 @@ namespace Chatter.Contract.ServiceContract
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus SendMesg(Message mesg);
         #endregion
+
+
+        #region 发送文件
+        [OperationContract(IsInitiating = false, IsTerminating = false)]
+        Result ResponseToSendFile(Result result);
+        #endregion
         #region 分组相关
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]

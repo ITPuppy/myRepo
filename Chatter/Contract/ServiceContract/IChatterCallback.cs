@@ -28,5 +28,8 @@ namespace Chatter.Contract.ServiceContract
 
         [OperationContract(IsOneWay = false)]
         string  SendHeartBeat();
+
+
+       
     }
 }

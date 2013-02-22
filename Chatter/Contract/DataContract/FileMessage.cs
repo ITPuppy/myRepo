@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.Text;
+using Chatter.Contract.DataContract;
 
 namespace Chatter.Contract.DataContract
 {
@@ -10,20 +12,38 @@ namespace Chatter.Contract.DataContract
     public class FileMessage:Message
     {
         [DataMember]
-        private string fileName;
         public string FileName
         {
-            get { return fileName; }
-            set { fileName = value; }
+            get;
+            set;
         }
         [DataMember]
-        private int size;
 
-        public int Size
+        public long Size
         {
-            get { return size; }
-            set { size = value; }
+            get;
+            set;
         }
-        
+
+         [DataMember]
+        public MyEndPoint EndPoint
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string Guid
+        {
+            get;
+            set;
+        }
+        [DataMember]
+        public string Path
+        {
+            get;
+            set;
+        }
+
     }
 }

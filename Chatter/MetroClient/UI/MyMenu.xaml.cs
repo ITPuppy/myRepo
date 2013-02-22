@@ -95,7 +95,7 @@ namespace Chatter.MetroClient.UI
             ///鼠标点击事件
 
             //this.MouseLeftButtonUp += MyMenu_MouseLeftButtonUp;
-            this.AddHandler(Button.MouseLeftButtonUpEvent, new MouseButtonEventHandler(this.MyMenu_MouseLeftButtonUp), true);
+           // this.AddHandler(Button.MouseLeftButtonUpEvent, new MouseButtonEventHandler(this.MyMenu_MouseLeftButtonUp), true);
            this.MouseLeftButtonDown += MyMenu_MouseLeftButtonDown;
             if (this.baseRole is Member)
             {
@@ -107,10 +107,7 @@ namespace Chatter.MetroClient.UI
             }
         }
 
-        void MyMenu_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("终于可以了");
-        }
+       
 
         void MyMenu_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -125,6 +122,19 @@ namespace Chatter.MetroClient.UI
 
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.ShowDialog();
+
+                FileMessage fm = new FileMessage();
+                fm.from = DataUtil.Member;
+                fm.to = this.baseRole;
+
+                fm.Path = ofd.FileName;
+                fm.FileName = ofd.SafeFileName;
+                fm.Size = ofd.OpenFile().Length;
+                fm.sendTime = DateTime.Now;
+                fm.Guid = Guid.NewGuid().ToString();
+               
+
+                DataUtil.Transfer.SendFile(fm);
 
             }
         }
@@ -174,5 +184,12 @@ namespace Chatter.MetroClient.UI
             }
 
         }
+
+
+        private string GetName(string path)
+        {
+            return path.Substring(path.LastIndexOf("\\") + 2);
+        }
+
     }
 }

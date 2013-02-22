@@ -28,7 +28,7 @@ namespace Chatter.Contract.DataContract
         [EnumMember]
         AddGroup,
         [EnumMember]
-        AddFriend2Group
-
+        AddFriend2Group,
+     
     }
 }

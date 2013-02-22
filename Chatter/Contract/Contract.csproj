@@ -44,6 +44,7 @@
     <Compile Include="DataContract\BaseRole.cs" />
     <Compile Include="DataContract\FileMessage.cs" />
     <Compile Include="DataContract\Group.cs" />
+    <Compile Include="DataContract\MyEndPoint.cs" />
     <Compile Include="DataContract\UserGroup.cs" />
     <Compile Include="ServiceContract\IChatterCallback.cs" />
     <Compile Include="ServiceContract\IRegister.cs" />

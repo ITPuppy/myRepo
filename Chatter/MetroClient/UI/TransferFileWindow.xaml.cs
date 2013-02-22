@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Chatter.MetroClient.TCP;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.UI
@@ -21,28 +22,62 @@ namespace Chatter.MetroClient.UI
     /// </summary>
     public partial class TransferFileWindow : Window
     {
-        Grid grid = new Grid();
+
+
+      public  Dictionary<string, FileTransferGrid> transferTask = new Dictionary<string, FileTransferGrid>();
+
+        int count = 0;
+        StackPanel sp = new StackPanel();
 
         public TransferFileWindow()
         {
             InitializeComponent();
-            this.AddChild(grid);
-            grid.RowDefinitions.Add(new RowDefinition());
+
+            sp.CanVerticallyScroll = true;
            
+             ScrollViewer sv=   new ScrollViewer() { VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
+             sv.Content = sp;
+            this.AddChild(sv);
+
+           
+            this.AddHandler(MouseLeftButtonDownEvent, new MouseButtonEventHandler(Move), true);
+
+
         }
 
 
         
 
 
-        public void SendFile(string path, BaseRole fromRole, BaseRole toRole)
+        public void SendFile( FileMessage fm)
         {
-
-            grid.Children.Add(new FileTransferGrid(true,"asdfasdf"));
+            
+            var sendFile=new FileTransferGrid(true, fm);
+           
+            sp.Children.Add(sendFile);
+             transferTask.Add(fm.Guid,sendFile);
+            count++;
 
         }
 
-        
+        public void ReceiveFile( FileMessage fm)
+        {
+            var receiveFile = new FileTransferGrid(false, fm);
+          
+            sp.Children.Add(receiveFile);
+            transferTask.Add(fm.Guid, receiveFile);
+            count++;
+        }
+
+        private void Move(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+
+                base.DragMove();
+
+            }
+        }
 
 
 

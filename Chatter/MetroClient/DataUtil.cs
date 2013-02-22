@@ -63,6 +63,7 @@ namespace Chatter.MetroClient
         public static Dictionary<string, MyTabItem> FriendTabItems = new Dictionary<string, MyTabItem>();
         public static MyMessageTabItem CurrentMessageTabItem;
         public static TextBox InputTextBox;
+        private static TransferFileWindow transfer = null;
         /// <summary>
         /// 根据分组id获取好友列表
         /// </summary>
@@ -190,6 +191,23 @@ namespace Chatter.MetroClient
 
 
             return Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]);
+        }
+
+        public static TransferFileWindow Transfer {
+            get
+            {
+                if (transfer == null)
+                {
+                    transfer = new TransferFileWindow();
+                    transfer.Show();
+                }
+                return transfer;
+            }
+            set
+            {
+                transfer = value;
+            }
+
         }
     }
 }

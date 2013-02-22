@@ -12,6 +12,7 @@ using Chatter.Log;
 using System.Threading;
 
 
+
 namespace Chatter.Service
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Reentrant)]
@@ -53,6 +54,11 @@ namespace Chatter.Service
         /// </summary>
         private Member member;
 
+        /// <summary>
+        /// 客户端IP端口
+        /// </summary>
+        MyEndPoint endpoint = null;
+
         #endregion
 
         #region 函数
@@ -77,11 +83,13 @@ namespace Chatter.Service
                 {
                     MyLogger.Logger.Info(String.Format("用户{0}登录失败", member.Id + " " + member.NickName));
                     return new Result() { Status = MessageStatus.Failed };
-                 
+
                 }
 
                 this.member = DALService.GetMember(member.Id);
 
+
+                GetEndPoint();
                 ///获得回调句柄
                 callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
                 ///获得好友们的id
@@ -131,6 +139,18 @@ namespace Chatter.Service
 
             ///返回登录结果
             return new Result() { Status = MessageStatus.OK, Member = DALService.GetMember(member.Id) };
+        }
+
+        private void GetEndPoint()
+        {
+            OperationContext context = OperationContext.Current;
+            //获取传进的消息属性
+            System.ServiceModel.Channels.MessageProperties properties = context.IncomingMessageProperties;
+            //获取消息发送的远程终结点IP和端口
+           var ep = properties[System.ServiceModel.Channels.RemoteEndpointMessageProperty.Name] as System.ServiceModel.Channels.RemoteEndpointMessageProperty;
+           endpoint = new MyEndPoint();
+           endpoint.Address = ep.Address;
+           endpoint.Port = ep.Port;
         }
 
 
@@ -198,37 +218,102 @@ namespace Chatter.Service
         #region 消息
         public MessageStatus SendMesg(Message mesg)
         {
+
             try
             {
-                if (mesg.To is Member)
+                if (mesg is TextMessage)
                 {
-                    Member to = mesg.To as Member;
-                    if (!Online.ContainsKey(to.Id))
-                    {
-                        return MessageStatus.Failed;
-                    }
-
-                    ChatEventHandler handler = Online[to.Id] as ChatEventHandler;
-                    ChatterService service = handler.Target as ChatterService;
-
-                    if (!service.friends.ContainsKey(member.Id))
-                    {
-                        return MessageStatus.Refuse;
-                    }
-
-                   service.callback.OnSendMessage(mesg);
+                    return SendTextMessage(mesg);
                 }
+
+                else if (mesg is FileMessage)
+                {
+                    return SendFileMessage(mesg);
+                }
+                else
+                {
+                    throw new Exception("not suppor message type");
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("转发信息出错", ex);
+                return MessageStatus.Failed;
+            }
+
+
+        }
+
+        private MessageStatus SendFileMessage(Message mesg)
+        {
+            if (mesg.To is Member)
+            {
+                Member to = mesg.To as Member;
+                if (!Online.ContainsKey(to.Id))
+                {
+                    return MessageStatus.Failed;
+                }
+
+                ChatEventHandler handler = Online[to.Id] as ChatEventHandler;
+                ChatterService service = handler.Target as ChatterService;
+
+                if (!service.friends.ContainsKey(member.Id))
+                {
+                    return MessageStatus.Refuse;
+                }
+
+               
+                
+                FileMessage fm=mesg as FileMessage;
+                fm.EndPoint = service.endpoint;
+                mesg = fm;
+                service.callback.OnSendMessage(mesg);
+
+              
+
 
 
                 return MessageStatus.OK;
             }
-            catch (Exception ex)
+            else
             {
-                MyLogger.Logger.Error("转发信息出错",ex);
-                return MessageStatus.Failed;
+                throw new Exception("not support user type ");
             }
+        }
 
-           
+        private MessageStatus SendTextMessage(Message mesg)
+        {
+
+
+
+            if (mesg.To is Member)
+            {
+                Member to = mesg.To as Member;
+                if (!Online.ContainsKey(to.Id))
+                {
+                    return MessageStatus.Failed;
+                }
+
+                ChatEventHandler handler = Online[to.Id] as ChatEventHandler;
+                ChatterService service = handler.Target as ChatterService;
+
+                if (!service.friends.ContainsKey(member.Id))
+                {
+                    return MessageStatus.Refuse;
+                }
+
+                service.callback.OnSendMessage(mesg);
+
+
+
+                return MessageStatus.OK;
+            }
+            else
+            {
+                throw new Exception("not support user type ");
+            }
         }
 
         #endregion
@@ -254,11 +339,11 @@ namespace Chatter.Service
                     foreach (Member member in userGroup.Members)
                     {
                         friends.Add(member.Id, member);
-                       
+
                     }
                 }
             }
-           
+
 
         }
 
@@ -424,6 +509,28 @@ namespace Chatter.Service
         }
 
 
+        public Result ResponseToSendFile(Result result)
+        {
+            if (!Online.ContainsKey(result.Member.Id))
+            {
+                return new Result() { Status = MessageStatus.Failed, Mesg = "对方已经下线", Type = MessageType.File };
+            }
+            ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
+            ChatterService service = handler.Target as ChatterService;
+            if (result.Status == MessageStatus.Accept)
+            {
+                service.callback.ReponseToSouceClient(new Result() {Status=MessageStatus.Accept,Member=this.member,Type=MessageType.File, Guid=result.Guid, EndPoint=result.EndPoint });
+            }
+
+            else if (result.Status == MessageStatus.Refuse)
+            {
+                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Refuse, Member = this.member, Type = MessageType.File, Guid = result.Guid, EndPoint = result.EndPoint });
+            }
+
+            return new Result() { Status = MessageStatus.OK, Type = MessageType.File};
+        
+        }
+        
         /// <summary>
         /// 目的好友收到加好友请求调用
         /// 将是否接受的信息发给服务器
@@ -435,7 +542,7 @@ namespace Chatter.Service
         {
             if (!Online.ContainsKey(result.Member.Id))
             {
-                return new Result() { Status = MessageStatus.Failed, Mesg = "对方已经下线" };
+                return new Result() { Status = MessageStatus.Failed, Mesg = "对方已经下线", Type = MessageType.AddFriend };
             }
             ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
             ChatterService service = handler.Target as ChatterService;
@@ -490,17 +597,17 @@ namespace Chatter.Service
                 service.RefreshFriendsList();
                 RefreshFriendsList();
 
-                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方同意添加好友请求", Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup });
-                return new Result() { Status = MessageStatus.OK, Mesg = "成功通知对方", Member = result.Member };
+                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方同意添加好友请求", Status = MessageStatus.Accept, Member = this.member, UserGroup = result.UserGroup, Type = MessageType.AddFriend });
+                return new Result() { Status = MessageStatus.OK, Mesg = "成功通知对方", Member = result.Member, Type = MessageType.AddFriend };
             }
 
             else if (result.Status == MessageStatus.Refuse)
             {
-                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方拒绝了您的添加好友请求", Status = MessageStatus.Refuse, Member = this.member, UserGroup = result.UserGroup });
-                return new Result() { Status = MessageStatus.Refuse, Mesg = "成功通知对方" };
+                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方拒绝了您的添加好友请求", Status = MessageStatus.Refuse, Member = this.member, UserGroup = result.UserGroup ,Type=MessageType.AddFriend});
+                return new Result() { Status = MessageStatus.Refuse, Mesg = "成功通知对方", Type = MessageType.AddFriend };
             }
 
-            return new Result() { Status = MessageStatus.OK, Mesg = "成功通知对方", Member = result.Member };
+            return new Result() { Status = MessageStatus.OK, Mesg = "成功通知对方", Member = result.Member, Type = MessageType.AddFriend };
         }
 
         /// <summary>

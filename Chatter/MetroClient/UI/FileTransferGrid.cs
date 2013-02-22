@@ -2,25 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using Chatter.MetroClient.TCP;
+using MetroClient.ChatterService;
+using Microsoft.Win32;
 
 namespace Chatter.MetroClient.UI
 {
-    class FileTransferGrid:Grid
+   public class FileTransferGrid:Grid
     {
 
         TextBlock file;
         ProgressBar bar;
-        Button saveAsBtn;
-        Button cancleBtn;
-
-        public FileTransferGrid(bool isSend,string fileName)
+        TextBlock saveAsBtn;
+        TextBlock cancleBtn;
+        Border saveBorder;
+        FileMessage fm;
+        public FileTransferGrid(bool isSend,FileMessage fm)
         {
 
 
-           
+            this.fm = fm;
             RowDefinition row1 = new RowDefinition();
             row1.Height = new GridLength(20); 
             RowDefinition row2 = new RowDefinition();
@@ -32,9 +38,9 @@ namespace Chatter.MetroClient.UI
             this.RowDefinitions.Add(row3);
 
             ColumnDefinition column1 = new ColumnDefinition();
-            column1.Width = new GridLength(100);
+            column1.Width = new GridLength(200);
             ColumnDefinition column2 = new ColumnDefinition();
-            column2.Width = new GridLength(300);
+            column2.Width = new GridLength(100);
             ColumnDefinition column3 = new ColumnDefinition();
             column3.Width = new GridLength(100);
               ColumnDefinition column4 = new ColumnDefinition();
@@ -46,8 +52,8 @@ namespace Chatter.MetroClient.UI
 
 
             file = new TextBlock();
-            file.Text = fileName;
-
+            file.Text = fm.FileName;
+            file.Margin = new Thickness(20,0,0,0);
             Grid.SetRow(file,1);
             Grid.SetColumn(file,0);
             this.Children.Add(file);
@@ -56,40 +62,120 @@ namespace Chatter.MetroClient.UI
             bar = new ProgressBar();
             bar.Maximum = 100;
             bar.Margin=new Thickness(10,0,10,0);
+            bar.Height = 10;
             Grid.SetRow(bar, 1);
             Grid.SetColumn(bar, 1);
             this.Children.Add(bar);
 
 
+           
+            saveAsBtn = new TextBlock();
+            saveAsBtn.Background = new SolidColorBrush(Colors.Transparent);
+            saveAsBtn.Text = "另存为";
+            saveAsBtn.TextAlignment = TextAlignment.Center;
 
-            saveAsBtn = new Button();
-            saveAsBtn.Content = "另存为";
-            saveAsBtn.Margin = new Thickness(10, 0, 10, 0);
+             saveBorder = new Border();
+            saveBorder.BorderThickness = new Thickness(1);
+            saveBorder.BorderBrush = new SolidColorBrush(Colors.Black);
+            saveBorder.CornerRadius = new CornerRadius(10, 10, 10, 10);
+            saveBorder.Background = new SolidColorBrush(Colors.White);
+            saveBorder.Child = saveAsBtn;
+            saveBorder.Width = 60;
+            saveBorder.MouseLeftButtonDown += saveBorder_MouseLeftButtonDown;
+           
+           cancleBtn = new TextBlock();
+            cancleBtn.Text = "取消";
+            cancleBtn.Background = new SolidColorBrush(Colors.Transparent);
+            cancleBtn.TextAlignment = TextAlignment.Center;
 
-            cancleBtn = new Button();
-            cancleBtn.Content = "取消";
-            cancleBtn.Margin = new Thickness(10, 0, 10, 0);
+
+            Border cancleBorder = new Border();
+            cancleBorder.CornerRadius = new CornerRadius(10, 10, 10, 10);
+            cancleBorder.Background = new SolidColorBrush(Colors.White);
+            cancleBorder.BorderBrush = new SolidColorBrush(Colors.Black);
+            cancleBorder.BorderThickness = new Thickness(1);
+            cancleBorder.Child = cancleBtn;
+            cancleBorder.Width = 60;
 
             if (isSend)
             {
-                Grid.SetRow(cancleBtn, 1);
-                Grid.SetColumn(cancleBtn, 2);
-                this.Children.Add(cancleBtn);
+                Grid.SetRow(cancleBorder, 1);
+                Grid.SetColumn(cancleBorder, 2);
+                this.Children.Add(cancleBorder);
+
+                DataUtil.Client.SendMesg(fm);
 
             }
 
             else
             {
-                Grid.SetRow(saveAsBtn, 1);
-                Grid.SetColumn(saveAsBtn, 2);
-                this.Children.Add(saveAsBtn);
+                Grid.SetRow(saveBorder, 1);
+                Grid.SetColumn(saveBorder, 2);
+                this.Children.Add(saveBorder);
 
-                Grid.SetRow(cancleBtn, 1);
-                Grid.SetColumn(cancleBtn, 3);
-                this.Children.Add(cancleBtn);
+                Grid.SetRow(cancleBorder, 1);
+                Grid.SetColumn(cancleBorder, 3);
+                this.Children.Add(cancleBorder);
             }
         }
 
+        void saveBorder_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            saveBorder.Visibility = Visibility.Hidden;
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = fm.FileName;
+            sfd.ShowDialog();
+
+            fm.Path = sfd.FileName;
+            ReceiveFileUtil a = new ReceiveFileUtil(fm);
+
+            int port=a.initTcpHost();
+
+            
+            a.Receive();
+
+            DataUtil.Client.ResponseToSendFile(new Result()
+            {
+                member = fm.from as Member,
+                status = MessageStatus.Accept,
+                Type = MessageType.File,
+                EndPoint = new MyEndPoint() { Address = fm.EndPoint.Address, Port = port },
+                Guid=fm.Guid
+            });
+
+            int i=0;
+           
+                new Thread(new ThreadStart(() =>
+                {
+
+                    while (i++ <= 100)
+                    {
+                        Dispatcher.Invoke(() =>
+                            {
+                                bar.Value = i;
+
+                            });
+
+
+                        Thread.Sleep(100);
+                    }
+                })
+                    
+                    
+                     
+                     ).Start();
+
+                   
+            }
+
+        public void BeginSendFile(MyEndPoint endpoint)
+        {
+            fm.EndPoint = endpoint;
+            SendFileUtil sfutil = new SendFileUtil(fm);
+
+            sfutil.Send();
+        }
 
     }
 }
