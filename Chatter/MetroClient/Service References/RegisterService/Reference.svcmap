@@ -21,11 +21,11 @@
     <MetadataSource Address="http://127.0.0.1:9876/RegisterService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="RegisterService.xsd" MetadataType="Schema" ID="d6da773f-8d03-4bd0-9a1c-632bb659bdf2" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd0" />
+    <MetadataFile FileName="RegisterService1.xsd" MetadataType="Schema" ID="017d6e7d-1dc8-4c8a-a285-a9c9135d520d" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd3" />
+    <MetadataFile FileName="RegisterService2.xsd" MetadataType="Schema" ID="b57bf69e-763d-4b98-8e10-9c870f1ed840" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd2" />
     <MetadataFile FileName="RegisterService.wsdl" MetadataType="Wsdl" ID="ae68a924-416c-4b2a-98a9-a9eb23c81cd6" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService" />
-    <MetadataFile FileName="RegisterService4.xsd" MetadataType="Schema" ID="a1740a43-53c2-4e7c-a272-40f288e873cd" SourceId="1" SourceUrl="http://10.2.5.57:9876/RegisterService?xsd=xsd0" />
-    <MetadataFile FileName="RegisterService41.xsd" MetadataType="Schema" ID="7d7aadbc-79bf-4cc3-a881-b7e83fd1bf71" SourceId="1" SourceUrl="http://10.2.5.57:9876/RegisterService?xsd=xsd1" />
-    <MetadataFile FileName="RegisterService42.xsd" MetadataType="Schema" ID="a5ffb50b-1707-4689-8d05-0d6c8cbaa691" SourceId="1" SourceUrl="http://10.2.5.57:9876/RegisterService?xsd=xsd2" />
-    <MetadataFile FileName="RegisterService43.xsd" MetadataType="Schema" ID="e88e7735-3b55-4936-93f1-3f74dc657dc1" SourceId="1" SourceUrl="http://10.2.5.57:9876/RegisterService?xsd=xsd3" />
+    <MetadataFile FileName="RegisterService3.xsd" MetadataType="Schema" ID="84432d8b-fb88-42e8-a434-b30c95adab43" SourceId="1" SourceUrl="http://127.0.0.1:9876/RegisterService?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

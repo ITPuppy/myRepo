@@ -57,8 +57,8 @@ namespace Chatter.Contract.ServiceContract
 
 
         #region 发送文件
-        [OperationContract(IsInitiating = false, IsTerminating = false)]
-        Result ResponseToSendFile(Result result);
+        [OperationContract(IsInitiating = false, IsTerminating = false,IsOneWay=true)]
+        void ResponseToSendFile(Result result);
         #endregion
         #region 分组相关
 

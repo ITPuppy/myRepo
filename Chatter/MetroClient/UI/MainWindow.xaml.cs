@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Chatter.Log;
 using MetroClient.ChatterService;
+using System.Threading;
 
 namespace Chatter.MetroClient.UI
 {
@@ -24,31 +25,29 @@ namespace Chatter.MetroClient.UI
     {
         Color selectedColor = Color.FromArgb(255, 114, 119, 123);
         Grid selectedGrid;
-       
-       
-     
+
+
+
         private MyTabControl tabControl;
         public MainWindow()
         {
             InitializeComponent();
 
-           
-           
         }
-       
-        
+
+
 
         private void MainWindow_Drag(object sender, MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
             {
-              
+
                 base.DragMove();
-               
+
             }
         }
 
-      
+
 
         private void SelectMode_Click(object sender, MouseButtonEventArgs e)
         {
@@ -69,41 +68,53 @@ namespace Chatter.MetroClient.UI
             {
                 tabControl.SelectedIndex = 3;
             }
-          
+
         }
 
-     
-       
+
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-           
+
 
             init();
 
-         
+
         }
 
-        private void init()
+        public void init()
         {
-            try
-            {
-
-                txtNickName.Text = DataUtil.Member.nickName;
-                DataUtil.MessageTabControl = this.mesgTabControl;
-
-                selectedGrid = btnFriendGrid;
-                selectedGrid.Background = new SolidColorBrush(selectedColor);
-                DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
-                tabControl = new MyTabControl();
-                Grid.SetRow(tabControl, 1);
-                MiddleGrid.Children.Add(tabControl);
-            }
-            catch (Exception ex)
-            {
-                MyLogger.Logger.Error("初始化界面出错",ex);
-            }
 
            
+                    try
+                    {
+
+                        txtNickName.Text = DataUtil.Member.nickName;
+                        DataUtil.MessageTabControl = this.mesgTabControl;
+
+                        selectedGrid = btnFriendGrid;
+                        selectedGrid.Background = new SolidColorBrush(selectedColor);
+                        DataUtil.Client.GetFriendsCompleted += Client_GetFriendsCompleted;
+                        DataUtil.Client.GetFriendsAsync(DataUtil.Member.id);
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        MyLogger.Logger.Error("初始化界面出错", ex);
+                    }
+               
+           
+
+
+
+        }
+
+        void Client_GetFriendsCompleted(object sender, GetFriendsCompletedEventArgs e)
+        {
+            DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
+            tabControl = new MyTabControl();
+            Grid.SetRow(tabControl, 1);
+            MiddleGrid.Children.Add(tabControl);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -114,18 +125,18 @@ namespace Chatter.MetroClient.UI
             }
             catch (Exception ex)
             {
-                MyLogger.Logger.Error("退出出现问题",ex);
+                MyLogger.Logger.Error("退出出现问题", ex);
             }
             finally
             {
-                
+
                 Application.Current.Shutdown();
                 base.OnClosing(e);
             }
         }
 
-      
 
-       
+
+
     }
 }

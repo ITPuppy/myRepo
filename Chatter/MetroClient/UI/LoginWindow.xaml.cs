@@ -99,10 +99,10 @@ namespace Chatter.MetroClient.UI
                 {
                     DataUtil.Member = e.Result.member;
 
-                    MainWindow mainWindow = new MainWindow();
-                    this.Visibility = Visibility.Collapsed;
-                    mainWindow.Show();
+                    this.IsVisibleChanged += LoginWindow_IsVisibleChanged;
 
+                    this.Visibility = Visibility.Collapsed;
+                   
                     
 
                 }
@@ -138,6 +138,16 @@ namespace Chatter.MetroClient.UI
             finally
             {
                 DataUtil.Client.LoginCompleted -= client_LoginCompleted;
+            }
+        }
+
+        void LoginWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                mainWindow.init();
             }
         }
 

@@ -83,9 +83,6 @@
   <wsdl:message name="IChatter_ResponseToSendFile_InputMessage">
     <wsdl:part name="parameters" element="tns:ResponseToSendFile" />
   </wsdl:message>
-  <wsdl:message name="IChatter_ResponseToSendFile_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ResponseToSendFileResponse" />
-  </wsdl:message>
   <wsdl:message name="IChatter_AddUserGroup_InputMessage">
     <wsdl:part name="parameters" element="tns:AddUserGroup" />
   </wsdl:message>
@@ -164,7 +161,6 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="ResponseToSendFile">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/ResponseToSendFile" message="tns:IChatter_ResponseToSendFile_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ResponseToSendFileResponse" message="tns:IChatter_ResponseToSendFile_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddUserGroup">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddUserGroup" message="tns:IChatter_AddUserGroup_InputMessage" />
@@ -295,9 +291,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddUserGroup">
       <soap12:operation soapAction="http://tempuri.org/IChatter/AddUserGroup" style="document" />
@@ -359,9 +352,9 @@
   </wsdl:binding>
   <wsdl:service name="ChatterService">
     <wsdl:port name="NetTcpBinding_IChatter" binding="tns:NetTcpBinding_IChatter">
-      <soap12:address location="net.tcp://10.2.5.57:9877/ChatterService" />
+      <soap12:address location="net.tcp://127.0.0.1:9877/ChatterService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://10.2.5.57:9877/ChatterService</wsa10:Address>
+        <wsa10:Address>net.tcp://127.0.0.1:9877/ChatterService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

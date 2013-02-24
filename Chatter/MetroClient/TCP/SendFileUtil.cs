@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 using Chatter.Log;
 using MetroClient.ChatterService;
 
@@ -134,12 +134,12 @@ namespace Chatter.MetroClient.TCP
                 while (progress < 100 && transferState==TransferState.Running)
                 {
 
-
-                    fileTransferGrid.bar.Dispatcher.Invoke(() =>
+                    
+                    fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
                     {
                         fileTransferGrid.bar.Value = progress;
 
-                    });
+                    }));
 
 
                     Thread.Sleep(100);
@@ -159,11 +159,11 @@ namespace Chatter.MetroClient.TCP
 
         override public void Completed()
         {
-            fileTransferGrid.bar.Dispatcher.Invoke(() =>
+            fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
             {
                 fileTransferGrid.CompletSend(transferState);
 
-            });
+            }));
         }
     }
 }

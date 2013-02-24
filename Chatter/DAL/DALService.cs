@@ -193,7 +193,8 @@ namespace Chatter.DAL
                         if (reader["status"].ToString().Length != 0)
                         {
                             MemberStatus status;
-                            Enum.TryParse<MemberStatus>(reader["status"].ToString(),out status);
+                           // Enum.TryParse<MemberStatus>(reader["status"].ToString(),out status);
+                           status=(MemberStatus) Enum.Parse(typeof(MemberStatus), reader["status"].ToString());
                             member.Status = status;
                         }
 
@@ -486,7 +487,7 @@ namespace Chatter.DAL
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
-                List<Tuple<string, string, List<string>>> userGroupList = new List<Tuple<string, string, List<string>>> ();
+                List<Tuple> userGroupList = new List<Tuple> ();
                 using (var reader = cmd.ExecuteReader())
                 {
                     
@@ -499,7 +500,7 @@ namespace Chatter.DAL
                         temp = reader["friendId"].ToString();
                         friends = GetNames(temp);
 
-                        userGroupList.Add(new Tuple<string, string, List<string>>(groupId,groupName,friends));
+                        userGroupList.Add(new Tuple(groupId,groupName,friends));
 
                       
                     }
@@ -507,18 +508,18 @@ namespace Chatter.DAL
                     
                 }
 
-                foreach (Tuple<string, string, List<string>> tuple in userGroupList)
+                foreach (Tuple tuple in userGroupList)
                 {
                     List<Member> members = new List<Member>();
-                    foreach (string tempid in tuple.Item3)
+                    foreach (string tempid in tuple.Friends)
                     {
                         Member member = GetMember(tempid);
                         if(member!=null)
                          members.Add(member);
                     }
                     UserGroup userGroup = new UserGroup();
-                    userGroup.UserGroupId = tuple.Item1;
-                    userGroup.UserGroupName = tuple.Item2;
+                    userGroup.UserGroupId = tuple.GroupId;
+                    userGroup.UserGroupName = tuple.GroupName;
                     userGroup.Members = members;
                     userGroups.Add(userGroup);
 

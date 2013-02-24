@@ -5,7 +5,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -61,7 +61,7 @@ namespace Chatter.UIHost
                         
                         string s=reader.ReadToEnd();
 
-                        Dispatcher.Invoke(()=>{txtLog.Text=s;});
+                        Dispatcher.Invoke(new Action(()=>{txtLog.Text=s;}));
 
                         reader.Close();
                         fs.Close();

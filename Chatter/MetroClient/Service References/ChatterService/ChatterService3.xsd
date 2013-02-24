@@ -152,24 +152,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ResponseToSendFileResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="ResponseToSendFileResult" nillable="true" type="q15:Result" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="AddUserGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="userGroup" nillable="true" type="q16:UserGroup" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="userGroup" nillable="true" type="q15:UserGroup" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddUserGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddUserGroupResult" nillable="true" type="q17:Result" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddUserGroupResult" nillable="true" type="q16:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -177,14 +170,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="userGroup" nillable="true" type="q18:UserGroup" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="userGroup" nillable="true" type="q17:UserGroup" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteUserGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="DeleteUserGroupResult" nillable="true" type="q19:Result" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="DeleteUserGroupResult" nillable="true" type="q18:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -198,7 +191,7 @@
   <xs:element name="OnSendMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="mesg" nillable="true" type="q20:Message" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="mesg" nillable="true" type="q19:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -212,14 +205,14 @@
   <xs:element name="RequestToTargetClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="mesg" nillable="true" type="q21:Message" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="mesg" nillable="true" type="q20:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReponseToSouceClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="result" nillable="true" type="q22:Result" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="result" nillable="true" type="q21:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

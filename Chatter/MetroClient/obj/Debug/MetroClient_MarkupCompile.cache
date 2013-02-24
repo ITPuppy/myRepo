@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-F:\code\myRepo\Chatter\MetroClient\obj\Debug\
+E:\code\myRepo\Chatter\MetroClient\obj\Debug\
 MetroClient
 none
 false
 DEBUG;TRACE
-F:\code\myRepo\Chatter\MetroClient\App.xaml
+E:\code\myRepo\Chatter\MetroClient\App.xaml
 7-1822534097
 
 23437997265
-16-623654107
+14612766537
 UI\AddBaseRoleDialog.xaml;UI\MyMenu.xaml;UI\RegisterWindow.xaml;UI\LoginWindow.xaml;UI\MainWindow.xaml;UI\MyButton.xaml;UI\TransferFileWindow.xaml;
 
 False

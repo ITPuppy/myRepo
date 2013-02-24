@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks;
+
 using Chatter.Contract.DataContract;
 using Chatter.Contract.ServiceContract;
 using Chatter.DAL;
@@ -181,18 +181,27 @@ namespace Chatter.Service
         /// <returns></returns>
         public List<UserGroup> GetFriends(string id)
         {
-            List<UserGroup> ugs = DALService.GetFriendList(id);
-            foreach (UserGroup ug in ugs)
+            try
             {
-                foreach (Member member in ug.Members)
+                List<UserGroup> ugs = DALService.GetFriendList(id);
+                foreach (UserGroup ug in ugs)
                 {
-                    if (Online.ContainsKey(member.Id))
-                        member.Status = MemberStatus.Online;
-                    else
-                        member.Status = MemberStatus.Offline;
+                    foreach (Member member in ug.Members)
+                    {
+                        if (Online.ContainsKey(member.Id))
+                            member.Status = MemberStatus.Online;
+                        else
+                            member.Status = MemberStatus.Offline;
+                    }
                 }
+                return ugs;
             }
-            return ugs;
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("获取好友列表失败",ex);
+                return null;
+            }
+            
         }
 
 
@@ -514,12 +523,9 @@ namespace Chatter.Service
         }
 
 
-        public Result ResponseToSendFile(Result result)
+        public void ResponseToSendFile(Result result)
         {
-            if (!Online.ContainsKey(result.Member.Id))
-            {
-                return new Result() { Status = MessageStatus.Failed, Mesg = "对方已经下线", Type = MessageType.File };
-            }
+           
             ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
             ChatterService service = handler.Target as ChatterService;
             if (result.Status == MessageStatus.Accept)
@@ -532,7 +538,7 @@ namespace Chatter.Service
                 service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Refuse, Member = this.member, Type = MessageType.File, Guid = result.Guid, EndPoint = result.EndPoint });
             }
 
-            return new Result() { Status = MessageStatus.OK, Type = MessageType.File};
+           
         
         }
         

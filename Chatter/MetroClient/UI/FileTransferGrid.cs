@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -207,7 +206,7 @@ namespace Chatter.MetroClient.UI
                 EndPoint = new MyEndPoint() { Address = fm.EndPoint.Address, Port = port },
                 Guid=fm.Guid
             });
-
+            
             
 
                    
