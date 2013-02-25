@@ -65,24 +65,30 @@ namespace Chatter.MetroClient.TCP
             {
 
                 transferState = TransferState.Running;
-                ns = client.GetStream();
-
-                fs = new FileStream(fm.Path, FileMode.Open, FileAccess.Read);
-
-                SetProgress();
-                long length = 0;
-                byte[] array = new byte[BufferSize];
-                while (length < fm.Size && transferState == TransferState.Running)
+                using (ns = client.GetStream())
                 {
-                    int n = fs.Read(array, 0, BufferSize);
+                    using (BufferedStream bs = new BufferedStream(ns))
+                    {
 
-                    ns.Write(array, 0, n);
+                        using (fs = new FileStream(fm.Path, FileMode.Open, FileAccess.Read))
+                        {
 
-                    length += n;
+                            SetProgress();
+                            long length = 0;
+                            byte[] array = new byte[BufferSize];
+                            while (length < fm.Size && transferState == TransferState.Running)
+                            {
+                                int n = fs.Read(array, 0, BufferSize);
 
-                    progress = (long)((double)length / fm.Size * 100);
+                                bs.Write(array, 0, n);
+
+                                length += n;
+
+                                progress = (long)((double)length / fm.Size * 100);
+                            }
+                        }
+                    }
                 }
-
 
 
 
@@ -98,19 +104,8 @@ namespace Chatter.MetroClient.TCP
                 MyLogger.Logger.Info("网络出现问题", ex);
             }
 
-            finally
-            {
-                if (fs != null)
-                {
-
-                    fs.Close();
-
-                }
-                if (ns != null)
-                {
-                    ns.Close();
-                }
-            }
+            
+               
         }
 
         private void initTCPClient()

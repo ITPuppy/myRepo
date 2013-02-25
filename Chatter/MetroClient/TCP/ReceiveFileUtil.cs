@@ -73,42 +73,111 @@ namespace Chatter.MetroClient.TCP
             {
 
                 transferState = TransferState.Running;
-                ns = client.GetStream();
-
-
-                fs = new FileStream(fm.Path, FileMode.Create, FileAccess.Write);
-
-                long length = 0;
-                byte[] array = new byte[BufferSize];
-                SetProgress();
-                while (length < fm.Size && transferState==TransferState.Running)
+                using (ns = client.GetStream())
                 {
 
-                    int n = ns.Read(array, 0, BufferSize);
+                    using (BufferedStream bs = new BufferedStream(ns))
+                    {
 
-                    if (n == 0)
-                        throw new IOException();
+                        using (File.Create(fm.Path))
+                        {
+                            File.SetAttributes(fm.Path, FileAttributes.Hidden);
 
-                    fs.Write(array, 0, n);
+                        }
 
 
-                    length += n;
+                        using (fs = new FileStream(fm.Path, FileMode.Open, FileAccess.Write))
+                        {
 
-                    progress = (long)((double)length / fm.Size * 100);
+                            long length = 0;
+                            byte[] array = new byte[BufferSize];
+                            SetProgress();
+                            while (length < fm.Size && transferState == TransferState.Running)
+                            {
+
+                                int n = bs.Read(array, 0, BufferSize);
+
+                                if (n == 0)
+                                    throw new IOException();
+
+                                fs.Write(array, 0, n);
+
+
+                                length += n;
+
+                                progress = (long)((double)length / fm.Size * 100);
+                            }
+
+
+                        }
+                    }
                 }
 
 
+                if (transferState != TransferState.Running)
+                {
+                    if (File.Exists(fm.Path))
+                    {
+                        File.Delete(fm.Path);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        File.Move(fm.Path, fm.Path.Replace(fm.Guid, fm.FileName));
+                        File.SetAttributes(fm.Path.Replace(fm.Guid, fm.FileName), FileAttributes.Normal);
+                    }
+                    catch (Exception ex)
+                    {
+                        MyLogger.Logger.Info("文件已经存在", ex);
+                        Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("同名文件已经存在");
+                        }));
+                    }
+                }
             }
 
             catch (IOException ex)
             {
+
+                if (fs != null)
+                {
+
+                    fs.Close();
+
+                }
+                if (ns != null)
+                {
+                    ns.Close();
+                }
                 transferState = TransferState.CanceledByTheOther;
                 MyLogger.Logger.Info("对方取消发送", ex);
+                if (File.Exists(fm.Path))
+                {
+                    File.Delete(fm.Path);
+                }
             }
             catch (Exception ex)
             {
+
+                if (fs != null)
+                {
+
+                    fs.Close();
+
+                }
+                if (ns != null)
+                {
+                    ns.Close();
+                }
                 transferState = TransferState.InternetError;
                 MyLogger.Logger.Info("网络出现问题", ex);
+                if (File.Exists(fm.Path))
+                {
+                    File.Delete(fm.Path);
+                }
             }
 
             finally

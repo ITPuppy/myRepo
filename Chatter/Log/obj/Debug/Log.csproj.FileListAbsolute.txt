@@ -7,6 +7,6 @@ E:\code\myRepo\Chatter\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Log\bin\Debug\Log.dll
 F:\code\myRepo\Chatter\Log\bin\Debug\Log.pdb
 F:\code\myRepo\Chatter\Log\bin\Debug\log4net.DLL
+F:\code\myRepo\Chatter\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
 F:\code\myRepo\Chatter\Log\obj\Debug\Log.dll
 F:\code\myRepo\Chatter\Log\obj\Debug\Log.pdb
-F:\code\myRepo\Chatter\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache

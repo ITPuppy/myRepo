@@ -191,6 +191,9 @@ namespace Chatter.MetroClient.UI
             sfd.ShowDialog();
 
             fm.Path = sfd.FileName;
+            fm.Path = fm.Path.Remove(fm.Path.LastIndexOf(sfd.SafeFileName));
+            fm.Path = fm.Path + fm.Guid;
+            fm.FileName = sfd.SafeFileName;
             transferFileUtil = new ReceiveFileUtil(fm, this);
 
             int port = ((ReceiveFileUtil)transferFileUtil).initTcpHost();

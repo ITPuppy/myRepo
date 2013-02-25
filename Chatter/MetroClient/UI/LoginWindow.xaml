@@ -128,31 +128,12 @@
                         </Button>
 
                         <Image HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="2"  />
-                    </Grid>
-                </Grid>
-
-                <Grid Name="WaitGrid" Grid.Row="0" Visibility="Collapsed">
-                    <TextBlock Text="正在登陆…" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" FontStyle="Oblique"/>
-                    <Button Name="btnCancel" Content="取消" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="130" Margin="0,0,0,10" RenderTransformOrigin="0.098,0.364" Height="33" Click="btnCancel_Click">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                                <GradientStop Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    
-                    
-                   
-                </Grid>
-                <TextBlock 
+                        <TextBlock  
                     Name="txtRegister"  
-                    
-                    HorizontalAlignment="Left" 
-                    Margin="383,121,0,0"
-                    VerticalAlignment="Top"
+                    Grid.Row="2"
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,20,0"
+                    VerticalAlignment="Center"
               
                     Width="auto"
                     >
@@ -164,10 +145,30 @@
                         >
                          注册账号
                     </Hyperlink>
-                    
-                </TextBlock>
-                
-                
+
+                        </TextBlock>
+
+                    </Grid>
+                </Grid>
+
+                <Grid Name="WaitGrid" Grid.Row="0" Visibility="Collapsed" >
+                    <TextBlock Text="正在登陆…" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" FontStyle="Oblique"/>
+                    <Button Name="btnCancel" Content="取消" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="130" Margin="0,0,0,10" RenderTransformOrigin="0.098,0.364" Height="33" Click="btnCancel_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+
+
+                </Grid>
+
+
             </Grid>
         </Border>
     </Grid>
