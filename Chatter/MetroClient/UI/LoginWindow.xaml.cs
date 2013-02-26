@@ -9,6 +9,7 @@ using Chatter.Log;
 using System.Text;
 using System.Security.Cryptography;
 using System.Threading;
+using Chatter.MetroClient.Sound;
 
 namespace Chatter.MetroClient.UI
 {
@@ -37,7 +38,7 @@ namespace Chatter.MetroClient.UI
         {
             InitializeComponent();
 
-
+           
         }
 
 
@@ -49,6 +50,10 @@ namespace Chatter.MetroClient.UI
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
+           
+             
+            
             if (txtId.Text.Length == 0)
             {
                 MessageBox.Show("请先输入用户名");

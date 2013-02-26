@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Chatter.MetroClient.Sound;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.UI
@@ -254,6 +254,7 @@ namespace Chatter.MetroClient.UI
         public void ReceiveMessage(Message mesg)
         {
 
+            SoundPlayer.Play();
 
             if (mesg.from is Member)
             {

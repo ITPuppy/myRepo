@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="sound\SoundPlayer.cs" />
     <Compile Include="TCP\ReceiveFileUtil.cs" />
     <Compile Include="TCP\SendFileUtil.cs" />
     <Compile Include="TCP\TransferFileUtil.cs" />

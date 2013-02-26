@@ -10,6 +10,7 @@ using MetroClient.ChatterService;
 using System.Windows.Threading;
 using Chatter.Log;
 using System.Threading;
+using Chatter.MetroClient.Sound;
 
 
 
@@ -76,8 +77,12 @@ namespace Chatter.MetroClient.Callback
 
         public void OnSendMessage(Message mesg)
         {
+
+
             try
             {
+              
+
                 if (mesg is TextMessage)
                     ReceiveTextMessage(mesg);
                 else if (mesg is FileMessage)
