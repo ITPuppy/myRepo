@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/sound/water.wav")]
 
 

@@ -181,6 +181,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SendHeartBeat">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendHeartBeatResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OnLogin">
     <xs:complexType>
       <xs:sequence>
@@ -213,18 +223,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="result" nillable="true" type="q21:Result" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendHeartBeat">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendHeartBeatResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SendHeartBeatResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -6,10 +6,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-
 using System.Windows;
 using System.Windows.Threading;
 using Chatter.Log;
+using Chatter.MetroClient.Sound;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.TCP
@@ -54,9 +54,14 @@ namespace Chatter.MetroClient.TCP
             {
                 new Thread(new ThreadStart(() =>
                 {
+                   
                     client = myListener.AcceptTcpClient();
                     BeginReceive();
-                })).Start();
+                    SoundPlayer.Play();
+                    
+                    MyLogger.Logger.Info("接收文件线程退出");
+                    return;
+                })) {  Name="ReceiveThread"}.Start();
 
             }
             catch (Exception ex)
@@ -114,6 +119,7 @@ namespace Chatter.MetroClient.TCP
                 }
 
 
+             
                 if (transferState != TransferState.Running)
                 {
                     if (File.Exists(fm.Path))

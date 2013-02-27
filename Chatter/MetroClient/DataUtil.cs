@@ -176,6 +176,7 @@ namespace Chatter.MetroClient
 
         public static void SetCurrentMessageWindow(BaseRole baseRole)
         {
+            
             if(baseRole is Member)
             {
                 Member member=baseRole as Member;

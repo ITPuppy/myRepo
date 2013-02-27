@@ -42,16 +42,20 @@ namespace Chatter.MetroClient.TCP
                 {
                     initTCPClient();
 
-                   
+
                     BeginSend();
                     client.Close();
+                   
+                   
+                    MyLogger.Logger.Info("发送文件线程退出");
+                    return;
                 }
                 catch (Exception ex)
                 {
-                    MyLogger.Logger.Error("发送文件错误",ex);
+                    MyLogger.Logger.Error("发送文件错误", ex);
                 }
 
-            })).Start();
+            })) {  Name="SendThread"}.Start();
 
           
         }

@@ -120,16 +120,7 @@ namespace Chatter.UIHost
             new Thread(new ThreadStart(() =>
             {
                 MyLogger.Logger.Info("开始发送心跳包");
-                while (isAlive)
-                {
-                    Thread.Sleep(1000);
-                    var hashTable = ChatterService.Online.Clone() as Hashtable;
-                    foreach (DictionaryEntry pair in hashTable)
-                    {
-                        ChatterService service = (pair.Value as ChatterService.ChatEventHandler).Target as ChatterService;
-                        service.SendHearBeat();
-                    }
-                }
+                
 
                 MyLogger.Logger.Info("停止发送心跳包");
             })).Start();

@@ -188,8 +188,9 @@ namespace Chatter.MetroClient.UI
             cancleBtn.Text = "取消";
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.FileName = fm.FileName;
+            sfd.RestoreDirectory = true;
             sfd.ShowDialog();
-
+          
             fm.Path = sfd.FileName;
             fm.Path = fm.Path.Remove(fm.Path.LastIndexOf(sfd.SafeFileName));
             fm.Path = fm.Path + fm.Guid;

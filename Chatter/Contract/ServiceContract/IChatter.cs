@@ -69,5 +69,8 @@ namespace Chatter.Contract.ServiceContract
         #endregion
 
 
+         [OperationContract(IsInitiating = false, IsTerminating = false)]
+         void SendHeartBeat();
+
     }
 }

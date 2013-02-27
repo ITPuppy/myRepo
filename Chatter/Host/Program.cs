@@ -17,7 +17,7 @@ namespace Chatter.Host
         {
             List<ServiceHost> hosts = new List<ServiceHost>();
             ServiceHost host1 = new ServiceHost(typeof(RegisterService));
-         
+
             ServiceHost host2 = new ServiceHost(typeof(ChatterService));
             hosts.Add(host1);
             hosts.Add(host2);
@@ -28,43 +28,73 @@ namespace Chatter.Host
             {
                 host.Opened += delegate
                 {
-                   ;
-                   MyLogger.Logger.Info(host.Description.Name+"已经启动");
+                    ;
+                    MyLogger.Logger.Info(host.Description.Name + "已经启动");
                 };
                 host.Closed += delegate
                 {
-                    
-                    MyLogger.Logger.Info(host.Description.Name+"已经关闭");
+
+                    MyLogger.Logger.Info(host.Description.Name + "已经关闭");
                 };
                 host.Open();
-                
-            }
-            bool isAlive=true;
 
-            new Thread(new ThreadStart(() => {
-                MyLogger.Logger.Info("开始发送心跳包");
+            }
+            bool isAlive = true;
+
+            new Thread(new ThreadStart(() =>
+            {
+                MyLogger.Logger.Info("开始接收心跳包");
 
                 while (isAlive)
                 {
                     Thread.Sleep(1000);
-                    var hashTable=ChatterService.Online.Clone() as Hashtable;
+                    var hashTable = ChatterService.lastUpdateTable.Clone() as Hashtable;
                     foreach (DictionaryEntry pair in hashTable)
                     {
-                        ChatterService service = (pair.Value as ChatterService.ChatEventHandler).Target as ChatterService;
-                        service.SendHearBeat();
+                        if (new TimeSpan(DateTime.Now.Ticks).Subtract(new TimeSpan(Convert.ToDateTime(pair.Value).Ticks)).Seconds > 3)
+                        {
+
+                            var handler = ChatterService.Online[pair.Key] as ChatterService.ChatEventHandler;
+                            if (handler != null)
+                            {
+                                ChatterService service = handler.Target as ChatterService;
+                                if (service != null)
+                                {
+
+                                    service.Dispose();
+
+                                }
+                            }
+
+
+                            
+                        }
+
+
                     }
                 }
 
-                MyLogger.Logger.Info("停止发送心跳包");
+                MyLogger.Logger.Info("停止接收心跳包");
             })).Start();
 
-            string s=String.Empty;
-            while(s.Trim().ToLower()!="exit")
+            string s = String.Empty;
+            while (true)
             {
-                s=Console.ReadLine();
+
+                s = Console.ReadLine();
+
+                if (s.Trim().ToLower() == "exit")
+                {
+                    break;
+                }
+                else if (s.Trim().ToLower() == "clear")
+                {
+                    Console.Clear();
+                }
+
             }
 
-            isAlive=false;
+            isAlive = false;
             foreach (ServiceHost host in hosts)
             {
                 host.Close();

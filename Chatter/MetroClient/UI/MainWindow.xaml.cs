@@ -29,6 +29,8 @@ namespace Chatter.MetroClient.UI
 
 
         private MyTabControl tabControl;
+        private bool isAlive=true;
+        private Thread sendHearBeatThread;
         public MainWindow()
         {
             InitializeComponent();
@@ -96,6 +98,9 @@ namespace Chatter.MetroClient.UI
                         selectedGrid.Background = new SolidColorBrush(selectedColor);
                         DataUtil.Client.GetFriendsCompleted += Client_GetFriendsCompleted;
                         DataUtil.Client.GetFriendsAsync(DataUtil.Member.id);
+
+
+                        SendHeartBeat();
                        
                     }
                     catch (Exception ex)
@@ -107,6 +112,30 @@ namespace Chatter.MetroClient.UI
 
 
 
+        }
+
+        private void SendHeartBeat()
+        {
+            sendHearBeatThread = new Thread(new ThreadStart(() =>
+             {
+
+                 while (isAlive)
+                 {
+                     Thread.Sleep(1000);
+                     try
+                     {
+                         DataUtil.Client.SendHeartBeat();
+                     }
+                     catch (Exception ex)
+                     {
+                         if (isAlive == false)
+                             return;
+                         else
+                             MyLogger.Logger.Warn("发送心跳包出现错误", ex);
+                     }
+                 }
+             }));
+            sendHearBeatThread.Start();
         }
 
         void Client_GetFriendsCompleted(object sender, GetFriendsCompletedEventArgs e)
@@ -121,6 +150,8 @@ namespace Chatter.MetroClient.UI
         {
             try
             {
+                isAlive = false;
+               
                 DataUtil.Client.Abort();
             }
             catch (Exception ex)
@@ -140,3 +171,4 @@ namespace Chatter.MetroClient.UI
 
     }
 }
+ 

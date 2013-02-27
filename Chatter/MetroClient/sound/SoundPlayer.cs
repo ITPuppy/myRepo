@@ -4,16 +4,18 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using Chatter.Log;
 
 namespace Chatter.MetroClient.Sound
 {
     public class SoundPlayer
     {
 
-        static string fileName=@"..\..\sound\water.wav";
+        static string fileName = "./sound/water.wav";
+       
 
-        [DllImport("winmm.dll ")]
-        public static extern bool PlaySound(string szSound, IntPtr hMod, PlaySoundFlags flags);
+        [DllImport("winmm.dll")]
+        private static extern bool PlaySound(string szSound, IntPtr hMod, PlaySoundFlags flags);
 
         
 
@@ -21,13 +23,22 @@ namespace Chatter.MetroClient.Sound
 
         public static void Play()
         {
-            new Thread(new ThreadStart(() =>
+
+            try
             {
-                PlaySound(fileName, new System.IntPtr(), PlaySoundFlags.SND_SYNC);
-            })).Start() ;
+
+               
+              PlaySound(fileName, IntPtr.Zero, PlaySoundFlags.SND_ASYNC | PlaySoundFlags.SND_FILENAME | PlaySoundFlags.SND_NODEFAULT);
+            
+              
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("播放声音出现错误",ex);
+            }
         }
 
-        public enum PlaySoundFlags
+        private enum PlaySoundFlags
         {
             SND_ALIAS = 0x10000,
             SND_ALIAS_ID = 0x110000,

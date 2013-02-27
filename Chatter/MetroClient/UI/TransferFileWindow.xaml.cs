@@ -66,7 +66,7 @@ namespace Chatter.MetroClient.UI
 
         public void ReceiveFile( FileMessage fm)
         {
-            SoundPlayer.Play();
+           
             var receiveFile = new FileTransferGrid(false, fm);
           
             sp.Children.Add(receiveFile);

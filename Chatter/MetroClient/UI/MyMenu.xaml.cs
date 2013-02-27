@@ -121,6 +121,7 @@ namespace Chatter.MetroClient.UI
                 }
 
                 OpenFileDialog ofd = new OpenFileDialog();
+                ofd.RestoreDirectory = true;
                 ofd.ShowDialog();
              
                 FileMessage fm = new FileMessage();

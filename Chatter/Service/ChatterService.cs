@@ -20,6 +20,11 @@ namespace Chatter.Service
     {
 
         #region 属性
+
+
+        public static Hashtable lastUpdateTable = new Hashtable();
+
+
         /// <summary>
         /// 保存在线人的信息，键为id，值为ChatterEventHandler，通过ChatterEvent可以获取所在对象的信息
         /// 类所有
@@ -164,6 +169,8 @@ namespace Chatter.Service
             e.Type = MessageType.Logoff;
             if (Online.ContainsKey(member.Id))
                 Online.Remove(member.Id);
+            if (lastUpdateTable.ContainsKey(member.Id))
+                lastUpdateTable.Remove(member.Id);
             BroadCatMessage(e);
 
             PrintOnLineNumber();
@@ -433,7 +440,7 @@ namespace Chatter.Service
                 }
                 catch (Exception ex)
                 {
-                    MyLogger.Logger.Error("回调出现问题" + member.Id);
+                    MyLogger.Logger.Warn("回调失败" + member.Id);
 
 
                 }
@@ -499,7 +506,7 @@ namespace Chatter.Service
             {
                 new Thread(new ThreadStart(() =>
                 {
-                    callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Failed, Mesg = "对方不在线" });
+                    callback.ReponseToSouceClient(new Result() { Type= MessageType.AddFriend ,Status = MessageStatus.Failed, Mesg = "对方不在线" });
 
                 })).Start();
                 return;
@@ -665,23 +672,19 @@ namespace Chatter.Service
 
         }
 
-        public void SendHearBeat()
+
+
+        public void SendHeartBeat()
         {
 
-
-            try
+            if (lastUpdateTable.ContainsKey(this.member.Id))
             {
-                callback.SendHeartBeat();
-
+                lastUpdateTable[this.member.Id] = DateTime.Now;
             }
-            catch (Exception ex)
+            else
             {
-                MyLogger.Logger.Warn("发送心跳包失败" + member.Id + "_" + member.NickName);
-                this.Dispose();
+                lastUpdateTable.Add(this.member.Id, DateTime.Now);
             }
-
-
-
         }
         #endregion
 

@@ -168,7 +168,7 @@ namespace Chatter.MetroClient.UI
 
             if (DataUtil.CurrentRole is Member)
             {
-                Member member = DataUtil.CurrentRole as Member;
+                Member member = this.role as Member;
                 if (member.status == MemberStatus.Offline)
                 {
                     return;
@@ -213,8 +213,11 @@ namespace Chatter.MetroClient.UI
                 msg.type = MessageType.TextMessage;
                 msg.msg = mesg;
 
+                
+                 DataUtil.Client.BeginSendMesg(msg,new AsyncCallback((result)=>{
 
-                var status = DataUtil.Client.SendMesg(msg);
+
+                  var status=   DataUtil.Client.EndSendMesg(result);
                 if (status == MessageStatus.Failed)
                 {
 
@@ -224,6 +227,8 @@ namespace Chatter.MetroClient.UI
                     MessageBox.Show("您不是对方的好友，不可以给对方发消息，你可以先删除该好友然后添加");
                     return;
                 }
+                 }),this);
+               
 
 
 
@@ -242,7 +247,7 @@ namespace Chatter.MetroClient.UI
                 pa.LineStackingStrategy = LineStackingStrategy.MaxHeight;
                 rtxtBox.ScrollToEnd();
 
-
+                
 
                
 
@@ -254,35 +259,37 @@ namespace Chatter.MetroClient.UI
         public void ReceiveMessage(Message mesg)
         {
 
-            SoundPlayer.Play();
 
-            if (mesg.from is Member)
-            {
+          
 
-
-                if (mesg is TextMessage)
-                {
-                    TextMessage tMsg = mesg as TextMessage;
-
-                    Member m = mesg.from as Member;
-
-                    Paragraph pa = new Paragraph();
+                    if (mesg.from is Member)
+                    {
 
 
+                        if (mesg is TextMessage)
+                        {
+                            TextMessage tMsg = mesg as TextMessage;
 
-                    string nickName = m.nickName + "   " + mesg.sendTime.ToLongTimeString() + Environment.NewLine;
-                    pa.Inlines.Add(new Run(nickName) {FontSize=20, Foreground = new SolidColorBrush(Colors.Tomato), FontFamily = new FontFamily("Avenir Book") });
+                            Member m = mesg.from as Member;
 
-                    pa.Inlines.Add(new Run(tMsg.msg));
-                    rtxtBox.Document.Blocks.Add(pa);
-
-                    rtxtBox.ScrollToEnd();
+                            Paragraph pa = new Paragraph();
 
 
 
-                 
-                }
-            }
+                            string nickName = m.nickName + "   " + mesg.sendTime.ToLongTimeString() + Environment.NewLine;
+                            pa.Inlines.Add(new Run(nickName) { FontSize = 20, Foreground = new SolidColorBrush(Colors.Tomato), FontFamily = new FontFamily("Avenir Book") });
+
+                            pa.Inlines.Add(new Run(tMsg.msg));
+                            rtxtBox.Document.Blocks.Add(pa);
+
+                            rtxtBox.ScrollToEnd();
+
+
+
+
+                        }
+                    }
+                
         }
     }
 }
