@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://127.0.0.1:9876/ChatterService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="Member">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRole">
@@ -43,10 +42,10 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRole">
         <xs:sequence>
-          <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
-          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groupMember" nillable="true" type="q1:ArrayOfstring" />
-          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupMember" nillable="true" type="tns:ArrayOfMember" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OwnerId" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -64,12 +63,13 @@
   <xs:complexType name="Result">
     <xs:sequence>
       <xs:element minOccurs="0" name="EndPoint" nillable="true" type="tns:MyEndPoint" />
+      <xs:element minOccurs="0" name="Group" nillable="true" type="tns:Group" />
       <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Member" nillable="true" type="tns:Member" />
+      <xs:element minOccurs="0" name="Mesg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="tns:MessageStatus" />
       <xs:element minOccurs="0" name="Type" type="tns:MessageType" />
-      <xs:element minOccurs="0" name="member" nillable="true" type="tns:Member" />
-      <xs:element minOccurs="0" name="mesg" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="status" type="tns:MessageStatus" />
-      <xs:element minOccurs="0" name="userGroup" nillable="true" type="tns:UserGroup" />
+      <xs:element minOccurs="0" name="UserGroup" nillable="true" type="tns:UserGroup" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Result" nillable="true" type="tns:Result" />
@@ -80,6 +80,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MyEndPoint" nillable="true" type="tns:MyEndPoint" />
+  <xs:simpleType name="MessageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="Failed" />
+      <xs:enumeration value="Accept" />
+      <xs:enumeration value="Refuse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageStatus" nillable="true" type="tns:MessageStatus" />
   <xs:simpleType name="MessageType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="TextMessage" />
@@ -95,15 +104,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="MessageType" nillable="true" type="tns:MessageType" />
-  <xs:simpleType name="MessageStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="OK" />
-      <xs:enumeration value="Failed" />
-      <xs:enumeration value="Accept" />
-      <xs:enumeration value="Refuse" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="MessageStatus" nillable="true" type="tns:MessageStatus" />
   <xs:complexType name="ArrayOfUserGroup">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
@@ -125,16 +125,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Message" nillable="true" type="tns:Message" />
-  <xs:complexType name="TextMessage">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Message">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TextMessage" nillable="true" type="tns:TextMessage" />
   <xs:complexType name="CommandMessage">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Message">
@@ -152,6 +142,16 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="MyCommandType" nillable="true" type="tns:MyCommandType" />
+  <xs:complexType name="TextMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextMessage" nillable="true" type="tns:TextMessage" />
   <xs:complexType name="FileMessage">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Message">

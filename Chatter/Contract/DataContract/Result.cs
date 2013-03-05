@@ -21,39 +21,39 @@ namespace Chatter.Contract.DataContract
             set;
         }
 
+        [DataMember]
+        public Group Group
+        {
+            get;
+            set;
+        }
+
 
 
         [DataMember]
-        private MessageStatus status;
-
         public MessageStatus Status
         {
-            get { return status; }
-            set { status = value; }
+            get;
+            set;
         }
-        [DataMember]
-        private Member member;
 
+        [DataMember]
         public Member Member
         {
-            get { return member; }
-            set { member = value; }
+            get;
+            set;
         }
         [DataMember]
-        private UserGroup userGroup;
-
         public UserGroup UserGroup
         {
-            get { return userGroup; }
-            set { userGroup = value; }
+            get;
+            set;
         }
         [DataMember]
-        private String mesg;
-
         public String Mesg
         {
-            get { return mesg; }
-            set { mesg = value; }
+            get;
+            set;
         }
         [DataMember]
         public MyEndPoint EndPoint

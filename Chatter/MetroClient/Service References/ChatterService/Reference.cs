@@ -107,65 +107,65 @@ namespace MetroClient.ChatterService {
     public partial class Group : MetroClient.ChatterService.BaseRole {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string groupIdField;
+        private string GroupIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] groupMemberField;
+        private MetroClient.ChatterService.Member[] GroupMemberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
+        private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ownerIdField;
+        private string OwnerIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string groupId {
+        public string GroupId {
             get {
-                return this.groupIdField;
+                return this.GroupIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.groupIdField, value) != true)) {
-                    this.groupIdField = value;
-                    this.RaisePropertyChanged("groupId");
+                if ((object.ReferenceEquals(this.GroupIdField, value) != true)) {
+                    this.GroupIdField = value;
+                    this.RaisePropertyChanged("GroupId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] groupMember {
+        public MetroClient.ChatterService.Member[] GroupMember {
             get {
-                return this.groupMemberField;
+                return this.GroupMemberField;
             }
             set {
-                if ((object.ReferenceEquals(this.groupMemberField, value) != true)) {
-                    this.groupMemberField = value;
-                    this.RaisePropertyChanged("groupMember");
+                if ((object.ReferenceEquals(this.GroupMemberField, value) != true)) {
+                    this.GroupMemberField = value;
+                    this.RaisePropertyChanged("GroupMember");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
+        public string Name {
             get {
-                return this.nameField;
+                return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ownerId {
+        public string OwnerId {
             get {
-                return this.ownerIdField;
+                return this.OwnerIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.ownerIdField, value) != true)) {
-                    this.ownerIdField = value;
-                    this.RaisePropertyChanged("ownerId");
+                if ((object.ReferenceEquals(this.OwnerIdField, value) != true)) {
+                    this.OwnerIdField = value;
+                    this.RaisePropertyChanged("OwnerId");
                 }
             }
         }
@@ -320,22 +320,25 @@ namespace MetroClient.ChatterService {
         private MetroClient.ChatterService.MyEndPoint EndPointField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.Group GroupField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.Member MemberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MesgField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MetroClient.ChatterService.MessageStatus StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MetroClient.ChatterService.MessageType TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MetroClient.ChatterService.Member memberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string mesgField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MetroClient.ChatterService.MessageStatus statusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MetroClient.ChatterService.UserGroup userGroupField;
+        private MetroClient.ChatterService.UserGroup UserGroupField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -361,6 +364,19 @@ namespace MetroClient.ChatterService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.Group Group {
+            get {
+                return this.GroupField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupField, value) != true)) {
+                    this.GroupField = value;
+                    this.RaisePropertyChanged("Group");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Guid {
             get {
                 return this.GuidField;
@@ -369,6 +385,45 @@ namespace MetroClient.ChatterService {
                 if ((object.ReferenceEquals(this.GuidField, value) != true)) {
                     this.GuidField = value;
                     this.RaisePropertyChanged("Guid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.Member Member {
+            get {
+                return this.MemberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MemberField, value) != true)) {
+                    this.MemberField = value;
+                    this.RaisePropertyChanged("Member");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mesg {
+            get {
+                return this.MesgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MesgField, value) != true)) {
+                    this.MesgField = value;
+                    this.RaisePropertyChanged("Mesg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroClient.ChatterService.MessageStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
                 }
             }
         }
@@ -387,53 +442,14 @@ namespace MetroClient.ChatterService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroClient.ChatterService.Member member {
+        public MetroClient.ChatterService.UserGroup UserGroup {
             get {
-                return this.memberField;
+                return this.UserGroupField;
             }
             set {
-                if ((object.ReferenceEquals(this.memberField, value) != true)) {
-                    this.memberField = value;
-                    this.RaisePropertyChanged("member");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string mesg {
-            get {
-                return this.mesgField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.mesgField, value) != true)) {
-                    this.mesgField = value;
-                    this.RaisePropertyChanged("mesg");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroClient.ChatterService.MessageStatus status {
-            get {
-                return this.statusField;
-            }
-            set {
-                if ((this.statusField.Equals(value) != true)) {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroClient.ChatterService.UserGroup userGroup {
-            get {
-                return this.userGroupField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userGroupField, value) != true)) {
-                    this.userGroupField = value;
-                    this.RaisePropertyChanged("userGroup");
+                if ((object.ReferenceEquals(this.UserGroupField, value) != true)) {
+                    this.UserGroupField = value;
+                    this.RaisePropertyChanged("UserGroup");
                 }
             }
         }
@@ -510,6 +526,23 @@ namespace MetroClient.ChatterService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MessageStatus", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    public enum MessageStatus : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OK = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Failed = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Accept = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Refuse = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MessageType", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     public enum MessageType : int {
         
@@ -544,29 +577,12 @@ namespace MetroClient.ChatterService {
         AddFriend2Group = 9,
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MessageStatus", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
-    public enum MessageStatus : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OK = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Failed = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Accept = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Refuse = 3,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.TextMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.CommandMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.TextMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MetroClient.ChatterService.FileMessage))]
     public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -659,29 +675,6 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TextMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class TextMessage : MetroClient.ChatterService.Message {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string msgField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string msg {
-            get {
-                return this.msgField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.msgField, value) != true)) {
-                    this.msgField = value;
-                    this.RaisePropertyChanged("msg");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CommandMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
     [System.SerializableAttribute()]
     public partial class CommandMessage : MetroClient.ChatterService.Message {
@@ -714,6 +707,29 @@ namespace MetroClient.ChatterService {
                 if ((object.ReferenceEquals(this.GuidField, value) != true)) {
                     this.GuidField = value;
                     this.RaisePropertyChanged("Guid");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TextMessage", Namespace="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract")]
+    [System.SerializableAttribute()]
+    public partial class TextMessage : MetroClient.ChatterService.Message {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string msgField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string msg {
+            get {
+                return this.msgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.msgField, value) != true)) {
+                    this.msgField = value;
+                    this.RaisePropertyChanged("msg");
                 }
             }
         }
@@ -883,12 +899,12 @@ namespace MetroClient.ChatterService {
         MetroClient.ChatterService.Result EndDeleteFriend(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddGroup", ReplyAction="http://tempuri.org/IChatter/AddGroupResponse")]
-        MetroClient.ChatterService.MessageStatus AddGroup(MetroClient.ChatterService.Group group);
+        MetroClient.ChatterService.Result AddGroup(MetroClient.ChatterService.Group group);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/AddGroup", ReplyAction="http://tempuri.org/IChatter/AddGroupResponse")]
         System.IAsyncResult BeginAddGroup(MetroClient.ChatterService.Group group, System.AsyncCallback callback, object asyncState);
         
-        MetroClient.ChatterService.MessageStatus EndAddGroup(System.IAsyncResult result);
+        MetroClient.ChatterService.Result EndAddGroup(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend2Group", ReplyAction="http://tempuri.org/IChatter/AddFriend2GroupResponse")]
         MetroClient.ChatterService.MessageStatus AddFriend2Group(string friendId, string groupId);
@@ -1112,10 +1128,10 @@ namespace MetroClient.ChatterService {
             this.results = results;
         }
         
-        public MetroClient.ChatterService.MessageStatus Result {
+        public MetroClient.ChatterService.Result Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
+                return ((MetroClient.ChatterService.Result)(this.results[0]));
             }
         }
     }
@@ -1744,7 +1760,7 @@ namespace MetroClient.ChatterService {
                         friend}, this.onEndDeleteFriendDelegate, this.onDeleteFriendCompletedDelegate, userState);
         }
         
-        public MetroClient.ChatterService.MessageStatus AddGroup(MetroClient.ChatterService.Group group) {
+        public MetroClient.ChatterService.Result AddGroup(MetroClient.ChatterService.Group group) {
             return base.Channel.AddGroup(group);
         }
         
@@ -1754,7 +1770,7 @@ namespace MetroClient.ChatterService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public MetroClient.ChatterService.MessageStatus EndAddGroup(System.IAsyncResult result) {
+        public MetroClient.ChatterService.Result EndAddGroup(System.IAsyncResult result) {
             return base.Channel.EndAddGroup(result);
         }
         
@@ -1764,7 +1780,7 @@ namespace MetroClient.ChatterService {
         }
         
         private object[] OnEndAddGroup(System.IAsyncResult result) {
-            MetroClient.ChatterService.MessageStatus retVal = this.EndAddGroup(result);
+            MetroClient.ChatterService.Result retVal = this.EndAddGroup(result);
             return new object[] {
                     retVal};
         }

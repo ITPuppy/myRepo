@@ -10,35 +10,31 @@ namespace Chatter.Contract.DataContract
     [DataContract]
     public class Group:BaseRole
     {
+      
+   
         [DataMember]
-        string groupId;
-        [DataMember]
-        string ownerId;
-        [DataMember]
-        List<string> groupMember;
-
-        public List<string> GroupMember
+        public List<Member> GroupMember
         {
-            get { return groupMember; }
-            set { groupMember = value; }
+            get;
+            set;
         }
+         [DataMember]
         public string OwnerId
         {
-            get { return ownerId; }
-            set { ownerId = value; }
+            get;
+            set;
         }
+          [DataMember]
         public string GroupId
         {
-            get { return groupId; }
-            set { groupId = value; }
+            get;
+            set;
         }
         [DataMember]
-        private string name;
-
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get;
+            set;
         }
     }
 }

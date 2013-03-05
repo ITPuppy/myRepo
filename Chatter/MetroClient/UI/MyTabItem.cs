@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 using MetroClient.ChatterService;
+using Chatter.MetroClient.P2P;
 
 namespace Chatter.MetroClient.UI
 {
@@ -22,9 +23,9 @@ namespace Chatter.MetroClient.UI
         /// </summary>
     
         /// <summary>
-        /// 如果当前TabItem是用来放置好友列表，则userGroupId为当前好友的分组ID，其他时候为-1
+        /// 如果当前TabItem是用来放置好友列表，则userGroupId为当前好友的分组ID，如果是群组列表，则用来存放群组id，其他时候为-1
         /// </summary>
-        private string userGroupId=String.Empty;
+        private string baseRoleId=String.Empty;
       
 
         private MyTabControl parentTabControl ;
@@ -40,13 +41,13 @@ namespace Chatter.MetroClient.UI
                 return parentTabControl;
             }
         }
-        public MyTabItem(MyType type,string userGroupId="-1")
+        public MyTabItem(MyType type,string baseRoleId="-1")
         {
 
  
          
             ///设置分组ID
-            this.userGroupId = userGroupId;
+            this.baseRoleId = baseRoleId;
 
             ///滚动条设置
             scrollViewer = new ScrollViewer();
@@ -104,12 +105,55 @@ namespace Chatter.MetroClient.UI
                         cm.Items.Add(addFriendMenuItem);
                         this.ContextMenu = cm;
                      
-                         myGrid = new MyGrid(MyType.User,this.userGroupId);
+                         myGrid = new MyGrid(MyType.User,this.baseRoleId);
 
                     
 
                         break;
                     }
+
+                case MyType.UserInGroup:
+                    {
+
+                        if (DataUtil.GetGroupById(baseRoleId).OwnerId == DataUtil.Member.id)
+                        {
+                            ///右键菜单
+                            ContextMenu cm = new ContextMenu();
+                            MenuItem addMemberToGroupMenuItem = new MenuItem();
+                            cm.Background = new SolidColorBrush(Color.FromArgb(255, 114, 119, 123));
+                            cm.Foreground = new SolidColorBrush(Colors.White);
+
+                            addMemberToGroupMenuItem.Header = "添加成员";
+                            addMemberToGroupMenuItem.Click += addMemberToGroupMenuItem_Click;
+                            cm.Items.Add(addMemberToGroupMenuItem);
+                            this.ContextMenu = cm;
+
+                            myGrid = new MyGrid(MyType.UserInGroup, this.baseRoleId);
+
+                        }
+
+                        myGrid = new MyGrid(MyType.UserInGroup, this.baseRoleId);
+                        break;
+                    }
+
+
+                case MyType.Group:
+                        {
+                            ///右键菜单
+                            ContextMenu cm = new ContextMenu();
+                            MenuItem addGroupMenuItem = new MenuItem();
+                            cm.Background = new SolidColorBrush(Color.FromArgb(255, 114, 119, 123));
+                            cm.Foreground = new SolidColorBrush(Colors.White);
+
+                            addGroupMenuItem.Header = "建立群组";
+                            addGroupMenuItem.Click += addGroupMenuItem_Click;
+                            cm.Items.Add(addGroupMenuItem);
+                            this.ContextMenu = cm;
+
+                            myGrid = new MyGrid(MyType.Group);
+                            DataUtil.Client.AddGroupCompleted += Client_AddGroupCompleted;
+                            break;
+                        }
             }
 
 
@@ -117,6 +161,75 @@ namespace Chatter.MetroClient.UI
             scrollViewer.Content = myGrid;
             this.Content = scrollViewer;
             
+        }
+
+        private void addMemberToGroupMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+            DataUtil.P2PClients[baseRoleId].AddGroupMember("776041668");
+
+        }
+
+        void Client_AddGroupCompleted(object sender, AddGroupCompletedEventArgs e)
+        {
+            try
+            {
+                ///判断是否有异常
+
+                if (e.Error != null)
+                    throw e.Error;
+                ///判断添加分组是否成功
+                if (e.Result.Status == MessageStatus.Failed)
+                {
+                    MessageBox.Show("建立群组失败");
+                }
+                else
+                {
+
+                  
+
+                    ///在界面上添加分组
+                    myGrid.AddButton(MyType.Group, e.Result.Group);
+
+                    TabControl tabControl = this.Parent as TabControl;
+                    ///添加分组对应的好友的TabItem
+                    MyTabItem tabItem = new MyTabItem(MyType.UserInGroup,e.Result.Group.GroupId);
+                    tabControl.Items.Add(tabItem);
+                   
+                    DataUtil.GroupMemberTabItems.Add(e.Result.Group.GroupId, tabItem);
+                    ///将分组添加到记录里面
+                    DataUtil.Groups.Add(e.Result.Group);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("网络出现异常，请检查网络连接");
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 建群
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void addGroupMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.Group);
+            dialog.ShowDialog();
+            string groupName = dialog.GetString();
+            if (String.IsNullOrEmpty(groupName))
+            {
+                return;
+            }
+
+            Group group = new Group();
+            group.Name = groupName;
+            group.OwnerId = DataUtil.Member.id;
+            
+            DataUtil.Client.AddGroupAsync(group);
+
         }
 
         /// <summary>
@@ -143,7 +256,7 @@ namespace Chatter.MetroClient.UI
                 MessageBox.Show("您不能添加自己为好友");
                 return;
             }
-             DataUtil.Client.AddFriend(friendId, userGroupId);
+             DataUtil.Client.AddFriend(friendId, baseRoleId);
             
 
         }
@@ -162,7 +275,7 @@ namespace Chatter.MetroClient.UI
                 if (e.Error != null)
                     throw e.Error;
                 ///判断添加分组是否成功
-                 if (e.Result.status == MessageStatus.Failed)
+                 if (e.Result.Status == MessageStatus.Failed)
                 {
                     MessageBox.Show("添加失败");
                 }
@@ -170,8 +283,8 @@ namespace Chatter.MetroClient.UI
                 {
                 
                     ///读取添加的分组名和ID
-                    string userGroupId = e.Result.userGroup.userGroupId;
-                    string userGroupName = e.Result.userGroup.userGroupName;
+                    string userGroupId = e.Result.UserGroup.userGroupId;
+                    string userGroupName = e.Result.UserGroup.userGroupName;
 
 
                     

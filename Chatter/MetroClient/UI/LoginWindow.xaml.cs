@@ -100,9 +100,9 @@ namespace Chatter.MetroClient.UI
             {
                 if (e.Error != null)
                     throw (e.Error);
-                if (e.Result.status == MessageStatus.OK)
+                if (e.Result.Status == MessageStatus.OK)
                 {
-                    DataUtil.Member = e.Result.member;
+                    DataUtil.Member = e.Result.Member;
 
                     this.IsVisibleChanged += LoginWindow_IsVisibleChanged;
 

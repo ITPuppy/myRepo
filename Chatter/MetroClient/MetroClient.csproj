@@ -64,6 +64,9 @@
     </ApplicationDefinition>
     <Compile Include="Callback\ChatterCallback.cs" />
     <Compile Include="DataUtil.cs" />
+    <Compile Include="P2P\IP2PChatService.cs" />
+    <Compile Include="P2P\P2PChatService.cs" />
+    <Compile Include="P2P\P2PClient.cs" />
     <Compile Include="Service References\RegisterService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -166,9 +169,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ChatterService\ChatterService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ChatterService\ChatterService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ChatterService\ChatterService3.xsd">

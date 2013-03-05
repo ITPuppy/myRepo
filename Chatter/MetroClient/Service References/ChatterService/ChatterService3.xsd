@@ -112,7 +112,7 @@
   <xs:element name="AddGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddGroupResult" type="q10:MessageStatus" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="AddGroupResult" nillable="true" type="q10:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

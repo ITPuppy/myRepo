@@ -79,6 +79,7 @@ namespace ChatClient
                     rtbMessages.AppendText("*****************************WEL-COME to Chat Application*****************************\r\n");
                     txtSendMessage.Select();
                     txtSendMessage.Focus();
+                   
                 }
                 catch (Exception ex)
                 {

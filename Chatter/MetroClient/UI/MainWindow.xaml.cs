@@ -61,14 +61,14 @@ namespace Chatter.MetroClient.UI
             grid.Background = new SolidColorBrush(selectedColor);
 
             if (grid.Name == "btnFriendGrid")
-                tabControl.SelectedIndex = 0;
+                tabControl.SelectedItem = tabControl.userGroupTabItem;
             else if (grid.Name == "btnGroupGrid")
-                tabControl.SelectedIndex = 1;
+                tabControl.SelectedItem = tabControl.groupTabItem;
             else if (grid.Name == "btnRecentFriendGrid")
-                tabControl.SelectedIndex = 2;
+                tabControl.SelectedItem = tabControl.recentFriendTabItem;
             else if (grid.Name == "btnSetting")
             {
-                tabControl.SelectedIndex = 3;
+                tabControl.SelectedItem = tabControl.settingTabItem;
             }
 
         }
@@ -88,25 +88,21 @@ namespace Chatter.MetroClient.UI
         {
 
            
-                    try
-                    {
+                  
 
                         txtNickName.Text = DataUtil.Member.nickName;
                         DataUtil.MessageTabControl = this.mesgTabControl;
 
                         selectedGrid = btnFriendGrid;
                         selectedGrid.Background = new SolidColorBrush(selectedColor);
-                        DataUtil.Client.GetFriendsCompleted += Client_GetFriendsCompleted;
-                        DataUtil.Client.GetFriendsAsync(DataUtil.Member.id);
 
+                        tabControl = new MyTabControl();
+                        Grid.SetRow(tabControl, 1);
+                        MiddleGrid.Children.Add(tabControl);
 
                         SendHeartBeat();
                        
-                    }
-                    catch (Exception ex)
-                    {
-                        MyLogger.Logger.Error("初始化界面出错", ex);
-                    }
+                   
                
            
 
@@ -138,13 +134,7 @@ namespace Chatter.MetroClient.UI
             sendHearBeatThread.Start();
         }
 
-        void Client_GetFriendsCompleted(object sender, GetFriendsCompletedEventArgs e)
-        {
-            DataUtil.UserGroups = DataUtil.Client.GetFriends(DataUtil.Member.id).ToList<UserGroup>();
-            tabControl = new MyTabControl();
-            Grid.SetRow(tabControl, 1);
-            MiddleGrid.Children.Add(tabControl);
-        }
+      
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {

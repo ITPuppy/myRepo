@@ -137,8 +137,8 @@ namespace Chatter.MetroClient.UI
             {
                 DataUtil.Client.ResponseToSendFile(new Result()
                 {
-                    member = fm.from as Member,
-                    status = MessageStatus.Refuse,
+                    Member = fm.from as Member,
+                    Status = MessageStatus.Refuse,
                     Type = MessageType.File,
                    
                     Guid = fm.Guid
@@ -204,8 +204,8 @@ namespace Chatter.MetroClient.UI
 
             DataUtil.Client.ResponseToSendFile(new Result()
             {
-                member = fm.from as Member,
-                status = MessageStatus.Accept,
+                Member = fm.from as Member,
+                Status = MessageStatus.Accept,
                 Type = MessageType.File,
                 EndPoint = new MyEndPoint() { Address = fm.EndPoint.Address, Port = port },
                 Guid=fm.Guid

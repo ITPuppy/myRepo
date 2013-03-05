@@ -19,66 +19,118 @@ namespace Chatter.MetroClient.UI
         private string imageSouce = "/MetroClient;component/res/img/default.png";
 
        
-        private string userGroupId;
+        private string baseRoleId;
 
 
 
-        public MyGrid(MyType type, string userGroupId = "-1")
+        public MyGrid(MyType type, string baseRoleuserGroupId = "-1")
             : base()
         {
 
-            this.userGroupId = userGroupId;
+            this.baseRoleId = baseRoleuserGroupId;
 
             int i = 0;
             Random random = new Random((int)DateTime.Now.Ticks);
-            if (type == MyType.User)
+
+            switch (type)
             {
+                case MyType.User:
+                    {
 
 
-                List<Member> friends = DataUtil.GetMemberList(userGroupId);
-                rowCount = friends.Count / columnCount + 1;
-                InitRowAndColumn();
-
-
-               
-                for (i = 0; i < friends.Count; i++)
-                {
-                   
-                    MyButton button = new MyButton(MyType.User, friends[i], imageSouce,userGroupId);
-                    Grid.SetColumn(button, i % columnCount);
-                    Grid.SetRow(button, i / columnCount);
-                    this.Children.Add(button);
-
-
-                    var tabItem=new MyMessageTabItem(MyType.User,friends[i]);
-                       DataUtil.MessageTabControl.Items.Add(tabItem);
-                       DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
-                }
-
-
-             
-
-
-            }
-            else if (type == MyType.UserGroup)
-            {
-
-                List<UserGroup> userGroups = DataUtil.UserGroups;
-                rowCount = userGroups.Count / columnCount + 1;
-                InitRowAndColumn();
+                        List<Member> friends = DataUtil.GetMemberList(baseRoleuserGroupId);
+                        rowCount = friends.Count / columnCount + 1;
+                        InitRowAndColumn();
 
 
 
+                        for (i = 0; i < friends.Count; i++)
+                        {
 
-                for (i = 0; i < userGroups.Count; i++)
-                {
-                   
-                    MyButton button = new MyButton(MyType.UserGroup, userGroups[i], null);
-                    Grid.SetColumn(button, i % columnCount);
-                    Grid.SetRow(button, i / columnCount);
-                    this.Children.Add(button);
+                            MyButton button = new MyButton(MyType.User, friends[i], imageSouce, baseRoleuserGroupId);
+                            Grid.SetColumn(button, i % columnCount);
+                            Grid.SetRow(button, i / columnCount);
+                            this.Children.Add(button);
 
-                }
+
+                            var tabItem = new MyMessageTabItem(MyType.User, friends[i]);
+                            DataUtil.MessageTabControl.Items.Add(tabItem);
+                            DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
+                        }
+
+
+
+                        break;
+
+                    }
+                case MyType.UserGroup:
+                    {
+
+                        List<UserGroup> userGroups = DataUtil.UserGroups;
+                        rowCount = userGroups.Count / columnCount + 1;
+                        InitRowAndColumn();
+
+
+
+
+                        for (i = 0; i < userGroups.Count; i++)
+                        {
+
+                            MyButton button = new MyButton(MyType.UserGroup, userGroups[i], null);
+                            Grid.SetColumn(button, i % columnCount);
+                            Grid.SetRow(button, i / columnCount);
+                            this.Children.Add(button);
+
+                        }
+                        break;
+                    }
+
+                case MyType.UserInGroup:
+                    {
+                        List<Member> friends = DataUtil.GetGroupMemberList(baseRoleuserGroupId);
+                        rowCount = friends.Count / columnCount + 1;
+                        InitRowAndColumn();
+
+
+
+                        for (i = 0; i < friends.Count; i++)
+                        {
+
+                            MyButton button = new MyButton(MyType.UserInGroup, friends[i], imageSouce, baseRoleuserGroupId);
+                            Grid.SetColumn(button, i % columnCount);
+                            Grid.SetRow(button, i / columnCount);
+                            this.Children.Add(button);
+
+
+                            var tabItem = new MyMessageTabItem(MyType.UserInGroup, friends[i]);
+                            DataUtil.MessageTabControl.Items.Add(tabItem);
+                            DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
+                        }
+
+                        break;
+
+                    }
+
+                case MyType.Group:
+                    {
+                         List<Group> groups = DataUtil.Groups;
+                        rowCount = groups.Count / columnCount + 1;
+                        InitRowAndColumn();
+
+
+
+
+                        for (i = 0; i < groups.Count; i++)
+                        {
+
+                            MyButton button = new MyButton(MyType.Group, groups[i], null);
+                            Grid.SetColumn(button, i % columnCount);
+                            Grid.SetRow(button, i / columnCount);
+                            this.Children.Add(button);
+
+                        }
+                        break;
+                    }
             }
 
 
@@ -135,7 +187,7 @@ namespace Chatter.MetroClient.UI
 
             else if (type == MyType.User)
             {
-                int index = DataUtil.GetMemberList(userGroupId).Count;
+                int index = DataUtil.GetMemberList(baseRoleId).Count;
 
                 rowCount = (index) / columnCount + 1;
                 InitRowAndColumn();
@@ -144,13 +196,32 @@ namespace Chatter.MetroClient.UI
                 Random random = new Random((int)DateTime.Now.Ticks);
 
               
-                MyButton button = new MyButton(MyType.User, member, imageSouce, userGroupId);
+                MyButton button = new MyButton(MyType.User, member, imageSouce, baseRoleId);
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
 
 
                // DataUtil.AddMemberTo(member,userGroupId);
+            }
+
+            else if (type == MyType.Group)
+            {
+                int index = DataUtil.GetMemberList(baseRoleId).Count;
+
+                rowCount = (index) / columnCount + 1;
+                InitRowAndColumn();
+
+                Group group =role as Group;
+                Random random = new Random((int)DateTime.Now.Ticks);
+
+
+                MyButton button = new MyButton(MyType.Group, group, imageSouce);
+                Grid.SetColumn(button, index % columnCount);
+                Grid.SetRow(button, index / columnCount);
+                this.Children.Add(button);
+
+
             }
 
 

@@ -12,15 +12,15 @@ namespace Chatter.DAL
 {
     public class DALService
     {
-        
 
-        
+
+
         [Obsolete("Please use Conn")]
         private static MySqlConnection conn;
         private static Object obj = new object();
         private static MySqlConnection Conn
         {
-           
+
             get
             {
                 lock (obj)
@@ -55,11 +55,11 @@ namespace Chatter.DAL
         /// <returns>添加成功返回true，添加失败返回false</returns>
         static public bool AddMember(Member member)
         {
-           
+
             MySqlCommand cmd = null;
             try
             {
-              
+
                 string sql = String.Format("insert into tblMember(id,nickName,password,birthday,sex,status,information) values(?id,?nickName,?password,?birthday,?sex,?status,?information)");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", member.Id);
@@ -73,28 +73,28 @@ namespace Chatter.DAL
                 int i1 = cmd.ExecuteNonQuery();
 
                 sql = String.Format("insert into tblFriend(id,groupId,groupName) values(?id,?groupId,?groupName)");
-                cmd.Parameters.AddWithValue("groupId","0");
+                cmd.Parameters.AddWithValue("groupId", "0");
                 cmd.Parameters.AddWithValue("groupName", "我的好友");
                 Prepare(cmd.Parameters);
                 cmd.CommandText = sql;
-                int i2=cmd.ExecuteNonQuery();
+                int i2 = cmd.ExecuteNonQuery();
 
 
-                return i1 == 1&&i2==1;
+                return i1 == 1 && i2 == 1;
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("添加用户出现错误\n" , e);
-                
+                MyLogger.Logger.Error("添加用户出现错误\n", e);
+
                 return false;
             }
 
             finally
             {
-               
+
                 if (cmd != null)
                     cmd.Dispose();
-               
+
 
             }
         }
@@ -123,14 +123,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("更新状态出现错误\n" ,e);
+                MyLogger.Logger.Error("更新状态出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-               
+
             }
         }
 
@@ -157,14 +157,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("更新资料出现错误\n",e);
+                MyLogger.Logger.Error("更新资料出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-               
+
             }
         }
         static public Member GetMember(string id)
@@ -179,7 +179,7 @@ namespace Chatter.DAL
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
 
-                using (var reader=cmd.ExecuteReader())
+                using (var reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
@@ -193,8 +193,8 @@ namespace Chatter.DAL
                         if (reader["status"].ToString().Length != 0)
                         {
                             MemberStatus status;
-                           // Enum.TryParse<MemberStatus>(reader["status"].ToString(),out status);
-                           status=(MemberStatus) Enum.Parse(typeof(MemberStatus), reader["status"].ToString());
+                            // Enum.TryParse<MemberStatus>(reader["status"].ToString(),out status);
+                            status = (MemberStatus)Enum.Parse(typeof(MemberStatus), reader["status"].ToString());
                             member.Status = status;
                         }
 
@@ -202,11 +202,11 @@ namespace Chatter.DAL
                 }
 
                 return member;
-              
+
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("获得用户出现错误\n" ,e);
+                MyLogger.Logger.Error("获得用户出现错误\n", e);
 
                 return null;
             }
@@ -227,7 +227,7 @@ namespace Chatter.DAL
         /// <param name="friendId">好友id</param>
         /// <param name="userGroupId">分组id</param>
         /// <returns></returns>
-        static public Member AddFriend(string id, string friendId,string userGroupId="0")
+        static public Member AddFriend(string id, string friendId, string userGroupId = "0")
         {
             MySqlCommand cmd = null;
             try
@@ -235,14 +235,14 @@ namespace Chatter.DAL
                 string sql = String.Format("update tblFriend set friendId=CONCAT(friendId,?friendId) where id=?id and groupId=?groupId;");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
-                cmd.Parameters.AddWithValue("friendId", friendId+";");
-                cmd.Parameters.AddWithValue("groupId", userGroupId );
+                cmd.Parameters.AddWithValue("friendId", friendId + ";");
+                cmd.Parameters.AddWithValue("groupId", userGroupId);
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 
                 if (i == 1)
                 {
-                    
+
                     if (friendId.IndexOf(";") != -1)
                     {
                         ///说明是deleteUserGroup调用，用于转移好友
@@ -255,14 +255,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("添加好友出现错误\n" , e);
+                MyLogger.Logger.Error("添加好友出现错误\n", e);
                 return null;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-               
+
             }
         }
 
@@ -281,7 +281,7 @@ namespace Chatter.DAL
                 string sql = String.Format("select id from tblFriend where id=?id and friendId like ?friendId");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
-                cmd.Parameters.AddWithValue("friendId","%"+friendId+"%");
+                cmd.Parameters.AddWithValue("friendId", "%" + friendId + "%");
                 Prepare(cmd.Parameters);
 
                 return cmd.ExecuteScalar() != null;
@@ -311,14 +311,14 @@ namespace Chatter.DAL
             {
                 string sql = String.Format("select id from tblMember where id=?id and password=?password");
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("id",id);
-                cmd.Parameters.AddWithValue("password",pwd);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("password", pwd);
                 Prepare(cmd.Parameters);
-                return cmd.ExecuteScalar()!=null;
+                return cmd.ExecuteScalar() != null;
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("查询是否为合法用户时出现错误",e);
+                MyLogger.Logger.Error("查询是否为合法用户时出现错误", e);
                 return false;
             }
             finally
@@ -344,19 +344,19 @@ namespace Chatter.DAL
                 Prepare(cmd.Parameters);
 
 
-                return null!=cmd.ExecuteScalar(); ;
+                return null != cmd.ExecuteScalar(); ;
 
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("查询用户存在出现错误\n" , e);
+                MyLogger.Logger.Error("查询用户存在出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-                
+
             }
         }
         /// <summary>
@@ -381,19 +381,19 @@ namespace Chatter.DAL
 
                 Prepare(cmd.Parameters);
 
-                return 1== cmd.ExecuteNonQuery(); ;
+                return 1 == cmd.ExecuteNonQuery(); ;
 
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("更新用户信息出现错误\n" , e);
+                MyLogger.Logger.Error("更新用户信息出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-               
+
             }
         }
         /// <summary>
@@ -403,7 +403,7 @@ namespace Chatter.DAL
         /// <param name="userGroupId">分组id</param>
         /// <param name="friendId">好友id</param>
         /// <returns></returns>
-        static public bool DeleteFriend(string id,string userGroupId, string friendId)
+        static public bool DeleteFriend(string id, string userGroupId, string friendId)
         {
             MySqlCommand cmd = null;
             try
@@ -420,24 +420,24 @@ namespace Chatter.DAL
                     {
                         if (reader.Read())
                         {
-                            temp=reader["friendId"].ToString();
-                           MyLogger.Logger.Debug("删除前"+temp);
-                          
-                          
-                            temp=temp.Replace(friendId+";","");
-                         MyLogger.Logger.Debug("删除后" + temp);
+                            temp = reader["friendId"].ToString();
+                            MyLogger.Logger.Debug("删除前" + temp);
 
-                   
+
+                            temp = temp.Replace(friendId + ";", "");
+                            MyLogger.Logger.Debug("删除后" + temp);
+
+
                         }
                         else
                         {
-                           MyLogger.Logger.Error("删除好友时候出现错误\n");
+                            MyLogger.Logger.Error("删除好友时候出现错误\n");
                             return false;
                         }
                     }
                     else
                     {
-                       MyLogger.Logger.Error("删除好友时候没有找到用户id\n");
+                        MyLogger.Logger.Error("删除好友时候没有找到用户id\n");
                         return false;
                     }
                 }
@@ -447,7 +447,7 @@ namespace Chatter.DAL
                 sql = String.Format("update tblFriend set friendId=?friendId where id=?id  and groupId=?groupId ");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
-                cmd.Parameters.AddWithValue("friendId", temp );
+                cmd.Parameters.AddWithValue("friendId", temp);
                 cmd.Parameters.AddWithValue("groupId", userGroupId);
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
@@ -457,18 +457,18 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("删除好友出现错误\n" , e);
+                MyLogger.Logger.Error("删除好友出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-                
+
             }
         }
 
-       
+
 
         /// <summary>
         /// 获取好友id的List
@@ -479,7 +479,7 @@ namespace Chatter.DAL
         {
             MySqlCommand cmd = null;
             List<UserGroup> userGroups = new List<UserGroup>();
-            List<String> friends =null;
+            List<String> friends = null;
             try
             {
                 string sql = String.Format("select friendId,groupId,groupName from tblFriend  where id=?id ");
@@ -487,25 +487,25 @@ namespace Chatter.DAL
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
                 Prepare(cmd.Parameters);
-                List<Tuple> userGroupList = new List<Tuple> ();
+                List<Tuple> userGroupList = new List<Tuple>();
                 using (var reader = cmd.ExecuteReader())
                 {
-                    
+
                     while (reader.Read())
                     {
-                       
+
                         string groupId = reader["groupId"].ToString();
-                        string groupName=reader["groupName"].ToString();
+                        string groupName = reader["groupName"].ToString();
 
                         temp = reader["friendId"].ToString();
                         friends = GetNames(temp);
 
-                        userGroupList.Add(new Tuple(groupId,groupName,friends));
+                        userGroupList.Add(new Tuple(groupId, groupName, friends));
 
-                      
+
                     }
-                    
-                    
+
+
                 }
 
                 foreach (Tuple tuple in userGroupList)
@@ -514,8 +514,8 @@ namespace Chatter.DAL
                     foreach (string tempid in tuple.Friends)
                     {
                         Member member = GetMember(tempid);
-                        if(member!=null)
-                         members.Add(member);
+                        if (member != null)
+                            members.Add(member);
                     }
                     UserGroup userGroup = new UserGroup();
                     userGroup.UserGroupId = tuple.GroupId;
@@ -526,19 +526,19 @@ namespace Chatter.DAL
                 }
 
                 return userGroups;
-                
+
 
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("获取好友列表出现错误\n" , e);
+                MyLogger.Logger.Error("获取好友列表出现错误\n", e);
                 return null;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-                
+
             }
         }
 
@@ -552,11 +552,11 @@ namespace Chatter.DAL
         {
             List<string> names = new List<string>();
 
-            while (temp.Length!=0)
+            while (temp.Length != 0)
             {
-                int index=temp.IndexOf(';');
+                int index = temp.IndexOf(';');
                 names.Add(temp.Substring(0, index));
-                temp = temp.Substring(index+1);
+                temp = temp.Substring(index + 1);
             }
             return names;
         }
@@ -567,38 +567,41 @@ namespace Chatter.DAL
         /// </summary>
         /// <param name="group">群组</param>
         /// <returns></returns>
-        public static bool AddGroup(Group group)
+        public static string AddGroup(Group group)
         {
             MySqlCommand cmd = null;
             try
             {
-              
+                group.GroupId = NewGroupId(6);
+
                 string sql = String.Format("insert into tblGroup(groupId,name,ownerId,groupMember) values(?groupId,?name,?ownerId,?groupMember)");
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("groupId",group.GroupId);
+                cmd.Parameters.AddWithValue("groupId", group.GroupId);
                 cmd.Parameters.AddWithValue("name", group.Name);
                 cmd.Parameters.AddWithValue("ownerId", group.OwnerId);
                 Prepare(cmd.Parameters);
-                StringBuilder sb=new StringBuilder();
-                foreach (string temp in group.GroupMember)
-                {
-                    sb.Append(temp+";");
-                }
-                cmd.Parameters.AddWithValue("groupMember",sb.ToString());
+                StringBuilder sb = new StringBuilder();
+                if (group.GroupMember != null)
+                    foreach (Member tempMember in group.GroupMember)
+                    {
+                        sb.Append(tempMember.Id + ";");
+                    }
+                cmd.Parameters.AddWithValue("groupMember", sb.ToString());
 
                 int i1 = cmd.ExecuteNonQuery();
 
 
-               
 
 
-                return i1 == 1 ;
+                if (i1 == 1)
+                    return group.GroupId;
+                else return null;
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("添加群组出现错误\n" , e);
+                MyLogger.Logger.Error("添加群组出现错误\n", e);
 
-                return false;
+                return null;
             }
 
             finally
@@ -606,7 +609,7 @@ namespace Chatter.DAL
 
                 if (cmd != null)
                     cmd.Dispose();
-               
+
 
             }
         }
@@ -629,14 +632,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error(String.Format("查询群组存在出现错误\n" , e));
+                MyLogger.Logger.Error(String.Format("查询群组存在出现错误\n", e));
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-              
+
             }
         }
         /// <summary>
@@ -653,7 +656,7 @@ namespace Chatter.DAL
                 string sql = String.Format("delete  from tblGroup  where groupId=?groupId");
                 string temp = String.Empty;
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("groupId",groupId);
+                cmd.Parameters.AddWithValue("groupId", groupId);
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
                 return i == 1;
@@ -661,14 +664,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("删除群组出现错误\n" , e);
+                MyLogger.Logger.Error("删除群组出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-                
+
             }
         }
         /// <summary>
@@ -684,20 +687,20 @@ namespace Chatter.DAL
             {
                 string sql = String.Format("update tblGroup set groupMemeber=CONCAT（groupMember，?groupMember） where groupId=?groupId");
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("groupId",groupId);
-                cmd.Parameters.AddWithValue("groupMember",memberId+";");
+                cmd.Parameters.AddWithValue("groupId", groupId);
+                cmd.Parameters.AddWithValue("groupMember", memberId + ";");
                 Prepare(cmd.Parameters);
-                return cmd.ExecuteNonQuery()==1;
+                return cmd.ExecuteNonQuery() == 1;
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("添加用户到组时出现错误：",e);
+                MyLogger.Logger.Error("添加用户到组时出现错误：", e);
                 return false;
             }
             finally
             {
                 cmd.Dispose();
-               
+
             }
         }
         /// <summary>
@@ -714,7 +717,7 @@ namespace Chatter.DAL
                 string sql = String.Format("select groupMember from tblGroup  where groupId=?groupId");
                 string temp = String.Empty;
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("groupId",groupId);
+                cmd.Parameters.AddWithValue("groupId", groupId);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -723,19 +726,19 @@ namespace Chatter.DAL
                         if (reader.Read())
                         {
                             temp = reader["groupMember"].ToString();
-                           MyLogger.Logger.Debug("删除前" + temp);
+                            MyLogger.Logger.Debug("删除前" + temp);
                             temp = temp.Replace(groupId + ";", "");
-                           MyLogger.Logger.Debug("删除后" + temp);
+                            MyLogger.Logger.Debug("删除后" + temp);
                         }
                         else
                         {
-                           MyLogger.Logger.Error("从群组中删除用户时候出现错误\n");
+                            MyLogger.Logger.Error("从群组中删除用户时候出现错误\n");
                             return false;
                         }
                     }
                     else
                     {
-                       MyLogger.Logger.Error("从群组中删除用户时候没有找到用户id\n");
+                        MyLogger.Logger.Error("从群组中删除用户时候没有找到用户id\n");
                         return false;
                     }
                 }
@@ -754,14 +757,14 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("从群组中删除用户出现错误\n" , e);
+                MyLogger.Logger.Error("从群组中删除用户出现错误\n", e);
                 return false;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-               
+
             }
         }
         /// <summary>
@@ -774,26 +777,11 @@ namespace Chatter.DAL
         {
             MySqlCommand cmd = null;
             List<Group> groups = new List<Group>();
+            Dictionary<string, List<string>> tempIds = new Dictionary<string, List<string>>();
             try
             {
                 string sql = String.Format("select * from tblGroup where ownerId=?ownerId");
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("ownerId",id);
-                Prepare(cmd.Parameters);
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Group g = new Group();
-                        g.GroupId = reader["groupId"].ToString();
-                        g.Name = reader["name"].ToString();
-                        g.OwnerId = reader["ownerId"].ToString();
-                        g.GroupMember = GetNames(reader["groupMember"].ToString());
-                        groups.Add(g);
-                    }
-                }
-                cmd.CommandText = String.Format("select * from tblGroup where groupMember like %?groupMember%");
-                cmd.Parameters.AddWithValue("groupMember",id);
                 cmd.Parameters.AddWithValue("ownerId", id);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
@@ -804,27 +792,104 @@ namespace Chatter.DAL
                         g.GroupId = reader["groupId"].ToString();
                         g.Name = reader["name"].ToString();
                         g.OwnerId = reader["ownerId"].ToString();
-                        g.GroupMember = GetNames(reader["groupMember"].ToString());
+                        tempIds.Add(g.GroupId, GetNames(reader["groupMember"].ToString()));
                         groups.Add(g);
                     }
                 }
+                cmd.Parameters.Clear();
+                cmd.CommandText = String.Format("select * from tblGroup where groupMember like ?groupMember");
+                cmd.Parameters.AddWithValue("groupMember", "%"+id+"%");
+                cmd.Parameters.AddWithValue("ownerId", id);
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Group g = new Group();
+                        g.GroupId = reader["groupId"].ToString();
+                        g.Name = reader["name"].ToString();
+                        g.OwnerId = reader["ownerId"].ToString();
+                        tempIds.Add(g.GroupId, GetNames(reader["groupMember"].ToString()));
+                        groups.Add(g);
+                    }
+                }
+
+                foreach (Group g in groups)
+                {
+
+                    List<Member> members = new List<Member>();
+
+                    foreach (string tempId in tempIds[g.GroupId])
+                    {
+                        members.Add(GetMember(tempId));
+                    }
+                    g.GroupMember = members;
+
+                }
+
                 return groups;
 
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("获取群组时候出现错误",e);
+                MyLogger.Logger.Error("获取群组时候出现错误", e);
                 return null;
             }
             finally
             {
                 if (cmd != null)
                     cmd.Dispose();
-              
- 
+
+
             }
         }
 
+
+        /// <summary>
+        /// 获得所有群组的ID
+        /// </summary>
+        /// <returns></returns>
+
+        public static List<string> GetAllGroupID()
+        {
+            MySqlCommand cmd = null;
+            List<string> ids = new List<string>();
+        
+            try
+            {
+                string sql = String.Format("select groupId from tblGroup");
+                cmd = new MySqlCommand(sql, Conn);
+               
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        ids.Add(reader["groupId"].ToString());
+                       
+                     
+                    }
+                }
+               
+               
+                
+                return ids;
+
+            }
+            catch (Exception e)
+            {
+                MyLogger.Logger.Error("获取群组时候出现错误", e);
+                return null;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+
+
+            }
+        }
 
 
         private static void Prepare(MySqlParameterCollection parameters)
@@ -836,13 +901,13 @@ namespace Chatter.DAL
             }
         }
 
-       /// <summary>
-       ///判断分组是否存在
-       /// </summary>
-       /// <param name="id">用户id</param>
-       /// <param name="userGroupId">分组id</param>
-       /// <returns></returns>
-        private static bool IsExistUserGroup(string id,string userGroupId)
+        /// <summary>
+        ///判断分组是否存在
+        /// </summary>
+        /// <param name="id">用户id</param>
+        /// <param name="userGroupId">分组id</param>
+        /// <returns></returns>
+        private static bool IsExistUserGroup(string id, string userGroupId)
         {
             MySqlCommand cmd = null;
             try
@@ -857,7 +922,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("查询分组存在出现错误\n" , e);
+                MyLogger.Logger.Error("查询分组存在出现错误\n", e);
                 return true;
             }
             finally
@@ -881,12 +946,12 @@ namespace Chatter.DAL
 
                 string sql = String.Format("insert into tblFriend(id,groupId,groupName) values(?id,?groupId,?groupName)");
                 cmd = new MySqlCommand(sql, Conn);
-                cmd.Parameters.AddWithValue("id",id);
-                string groupId=NewUserGroupId(2,id);
-                cmd.Parameters.AddWithValue("groupId",groupId);
+                cmd.Parameters.AddWithValue("id", id);
+                string groupId = NewUserGroupId(2, id);
+                cmd.Parameters.AddWithValue("groupId", groupId);
                 cmd.Parameters.AddWithValue("groupName", userGroupName);
                 Prepare(cmd.Parameters);
-               
+
 
                 int i1 = cmd.ExecuteNonQuery();
 
@@ -898,7 +963,7 @@ namespace Chatter.DAL
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error("添加分组出现错误\n" , e);
+                MyLogger.Logger.Error("添加分组出现错误\n", e);
 
                 return null;
             }
@@ -921,14 +986,14 @@ namespace Chatter.DAL
         /// <param name="fromId">之前分组id</param>
         /// <param name="toId">移动后分组id</param>
         /// <returns></returns>
-        public static bool MoveFriendToUserGroup(string id,string friendId, string fromId, string toId)
+        public static bool MoveFriendToUserGroup(string id, string friendId, string fromId, string toId)
         {
             if (!DeleteFriend(id, fromId, friendId))
             {
-               MyLogger.Logger.Error("移动好友时候，删除好友出错");
+                MyLogger.Logger.Error("移动好友时候，删除好友出错");
                 return false;
             }
-            return AddFriend(id, friendId, toId) == null?false:true ;
+            return AddFriend(id, friendId, toId) == null ? false : true;
 
         }
 
@@ -944,14 +1009,14 @@ namespace Chatter.DAL
                 return false;
 
             MySqlCommand cmd = null;
-         
+
             try
             {
                 string sql = String.Format("select friendId from tblFriend  where id=?id and groupId=?groupId");
                 string temp = String.Empty;
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("id", id);
-                cmd.Parameters.AddWithValue("groupId",userGroupId);
+                cmd.Parameters.AddWithValue("groupId", userGroupId);
                 Prepare(cmd.Parameters);
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -961,16 +1026,16 @@ namespace Chatter.DAL
                         temp = reader["friendId"].ToString();
 
                     }
-               
+
 
                 }
-                
+
                 if (temp != null && temp.Length != 0)
                 {
                     temp = temp.Remove(temp.LastIndexOf(";"));
                     if (AddFriend(id, temp, "0") == null)
                         throw new Exception("转移好友失败");
-                   
+
                 }
                 sql = String.Format("delete from tblFriend  where id=?id and groupId=?groupId");
                 cmd = new MySqlCommand(sql, Conn);
@@ -978,12 +1043,12 @@ namespace Chatter.DAL
                 cmd.Parameters.AddWithValue("groupId", userGroupId);
                 Prepare(cmd.Parameters);
                 return 1 == cmd.ExecuteNonQuery();
-               
+
             }
             catch (Exception e)
             {
-               MyLogger.Logger.Error(String.Format("删除分组出现错误\n" , e));
-          
+                MyLogger.Logger.Error(String.Format("删除分组出现错误\n", e));
+
                 return false;
             }
             finally
@@ -1000,10 +1065,10 @@ namespace Chatter.DAL
         /// <param name="length">分组id长度</param>
         /// <param name="id">用户id</param>
         /// <returns></returns>
-        private static string NewUserGroupId(int length,string id)
+        private static string NewUserGroupId(int length, string id)
         {
             string userGroupid = NewRandom(length);
-            while (IsExistUserGroup(id,userGroupid))
+            while (IsExistUserGroup(id, userGroupid))
             {
                 userGroupid = NewRandom(length);
             }
@@ -1012,7 +1077,18 @@ namespace Chatter.DAL
 
         }
 
-       
+
+
+
+        private static string NewGroupId(int length)
+        {
+            string groupId = NewRandom(length);
+            while (IsExistGroup(groupId))
+            {
+                groupId = NewRandom(length);
+            }
+            return groupId;
+        }
 
         private static string NewRandom(int length)
         {
@@ -1020,5 +1096,7 @@ namespace Chatter.DAL
             int id = random.Next((int)Math.Pow(10, length - 1), (int)Math.Pow(10, length));
             return id.ToString();
         }
+
+        
     }
 }

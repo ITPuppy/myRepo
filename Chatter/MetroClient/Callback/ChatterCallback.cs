@@ -181,7 +181,7 @@ namespace Chatter.MetroClient.Callback
                                 new ThreadStart(
                                     () =>
                                     {
-                                        DataUtil.Client.ResponseToAddFriend(new Result() { member = friend, userGroup = mesg.to as UserGroup, status = MessageStatus.Accept });
+                                        DataUtil.Client.ResponseToAddFriend(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = MessageStatus.Accept });
                                     })).Start();
                             return;
                         }
@@ -204,7 +204,7 @@ namespace Chatter.MetroClient.Callback
                         DataUtil.Client.ResponseToAddFriendCompleted += Client_ResponseToAddFriendCompleted;
                         Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                         {
-                            DataUtil.Client.ResponseToAddFriendAsync(new Result() { member = friend, userGroup = mesg.to as UserGroup, status = status });
+                            DataUtil.Client.ResponseToAddFriendAsync(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
                         }));
                         break;
                     }
@@ -217,24 +217,24 @@ namespace Chatter.MetroClient.Callback
         {
             try
             {
-                if (e.Result.status == MessageStatus.Refuse)
+                if (e.Result.Status == MessageStatus.Refuse)
                 {
 
                     return;
                 }
-                else if (e.Result.status == MessageStatus.Failed)
+                else if (e.Result.Status == MessageStatus.Failed)
                 {
-                    MessageBox.Show(e.Result.mesg);
+                    MessageBox.Show(e.Result.Mesg);
                     return;
                 }
-                else if (e.Result.status == MessageStatus.OK)
+                else if (e.Result.Status == MessageStatus.OK)
                 {
                     MyTabItem tabItem = DataUtil.FriendTabItems["0"];
-                    tabItem.myGrid.AddButton(MyType.User, e.Result.member);
+                    tabItem.myGrid.AddButton(MyType.User, e.Result.Member);
 
 
-                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, e.Result.member);
-                    DataUtil.MessageTabItems.Add(e.Result.member.id, item);
+                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, e.Result.Member);
+                    DataUtil.MessageTabItems.Add(e.Result.Member.id, item);
                     DataUtil.MessageTabControl.Items.Add(item);
 
                 }
@@ -274,25 +274,25 @@ namespace Chatter.MetroClient.Callback
                             if (result.Type == MessageType.AddFriend)
                             {
 
-                                if (result.status == MessageStatus.Accept)
+                                if (result.Status == MessageStatus.Accept)
                                 {
-                                    MessageBox.Show("您已经与" + result.member.nickName + "成为好友");
-                                    MyTabItem tabItem = DataUtil.FriendTabItems[result.userGroup.userGroupId];
-                                    result.member.status = MemberStatus.Online;
-                                    tabItem.myGrid.AddButton(MyType.User, result.member);
+                                    MessageBox.Show("您已经与" + result.Member.nickName + "成为好友");
+                                    MyTabItem tabItem = DataUtil.FriendTabItems[result.UserGroup.userGroupId];
+                                    result.Member.status = MemberStatus.Online;
+                                    tabItem.myGrid.AddButton(MyType.User, result.Member);
 
-                                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.member);
-                                    DataUtil.MessageTabItems.Add(result.member.id, item);
+                                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.Member);
+                                    DataUtil.MessageTabItems.Add(result.Member.id, item);
                                     DataUtil.MessageTabControl.Items.Add(item);
                                 }
                                 else
                                 {
-                                    MessageBox.Show(result.mesg);
+                                    MessageBox.Show(result.Mesg);
                                 }
                             }
                             else if (result.Type == MessageType.File)
                             {
-                                if (result.status == MessageStatus.Accept)
+                                if (result.Status == MessageStatus.Accept)
                                 {
 
                                     if (DataUtil.HasTransfer())

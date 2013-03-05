@@ -10,6 +10,7 @@ using Chatter.Contract.ServiceContract;
 using Chatter.DAL;
 using Chatter.Log;
 using System.Threading;
+using System.ServiceModel.PeerResolvers;
 
 
 
@@ -63,6 +64,9 @@ namespace Chatter.Service
         /// 客户端IP端口
         /// </summary>
         MyEndPoint endpoint = null;
+
+
+        private Hashtable groupHost = null;
 
         #endregion
 
@@ -214,15 +218,21 @@ namespace Chatter.Service
 
         public List<Group> GetGroups(string id)
         {
-            throw new NotImplementedException();
+            return DALService.GetGroup(id);
         }
         #endregion
 
         #region 群
 
-        public MessageStatus AddGroup(Group group)
+        public Result AddGroup(Group group)
         {
-            throw new NotImplementedException();
+
+           string groupId= DALService.AddGroup(group);
+
+           if (groupId == null)
+                return new Result() { Status = MessageStatus.Failed };
+            else
+                return new Result() { Status = MessageStatus.OK,Group=new Group(){ GroupId=groupId,Name=group.Name, OwnerId=group.OwnerId}};
         }
 
         public MessageStatus AddFriend2Group(string friendId, string groupId)
@@ -688,6 +698,8 @@ namespace Chatter.Service
         }
         #endregion
 
+
+        
 
 
 

@@ -35,7 +35,7 @@ namespace Chatter.MetroClient.UI
                     }
                 case MyType.Group:
                     {
-                        lbl.Content = "群组ID";
+                        lbl.Content = "群组名";
                         break;
                     }
             }

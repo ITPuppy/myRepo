@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Chatter.Log;
+using Chatter.MetroClient.P2P;
 using Chatter.MetroClient.UI;
 using MetroClient.ChatterService;
 
@@ -60,7 +60,10 @@ namespace Chatter.MetroClient
         public static ChatterClient Client;
         public static List<UserGroup> UserGroups;
         public static Member Member;
+        public static List<Group> Groups;
         public static Dictionary<string, MyTabItem> FriendTabItems = new Dictionary<string, MyTabItem>();
+        public static Dictionary<string, MyTabItem> GroupMemberTabItems = new Dictionary<string, MyTabItem>();
+        public static Dictionary<string, P2PClient> P2PClients = new Dictionary<string, P2PClient>();
         public static MyMessageTabItem CurrentMessageTabItem;
         public static TextBox InputTextBox;
         private static TransferFileWindow transfer = null;
@@ -81,6 +84,24 @@ namespace Chatter.MetroClient
             }
             return members;
         }
+
+
+
+
+        public static List<Member> GetGroupMemberList(string groupId)
+        {
+            List<Member> members = new List<Member>();
+
+            foreach (Group g in Groups)
+            {
+                if (g.GroupId == groupId)
+                    if (g.GroupMember != null && g.GroupMember.Length > 0)
+                         members.AddRange(g.GroupMember);
+            }
+            return members;
+        }
+
+
         /// <summary>
         /// 删除分组
         /// </summary>
@@ -144,6 +165,8 @@ namespace Chatter.MetroClient
             }
             return null;
         }
+
+
         /// <summary>
         /// 全局信息
         /// 从分组中删除好友
@@ -221,6 +244,26 @@ namespace Chatter.MetroClient
         internal static bool HasTransfer()
         {
             return transfer != null;
+        }
+
+
+
+        internal static Group GetGroupById(string baserRoleId)
+        {
+            foreach (Group g in Groups)
+            {
+                if (g.GroupId == baserRoleId)
+                    return g;
+            }
+            return null;
+        }
+
+        public static void GetP2PClient()
+        {
+            foreach (Group group in Groups)
+            {
+               P2PClients.Add(group.GroupId, P2PClient.GetP2PClient(group.GroupId));
+            }
         }
     }
 }

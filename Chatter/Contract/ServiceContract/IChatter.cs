@@ -43,7 +43,7 @@ namespace Chatter.Contract.ServiceContract
 
         #region 群相关
         [OperationContract(IsInitiating = false, IsTerminating = false)]
-        MessageStatus AddGroup(Group group);
+        Result AddGroup(Group group);
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         MessageStatus AddFriend2Group(string friendId, string groupId);

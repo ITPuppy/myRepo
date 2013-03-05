@@ -26,9 +26,10 @@ namespace ChatServer
         {
             try
             {
+                Binding bind = new NetPeerTcpBinding();
                 cprs = new CustomPeerResolverService();
                 cprs.RefreshInterval = TimeSpan.FromSeconds(5);
-                host = new ServiceHost(cprs);
+                host = new ServiceHost(cprs, new Uri[] { new Uri("net.tcp://127.0.0.1/ChatServer") });
                 cprs.ControlShape = true;
                 cprs.Open();
                 host.Open(TimeSpan.FromDays(1000000));
