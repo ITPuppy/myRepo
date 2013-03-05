@@ -12,13 +12,13 @@ namespace Chatter.MetroClient.P2P
     {
 
 
-        [OperationContract]
+        [OperationContract(IsOneWay=true)]
         void SendP2PMessage(Member member,string to,Message mesg);
 
-        [OperationContract]
+         [OperationContract(IsOneWay = true)]
         void AddMember(string  memberId,string groupId);
 
-        [OperationContract]
+         [OperationContract(IsOneWay = true)]
         void DeleteMember(string memberId,string groupId);
     }
 }
