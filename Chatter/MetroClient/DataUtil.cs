@@ -54,7 +54,8 @@ namespace Chatter.MetroClient
 
                                 };
         public static TabControl MessageTabControl;
-        public static Dictionary<string, MyMessageTabItem> MessageTabItems = new Dictionary<string, MyMessageTabItem>();
+        public static Dictionary<string, MyMessageTabItem> FriendMessageTabItems = new Dictionary<string, MyMessageTabItem>();
+        public static Dictionary<string, MyMessageTabItem> GroupMessageTabItems = new Dictionary<string, MyMessageTabItem>();
         public static string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static BaseRole CurrentRole;
         public static ChatterClient Client;
@@ -67,6 +68,10 @@ namespace Chatter.MetroClient
         public static MyMessageTabItem CurrentMessageTabItem;
         public static TextBox InputTextBox;
         private static TransferFileWindow transfer = null;
+        /// <summary>
+        /// 包含分组、群组、最近联系人的TabControl
+        /// </summary>
+        public static MyTabControl TabControl;
         /// <summary>
         /// 根据分组id获取好友列表
         /// </summary>
@@ -124,7 +129,7 @@ namespace Chatter.MetroClient
         /// </summary>
         /// <param name="member"></param>
         /// <param name="userGroupId"></param>
-        public static void AddMemberTo(Member member, string userGroupId)
+        public static void AddFriendTo(Member member, string userGroupId)
         {
             UserGroup ug = UserGroups.Find(new Predicate<UserGroup>((tempUg) => { return tempUg.userGroupId == userGroupId; }));
             List<Member> members = ug.members.ToList<Member>();
@@ -134,6 +139,20 @@ namespace Chatter.MetroClient
             ug.members = members.ToArray<Member>();
 
         }
+
+
+
+        public static void AddMember2Group(Member member, string groupId)
+        {
+            Group g = Groups.Find(new Predicate<Group>((tempg) => { return tempg.GroupId == groupId; }));
+            List<Member> members = g.GroupMember.ToList<Member>();
+            if (members == null)
+                members = new List<Member>();
+            members.Add(member);
+            g.GroupMember = members.ToArray<Member>();
+        }
+
+
         /// <summary>
         /// 判断是否为好友ID
         /// </summary>
@@ -203,8 +222,15 @@ namespace Chatter.MetroClient
             if(baseRole is Member)
             {
                 Member member=baseRole as Member;
-                MessageTabControl.SelectedItem = MessageTabItems[member.id];
-                CurrentMessageTabItem=MessageTabItems[member.id];   
+                MessageTabControl.SelectedItem = FriendMessageTabItems[member.id];
+                CurrentMessageTabItem=FriendMessageTabItems[member.id];   
+            }
+            else if (baseRole is Group)
+            {
+                Group group = baseRole as Group;
+                MessageTabControl.SelectedItem=GroupMessageTabItems[group.GroupId];
+                CurrentMessageTabItem = GroupMessageTabItems[group.GroupId];
+              
             }
         }
 
@@ -264,6 +290,17 @@ namespace Chatter.MetroClient
             {
                P2PClients.Add(group.GroupId, P2PClient.GetP2PClient(group.GroupId));
             }
+        }
+
+        public static Member GetFriendById(string friendId)
+        {
+            foreach (UserGroup ug in UserGroups)
+            {
+                var m= ug.members.FirstOrDefault(new Func<Member, bool>((member) => { return member.id == friendId; }));
+                if (m != null)
+                    return m;
+            }
+            return null;
         }
     }
 }

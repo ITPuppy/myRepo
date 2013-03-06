@@ -685,7 +685,7 @@ namespace Chatter.DAL
             MySqlCommand cmd = null;
             try
             {
-                string sql = String.Format("update tblGroup set groupMemeber=CONCAT（groupMember，?groupMember） where groupId=?groupId");
+                string sql = String.Format("update tblGroup set groupMember=CONCAT(groupMember,?groupMember) where groupId=?groupId;");
                 cmd = new MySqlCommand(sql, Conn);
                 cmd.Parameters.AddWithValue("groupId", groupId);
                 cmd.Parameters.AddWithValue("groupMember", memberId + ";");
@@ -767,13 +767,65 @@ namespace Chatter.DAL
 
             }
         }
+
+        public static Group GetGroupByGroupId(string groupId)
+        {
+            MySqlCommand cmd = null;
+            Group g = null;
+            Dictionary<string, List<string>> tempIds = new Dictionary<string, List<string>>();
+            try
+            {
+                string sql = String.Format("select * from tblGroup where groupId=?groupId");
+                cmd = new MySqlCommand(sql, Conn);
+                cmd.Parameters.AddWithValue("groupId", groupId);
+                Prepare(cmd.Parameters);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                         g = new Group();
+                        g.GroupId = reader["groupId"].ToString();
+                        g.Name = reader["name"].ToString();
+                        g.OwnerId = reader["ownerId"].ToString();
+                        tempIds.Add(g.GroupId, GetNames(reader["groupMember"].ToString()));
+
+                        
+                    }
+                }
+
+                if (tempIds.Count > 0)
+                {
+                    List<Member> members = new List<Member>();
+                    foreach (string tempId in tempIds[g.GroupId])
+                    {
+                        members.Add(GetMember(tempId));
+                    }
+                    g.GroupMember = members;
+                }
+                return g;
+
+            }
+            catch (Exception e)
+            {
+                MyLogger.Logger.Error("获取群组时候出现错误", e);
+                return null;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Dispose();
+
+
+            }
+        }
+
         /// <summary>
         /// 获取组列表
         /// </summary>
         /// <param name="id">用户id</param>
         /// <returns></returns>
 
-        public static List<Group> GetGroup(string id)
+        public static List<Group> GetAllGroups(string id)
         {
             MySqlCommand cmd = null;
             List<Group> groups = new List<Group>();
@@ -818,7 +870,7 @@ namespace Chatter.DAL
                 {
 
                     List<Member> members = new List<Member>();
-
+                    members.Add(GetMember(g.OwnerId));
                     foreach (string tempId in tempIds[g.GroupId])
                     {
                         members.Add(GetMember(tempId));

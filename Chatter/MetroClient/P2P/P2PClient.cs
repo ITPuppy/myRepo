@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
+using System.Threading;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.P2P
@@ -37,7 +38,13 @@ namespace Chatter.MetroClient.P2P
             InstanceContext context = new InstanceContext(new P2PChatService());
             DuplexChannelFactory<IP2PChatService> factory = new DuplexChannelFactory<IP2PChatService>(context,"p2p", new EndpointAddress("net.p2p://" + groupId));
 
+
             channel = factory.CreateChannel();
+
+            new Thread(new ThreadStart(() =>
+            {
+                channel.Join();
+            })).Start();
             clients.Add(groupId,this);
         }
 
@@ -46,9 +53,9 @@ namespace Chatter.MetroClient.P2P
             channel.SendP2PMessage(DataUtil.Member,groupId,mesg);
         }
 
-        public void AddGroupMember(string memberId)
+        public void AddGroupMember(Member member)
         {
-            channel.AddMember(memberId, groupId);
+            channel.AddMember(member, groupId);
         }
 
         public void DeleteGroupMember(string memberId)

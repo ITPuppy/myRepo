@@ -218,7 +218,7 @@ namespace Chatter.Service
 
         public List<Group> GetGroups(string id)
         {
-            return DALService.GetGroup(id);
+            return DALService.GetAllGroups(id);
         }
         #endregion
 
@@ -235,9 +235,34 @@ namespace Chatter.Service
                 return new Result() { Status = MessageStatus.OK,Group=new Group(){ GroupId=groupId,Name=group.Name, OwnerId=group.OwnerId}};
         }
 
-        public MessageStatus AddFriend2Group(string friendId, string groupId)
+        public void AddFriend2Group(string friendId, string groupId)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                DALService.AddMember2Group(friendId, groupId);
+                if (!Online.ContainsKey(friendId))
+                    return;
+                ChatEventHandler handler = Online[friendId] as ChatEventHandler;
+                ChatterService service = handler.Target as ChatterService;
+
+                new Thread(new ThreadStart(() =>
+                {
+                    service.callback.RequestToTargetClient(new Message()
+                    {
+                        Type = MessageType.AddFriend2Group,
+                        From = DALService.GetGroupByGroupId(groupId),
+
+                        To = service.member
+                    });
+                })).Start();
+
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("服务器添加成员到组出现错误",ex);
+            }
+            
         }
         #endregion
 

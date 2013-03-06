@@ -29,7 +29,7 @@ namespace Chatter.MetroClient.UI
 
 
         private MyTabControl tabControl;
-        private bool isAlive=true;
+        private bool isAlive = true;
         private Thread sendHearBeatThread;
         public MainWindow()
         {
@@ -87,24 +87,25 @@ namespace Chatter.MetroClient.UI
         public void init()
         {
 
-           
-                  
 
-                        txtNickName.Text = DataUtil.Member.nickName;
-                        DataUtil.MessageTabControl = this.mesgTabControl;
 
-                        selectedGrid = btnFriendGrid;
-                        selectedGrid.Background = new SolidColorBrush(selectedColor);
 
-                        tabControl = new MyTabControl();
-                        Grid.SetRow(tabControl, 1);
-                        MiddleGrid.Children.Add(tabControl);
+            txtNickName.Text = DataUtil.Member.nickName;
+            DataUtil.MessageTabControl = this.mesgTabControl;
 
-                        SendHeartBeat();
-                       
-                   
-               
-           
+            selectedGrid = btnFriendGrid;
+            selectedGrid.Background = new SolidColorBrush(selectedColor);
+
+            tabControl = new MyTabControl();
+            DataUtil.TabControl = tabControl;
+            Grid.SetRow(tabControl, 1);
+            MiddleGrid.Children.Add(tabControl);
+
+            SendHeartBeat();
+
+
+
+
 
 
 
@@ -134,14 +135,14 @@ namespace Chatter.MetroClient.UI
             sendHearBeatThread.Start();
         }
 
-      
+
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 isAlive = false;
-               
+
                 DataUtil.Client.Abort();
             }
             catch (Exception ex)
@@ -161,4 +162,3 @@ namespace Chatter.MetroClient.UI
 
     }
 }
- 

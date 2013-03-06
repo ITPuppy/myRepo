@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using Chatter.Log;
 using System.Threading;
 using Chatter.MetroClient.Sound;
+using Chatter.MetroClient.P2P;
 
 
 
@@ -27,7 +28,7 @@ namespace Chatter.MetroClient.Callback
                 MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
 
                 btn.ChangeMemberStatus(MemberStatus.Online);
-                DataUtil.MessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
+                DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
             }
 
 
@@ -44,7 +45,7 @@ namespace Chatter.MetroClient.Callback
                 MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
 
                 btn.ChangeMemberStatus(MemberStatus.Offline);
-                DataUtil.MessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
+                DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
             }
 
         }
@@ -144,7 +145,7 @@ namespace Chatter.MetroClient.Callback
                 {
                     Member member = mesg.from as Member;
                     DataUtil.SetCurrentMessageWindow(member);
-                    MyMessageTabItem item = DataUtil.MessageTabItems[member.id];
+                    MyMessageTabItem item = DataUtil.FriendMessageTabItems[member.id];
                     if (item != null)
                         item.ReceiveMessage(mesg);
                 }
@@ -208,6 +209,39 @@ namespace Chatter.MetroClient.Callback
                         }));
                         break;
                     }
+
+                case MessageType.AddFriend2Group:
+                    {
+                        Group group = mesg.from as Group;
+
+                        ///将组添加到记录里面
+                        DataUtil.Groups.Add(group);
+                        Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
+                            {
+                                MyTabItem groupTabItem = DataUtil.TabControl.groupTabItem as MyTabItem;
+
+
+                                ///在界面上添加组
+                                groupTabItem.myGrid.AddButton(MyType.Group, group);
+
+
+                                ///添加组内成员的TabItem
+                                MyTabItem tabItem = new MyTabItem(MyType.UserInGroup, group.GroupId);
+                                DataUtil.TabControl.Items.Add(tabItem);
+
+                                DataUtil.GroupMemberTabItems.Add(group.GroupId, tabItem);
+
+                                var groupMesgTabItem = new MyMessageTabItem(MyType.Group, group);
+                                DataUtil.MessageTabControl.Items.Add(groupMesgTabItem);
+                                DataUtil.GroupMessageTabItems.Add(group.GroupId, groupMesgTabItem);
+
+                            }));
+
+                        ///接收群消息
+                        P2PClient.GetP2PClient(group.GroupId);
+
+                        break;
+                    }
             }
 
 
@@ -234,7 +268,7 @@ namespace Chatter.MetroClient.Callback
 
 
                     MyMessageTabItem item = new MyMessageTabItem(MyType.User, e.Result.Member);
-                    DataUtil.MessageTabItems.Add(e.Result.Member.id, item);
+                    DataUtil.FriendMessageTabItems.Add(e.Result.Member.id, item);
                     DataUtil.MessageTabControl.Items.Add(item);
 
                 }
@@ -282,8 +316,9 @@ namespace Chatter.MetroClient.Callback
                                     tabItem.myGrid.AddButton(MyType.User, result.Member);
 
                                     MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.Member);
-                                    DataUtil.MessageTabItems.Add(result.Member.id, item);
+                                    DataUtil.FriendMessageTabItems.Add(result.Member.id, item);
                                     DataUtil.MessageTabControl.Items.Add(item);
+                                    DataUtil.AddFriendTo(result.Member, result.UserGroup.userGroupId);
                                 }
                                 else
                                 {

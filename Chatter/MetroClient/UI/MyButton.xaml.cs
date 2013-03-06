@@ -330,12 +330,13 @@ namespace Chatter.MetroClient.UI
                     dismissGroupMenuItem.Header = "解散群组";
                     ///解散分组事件
                     dismissGroupMenuItem.Click += dismissGroupMenuItem_Click;
-                    cm.Items.Add(dismissGroupMenuItem);
+                    cm.Items.Add(dismissGroupMenuItem); 
+                    this.ContextMenu = cm;
                 }
                
               
 
-                this.ContextMenu = cm;
+               
                 this.Background = new SolidColorBrush(onlineColor);
             }
             #endregion
@@ -431,8 +432,8 @@ namespace Chatter.MetroClient.UI
 
 
                     ///将message windows 删掉
-                    DataUtil.MessageTabControl.Items.Remove(DataUtil.MessageTabItems[member.id]);
-                    DataUtil.MessageTabItems.Remove(member.id);
+                    DataUtil.MessageTabControl.Items.Remove(DataUtil.FriendMessageTabItems[member.id]);
+                    DataUtil.FriendMessageTabItems.Remove(member.id);
 
 
 
@@ -633,6 +634,8 @@ namespace Chatter.MetroClient.UI
                         Group group = baseRole as Group;
                         ///根据群组名查找好友列表（字典实现）
                         ParentTabControl.SelectedItem = DataUtil.GroupMemberTabItems[group.GroupId];
+                        DataUtil.SetCurrentMessageWindow(baseRole);
+                        DataUtil.CurrentRole = this.baseRole;
                         break;
                     }
             }

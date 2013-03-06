@@ -53,6 +53,7 @@ namespace Chatter.MetroClient.UI
 
                 ///分组列表
                 userGroupTabItem = new MyTabItem(MyType.UserGroup);
+                userGroupTabItem.Tag = "UserGroup";
                 this.Items.Add(userGroupTabItem);
                 foreach (UserGroup userGroup in DataUtil.UserGroups)
                 {
@@ -83,7 +84,7 @@ namespace Chatter.MetroClient.UI
 
                     ///群组
                     groupTabItem = new MyTabItem(MyType.Group);
-
+                    groupTabItem.Tag = "Group";
                     foreach (Group group in DataUtil.Groups)
                     {
                         MyTabItem tabItem = new MyTabItem(MyType.UserInGroup, group.GroupId);

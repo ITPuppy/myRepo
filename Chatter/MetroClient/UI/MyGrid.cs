@@ -55,7 +55,7 @@ namespace Chatter.MetroClient.UI
 
                             var tabItem = new MyMessageTabItem(MyType.User, friends[i]);
                             DataUtil.MessageTabControl.Items.Add(tabItem);
-                            DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
+                            DataUtil.FriendMessageTabItems.Add(friends[i].id, tabItem);
                         }
 
 
@@ -102,9 +102,9 @@ namespace Chatter.MetroClient.UI
                             this.Children.Add(button);
 
 
-                            var tabItem = new MyMessageTabItem(MyType.UserInGroup, friends[i]);
-                            DataUtil.MessageTabControl.Items.Add(tabItem);
-                            DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
+                            //var tabItem = new MyMessageTabItem(MyType.UserInGroup, friends[i]);
+                            //DataUtil.MessageTabControl.Items.Add(tabItem);
+                            //DataUtil.MessageTabItems.Add(friends[i].id, tabItem);
                         }
 
                         break;
@@ -128,7 +128,13 @@ namespace Chatter.MetroClient.UI
                             Grid.SetRow(button, i / columnCount);
                             this.Children.Add(button);
 
+
+                            var tabItem = new MyMessageTabItem(MyType.Group, groups[i]);
+                            DataUtil.MessageTabControl.Items.Add(tabItem);
+                            DataUtil.GroupMessageTabItems.Add(groups[i].GroupId, tabItem);
+
                         }
+
                         break;
                     }
             }
@@ -176,8 +182,8 @@ namespace Chatter.MetroClient.UI
            
              
 
-                UserGroup userGroup = role as UserGroup;
-                MyButton button = new MyButton(MyType.UserGroup, userGroup, null);
+               
+                MyButton button = new MyButton(MyType.UserGroup, role, null);
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
@@ -192,11 +198,11 @@ namespace Chatter.MetroClient.UI
                 rowCount = (index) / columnCount + 1;
                 InitRowAndColumn();
 
-                Member member = role as Member;
+               
                 Random random = new Random((int)DateTime.Now.Ticks);
 
               
-                MyButton button = new MyButton(MyType.User, member, imageSouce, baseRoleId);
+                MyButton button = new MyButton(MyType.User, role, imageSouce, baseRoleId);
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
@@ -207,21 +213,37 @@ namespace Chatter.MetroClient.UI
 
             else if (type == MyType.Group)
             {
-                int index = DataUtil.GetMemberList(baseRoleId).Count;
+                int index = DataUtil.Groups.Count-1;
 
                 rowCount = (index) / columnCount + 1;
                 InitRowAndColumn();
 
-                Group group =role as Group;
+              
                 Random random = new Random((int)DateTime.Now.Ticks);
 
 
-                MyButton button = new MyButton(MyType.Group, group, imageSouce);
+                MyButton button = new MyButton(MyType.Group, role, imageSouce);
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
 
 
+            }
+            else if (type == MyType.UserInGroup)
+            {
+                int index = DataUtil.GetGroupMemberList(baseRoleId).Count;
+
+                rowCount = (index) / columnCount + 1;
+                InitRowAndColumn();
+
+             
+                Random random = new Random((int)DateTime.Now.Ticks);
+
+
+                MyButton button = new MyButton(MyType.UserInGroup, role, imageSouce,baseRoleId);
+                Grid.SetColumn(button, index % columnCount);
+                Grid.SetRow(button, index / columnCount);
+                this.Children.Add(button);
             }
 
 

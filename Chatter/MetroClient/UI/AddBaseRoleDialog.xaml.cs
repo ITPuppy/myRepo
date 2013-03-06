@@ -38,6 +38,11 @@ namespace Chatter.MetroClient.UI
                         lbl.Content = "群组名";
                         break;
                     }
+                case MyType.UserInGroup:
+                    {
+                        lbl.Content="成员ID";
+                        break;
+                    }
             }
         }
 

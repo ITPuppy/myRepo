@@ -166,7 +166,21 @@ namespace Chatter.MetroClient.UI
         private void addMemberToGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
-            DataUtil.P2PClients[baseRoleId].AddGroupMember("776041668");
+            AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.UserInGroup);
+            dialog.ShowDialog();
+            string memberId = dialog.GetString();
+            if (String.IsNullOrEmpty(memberId))
+            {
+                return;
+            }
+
+            if (!DataUtil.IsFriend(memberId))
+            {
+                MessageBox.Show("不是好友");
+                return;
+            }
+            DataUtil.Client.AddFriend2Group(memberId, this.baseRoleId);
+            P2PClient.GetP2PClient(baseRoleId).AddGroupMember(DataUtil.GetFriendById(memberId));
 
         }
 
@@ -188,17 +202,21 @@ namespace Chatter.MetroClient.UI
 
                   
 
-                    ///在界面上添加分组
+                    ///在界面上添加组
                     myGrid.AddButton(MyType.Group, e.Result.Group);
 
                     TabControl tabControl = this.Parent as TabControl;
-                    ///添加分组对应的好友的TabItem
+                    ///添加组内成员的TabItem
                     MyTabItem tabItem = new MyTabItem(MyType.UserInGroup,e.Result.Group.GroupId);
                     tabControl.Items.Add(tabItem);
                    
                     DataUtil.GroupMemberTabItems.Add(e.Result.Group.GroupId, tabItem);
-                    ///将分组添加到记录里面
+                    ///将组添加到记录里面
                     DataUtil.Groups.Add(e.Result.Group);
+
+
+                   
+
 
                 }
             }

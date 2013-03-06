@@ -906,13 +906,13 @@ namespace MetroClient.ChatterService {
         
         MetroClient.ChatterService.Result EndAddGroup(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend2Group", ReplyAction="http://tempuri.org/IChatter/AddFriend2GroupResponse")]
-        MetroClient.ChatterService.MessageStatus AddFriend2Group(string friendId, string groupId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, Action="http://tempuri.org/IChatter/AddFriend2Group")]
+        void AddFriend2Group(string friendId, string groupId);
         
-        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/AddFriend2Group", ReplyAction="http://tempuri.org/IChatter/AddFriend2GroupResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/AddFriend2Group")]
         System.IAsyncResult BeginAddFriend2Group(string friendId, string groupId, System.AsyncCallback callback, object asyncState);
         
-        MetroClient.ChatterService.MessageStatus EndAddFriend2Group(System.IAsyncResult result);
+        void EndAddFriend2Group(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/SendMesg", ReplyAction="http://tempuri.org/IChatter/SendMesgResponse")]
         MetroClient.ChatterService.MessageStatus SendMesg(MetroClient.ChatterService.Message mesg);
@@ -1138,25 +1138,6 @@ namespace MetroClient.ChatterService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AddFriend2GroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public AddFriend2GroupCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public MetroClient.ChatterService.MessageStatus Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((MetroClient.ChatterService.MessageStatus)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class SendMesgCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -1344,7 +1325,7 @@ namespace MetroClient.ChatterService {
         
         public event System.EventHandler<AddGroupCompletedEventArgs> AddGroupCompleted;
         
-        public event System.EventHandler<AddFriend2GroupCompletedEventArgs> AddFriend2GroupCompleted;
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddFriend2GroupCompleted;
         
         public event System.EventHandler<SendMesgCompletedEventArgs> SendMesgCompleted;
         
@@ -1810,8 +1791,8 @@ namespace MetroClient.ChatterService {
                         group}, this.onEndAddGroupDelegate, this.onAddGroupCompletedDelegate, userState);
         }
         
-        public MetroClient.ChatterService.MessageStatus AddFriend2Group(string friendId, string groupId) {
-            return base.Channel.AddFriend2Group(friendId, groupId);
+        public void AddFriend2Group(string friendId, string groupId) {
+            base.Channel.AddFriend2Group(friendId, groupId);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1820,8 +1801,8 @@ namespace MetroClient.ChatterService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public MetroClient.ChatterService.MessageStatus EndAddFriend2Group(System.IAsyncResult result) {
-            return base.Channel.EndAddFriend2Group(result);
+        public void EndAddFriend2Group(System.IAsyncResult result) {
+            base.Channel.EndAddFriend2Group(result);
         }
         
         private System.IAsyncResult OnBeginAddFriend2Group(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -1831,15 +1812,14 @@ namespace MetroClient.ChatterService {
         }
         
         private object[] OnEndAddFriend2Group(System.IAsyncResult result) {
-            MetroClient.ChatterService.MessageStatus retVal = this.EndAddFriend2Group(result);
-            return new object[] {
-                    retVal};
+            this.EndAddFriend2Group(result);
+            return null;
         }
         
         private void OnAddFriend2GroupCompleted(object state) {
             if ((this.AddFriend2GroupCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.AddFriend2GroupCompleted(this, new AddFriend2GroupCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.AddFriend2GroupCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
             }
         }
         

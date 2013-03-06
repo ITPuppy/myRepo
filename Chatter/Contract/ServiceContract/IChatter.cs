@@ -45,8 +45,8 @@ namespace Chatter.Contract.ServiceContract
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         Result AddGroup(Group group);
 
-        [OperationContract(IsInitiating = false, IsTerminating = false)]
-        MessageStatus AddFriend2Group(string friendId, string groupId);
+        [OperationContract(IsInitiating = false, IsTerminating = false,IsOneWay=true)]
+        void AddFriend2Group(string friendId, string groupId);
 
         #endregion
 
