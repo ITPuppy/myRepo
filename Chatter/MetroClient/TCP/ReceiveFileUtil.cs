@@ -27,17 +27,35 @@ namespace Chatter.MetroClient.TCP
 
         public int initTcpHost()
         {
+            try
+            {
+                IPAddress ipa = null;
 
-            IPAddress ipa = IPAddress.Parse(fm.EndPoint.Address);
+                IPAddress[] arrIPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+                foreach (IPAddress ip in arrIPAddresses)
+                {
+                    if (ip.AddressFamily.Equals(AddressFamily.InterNetwork))
+                    {
+                        ipa = ip;
+                        break;
+                    }
+                }
+              
 
-            myListener = new TcpListener(ipa, 0);
+                myListener = new TcpListener(ipa, 0);
 
 
-            myListener.Start();
+                myListener.Start();
 
 
 
-            return Convert.ToInt32(myListener.LocalEndpoint.ToString().Split(':')[1]);
+                return Convert.ToInt32(myListener.LocalEndpoint.ToString().Split(':')[1]);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("初始化接收文件服务器时出现错误"+fm.EndPoint.Address,ex);
+                return -1;
+            }
         }
 
         public override void Transfer()

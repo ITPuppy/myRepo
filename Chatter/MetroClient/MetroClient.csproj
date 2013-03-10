@@ -42,6 +42,7 @@
       <HintPath>..\Log\log4net.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -257,6 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\sound\water.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UDP\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

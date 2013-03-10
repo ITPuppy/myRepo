@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows;
 using MetroClient.ChatterService;
 using Chatter.MetroClient.P2P;
+using Chatter.Log;
 
 namespace Chatter.MetroClient.UI
 {
@@ -166,21 +167,28 @@ namespace Chatter.MetroClient.UI
         private void addMemberToGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
-            AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.UserInGroup);
-            dialog.ShowDialog();
-            string memberId = dialog.GetString();
-            if (String.IsNullOrEmpty(memberId))
+            try
             {
-                return;
-            }
+                AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.UserInGroup);
+                dialog.ShowDialog();
+                string memberId = dialog.GetString();
+                if (String.IsNullOrEmpty(memberId))
+                {
+                    return;
+                }
 
-            if (!DataUtil.IsFriend(memberId))
-            {
-                MessageBox.Show("不是好友");
-                return;
+                if (!DataUtil.IsFriend(memberId))
+                {
+                    MessageBox.Show("不是好友");
+                    return;
+                }
+                DataUtil.Client.AddFriend2Group(memberId, this.baseRoleId);
+                P2PClient.GetP2PClient(baseRoleId).AddGroupMember(DataUtil.GetFriendById(memberId));
             }
-            DataUtil.Client.AddFriend2Group(memberId, this.baseRoleId);
-            P2PClient.GetP2PClient(baseRoleId).AddGroupMember(DataUtil.GetFriendById(memberId));
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("点击添加成员到群组时出现错误",ex);
+            }
 
         }
 
@@ -234,19 +242,26 @@ namespace Chatter.MetroClient.UI
         /// <param name="e"></param>
         private void addGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.Group);
-            dialog.ShowDialog();
-            string groupName = dialog.GetString();
-            if (String.IsNullOrEmpty(groupName))
+            try
             {
-                return;
-            }
+                AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.Group);
+                dialog.ShowDialog();
+                string groupName = dialog.GetString();
+                if (String.IsNullOrEmpty(groupName))
+                {
+                    return;
+                }
 
-            Group group = new Group();
-            group.Name = groupName;
-            group.OwnerId = DataUtil.Member.id;
-            
-            DataUtil.Client.AddGroupAsync(group);
+                Group group = new Group();
+                group.Name = groupName;
+                group.OwnerId = DataUtil.Member.id;
+
+                DataUtil.Client.AddGroupAsync(group);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("点击添加群组菜单错误",ex);
+            }
 
         }
 
@@ -257,26 +272,32 @@ namespace Chatter.MetroClient.UI
         /// <param name="e"></param>
         private void addFriendMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.User);
-            dialog.ShowDialog();
-            string friendId = dialog.GetString();
-            if (friendId == null || friendId.Length == 0)
-                return;
-           ///需要添加是否已经是好友的判断
-
-            if (DataUtil.IsFriend(friendId))
+            try
             {
-                MessageBox.Show("对方已经是您的好友");
-                return;
-            }
-            if (DataUtil.Member.id == friendId)
-            {
-                MessageBox.Show("您不能添加自己为好友");
-                return;
-            }
-             DataUtil.Client.AddFriend(friendId, baseRoleId);
-            
+                AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.User);
+                dialog.ShowDialog();
+                string friendId = dialog.GetString();
+                if (friendId == null || friendId.Length == 0)
+                    return;
+                ///需要添加是否已经是好友的判断
 
+                if (DataUtil.IsFriend(friendId))
+                {
+                    MessageBox.Show("对方已经是您的好友");
+                    return;
+                }
+                if (DataUtil.Member.id == friendId)
+                {
+                    MessageBox.Show("您不能添加自己为好友");
+                    return;
+                }
+                DataUtil.Client.AddFriend(friendId, baseRoleId);
+
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("点击添加好友菜单错误", ex);
+            }
         }
         
         /// <summary>
@@ -336,25 +357,31 @@ namespace Chatter.MetroClient.UI
         /// <param name="e"></param>
         void addUserGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
-            AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.UserGroup);
-            dialog.ShowDialog();
-            string userGroupName=dialog.GetString();
-            if (userGroupName == null || userGroupName.Length == 0)
-                return;
-       
-            ///判断分组是否存在
-         
-            if (DataUtil.UserGroups.FirstOrDefault<UserGroup>( new Func<UserGroup, bool>( (ug) =>      
-                    {
-                        return ug.userGroupName == userGroupName;
-
-                    } )) != null)
+            try
             {
-                MessageBox.Show("分组"+userGroupName+"已经存在");
-                return;
+                AddBaseRoleDialog dialog = new AddBaseRoleDialog(MyType.UserGroup);
+                dialog.ShowDialog();
+                string userGroupName = dialog.GetString();
+                if (userGroupName == null || userGroupName.Length == 0)
+                    return;
+
+                ///判断分组是否存在
+
+                if (DataUtil.UserGroups.FirstOrDefault<UserGroup>(new Func<UserGroup, bool>((ug) =>
+                        {
+                            return ug.userGroupName == userGroupName;
+
+                        })) != null)
+                {
+                    MessageBox.Show("分组" + userGroupName + "已经存在");
+                    return;
+                }
+                DataUtil.Client.AddUserGroupAsync(new UserGroup() { userGroupName = userGroupName });
             }
-            DataUtil.Client.AddUserGroupAsync(new UserGroup() { userGroupName = userGroupName });
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("点击添加群组时出错",ex);
+            }
         }
     }
 }

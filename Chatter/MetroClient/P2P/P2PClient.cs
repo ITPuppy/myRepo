@@ -5,6 +5,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using MetroClient.ChatterService;
+using Chatter.Log;
+using System.Configuration;
 
 namespace Chatter.MetroClient.P2P
 {
@@ -35,31 +37,62 @@ namespace Chatter.MetroClient.P2P
 
         private  void StartP2PClient( )
         {
+            string s = ConfigurationManager.AppSettings["IsSupportGroup"];
+            if (s.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
             InstanceContext context = new InstanceContext(new P2PChatService());
             DuplexChannelFactory<IP2PChatService> factory = new DuplexChannelFactory<IP2PChatService>(context,"p2p", new EndpointAddress("net.p2p://" + groupId));
 
 
             channel = factory.CreateChannel();
+            clients.Add(groupId, this);
+           
 
+           
             new Thread(new ThreadStart(() =>
             {
-                channel.Join();
+                try
+                {
+                    channel.Join();
+                }
+                catch (Exception ex)
+                {
+                    MyLogger.Logger.Error("进入群组聊天室时出错",ex);
+                }
             })).Start();
-            clients.Add(groupId,this);
+           
         }
 
         public void SendP2PMessage(Message mesg)
+
         {
+            string s = ConfigurationManager.AppSettings["IsSupportGroup"];
+            if (s.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
             channel.SendP2PMessage(DataUtil.Member,groupId,mesg);
         }
 
         public void AddGroupMember(Member member)
         {
+            string s = ConfigurationManager.AppSettings["IsSupportGroup"];
+            if (s.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
             channel.AddMember(member, groupId);
         }
 
         public void DeleteGroupMember(string memberId)
         {
+            string s = ConfigurationManager.AppSettings["IsSupportGroup"];
+            if (s.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
             channel.DeleteMember(memberId, this.groupId);
         }
     }

@@ -1,4 +1,5 @@
 ﻿
+using Chatter.Log;
 using MetroClient.ChatterService;
 using System;
 using System.Collections.Generic;
@@ -51,16 +52,23 @@ namespace Chatter.MetroClient.UI
             Dispatcher.Invoke(new Action(() =>
             {
 
-                ///分组列表
-                userGroupTabItem = new MyTabItem(MyType.UserGroup);
-                userGroupTabItem.Tag = "UserGroup";
-                this.Items.Add(userGroupTabItem);
-                foreach (UserGroup userGroup in DataUtil.UserGroups)
+                try
                 {
-                    MyTabItem tabItem = new MyTabItem(MyType.User, userGroup.userGroupId);
-                    this.Items.Add(tabItem);
-                    DataUtil.FriendTabItems.Add(userGroup.userGroupId, tabItem);
-                   
+                    ///分组列表
+                    userGroupTabItem = new MyTabItem(MyType.UserGroup);
+                    userGroupTabItem.Tag = "UserGroup";
+                    this.Items.Add(userGroupTabItem);
+                    foreach (UserGroup userGroup in DataUtil.UserGroups)
+                    {
+                        MyTabItem tabItem = new MyTabItem(MyType.User, userGroup.userGroupId);
+                        this.Items.Add(tabItem);
+                        DataUtil.FriendTabItems.Add(userGroup.userGroupId, tabItem);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MyLogger.Logger.Error("获取朋友列表出错",ex);
                 }
             }));
 
@@ -74,11 +82,13 @@ namespace Chatter.MetroClient.UI
         void Client_GetGroupsCompleted(object sender, GetGroupsCompletedEventArgs e)
         {
 
-            if (e.Result != null)
+            try
             {
-                DataUtil.Groups = e.Result.ToList<Group>();
-                DataUtil.GetP2PClient();
-            }
+                if (e.Result != null)
+                {
+                    DataUtil.Groups = e.Result.ToList<Group>();
+                    DataUtil.GetP2PClient();
+                }
                 Dispatcher.Invoke(new Action(() =>
                 {
 
@@ -94,8 +104,12 @@ namespace Chatter.MetroClient.UI
                     }
 
                 }));
-            
 
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("获取群列表出错",ex);
+            }
             this.Items.Add(groupTabItem);
             recentFriendTabItem = new TabItem();
             settingTabItem = new TabItem();

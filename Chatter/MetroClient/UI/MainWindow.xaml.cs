@@ -118,7 +118,7 @@ namespace Chatter.MetroClient.UI
 
                  while (isAlive)
                  {
-                     Thread.Sleep(1000);
+                     Thread.Sleep(500);
                      try
                      {
                          DataUtil.Client.SendHeartBeat();

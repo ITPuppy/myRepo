@@ -796,6 +796,7 @@ namespace Chatter.DAL
                 if (tempIds.Count > 0)
                 {
                     List<Member> members = new List<Member>();
+                    members.Add(GetMember(g.OwnerId));
                     foreach (string tempId in tempIds[g.GroupId])
                     {
                         members.Add(GetMember(tempId));

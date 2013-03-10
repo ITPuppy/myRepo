@@ -4,25 +4,40 @@ using System.Linq;
 using System.Text;
 using Chatter.MetroClient.UI;
 using MetroClient.ChatterService;
+using Chatter.Log;
 
 namespace Chatter.MetroClient.P2P
 {
-    class P2PChatService:IP2PChatService
+    class P2PChatService : IP2PChatService
     {
-        
+
 
         public void SendP2PMessage(Member member, string to, Message mesg)
         {
-            DataUtil.MessageTabControl.SelectedItem=DataUtil.GroupMessageTabItems[to];
-            DataUtil.GroupMessageTabItems[to].ReceiveMessage(mesg);
+            try
+            {
+
+                DataUtil.MessageTabControl.SelectedItem = DataUtil.GroupMessageTabItems[to];
+                DataUtil.GroupMessageTabItems[to].ReceiveMessage(mesg);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error(String.Format("从{0}接收群消息时候出错", member.nickName), ex);
+            }
         }
 
         public void AddMember(Member member, string groupId)
         {
-
-            var tabItem = DataUtil.GroupMemberTabItems[groupId];
-            tabItem.myGrid.AddButton(MyType.UserInGroup, member);
-            DataUtil.AddMember2Group(member, groupId);
+            try
+            {
+                var tabItem = DataUtil.GroupMemberTabItems[groupId];
+                tabItem.myGrid.AddButton(MyType.UserInGroup, member);
+                DataUtil.AddMember2Group(member, groupId);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("界面上添加群组成员时候出错", ex);
+            }
         }
 
         public void DeleteMember(string memberId, string groupId)

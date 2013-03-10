@@ -9,6 +9,7 @@ using System.Windows.Media;
 using Chatter.MetroClient.TCP;
 using MetroClient.ChatterService;
 using Microsoft.Win32;
+using Chatter.Log;
 
 namespace Chatter.MetroClient.UI
 {
@@ -156,13 +157,7 @@ namespace Chatter.MetroClient.UI
                  ///还没有开始
                 else
                 {
-                    CompletSend(TransferState.CanceledByMyself);
-                    CommandMessage cm=new CommandMessage();
-                    cm.from=DataUtil.Member;
-                    cm.to=this.fm.to;
-                    cm.CommandType=MyCommandType.Canceled;
-                    cm.Guid = fm.Guid;
-                    DataUtil.Client.SendMesg(cm);
+                    CancelSend();
                 }
             }
             else if (cancleBtn.Text == "移除")
@@ -172,13 +167,34 @@ namespace Chatter.MetroClient.UI
 
         }
 
+        private void CancelSend()
+        {
+            CompletSend(TransferState.CanceledByMyself);
+            CommandMessage cm = new CommandMessage();
+            cm.from = DataUtil.Member;
+            cm.to = this.fm.to;
+            cm.CommandType = MyCommandType.Canceled;
+            cm.Guid = fm.Guid;
+            DataUtil.Client.SendMesg(cm);
+        }
+
+        private void CancelReceive()
+        {
+            CompletReceive(TransferState.CanceledByMyself);
+            CommandMessage cm = new CommandMessage();
+            cm.from = DataUtil.Member;
+            cm.to = this.fm.to;
+            cm.CommandType = MyCommandType.Canceled;
+            cm.Guid = fm.Guid;
+            DataUtil.Client.SendMesg(cm);
+        }
+
         private void RemoveMySelf()
         {
             StackPanel sp = this.Parent as StackPanel;
             ScrollViewer scrollViewer = sp.Parent as ScrollViewer;
             Border border = scrollViewer.Parent as Border;
             TransferFileWindow tfw = border.Parent as TransferFileWindow;
-
             tfw.Remove(fm.Guid);
         }
 
@@ -198,7 +214,12 @@ namespace Chatter.MetroClient.UI
             transferFileUtil = new ReceiveFileUtil(fm, this);
 
             int port = ((ReceiveFileUtil)transferFileUtil).initTcpHost();
-
+            if (port == -1)
+            {
+                MyLogger.Logger.Error("文件取消接收");
+                CancelReceive();
+                return;
+            }
 
             transferFileUtil.Transfer();
 
@@ -253,6 +274,7 @@ namespace Chatter.MetroClient.UI
                 txt.Text = "对方已取消接收";
             else if (transferState == TransferState.RefusedByTheOther)
                 txt.Text = "对方拒绝接收";
+            //else if(transferState==TransferState)
             Grid.SetRow(txt, 1);
             Grid.SetColumn(txt, 1);
             this.Children.Add(txt);
