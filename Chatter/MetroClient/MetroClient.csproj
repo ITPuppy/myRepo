@@ -77,6 +77,8 @@
     <Compile Include="TCP\ReceiveFileUtil.cs" />
     <Compile Include="TCP\SendFileUtil.cs" />
     <Compile Include="TCP\TransferFileUtil.cs" />
+    <Compile Include="UDP\ReceiveAudioUtil.cs" />
+    <Compile Include="UDP\SendAudioUtil.cs" />
     <Compile Include="UI\AddBaseRoleDialog.xaml.cs">
       <DependentUpon>AddBaseRoleDialog.xaml</DependentUpon>
     </Compile>
@@ -259,9 +261,7 @@
   <ItemGroup>
     <Resource Include="res\sound\water.wav" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UDP\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -68,6 +70,31 @@ namespace Chatter.MetroClient
         public static MyMessageTabItem CurrentMessageTabItem;
         public static TextBox InputTextBox;
         private static TransferFileWindow transfer = null;
+        private static IPAddress ipa = null;
+        public static IPAddress LocalIPAddress
+        {
+            get
+            {
+
+                if (ipa == null)
+                {
+                    IPAddress[] arrIPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+                    foreach (IPAddress ip in arrIPAddresses)
+                    {
+                        if (ip.AddressFamily.Equals(AddressFamily.InterNetwork))
+                        {
+                            ipa = ip;
+                            break;
+                        }
+                    }
+                }
+
+                return ipa;
+            }
+            
+        }
+
+
         /// <summary>
         /// 包含分组、群组、最近联系人的TabControl
         /// </summary>

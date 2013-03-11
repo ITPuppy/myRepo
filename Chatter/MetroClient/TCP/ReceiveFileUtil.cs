@@ -29,20 +29,10 @@ namespace Chatter.MetroClient.TCP
         {
             try
             {
-                IPAddress ipa = null;
-
-                IPAddress[] arrIPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
-                foreach (IPAddress ip in arrIPAddresses)
-                {
-                    if (ip.AddressFamily.Equals(AddressFamily.InterNetwork))
-                    {
-                        ipa = ip;
-                        break;
-                    }
-                }
+              
               
 
-                myListener = new TcpListener(ipa, 0);
+                myListener = new TcpListener(DataUtil.LocalIPAddress, 0);
 
 
                 myListener.Start();

@@ -1,0 +1,24 @@
+日 志 时 间:  2013-03-11 13:44:21,256 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
+
+日 志 时 间:  2013-03-11 13:44:21,528 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.SendMyEndPoint(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:370)
+日 志 内 容:  asdf的EndPoint是10.2.5.57:64766
+ 
+
+日 志 时 间:  2013-03-11 13:46:56,382 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
+
+日 志 时 间:  2013-03-11 13:47:01,415 
+日 志 级 别:  INFO
+日 志 来 源: [ReceiveThread]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__1(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:70)
+日 志 内 容:  接收文件线程退出
+ 
+

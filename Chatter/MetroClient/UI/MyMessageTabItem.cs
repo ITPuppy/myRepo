@@ -28,6 +28,7 @@ namespace Chatter.MetroClient.UI
         public BaseRole role;
         private TextBox txtInput;
         public MyMenu sendFileMenu;
+        public MyMenu audioMenu;
         public MyMessageTabItem(MyType type, BaseRole role)
         {
             this.type = type;
@@ -39,7 +40,9 @@ namespace Chatter.MetroClient.UI
                     {
 
                         Member member = role as Member;
-                        sendFileMenu = new MyMenu(role, "发送文件");
+                        sendFileMenu = new MyMenu(role,MessageType.File);
+                        audioMenu = new MyMenu(role,MessageType.Audio);
+                        
                         RowDefinition row1 = new RowDefinition();
                         row1.Height = new GridLength(50);
                         RowDefinition row2 = new RowDefinition();
@@ -109,7 +112,8 @@ namespace Chatter.MetroClient.UI
                         menuGrid.Children.Add(txtName);
                         Grid.SetColumn(sendFileMenu, 2);
                         menuGrid.Children.Add(sendFileMenu);
-
+                        Grid.SetColumn(audioMenu, 3);
+                        menuGrid.Children.Add(audioMenu);
 
 
 

@@ -34,8 +34,7 @@ namespace Chatter.Contract.ServiceContract
         void AddFriend(string friendId, string userGroupId = "0");
 
 
-        [OperationContract(IsInitiating = false, IsTerminating = false)]
-        Result ResponseToAddFriend(Result result);
+       
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
         Result DeleteFriend(string id, string userGroupId,string friend);
@@ -56,10 +55,7 @@ namespace Chatter.Contract.ServiceContract
         #endregion
 
 
-        #region 发送文件
-        [OperationContract(IsInitiating = false, IsTerminating = false,IsOneWay=true)]
-        void ResponseToSendFile(Result result);
-        #endregion
+      
         #region 分组相关
 
         [OperationContract(IsInitiating = false, IsTerminating = false)]
@@ -72,5 +68,11 @@ namespace Chatter.Contract.ServiceContract
          [OperationContract(IsInitiating = false, IsTerminating = false)]
          void SendHeartBeat();
 
+
+         [OperationContract(IsInitiating = false, IsTerminating = false)]
+         Result ResponseToRequest(Result result);
+
+
+         
     }
 }

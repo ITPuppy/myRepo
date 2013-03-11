@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContract\AudioMessage.cs" />
     <Compile Include="DataContract\BaseRole.cs" />
     <Compile Include="DataContract\CommandMessage.cs" />
     <Compile Include="DataContract\FileMessage.cs" />

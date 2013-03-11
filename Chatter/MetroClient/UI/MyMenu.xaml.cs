@@ -67,12 +67,30 @@ namespace Chatter.MetroClient.UI
 
         private Color offlineColor = Color.FromArgb(255, 192, 192, 192);
         private Color onlineColor = Colors.OrangeRed;
+        private MessageType messageType;
 
 
-        public MyMenu(BaseRole role,string menuName)
+        public MyMenu(BaseRole role,MessageType messageType)
         {
             InitializeComponent();
+            string menuName=String.Empty;
+            switch (messageType)
+            {
+                case MessageType.File:
+                    {
+                        menuName = "发送文件";
+                        break;
+                    }
+                case MessageType.Audio:
+                    {
+                        menuName = "语音";
+                        break;
+                    }
+            }
+
+
             this.baseRole = role;
+            this.messageType = messageType;
             txtName = new TextBlock();
             txtName.FontSize = fontSize;
             txtName.Foreground = new SolidColorBrush(Colors.White);
@@ -120,24 +138,41 @@ namespace Chatter.MetroClient.UI
                     return;
                 }
 
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.RestoreDirectory = true;
-                ofd.ShowDialog();
-             
-                FileMessage fm = new FileMessage();
-                fm.from = DataUtil.Member;
-                fm.to = this.baseRole;
+                switch(messageType)
+                {
+                    case MessageType.File:
+                        {
+                            OpenFileDialog ofd = new OpenFileDialog();
+                            ofd.RestoreDirectory = true;
+                            ofd.ShowDialog();
 
-                fm.Path = ofd.FileName;
-                if (!File.Exists(fm.Path))
-                    return;    
-                fm.FileName = ofd.SafeFileName;
-                fm.Size = ofd.OpenFile().Length;
-                fm.sendTime = DateTime.Now;
-                fm.Guid = Guid.NewGuid().ToString();
-               
+                            FileMessage fm = new FileMessage();
+                            fm.from = DataUtil.Member;
+                            fm.to = this.baseRole;
 
-                DataUtil.Transfer.SendFile(fm);
+                            fm.Path = ofd.FileName;
+                            if (!File.Exists(fm.Path))
+                                return;
+                            fm.FileName = ofd.SafeFileName;
+                            fm.Size = ofd.OpenFile().Length;
+                            fm.sendTime = DateTime.Now;
+                            fm.Guid = Guid.NewGuid().ToString();
+
+
+                            DataUtil.Transfer.SendFile(fm);
+                            break;
+                        }
+                    case MessageType.Audio:
+                        {
+
+                            AudioMessage am = new AudioMessage();
+                            am.from = DataUtil.Member;
+                            am.to = this.baseRole;
+
+                            DataUtil.Client.SendMesg(am);
+                            break;
+                        }
+            }
 
             }
         }

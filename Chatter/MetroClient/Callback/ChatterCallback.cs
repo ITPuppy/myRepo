@@ -12,6 +12,7 @@ using Chatter.Log;
 using System.Threading;
 using Chatter.MetroClient.Sound;
 using Chatter.MetroClient.P2P;
+using Chatter.MetroClient.UDP;
 
 
 
@@ -29,6 +30,7 @@ namespace Chatter.MetroClient.Callback
 
                 btn.ChangeMemberStatus(MemberStatus.Online);
                 DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
+                DataUtil.FriendMessageTabItems[id].audioMenu.SetStatus(MemberStatus.Online);
             }
 
 
@@ -46,32 +48,8 @@ namespace Chatter.MetroClient.Callback
 
                 btn.ChangeMemberStatus(MemberStatus.Offline);
                 DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
+                DataUtil.FriendMessageTabItems[id].audioMenu.SetStatus(MemberStatus.Offline);
             }
-
-        }
-
-
-        public IAsyncResult BeginOnLogin(string id, AsyncCallback callback, object asyncState)
-        {
-            return null;
-        }
-
-        public void EndOnLogin(IAsyncResult result)
-        {
-
-        }
-
-
-
-
-
-        public IAsyncResult BeginOnLogoff(string id, AsyncCallback callback, object asyncState)
-        {
-            return null;
-        }
-
-        public void EndOnLogoff(IAsyncResult result)
-        {
 
         }
 
@@ -79,36 +57,63 @@ namespace Chatter.MetroClient.Callback
         public void OnSendMessage(Message mesg)
         {
 
-          
-
-                MyLogger.Logger.Debug(Thread.CurrentThread.ManagedThreadId);
-
-                
-                    try
-                    {
 
 
-                        if (mesg is TextMessage)
-                            ReceiveTextMessage(mesg);
-                        else if (mesg is FileMessage)
-                            ReceiveFileMessage(mesg);
-                        else if (mesg is CommandMessage)
-                        {
+            MyLogger.Logger.Debug(Thread.CurrentThread.ManagedThreadId);
 
-                            ReceiveCommandMessage(mesg);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MyLogger.Logger.Error("显示信息出错", ex);
-                    }
-               
-        
+
+            try
+            {
+
+
+                if (mesg is TextMessage)
+                {
+                    ReceiveTextMessage(mesg);
+                }
+                else if (mesg is FileMessage)
+                {
+                    ReceiveFileMessage(mesg);
+                }
+                else if (mesg is CommandMessage)
+                {
+
+                    ReceiveCommandMessage(mesg);
+                }
+                else if (mesg is AudioMessage)
+                {
+                    ReceiveAudioMessage(mesg);
+                }
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("显示信息出错", ex);
+            }
+
+
+        }
+
+        private void ReceiveAudioMessage(Message mesg)
+        {
+            AudioMessage am = mesg as AudioMessage;
+            ReceiveAudioUtil rau = new ReceiveAudioUtil(am.ServerEndPoint);
+            rau.Init();
+
+            new Thread(() =>
+            {
+                DataUtil.Client.ResponseToRequest(new Result()
+                {
+                    Member = am.from as Member,
+                    Type = MessageType.Audio,
+                    EndPoint = am.ServerEndPoint,
+                    Status = MessageStatus.Accept
+
+                });
+            }).Start();
         }
 
         private void ReceiveCommandMessage(Message mesg)
         {
-           
+
             try
             {
                 CommandMessage cmdMesg = mesg as CommandMessage;
@@ -125,7 +130,7 @@ namespace Chatter.MetroClient.Callback
             }
             catch (Exception ex)
             {
-                MyLogger.Logger.Error("收到命令Message，处理出错",ex);
+                MyLogger.Logger.Error("收到命令Message，处理出错", ex);
             }
         }
 
@@ -140,26 +145,18 @@ namespace Chatter.MetroClient.Callback
         {
             SoundPlayer.Play();
 
-            
-                if (mesg.from is Member)
-                {
-                    Member member = mesg.from as Member;
-                    DataUtil.SetCurrentMessageWindow(member);
-                    MyMessageTabItem item = DataUtil.FriendMessageTabItems[member.id];
-                    if (item != null)
-                        item.ReceiveMessage(mesg);
-                }
-            
+
+            if (mesg.from is Member)
+            {
+                Member member = mesg.from as Member;
+                DataUtil.SetCurrentMessageWindow(member);
+                MyMessageTabItem item = DataUtil.FriendMessageTabItems[member.id];
+                if (item != null)
+                    item.ReceiveMessage(mesg);
+            }
+
 
         }
-
-
-
-        public void EndOnSendMessage(IAsyncResult result)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public void RequestToTargetClient(Message mesg)
         {
@@ -182,7 +179,7 @@ namespace Chatter.MetroClient.Callback
                                 new ThreadStart(
                                     () =>
                                     {
-                                        DataUtil.Client.ResponseToAddFriend(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = MessageStatus.Accept });
+                                        DataUtil.Client.ResponseToRequest(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = MessageStatus.Accept, Type = MessageType.AddFriend });
                                     })).Start();
                             return;
                         }
@@ -202,10 +199,10 @@ namespace Chatter.MetroClient.Callback
                         }
 
 
-                        DataUtil.Client.ResponseToAddFriendCompleted += Client_ResponseToAddFriendCompleted;
+                        DataUtil.Client.ResponseToRequestCompleted += Client_ResponseToAddFriendCompleted;
                         Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                         {
-                            DataUtil.Client.ResponseToAddFriendAsync(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
+                            DataUtil.Client.ResponseToRequestAsync(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
                         }));
                         break;
                     }
@@ -247,7 +244,7 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-        void Client_ResponseToAddFriendCompleted(object sender, ResponseToAddFriendCompletedEventArgs e)
+        void Client_ResponseToAddFriendCompleted(object sender, ResponseToRequestCompletedEventArgs e)
         {
             try
             {
@@ -279,9 +276,106 @@ namespace Chatter.MetroClient.Callback
             }
             finally
             {
-                DataUtil.Client.ResponseToAddFriendCompleted -= Client_ResponseToAddFriendCompleted;
+                DataUtil.Client.ResponseToRequestCompleted -= Client_ResponseToAddFriendCompleted;
             }
         }
+
+
+        public void ReponseToSouceClient(Result result)
+        {
+            MyLogger.Logger.Debug(Thread.CurrentThread.ManagedThreadId);
+
+
+
+
+
+
+            try
+            {
+
+                if (result.Type == MessageType.AddFriend)
+                {
+
+                    if (result.Status == MessageStatus.Accept)
+                    {
+                        MessageBox.Show("您已经与" + result.Member.nickName + "成为好友");
+                        MyTabItem tabItem = DataUtil.FriendTabItems[result.UserGroup.userGroupId];
+                        result.Member.status = MemberStatus.Online;
+                        tabItem.myGrid.AddButton(MyType.User, result.Member);
+
+                        MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.Member);
+                        DataUtil.FriendMessageTabItems.Add(result.Member.id, item);
+                        DataUtil.MessageTabControl.Items.Add(item);
+                        DataUtil.AddFriendTo(result.Member, result.UserGroup.userGroupId);
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Mesg);
+                    }
+                }
+                else if (result.Type == MessageType.File)
+                {
+                    if (result.Status == MessageStatus.Accept)
+                    {
+
+                        if (DataUtil.HasTransfer())
+                        {
+                            if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
+                            {
+                                DataUtil.Transfer.transferTask[result.Guid].BeginSendFile(result.EndPoint);
+                            }
+                        }
+                    }
+
+                    else
+                    {
+
+                        if (DataUtil.HasTransfer())
+                        {
+                            if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
+                            {
+                                DataUtil.Transfer.transferTask[result.Guid].TheOtherCancel(true);
+                            }
+                        }
+                    }
+                }
+
+                else if (result.Type == MessageType.Audio)
+                {
+                    if (result.Status == MessageStatus.Accept)
+                    {
+                        SendAudioUtil sau = new SendAudioUtil(result.EndPoint);
+                        sau.Init();
+                    }
+                    else if (result.Status == MessageStatus.Refuse)
+                    {
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("接收服务器回应消息出错", ex);
+            }
+
+
+        }
+
+
+        public void SendMyEndPoint(MyEndPoint endPoint,Member member)
+        {
+            
+              
+                MyLogger.Logger.Info(member.nickName+"的EndPoint是"+endPoint.Address + ":" + endPoint.Port);
+            
+        }
+
+
+
+
+        #region useless
+
 
         public IAsyncResult BeginRequestToTargetClient(Message mesg, AsyncCallback callback, object asyncState)
         {
@@ -292,74 +386,56 @@ namespace Chatter.MetroClient.Callback
         {
             throw new NotImplementedException();
         }
-
-        public void ReponseToSouceClient(Result result)
+        public void EndOnSendMessage(IAsyncResult result)
         {
-            MyLogger.Logger.Debug(Thread.CurrentThread.ManagedThreadId);
-
-
-           
-               
-                    
-
-                        try
-                        {
-
-                            if (result.Type == MessageType.AddFriend)
-                            {
-
-                                if (result.Status == MessageStatus.Accept)
-                                {
-                                    MessageBox.Show("您已经与" + result.Member.nickName + "成为好友");
-                                    MyTabItem tabItem = DataUtil.FriendTabItems[result.UserGroup.userGroupId];
-                                    result.Member.status = MemberStatus.Online;
-                                    tabItem.myGrid.AddButton(MyType.User, result.Member);
-
-                                    MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.Member);
-                                    DataUtil.FriendMessageTabItems.Add(result.Member.id, item);
-                                    DataUtil.MessageTabControl.Items.Add(item);
-                                    DataUtil.AddFriendTo(result.Member, result.UserGroup.userGroupId);
-                                }
-                                else
-                                {
-                                    MessageBox.Show(result.Mesg);
-                                }
-                            }
-                            else if (result.Type == MessageType.File)
-                            {
-                                if (result.Status == MessageStatus.Accept)
-                                {
-
-                                    if (DataUtil.HasTransfer())
-                                    {
-                                        if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
-                                        {
-                                            DataUtil.Transfer.transferTask[result.Guid].BeginSendFile(result.EndPoint);
-                                        }
-                                    }
-                                }
-
-                                else
-                                {
-
-                                    if (DataUtil.HasTransfer())
-                                    {
-                                        if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
-                                        {
-                                            DataUtil.Transfer.transferTask[result.Guid].TheOtherCancel(true);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MyLogger.Logger.Error("接收服务器回应消息出错", ex);
-                        }
-                  
-         
+            throw new NotImplementedException();
+        }
+        public IAsyncResult BeginOnLogoff(string id, AsyncCallback callback, object asyncState)
+        {
+            return null;
         }
 
+        public void EndOnLogoff(IAsyncResult result)
+        {
+
+        }
+
+        public IAsyncResult BeginOnLogin(string id, AsyncCallback callback, object asyncState)
+        {
+            return null;
+        }
+
+        public void EndOnLogin(IAsyncResult result)
+        {
+
+        }
+
+        public IAsyncResult BeginSendMyEndPoint(MyEndPoint endPoint, Member member, AsyncCallback callback, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndSendMyEndPoint(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        public string EndSendHeartBeat(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAsyncResult BeginOnSendMessage(Message mesg, AsyncCallback callback, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAsyncResult BeginSendHeartBeat(AsyncCallback callback, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
 
         public IAsyncResult BeginReponseToSouceClient(Result result, AsyncCallback callback, object asyncState)
         {
@@ -370,24 +446,9 @@ namespace Chatter.MetroClient.Callback
         {
             throw new NotImplementedException();
         }
+        #endregion
 
 
        
-
-        public IAsyncResult BeginSendHeartBeat(AsyncCallback callback, object asyncState)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string EndSendHeartBeat(IAsyncResult result)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IAsyncResult BeginOnSendMessage(Message mesg, AsyncCallback callback, object asyncState)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

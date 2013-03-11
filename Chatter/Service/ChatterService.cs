@@ -11,6 +11,8 @@ using Chatter.DAL;
 using Chatter.Log;
 using System.Threading;
 using System.ServiceModel.PeerResolvers;
+using System.Net;
+using Service;
 
 
 
@@ -58,7 +60,7 @@ namespace Chatter.Service
         /// <summary>
         /// 保存当前用户
         /// </summary>
-        private Member member;
+        public Member member;
 
         /// <summary>
         /// 客户端IP端口
@@ -285,6 +287,10 @@ namespace Chatter.Service
                 {
                    return SendTextMessage(mesg);
                 }
+                else if (mesg is AudioMessage)
+                {
+                    return SendAudioMessage(mesg);
+                }
 
                 else
                 {
@@ -300,6 +306,49 @@ namespace Chatter.Service
             }
 
 
+        }
+
+        private MessageStatus SendAudioMessage(Message mesg)
+        {
+
+            if (mesg.To is Member)
+            {
+                Member to = mesg.To as Member;
+                if (!Online.ContainsKey(to.Id))
+                {
+                    return MessageStatus.Failed;
+                }
+
+                ChatEventHandler handler = Online[to.Id] as ChatEventHandler;
+                ChatterService service = handler.Target as ChatterService;
+
+                if (!service.friends.ContainsKey(member.Id))
+                {
+                    return MessageStatus.Refuse;
+                }
+
+                UDPHolePunching udp = new UDPHolePunching(this,service);
+
+               var serverEndPoint=udp.GetServerEndPoint();
+                if(serverEndPoint==null)
+                {
+                    throw(new Exception("UDP打洞Server Endpoint 初始化失败"));
+                }
+                AudioMessage am = mesg as AudioMessage;
+                am.ServerEndPoint = new MyEndPoint() {  Address=serverEndPoint.Address.ToString(),Port=serverEndPoint.Port};
+                mesg = am;
+                service.callback.OnSendMessage(mesg);
+
+
+
+
+
+                return MessageStatus.OK;
+            }
+            else
+            {
+                throw new Exception("not support user type ");
+            }
         }
 
         private MessageStatus SendFileMessage(Message mesg)
@@ -563,9 +612,24 @@ namespace Chatter.Service
             })).Start();
 
         }
+        private Result ResponseToAudio(Result result)
+        {
+            ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
+            ChatterService service = handler.Target as ChatterService;
+            if (result.Status == MessageStatus.Accept)
+            {
+                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Accept, Member = this.member, Type = MessageType.Audio , EndPoint = result.EndPoint });
+            }
 
+            else if (result.Status == MessageStatus.Refuse)
+            {
+                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Refuse, Member = this.member, Type = MessageType.Audio, EndPoint = result.EndPoint });
+            }
 
-        public void ResponseToSendFile(Result result)
+            return new Result();
+        }
+
+        public Result ResponseToSendFile(Result result)
         {
            
             ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
@@ -580,7 +644,7 @@ namespace Chatter.Service
                 service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Refuse, Member = this.member, Type = MessageType.File, Guid = result.Guid, EndPoint = result.EndPoint });
             }
 
-           
+            return new Result();
         
         }
         
@@ -732,6 +796,30 @@ namespace Chatter.Service
         {
             return Online.ContainsKey(friendId);
         }
+
+
+        public Result ResponseToRequest(Result result)
+        {
+            if (result.Type == MessageType.AddFriend)
+            {
+               return ResponseToAddFriend(result);
+            }
+            else if(result.Type==MessageType.File)
+            {
+                return ResponseToSendFile(result);
+            }
+            else if (result.Type == MessageType.Audio)
+            {
+                return ResponseToAudio(result);
+            }
+
+            return new Result();
+        }
+
+
+
+
+        
     }
 
 

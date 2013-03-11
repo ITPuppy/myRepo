@@ -49,12 +49,6 @@
   <wsdl:message name="IChatter_AddFriend_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFriend" />
   </wsdl:message>
-  <wsdl:message name="IChatter_ResponseToAddFriend_InputMessage">
-    <wsdl:part name="parameters" element="tns:ResponseToAddFriend" />
-  </wsdl:message>
-  <wsdl:message name="IChatter_ResponseToAddFriend_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ResponseToAddFriendResponse" />
-  </wsdl:message>
   <wsdl:message name="IChatter_DeleteFriend_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteFriend" />
   </wsdl:message>
@@ -76,9 +70,6 @@
   <wsdl:message name="IChatter_SendMesg_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendMesgResponse" />
   </wsdl:message>
-  <wsdl:message name="IChatter_ResponseToSendFile_InputMessage">
-    <wsdl:part name="parameters" element="tns:ResponseToSendFile" />
-  </wsdl:message>
   <wsdl:message name="IChatter_AddUserGroup_InputMessage">
     <wsdl:part name="parameters" element="tns:AddUserGroup" />
   </wsdl:message>
@@ -97,6 +88,12 @@
   <wsdl:message name="IChatter_SendHeartBeat_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendHeartBeatResponse" />
   </wsdl:message>
+  <wsdl:message name="IChatter_ResponseToRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResponseToRequest" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_ResponseToRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResponseToRequestResponse" />
+  </wsdl:message>
   <wsdl:message name="IChatter_OnLogin_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnLogin" />
   </wsdl:message>
@@ -111,6 +108,9 @@
   </wsdl:message>
   <wsdl:message name="IChatter_ReponseToSouceClient_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ReponseToSouceClient" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_SendMyEndPoint_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendMyEndPoint" />
   </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IChatter">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
@@ -135,10 +135,6 @@
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddFriend" message="tns:IChatter_AddFriend_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="ResponseToAddFriend">
-      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/ResponseToAddFriend" message="tns:IChatter_ResponseToAddFriend_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ResponseToAddFriendResponse" message="tns:IChatter_ResponseToAddFriend_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="DeleteFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/DeleteFriend" message="tns:IChatter_DeleteFriend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/DeleteFriendResponse" message="tns:IChatter_DeleteFriend_OutputMessage" />
@@ -154,9 +150,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/SendMesg" message="tns:IChatter_SendMesg_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMesgResponse" message="tns:IChatter_SendMesg_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="ResponseToSendFile">
-      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/ResponseToSendFile" message="tns:IChatter_ResponseToSendFile_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddUserGroup">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddUserGroup" message="tns:IChatter_AddUserGroup_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/AddUserGroupResponse" message="tns:IChatter_AddUserGroup_OutputMessage" />
@@ -168,6 +161,10 @@
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="SendHeartBeat">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/SendHeartBeat" message="tns:IChatter_SendHeartBeat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendHeartBeatResponse" message="tns:IChatter_SendHeartBeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="ResponseToRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/ResponseToRequest" message="tns:IChatter_ResponseToRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ResponseToRequestResponse" message="tns:IChatter_ResponseToRequest_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnLogin">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/OnLogin" message="tns:IChatter_OnLogin_OutputCallbackMessage" />
@@ -183,6 +180,9 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReponseToSouceClient">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ReponseToSouceClient" message="tns:IChatter_ReponseToSouceClient_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendMyEndPoint">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMyEndPoint" message="tns:IChatter_SendMyEndPoint_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IChatter" type="tns:IChatter">
@@ -236,15 +236,6 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="ResponseToAddFriend">
-      <soap12:operation soapAction="http://tempuri.org/IChatter/ResponseToAddFriend" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DeleteFriend">
       <soap12:operation soapAction="http://tempuri.org/IChatter/DeleteFriend" style="document" />
       <wsdl:input>
@@ -278,12 +269,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ResponseToSendFile">
-      <soap12:operation soapAction="http://tempuri.org/IChatter/ResponseToSendFile" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="AddUserGroup">
       <soap12:operation soapAction="http://tempuri.org/IChatter/AddUserGroup" style="document" />
       <wsdl:input>
@@ -304,6 +289,15 @@
     </wsdl:operation>
     <wsdl:operation name="SendHeartBeat">
       <soap12:operation soapAction="http://tempuri.org/IChatter/SendHeartBeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResponseToRequest">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/ResponseToRequest" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -341,12 +335,18 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendMyEndPoint">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/SendMyEndPoint" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ChatterService">
     <wsdl:port name="NetTcpBinding_IChatter" binding="tns:NetTcpBinding_IChatter">
-      <soap12:address location="net.tcp://222.26.186.164:9877/ChatterService" />
+      <soap12:address location="net.tcp://10.2.5.57:9877/ChatterService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://222.26.186.164:9877/ChatterService</wsa10:Address>
+        <wsa10:Address>net.tcp://10.2.5.57:9877/ChatterService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

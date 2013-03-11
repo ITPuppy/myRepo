@@ -12,6 +12,7 @@ namespace Chatter.Contract.DataContract
     [KnownType(typeof(TextMessage))]
     [KnownType(typeof(FileMessage))]
     [KnownType(typeof(CommandMessage))]
+    [KnownType(typeof(AudioMessage))]
     public class Message
     {
         [DataMember]

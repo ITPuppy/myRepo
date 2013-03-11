@@ -130,13 +130,17 @@ namespace Chatter.MetroClient.UI
         }
 
       
-
+       /// <summary>
+       /// 取消按钮按下事件
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         void cancleBtn_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
+            ///拒绝接受
             if (cancleBtn.Text == "拒绝")
             {
-                DataUtil.Client.ResponseToSendFile(new Result()
+                DataUtil.Client.ResponseToRequest(new Result()
                 {
                     Member = fm.from as Member,
                     Status = MessageStatus.Refuse,
@@ -147,6 +151,7 @@ namespace Chatter.MetroClient.UI
                 RemoveMySelf();
 
             }
+                ///取消发送
             else if (cancleBtn.Text == "取消")
             {
                 //已经开始传送
@@ -160,16 +165,22 @@ namespace Chatter.MetroClient.UI
                     CancelSend();
                 }
             }
+                ///移除收发记录
             else if (cancleBtn.Text == "移除")
             {
                 RemoveMySelf();
             }
 
         }
-
+        /// <summary>
+        /// 已经取消发送，处理界面内容，通知接收端
+        /// </summary>
         private void CancelSend()
         {
+            ///处理取消发送后，界面的状况
             CompletSend(TransferState.CanceledByMyself);
+
+            ///通知接收端
             CommandMessage cm = new CommandMessage();
             cm.from = DataUtil.Member;
             cm.to = this.fm.to;
@@ -178,9 +189,15 @@ namespace Chatter.MetroClient.UI
             DataUtil.Client.SendMesg(cm);
         }
 
+       /// <summary>
+       /// 开始接收后，取消接收
+       /// </summary>
         private void CancelReceive()
         {
+            ///处理取消接收后，界面的情况
             CompletReceive(TransferState.CanceledByMyself);
+
+            ///通知发送方
             CommandMessage cm = new CommandMessage();
             cm.from = DataUtil.Member;
             cm.to = this.fm.to;
@@ -188,7 +205,9 @@ namespace Chatter.MetroClient.UI
             cm.Guid = fm.Guid;
             DataUtil.Client.SendMesg(cm);
         }
-
+       /// <summary>
+       /// 移除界面收发记录
+       /// </summary>
         private void RemoveMySelf()
         {
             StackPanel sp = this.Parent as StackPanel;
@@ -198,12 +217,19 @@ namespace Chatter.MetroClient.UI
             tfw.Remove(fm.Guid);
         }
 
+       /// <summary>
+       /// 保存按钮按下事件
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         void saveBorder_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            ///隐藏另存为按钮，把另外一个按钮文字设为取消接收
             saveBorder.Visibility = Visibility.Hidden;
             cancleBtn.Text = "取消";
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.FileName = fm.FileName;
+            ///忘了是什么Bug了
             sfd.RestoreDirectory = true;
             sfd.ShowDialog();
           
@@ -213,6 +239,7 @@ namespace Chatter.MetroClient.UI
             fm.FileName = sfd.SafeFileName;
             transferFileUtil = new ReceiveFileUtil(fm, this);
 
+           ///初始化接收端口并
             int port = ((ReceiveFileUtil)transferFileUtil).initTcpHost();
             if (port == -1)
             {
@@ -221,9 +248,12 @@ namespace Chatter.MetroClient.UI
                 return;
             }
 
+            ///开始等待接收
             transferFileUtil.Transfer();
 
-            DataUtil.Client.ResponseToSendFile(new Result()
+            ///通知发送端，告知自己的端口。
+            ///目前无法实现非局域网tcp打洞
+            DataUtil.Client.ResponseToRequest(new Result()
             {
                 Member = fm.from as Member,
                 Status = MessageStatus.Accept,
@@ -237,6 +267,10 @@ namespace Chatter.MetroClient.UI
                    
             }
 
+       /// <summary>
+       /// 初始化socket，并开始发送
+       /// </summary>
+       /// <param name="endpoint"></param>
         public void BeginSendFile(MyEndPoint endpoint)
         {
             fm.EndPoint = endpoint;
@@ -246,6 +280,10 @@ namespace Chatter.MetroClient.UI
         }
 
 
+       /// <summary>
+       /// 结束接收
+       /// </summary>
+       /// <param name="transferState"></param>
         internal void CompletReceive(TransferState transferState)
         {
             this.Children.Remove(bar);
@@ -262,6 +300,10 @@ namespace Chatter.MetroClient.UI
             this.cancleBtn.Text = "移除";
         }
 
+       /// <summary>
+       /// 结束发送
+       /// </summary>
+       /// <param name="transferState"></param>
         internal void CompletSend(TransferState transferState)
         {
             this.Children.Remove(bar);
@@ -281,6 +323,10 @@ namespace Chatter.MetroClient.UI
             this.cancleBtn.Text = "移除";
         }
 
+       /// <summary>
+       /// 对方取消了发送或者接收操作，而非自己取消
+       /// </summary>
+       /// <param name="isSend"></param>
         internal void TheOtherCancel(bool isSend)
         {
             if (!isSend)
