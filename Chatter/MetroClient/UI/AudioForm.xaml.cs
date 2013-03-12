@@ -148,10 +148,12 @@ namespace Chatter.MetroClient.UI
        {
            if (isFrom)
            {
+              
                fau.Start(endPoint);
            }
            else
-           {
+           { 
+              
                tau.Start(endPoint);
            }
        }

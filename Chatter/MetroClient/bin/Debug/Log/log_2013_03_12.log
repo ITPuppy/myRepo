@@ -1,88 +1,106 @@
-日 志 时 间:  2013-03-12 17:23:37,157 
+日 志 时 间:  2013-03-12 21:43:53,746 
 日 志 级 别:  DEBUG
-日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
 日 志 内 容:  1
  
 
-日 志 时 间:  2013-03-12 17:24:25,984 
+日 志 时 间:  2013-03-12 21:47:32,387 
 日 志 级 别:  DEBUG
-日 志 来 源: [10]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
-日 志 内 容:  10
- 
-
-日 志 时 间:  2013-03-12 17:25:12,811 
-日 志 级 别:  DEBUG
-日 志 来 源: [9]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
-日 志 内 容:  9
- 
-
-日 志 时 间:  2013-03-12 17:26:52,261 
-日 志 级 别:  DEBUG
-日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
 日 志 内 容:  1
  
 
-日 志 时 间:  2013-03-12 17:28:33,817 
+日 志 时 间:  2013-03-12 21:49:21,357 
 日 志 级 别:  DEBUG
-日 志 来 源: [9]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
-日 志 内 容:  9
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
  
 
-日 志 时 间:  2013-03-12 17:29:03,950 
-日 志 级 别:  WARN
-日 志 来 源: [15]::Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:124)
-日 志 内 容:  发送心跳包出现错误
- System.ServiceModel.ProtocolException: This channel can no longer be used to send messages as the output session was auto-closed due to a server-initiated shutdown. Either disable auto-close by setting the DispatchRuntime.AutomaticInputSessionShutdown to false, or consider modifying the shutdown protocol with the remote server.
-
-Server stack trace: 
-   at System.ServiceModel.Channels.ServiceChannel.PrepareCall(ProxyOperationRuntime operation, Boolean oneway, ProxyRpc& rpc)
-   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
-   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
-   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
-
-Exception rethrown at [0]: 
-   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
-   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
-   at MetroClient.ChatterService.IChatter.SendHeartBeat()
-   at MetroClient.ChatterService.ChatterClient.SendHeartBeat() in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1964
-   at Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0() in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 124
-
-
-日 志 时 间:  2013-03-12 17:29:43,134 
+日 志 时 间:  2013-03-12 21:49:28,609 
 日 志 级 别:  DEBUG
-日 志 来 源: [10]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
-日 志 内 容:  10
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
  
 
-日 志 时 间:  2013-03-12 17:32:30,918 
+日 志 时 间:  2013-03-12 21:49:33,664 
 日 志 级 别:  DEBUG
-日 志 来 源: [9]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
-日 志 内 容:  9
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
  
 
-日 志 时 间:  2013-03-12 17:33:36,343 
+日 志 时 间:  2013-03-12 21:49:33,707 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:84)
+日 志 内 容:  显示信息出错
+ System.ArgumentException: 已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   在 Chatter.MetroClient.UI.AudioForm..ctor(AudioMessage am, Boolean isFrom) 位置 e:\code\myRepo\Chatter\MetroClient\UI\AudioForm.xaml.cs:行号 62
+   在 Chatter.MetroClient.Callback.ChatterCallback.ReceiveAudioMessage(Message mesg) 位置 e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:行号 99
+   在 Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(Message mesg) 位置 e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:行号 84
+
+
+日 志 时 间:  2013-03-12 21:50:14,733 
 日 志 级 别:  DEBUG
-日 志 来 源: [10]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
-日 志 内 容:  10
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
  
 
-日 志 时 间:  2013-03-12 17:33:58,684 
-日 志 级 别:  WARN
-日 志 来 源: [16]::Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:124)
-日 志 内 容:  发送心跳包出现错误
- System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+日 志 时 间:  2013-03-12 21:50:27,351 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
 
-Server stack trace: 
-   at System.ServiceModel.Channels.CommunicationObject.ThrowIfFaulted()
-   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
-   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
-   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+日 志 时 间:  2013-03-12 21:50:31,476 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
 
-Exception rethrown at [0]: 
-   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
-   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
-   at MetroClient.ChatterService.IChatter.SendHeartBeat()
-   at MetroClient.ChatterService.ChatterClient.SendHeartBeat() in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1964
-   at Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0() in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 124
+日 志 时 间:  2013-03-12 21:56:27,742 
+日 志 级 别:  ERROR
+日 志 来 源: [SendThread]::Chatter.MetroClient.TCP.SendFileUtil.<Send>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:43)
+日 志 内 容:  发送文件错误
+ System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 222.26.221.52:38418
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   在 Chatter.MetroClient.TCP.SendFileUtil.initTCPClient() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 120
+   在 Chatter.MetroClient.TCP.SendFileUtil.<Send>b__1() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 43
+
+
+日 志 时 间:  2013-03-12 21:57:35,335 
+日 志 级 别:  ERROR
+日 志 来 源: [SendThread]::Chatter.MetroClient.TCP.SendFileUtil.<Send>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:43)
+日 志 内 容:  发送文件错误
+ System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 222.26.221.52:38485
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   在 Chatter.MetroClient.TCP.SendFileUtil.initTCPClient() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 120
+   在 Chatter.MetroClient.TCP.SendFileUtil.<Send>b__1() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 43
+
+
+日 志 时 间:  2013-03-12 21:57:49,042 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(e:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
+
+日 志 时 间:  2013-03-12 21:59:04,582 
+日 志 级 别:  ERROR
+日 志 来 源: [SendThread]::Chatter.MetroClient.TCP.SendFileUtil.<Send>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:43)
+日 志 内 容:  发送文件错误
+ System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 222.26.221.52:38522
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   在 Chatter.MetroClient.TCP.SendFileUtil.initTCPClient() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 120
+   在 Chatter.MetroClient.TCP.SendFileUtil.<Send>b__1() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 43
 
 

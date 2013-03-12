@@ -23,6 +23,7 @@ namespace Chatter.MetroClient.UDP
         {
 
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            
             this.endPoint = new IPEndPoint(IPAddress.Parse(endPoint.Address), endPoint.Port);
 
 
@@ -48,7 +49,7 @@ namespace Chatter.MetroClient.UDP
                     int n = socket.ReceiveFrom(data, ref remoteEP);
 
                     byte[] buffer=new byte[n-1];
-                    Array.Copy(data,1,buffer,0,data.Length-1);
+                    Array.Copy(data,1,buffer,0,n-1);
                     sm.Play(buffer);
 
 

@@ -49,6 +49,8 @@ namespace Service
                     bool isFromBack = false;
                     bool isToBack = false;
 
+                    EndPoint fromRemoteEP = null;
+                    EndPoint toRemoteEP = null;
                     while (true)
                     {
                         udpserver.ReceiveFrom(buffer, ref remoteEP);
@@ -60,26 +62,31 @@ namespace Service
                                 continue;
 
                             isFromBack = true;
-                            this.to.callback.SendMyEndPoint(new MyEndPoint()
-                            {
-                                Address = (remoteEP as IPEndPoint).Address.ToString(),
-                                Port = (remoteEP as IPEndPoint).Port
-                            },from.member,false );
+                            fromRemoteEP = remoteEP;
                         }
                         else if (s == "2")
                         {
                             if (isToBack)
                                 continue;
                             isToBack = true;
-                            this.from.callback.SendMyEndPoint(new MyEndPoint()
-                            {
-                                Address = (remoteEP as IPEndPoint).Address.ToString(),
-                                Port = (remoteEP as IPEndPoint).Port
-                            },to.member,true);
+                            toRemoteEP = remoteEP;
                         }
 
                         if (isFromBack && isToBack)
+                        {
+                            this.from.callback.SendMyEndPoint(new MyEndPoint()
+                            {
+                                Address = (toRemoteEP as IPEndPoint).Address.ToString(),
+                                Port = (toRemoteEP as IPEndPoint).Port
+                            },to.member,true);
+
+                            this.to.callback.SendMyEndPoint(new MyEndPoint()
+                            {
+                                Address = (fromRemoteEP as IPEndPoint).Address.ToString(),
+                                Port = (fromRemoteEP as IPEndPoint).Port
+                            }, from.member, false);
                             break;
+                        }
                     }
                     Console.WriteLine("打洞去吧");
                 }
