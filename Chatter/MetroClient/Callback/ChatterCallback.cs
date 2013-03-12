@@ -94,21 +94,12 @@ namespace Chatter.MetroClient.Callback
 
         private void ReceiveAudioMessage(Message mesg)
         {
+
             AudioMessage am = mesg as AudioMessage;
-            ReceiveAudioUtil rau = new ReceiveAudioUtil(am.ServerEndPoint);
-            rau.Init();
-
-            new Thread(() =>
-            {
-                DataUtil.Client.ResponseToRequest(new Result()
-                {
-                    Member = am.from as Member,
-                    Type = MessageType.Audio,
-                    EndPoint = am.ServerEndPoint,
-                    Status = MessageStatus.Accept
-
-                });
-            }).Start();
+            AudioForm af = new AudioForm(am,false);
+            af.Show();
+           
+           
         }
 
         private void ReceiveCommandMessage(Message mesg)
@@ -283,7 +274,7 @@ namespace Chatter.MetroClient.Callback
 
         public void ReponseToSouceClient(Result result)
         {
-            MyLogger.Logger.Debug(Thread.CurrentThread.ManagedThreadId);
+            
 
 
 
@@ -344,12 +335,14 @@ namespace Chatter.MetroClient.Callback
                 {
                     if (result.Status == MessageStatus.Accept)
                     {
-                        SendAudioUtil sau = new SendAudioUtil(result.EndPoint);
-                        sau.Init();
+
+                        DataUtil.AudioForms[result.Member.id].InitSend(result.EndPoint);
+                      
+                       
                     }
                     else if (result.Status == MessageStatus.Refuse)
                     {
-
+                        DataUtil.AudioForms[result.Member.id].Close();
                     }
                 }
 
@@ -363,11 +356,11 @@ namespace Chatter.MetroClient.Callback
         }
 
 
-        public void SendMyEndPoint(MyEndPoint endPoint,Member member)
+        public void SendMyEndPoint(MyEndPoint endPoint,Member member,bool isFrom)
         {
-            
-              
-                MyLogger.Logger.Info(member.nickName+"的EndPoint是"+endPoint.Address + ":" + endPoint.Port);
+
+            DataUtil.AudioForms[member.id].Start(endPoint);
+               
             
         }
 
@@ -410,7 +403,7 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-        public IAsyncResult BeginSendMyEndPoint(MyEndPoint endPoint, Member member, AsyncCallback callback, object asyncState)
+        public IAsyncResult BeginSendMyEndPoint(MyEndPoint endPoint, Member member,bool isFrom, AsyncCallback callback, object asyncState)
         {
             throw new NotImplementedException();
         }

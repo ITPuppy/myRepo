@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Audio\SoundManager.cs" />
     <Compile Include="Callback\ChatterCallback.cs" />
     <Compile Include="DataUtil.cs" />
     <Compile Include="P2P\IP2PChatService.cs" />
@@ -77,10 +78,14 @@
     <Compile Include="TCP\ReceiveFileUtil.cs" />
     <Compile Include="TCP\SendFileUtil.cs" />
     <Compile Include="TCP\TransferFileUtil.cs" />
-    <Compile Include="UDP\ReceiveAudioUtil.cs" />
-    <Compile Include="UDP\SendAudioUtil.cs" />
+    <Compile Include="UDP\AudioUtil.cs" />
+    <Compile Include="UDP\ToAudioUtil.cs" />
+    <Compile Include="UDP\FromAudioUtil.cs" />
     <Compile Include="UI\AddBaseRoleDialog.xaml.cs">
       <DependentUpon>AddBaseRoleDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AudioForm.xaml.cs">
+      <DependentUpon>AudioForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\FileTransferGrid.cs" />
     <Compile Include="UI\MyMenu.xaml.cs">
@@ -107,7 +112,22 @@
     <Compile Include="UI\TransferFileWindow.xaml.cs">
       <DependentUpon>TransferFileWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wave\native\MMSYSERR.cs" />
+    <Compile Include="Wave\native\WavConstants.cs" />
+    <Compile Include="Wave\native\WAVEFORMATEX.cs" />
+    <Compile Include="Wave\native\WAVEHDR.cs" />
+    <Compile Include="Wave\native\WAVEOUTCAPS.cs" />
+    <Compile Include="Wave\native\WavFormat.cs" />
+    <Compile Include="Wave\native\WavMethods.cs" />
+    <Compile Include="Wave\WaveIn.cs" />
+    <Compile Include="Wave\WaveOut.cs" />
+    <Compile Include="Wave\WavInDevice.cs" />
+    <Compile Include="Wave\WavOutDevice.cs" />
     <Page Include="UI\AddBaseRoleDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AudioForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

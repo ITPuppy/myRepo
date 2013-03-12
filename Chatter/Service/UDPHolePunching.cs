@@ -64,7 +64,7 @@ namespace Service
                             {
                                 Address = (remoteEP as IPEndPoint).Address.ToString(),
                                 Port = (remoteEP as IPEndPoint).Port
-                            },from.member );
+                            },from.member,false );
                         }
                         else if (s == "2")
                         {
@@ -75,7 +75,7 @@ namespace Service
                             {
                                 Address = (remoteEP as IPEndPoint).Address.ToString(),
                                 Port = (remoteEP as IPEndPoint).Port
-                            },to.member);
+                            },to.member,true);
                         }
 
                         if (isFromBack && isToBack)

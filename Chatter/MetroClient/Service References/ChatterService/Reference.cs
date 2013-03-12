@@ -1015,10 +1015,10 @@ namespace MetroClient.ChatterService {
         void EndReponseToSouceClient(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatter/SendMyEndPoint")]
-        void SendMyEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member);
+        void SendMyEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, bool isFrom);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatter/SendMyEndPoint")]
-        System.IAsyncResult BeginSendMyEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginSendMyEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, bool isFrom, System.AsyncCallback callback, object asyncState);
         
         void EndSendMyEndPoint(System.IAsyncResult result);
     }

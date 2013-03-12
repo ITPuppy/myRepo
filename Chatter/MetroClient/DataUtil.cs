@@ -64,6 +64,7 @@ namespace Chatter.MetroClient
         public static List<UserGroup> UserGroups;
         public static Member Member;
         public static List<Group> Groups;
+        public static Dictionary<string, AudioForm> AudioForms = new Dictionary<string, AudioForm>();
         public static Dictionary<string, MyTabItem> FriendTabItems = new Dictionary<string, MyTabItem>();
         public static Dictionary<string, MyTabItem> GroupMemberTabItems = new Dictionary<string, MyTabItem>();
         public static Dictionary<string, P2PClient> P2PClients = new Dictionary<string, P2PClient>();

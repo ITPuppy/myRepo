@@ -170,6 +170,9 @@ namespace Chatter.MetroClient.UI
                             am.to = this.baseRole;
 
                             DataUtil.Client.SendMesg(am);
+                            AudioForm af = new AudioForm(am, true);
+                            
+                            af.Show();
                             break;
                         }
             }

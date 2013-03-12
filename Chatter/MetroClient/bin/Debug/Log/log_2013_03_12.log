@@ -1,0 +1,88 @@
+日 志 时 间:  2013-03-12 17:23:37,157 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
+
+日 志 时 间:  2013-03-12 17:24:25,984 
+日 志 级 别:  DEBUG
+日 志 来 源: [10]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  10
+ 
+
+日 志 时 间:  2013-03-12 17:25:12,811 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  9
+ 
+
+日 志 时 间:  2013-03-12 17:26:52,261 
+日 志 级 别:  DEBUG
+日 志 来 源: [1]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  1
+ 
+
+日 志 时 间:  2013-03-12 17:28:33,817 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  9
+ 
+
+日 志 时 间:  2013-03-12 17:29:03,950 
+日 志 级 别:  WARN
+日 志 来 源: [15]::Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:124)
+日 志 内 容:  发送心跳包出现错误
+ System.ServiceModel.ProtocolException: This channel can no longer be used to send messages as the output session was auto-closed due to a server-initiated shutdown. Either disable auto-close by setting the DispatchRuntime.AutomaticInputSessionShutdown to false, or consider modifying the shutdown protocol with the remote server.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.PrepareCall(ProxyOperationRuntime operation, Boolean oneway, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at MetroClient.ChatterService.IChatter.SendHeartBeat()
+   at MetroClient.ChatterService.ChatterClient.SendHeartBeat() in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1964
+   at Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0() in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 124
+
+
+日 志 时 间:  2013-03-12 17:29:43,134 
+日 志 级 别:  DEBUG
+日 志 来 源: [10]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  10
+ 
+
+日 志 时 间:  2013-03-12 17:32:30,918 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  9
+ 
+
+日 志 时 间:  2013-03-12 17:33:36,343 
+日 志 级 别:  DEBUG
+日 志 来 源: [10]::Chatter.MetroClient.Callback.ChatterCallback.OnSendMessage(f:\code\myRepo\Chatter\MetroClient\Callback\ChatterCallback.cs:62)
+日 志 内 容:  10
+ 
+
+日 志 时 间:  2013-03-12 17:33:58,684 
+日 志 级 别:  WARN
+日 志 来 源: [16]::Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0(f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:124)
+日 志 内 容:  发送心跳包出现错误
+ System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfFaulted()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at MetroClient.ChatterService.IChatter.SendHeartBeat()
+   at MetroClient.ChatterService.ChatterClient.SendHeartBeat() in f:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:line 1964
+   at Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0() in f:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:line 124
+
+
