@@ -62,7 +62,7 @@ namespace Chatter.MetroClient.UI
         /// Button类型
         /// </summary>
         private MyType type;
-
+        
 
 
         private Color offlineColor = Color.FromArgb(255, 192, 192, 192);
@@ -80,6 +80,7 @@ namespace Chatter.MetroClient.UI
                     {
                         menuName = "发送文件";
                         break;
+                        
                     }
                 case MessageType.Audio:
                     {
@@ -165,6 +166,7 @@ namespace Chatter.MetroClient.UI
                     case MessageType.Audio:
                         {
 
+                            this.IsEnabled = false;
                             AudioMessage am = new AudioMessage();
                             am.from = DataUtil.Member;
                             am.to = this.baseRole;
@@ -173,6 +175,10 @@ namespace Chatter.MetroClient.UI
                             AudioForm af = new AudioForm(am, true);
                             
                             af.Show();
+                            af.Closed += new EventHandler((obj, args) =>
+                                {
+                                    this.IsEnabled = true;
+                                });
                             break;
                         }
             }

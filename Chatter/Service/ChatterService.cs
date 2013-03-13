@@ -67,8 +67,48 @@ namespace Chatter.Service
         /// </summary>
         MyEndPoint endpoint = null;
 
+        static ChatterService()
+        {
+            new Thread(new ThreadStart(() =>
+            {
+                MyLogger.Logger.Info("开始接收心跳包");
+
+                while (isAlive)
+                {
+                    Thread.Sleep(1000);
+                    var hashTable = ChatterService.lastUpdateTable.Clone() as Hashtable;
+                    foreach (DictionaryEntry pair in hashTable)
+                    {
+                        if (new TimeSpan(DateTime.Now.Ticks).Subtract(new TimeSpan(Convert.ToDateTime(pair.Value).Ticks)).Seconds > 3)
+                        {
+
+                            var handler = ChatterService.Online[pair.Key] as ChatterService.ChatEventHandler;
+                            if (handler != null)
+                            {
+                                ChatterService service = handler.Target as ChatterService;
+                                if (service != null)
+                                {
+
+                                    service.Dispose();
+
+                                }
+                            }
+
+
+
+                        }
+
+
+                    }
+                }
+
+                MyLogger.Logger.Info("停止接收心跳包");
+            })) { IsBackground = true }.Start();
+
+        }
 
         private Hashtable groupHost = null;
+        public static bool isAlive=true;
 
         #endregion
 
@@ -99,7 +139,7 @@ namespace Chatter.Service
 
                 this.member = DALService.GetMember(member.Id);
 
-
+                lastUpdateTable.Add(this.member.Id, DateTime.Now);
                 GetEndPoint();
                 ///获得回调句柄
                 callback = OperationContext.Current.GetCallbackChannel<IChatterCallback>();
@@ -782,7 +822,9 @@ namespace Chatter.Service
             }
             else
             {
-                lastUpdateTable.Add(this.member.Id, DateTime.Now);
+                this.Login(this.member);
+              
+                MyLogger.Logger.Debug(member.Id+" "+member.NickName+"重新上线");
             }
         }
         #endregion

@@ -851,7 +851,10 @@ namespace MetroClient.ChatterService {
     public enum MyCommandType : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Canceled = 0,
+        CanceledSendFile = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CanceledAudioRequest = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

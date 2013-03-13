@@ -184,7 +184,7 @@ namespace Chatter.MetroClient.UI
             CommandMessage cm = new CommandMessage();
             cm.from = DataUtil.Member;
             cm.to = this.fm.to;
-            cm.CommandType = MyCommandType.Canceled;
+            cm.CommandType = MyCommandType.CanceledSendFile;
             cm.Guid = fm.Guid;
             DataUtil.Client.SendMesg(cm);
         }
@@ -201,7 +201,7 @@ namespace Chatter.MetroClient.UI
             CommandMessage cm = new CommandMessage();
             cm.from = DataUtil.Member;
             cm.to = this.fm.to;
-            cm.CommandType = MyCommandType.Canceled;
+            cm.CommandType = MyCommandType.CanceledSendFile;
             cm.Guid = fm.Guid;
             DataUtil.Client.SendMesg(cm);
         }

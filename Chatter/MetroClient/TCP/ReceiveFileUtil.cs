@@ -60,7 +60,7 @@ namespace Chatter.MetroClient.TCP
                 return;
             try
             {
-                new Thread(new ThreadStart(() =>
+                 new Thread(new ThreadStart(() =>
                 {
                    
                     client = myListener.AcceptTcpClient();
@@ -69,7 +69,7 @@ namespace Chatter.MetroClient.TCP
                     
                     MyLogger.Logger.Info("接收文件线程退出");
                     return;
-                })) {  Name="ReceiveThread"}.Start();
+                })) {  Name="ReceiveThread", IsBackground=true}.Start();
 
             }
             catch (Exception ex)

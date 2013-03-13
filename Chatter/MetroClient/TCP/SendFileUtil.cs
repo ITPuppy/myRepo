@@ -55,7 +55,7 @@ namespace Chatter.MetroClient.TCP
                     MyLogger.Logger.Error("发送文件错误", ex);
                 }
 
-            })) {  Name="SendThread"}.Start();
+            })) {  Name="SendThread",IsBackground=true}.Start();
 
           
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Chatter.MetroClient.UI;
 using MetroClient.ChatterService;
 
 namespace Chatter.MetroClient.UDP
@@ -12,8 +13,8 @@ namespace Chatter.MetroClient.UDP
     {
 
 
-        public FromAudioUtil(MyEndPoint iPEndPoint)
-            : base(iPEndPoint)
+        public FromAudioUtil(MyEndPoint iPEndPoint,AudioForm af=null)
+            : base(iPEndPoint,af)
         {
 
         }

@@ -29,6 +29,8 @@ namespace Chatter.MetroClient.UI
         private bool isFrom;
         FromAudioUtil fau = null;
         ToAudioUtil tau = null;
+        private bool isStart=false;
+        private BaseRole role;
         public AudioForm()
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace Chatter.MetroClient.UI
         public AudioForm(AudioMessage am,bool isFrom)
         {
             InitializeComponent();
+           
             image.Source = new BitmapImage(new Uri(imageSouce, UriKind.Relative));
             image.Stretch = Stretch.Fill;
             this.am = am;
@@ -46,22 +49,42 @@ namespace Chatter.MetroClient.UI
 
             Member from=am.from as Member;
             Member to =am.to as Member;
+            this.Closed += AudioForm_Closed;
 
             if (isFrom)
             {
                 btnAccept.Visibility = Visibility.Collapsed;
                 grid.ColumnDefinitions.RemoveAt(4);
                 this.Width = 240;
-
+                this.role = am.to;
                 nickName.Text = to.nickName;
                 DataUtil.AudioForms.Add(to.id, this);
             }
             else
             {
+                this.role = am.from;
                 nickName.Text = from.nickName;
                 DataUtil.AudioForms.Add(from.id, this);
             }
            
+        }
+
+        void AudioForm_Closed(object sender, EventArgs e)
+        {
+            if (!isFrom)
+            {
+              
+
+                if (DataUtil.AudioForms.ContainsKey((am.from as Member).id))
+                    DataUtil.AudioForms.Remove((am.from as Member).id);
+            }
+            else
+            {
+               
+                if (DataUtil.AudioForms.ContainsKey((am.to as Member).id))
+                    DataUtil.AudioForms.Remove((am.to as Member).id);
+              
+            }
         }
 
         
@@ -79,6 +102,7 @@ namespace Chatter.MetroClient.UI
             grid.ColumnDefinitions.RemoveAt(4);
             this.Width = 240;
 
+            flag = false;
             InitReceive();
 
 
@@ -99,10 +123,10 @@ namespace Chatter.MetroClient.UI
         private void btnStop_Click(object sender, MouseButtonEventArgs e)
         {
 
-            Close();
+            Shut();
         }
 
-       public  void Close()
+       public  void Shut()
         {
 
             if (!isFrom)
@@ -110,7 +134,7 @@ namespace Chatter.MetroClient.UI
                 ///拒绝语音请求
                 if (flag)
                 {
-                    new Thread(() =>
+                   Thread t= new Thread(() =>
                     {
                         DataUtil.Client.ResponseToRequest(new Result()
                         {
@@ -120,25 +144,45 @@ namespace Chatter.MetroClient.UI
                             Status = MessageStatus.Refuse
 
                         });
-                    }).Start();
+                    });
+                   t.IsBackground = true;
+                   t.Start();
                 }
 
                 ///挂断语音
                 else
                 {
 
-
+                    tau.Stop();
                 }
-
-                DataUtil.AudioForms.Remove((am.from as Member).id);
+              
 
             }
 
             else
             {
-                DataUtil.AudioForms.Remove((am.to as Member).id);
+                if (isStart)
+                {
+                    fau.Stop();
+                }
+                else
+                {
+                    CommandMessage cm = new CommandMessage()
+                    {
+                        CommandType = MyCommandType.CanceledAudioRequest,
+                        from = DataUtil.Member,
+                        to = role,
+                        type = MessageType.Command
+                    };
+                    DataUtil.Client.SendMesg(cm);
+                }
+               
             }
-            base.Close();
+            Dispatcher.Invoke(new Action(() =>
+            {
+
+                this.Close();
+            }));
         }
 
 
@@ -146,6 +190,7 @@ namespace Chatter.MetroClient.UI
 
        internal void Start(MyEndPoint endPoint)
        {
+           isStart = true;
            if (isFrom)
            {
               
@@ -160,13 +205,25 @@ namespace Chatter.MetroClient.UI
 
        internal void InitSend(MyEndPoint myEndPoint)
        {
-            fau = new FromAudioUtil(myEndPoint);
+            fau = new FromAudioUtil(myEndPoint,this);
            fau.InitWithServerHelp();
        }
        private void InitReceive()
        {
-            tau = new ToAudioUtil(am.ServerEndPoint);
+            tau = new ToAudioUtil(am.ServerEndPoint,this);
            tau.InitWithServerHelp();
+       }
+
+       internal void TheOtherCanceled()
+       {
+           if (tau != null)
+               tau.Stop();
+           else
+           {
+               if (DataUtil.AudioForms.ContainsKey((am.from as Member).id))
+                   DataUtil.AudioForms.Remove((am.from as Member).id);
+               this.Close();
+           }
        }
     }
 }

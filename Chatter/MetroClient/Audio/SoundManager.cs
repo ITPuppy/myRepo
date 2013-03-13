@@ -22,7 +22,7 @@ namespace Chatter.MetroClient.Audio
         private WaveOut _waveOut;
 
   
-        private Thread _playSound;
+     
         private AudioUtil au;
 
         public void StartRecordAndSend()
@@ -37,7 +37,7 @@ namespace Chatter.MetroClient.Audio
 
             int waveOutDevice = 0;
 
-            _waveIn = new WaveIn(WaveIn.Devices[0], 8000, 16, 1, 100);
+            _waveIn = new WaveIn(WaveIn.Devices[0], 8000, 16, 1, 400);
 
             _waveIn.BufferFull += new BufferFullHandler(_waveIn_BufferFull);
             _waveIn.Start();
@@ -81,11 +81,7 @@ namespace Chatter.MetroClient.Audio
                 _waveOut.Dispose();
             }
 
-            if (_playSound.IsAlive)
-            {
-                _playSound.Abort();
-            }
-
+           
 
         }
 

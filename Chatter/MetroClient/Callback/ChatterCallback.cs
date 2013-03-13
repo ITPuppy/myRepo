@@ -59,7 +59,7 @@ namespace Chatter.MetroClient.Callback
 
 
 
-            MyLogger.Logger.Debug(Thread.CurrentThread.ManagedThreadId);
+            SoundPlayer.Play();
 
 
             try
@@ -95,11 +95,17 @@ namespace Chatter.MetroClient.Callback
         private void ReceiveAudioMessage(Message mesg)
         {
 
+            DataUtil.FriendMessageTabItems[(mesg.from as Member).id].audioMenu.IsEnabled = false;
             AudioMessage am = mesg as AudioMessage;
-            AudioForm af = new AudioForm(am,false);
+            AudioForm af = new AudioForm(am, false);
+            af.Closed += new EventHandler((obj, args) => 
+            {
+                DataUtil.FriendMessageTabItems[(mesg.from as Member).id].audioMenu.IsEnabled = true;
+            }
+            );
             af.Show();
-           
-           
+
+
         }
 
         private void ReceiveCommandMessage(Message mesg)
@@ -108,7 +114,7 @@ namespace Chatter.MetroClient.Callback
             try
             {
                 CommandMessage cmdMesg = mesg as CommandMessage;
-                if (cmdMesg.CommandType == MyCommandType.Canceled)
+                if (cmdMesg.CommandType == MyCommandType.CanceledSendFile)
                 {
                     if (DataUtil.HasTransfer())
                     {
@@ -117,6 +123,10 @@ namespace Chatter.MetroClient.Callback
                             DataUtil.Transfer.transferTask[cmdMesg.Guid].TheOtherCancel(false);
                         }
                     }
+                }
+                else if (cmdMesg.CommandType == MyCommandType.CanceledAudioRequest)
+                {
+                    DataUtil.AudioForms[(mesg.from as Member).id].TheOtherCanceled();
                 }
             }
             catch (Exception ex)
@@ -127,14 +137,14 @@ namespace Chatter.MetroClient.Callback
 
         private void ReceiveFileMessage(Message mesg)
         {
-            SoundPlayer.Play();
+
             DataUtil.Transfer.ReceiveFile((FileMessage)mesg);
 
         }
 
         private void ReceiveTextMessage(Message mesg)
         {
-            SoundPlayer.Play();
+
 
 
             if (mesg.from is Member)
@@ -274,7 +284,7 @@ namespace Chatter.MetroClient.Callback
 
         public void ReponseToSouceClient(Result result)
         {
-            
+
 
 
 
@@ -337,8 +347,8 @@ namespace Chatter.MetroClient.Callback
                     {
 
                         DataUtil.AudioForms[result.Member.id].InitSend(result.EndPoint);
-                      
-                       
+
+
                     }
                     else if (result.Status == MessageStatus.Refuse)
                     {
@@ -356,12 +366,12 @@ namespace Chatter.MetroClient.Callback
         }
 
 
-        public void SendMyEndPoint(MyEndPoint endPoint,Member member,bool isFrom)
+        public void SendMyEndPoint(MyEndPoint endPoint, Member member, bool isFrom)
         {
 
             DataUtil.AudioForms[member.id].Start(endPoint);
-               
-            
+
+
         }
 
 
@@ -403,7 +413,7 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-        public IAsyncResult BeginSendMyEndPoint(MyEndPoint endPoint, Member member,bool isFrom, AsyncCallback callback, object asyncState)
+        public IAsyncResult BeginSendMyEndPoint(MyEndPoint endPoint, Member member, bool isFrom, AsyncCallback callback, object asyncState)
         {
             throw new NotImplementedException();
         }
@@ -442,6 +452,6 @@ namespace Chatter.MetroClient.Callback
         #endregion
 
 
-       
+
     }
 }

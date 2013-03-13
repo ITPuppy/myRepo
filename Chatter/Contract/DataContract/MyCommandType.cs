@@ -10,6 +10,8 @@ namespace Chatter.Contract.DataContract
    public enum MyCommandType
     {
         [EnumMember]
-        Canceled
+        CanceledSendFile,
+        [EnumMember]
+        CanceledAudioRequest
     }
 }

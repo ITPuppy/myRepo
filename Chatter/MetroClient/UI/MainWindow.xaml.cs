@@ -132,6 +132,7 @@ namespace Chatter.MetroClient.UI
                      }
                  }
              }));
+            sendHearBeatThread.IsBackground = true;
             sendHearBeatThread.Start();
         }
 

@@ -54,44 +54,9 @@ namespace Chatter.Host
                 host.Open();
 
             }
-            bool isAlive = true;
+          
 
-            new Thread(new ThreadStart(() =>
-            {
-                MyLogger.Logger.Info("开始接收心跳包");
-
-                while (isAlive)
-                {
-                    Thread.Sleep(1000);
-                    var hashTable = ChatterService.lastUpdateTable.Clone() as Hashtable;
-                    foreach (DictionaryEntry pair in hashTable)
-                    {
-                        if (new TimeSpan(DateTime.Now.Ticks).Subtract(new TimeSpan(Convert.ToDateTime(pair.Value).Ticks)).Seconds > 3)
-                        {
-
-                            var handler = ChatterService.Online[pair.Key] as ChatterService.ChatEventHandler;
-                            if (handler != null)
-                            {
-                                ChatterService service = handler.Target as ChatterService;
-                                if (service != null)
-                                {
-
-                                    service.Dispose();
-
-                                }
-                            }
-
-
-                            
-                        }
-
-
-                    }
-                }
-
-                MyLogger.Logger.Info("停止接收心跳包");
-            })).Start();
-
+            
             string s = String.Empty;
             while (true)
             {
@@ -109,7 +74,7 @@ namespace Chatter.Host
 
             }
 
-            isAlive = false;
+           ChatterService.isAlive = false;
             foreach (ServiceHost host in hosts)
             {
                 host.Close();

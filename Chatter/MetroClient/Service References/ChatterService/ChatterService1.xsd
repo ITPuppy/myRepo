@@ -138,7 +138,8 @@
   <xs:element name="CommandMessage" nillable="true" type="tns:CommandMessage" />
   <xs:simpleType name="MyCommandType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Canceled" />
+      <xs:enumeration value="CanceledSendFile" />
+      <xs:enumeration value="CanceledAudioRequest" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="MyCommandType" nillable="true" type="tns:MyCommandType" />

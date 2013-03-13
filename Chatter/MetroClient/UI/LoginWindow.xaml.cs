@@ -38,7 +38,14 @@ namespace Chatter.MetroClient.UI
         {
             InitializeComponent();
 
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(UnhandledExceptionHandler); 
            
+        }
+
+        private void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            MyLogger.Logger.Error("Unhandled Exception", e.ExceptionObject as Exception);
         }
 
 
