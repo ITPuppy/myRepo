@@ -109,8 +109,11 @@
   <wsdl:message name="IChatter_ReponseToSouceClient_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ReponseToSouceClient" />
   </wsdl:message>
-  <wsdl:message name="IChatter_SendMyEndPoint_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:SendMyEndPoint" />
+  <wsdl:message name="IChatter_SendUDPEndPoint_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendUDPEndPoint" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_SendTCPEndPoint_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendTCPEndPoint" />
   </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IChatter">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
@@ -181,8 +184,11 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReponseToSouceClient">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatter/ReponseToSouceClient" message="tns:IChatter_ReponseToSouceClient_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendMyEndPoint">
-      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendMyEndPoint" message="tns:IChatter_SendMyEndPoint_OutputCallbackMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendUDPEndPoint">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendUDPEndPoint" message="tns:IChatter_SendUDPEndPoint_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendTCPEndPoint">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatter/SendTCPEndPoint" message="tns:IChatter_SendTCPEndPoint_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IChatter" type="tns:IChatter">
@@ -335,8 +341,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SendMyEndPoint">
-      <soap12:operation soapAction="http://tempuri.org/IChatter/SendMyEndPoint" style="document" />
+    <wsdl:operation name="SendUDPEndPoint">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/SendUDPEndPoint" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTCPEndPoint">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/SendTCPEndPoint" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

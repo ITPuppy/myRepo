@@ -27,8 +27,9 @@ namespace Chatter.Contract.ServiceContract
         void ReponseToSouceClient(Result result);
 
         [OperationContract(IsOneWay = true)]
-        void SendMyEndPoint(MyEndPoint endPoint,Member member,bool isFrom);
+        void SendUDPEndPoint(MyEndPoint endPoint,Member member,bool isFrom);
 
-       
+        [OperationContract(IsOneWay = true)]
+        void SendTCPEndPoint(MyEndPoint endPoint, string guid);
     }
 }

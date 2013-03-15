@@ -21,11 +21,13 @@ namespace Chatter.MetroClient.TCP
         public SendFileUtil(FileMessage fm, UI.FileTransferGrid fileTransferGrid):
             base(fm,fileTransferGrid)
         {
+            initTCPClient();
         }
 
 
-        public override void Transfer()
+        public override void Transfer(MyEndPoint endPoint)
         {
+            this.remoteEP = new IPEndPoint(IPAddress.Parse(endPoint.Address), endPoint.Port);
             Send();
         }
 
@@ -35,14 +37,36 @@ namespace Chatter.MetroClient.TCP
 
             if (transferState != TransferState.Wating)
                 return;
+
+            new Thread(() =>
+            {
+                int i = 0;
+                while (i++ < 2)
+                {
+                    Socket punchingSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    punchingSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                     try
+                    {
+                         punchingSocket.Bind(localEP);
+                   
+                        punchingSocket.Connect(remoteEP);
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        MyLogger.Logger.Info("tcp打洞",ex);
+                    }
+                }
+
+            }).Start();
             new Thread(new ThreadStart(() =>
             {
 
                 try
                 {
-                    initTCPClient();
 
 
+                    client = myListener.Accept();
                     BeginSend();
                     client.Close();
                    
@@ -64,15 +88,13 @@ namespace Chatter.MetroClient.TCP
         {
 
             FileStream fs = null;
-            NetworkStream ns = null;
+            
             try
             {
 
                 transferState = TransferState.Running;
-                using (ns = client.GetStream())
-                {
-                    using (BufferedStream bs = new BufferedStream(ns))
-                    {
+                
+                    
 
                         using (fs = new FileStream(fm.Path, FileMode.Open, FileAccess.Read))
                         {
@@ -84,15 +106,15 @@ namespace Chatter.MetroClient.TCP
                             {
                                 int n = fs.Read(array, 0, BufferSize);
 
-                                bs.Write(array, 0, n);
+                                client.Send(array,0,n,SocketFlags.None);
 
                                 length += n;
 
                                 progress = (long)((double)length / fm.Size * 100);
                             }
                         }
-                    }
-                }
+                    
+                
 
 
 
@@ -114,10 +136,27 @@ namespace Chatter.MetroClient.TCP
 
         private void initTCPClient()
         {
-            client = new TcpClient();
-            IPAddress address = IPAddress.Parse(fm.EndPoint.Address);
 
-            client.Connect(address, fm.EndPoint.Port);
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
+             localEP = new IPEndPoint(DataUtil.LocalIPAddress, 0);
+
+            socket.Bind(localEP);
+            socket.Connect(new IPEndPoint(IPAddress.Parse(fm.EndPoint.Address), fm.EndPoint.Port));
+
+            byte[] buffer = Encoding.UTF8.GetBytes("1");
+
+            socket.Send(buffer);
+
+            localEP = socket.LocalEndPoint as IPEndPoint;
+            myListener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            myListener.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
+
+            myListener.Bind(localEP);
+            myListener.Listen(1);
+            MyLogger.Logger.Info("send :" + myListener.LocalEndPoint.ToString());
 
         }
 

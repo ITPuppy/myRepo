@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Chatter.MetroClient.UI;
@@ -13,13 +14,14 @@ namespace Chatter.MetroClient.TCP
 
 
         protected FileMessage fm;
-        protected TcpClient client;
+        protected Socket client;
+        protected Socket myListener;
         protected int BufferSize = 1024 * 1024;
         protected long progress;
         protected UI.FileTransferGrid fileTransferGrid;
         protected TransferState transferState = TransferState.Wating;
-
-
+        protected IPEndPoint localEP;
+        protected IPEndPoint remoteEP;
         public TransferFileUtil(FileMessage fm, FileTransferGrid fileTransferGrid)
         {
             this.fm = fm;
@@ -38,10 +40,15 @@ namespace Chatter.MetroClient.TCP
             }
         }
 
-        public abstract void Transfer();
+        public abstract void Transfer(MyEndPoint endPoint);
 
         public abstract void Completed();
 
+
+        public void Punch(MyEndPoint endPoint)
+        {
+            
+        }
     }
 
 

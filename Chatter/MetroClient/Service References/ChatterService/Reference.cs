@@ -1017,13 +1017,21 @@ namespace MetroClient.ChatterService {
         
         void EndReponseToSouceClient(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatter/SendMyEndPoint")]
-        void SendMyEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, bool isFrom);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatter/SendUDPEndPoint")]
+        void SendUDPEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, bool isFrom);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatter/SendMyEndPoint")]
-        System.IAsyncResult BeginSendMyEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, bool isFrom, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatter/SendUDPEndPoint")]
+        System.IAsyncResult BeginSendUDPEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, MetroClient.ChatterService.Member member, bool isFrom, System.AsyncCallback callback, object asyncState);
         
-        void EndSendMyEndPoint(System.IAsyncResult result);
+        void EndSendUDPEndPoint(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatter/SendTCPEndPoint")]
+        void SendTCPEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, string guid);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatter/SendTCPEndPoint")]
+        System.IAsyncResult BeginSendTCPEndPoint(MetroClient.ChatterService.MyEndPoint endPoint, string guid, System.AsyncCallback callback, object asyncState);
+        
+        void EndSendTCPEndPoint(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

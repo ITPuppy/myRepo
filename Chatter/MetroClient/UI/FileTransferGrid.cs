@@ -240,16 +240,11 @@ namespace Chatter.MetroClient.UI
             transferFileUtil = new ReceiveFileUtil(fm, this);
 
            ///初始化接收端口并
-            int port = ((ReceiveFileUtil)transferFileUtil).initTcpHost();
-            if (port == -1)
-            {
-                MyLogger.Logger.Error("文件取消接收");
-                CancelReceive();
-                return;
-            }
+            ((ReceiveFileUtil)transferFileUtil).initTcpHost();
+           
 
             ///开始等待接收
-            transferFileUtil.Transfer();
+         //   transferFileUtil.Transfer();
 
             ///通知发送端，告知自己的端口。
             ///目前无法实现非局域网tcp打洞
@@ -258,7 +253,7 @@ namespace Chatter.MetroClient.UI
                 Member = fm.from as Member,
                 Status = MessageStatus.Accept,
                 Type = MessageType.File,
-                EndPoint = new MyEndPoint() { Address = fm.EndPoint.Address, Port = port },
+                EndPoint = new MyEndPoint() { Address = fm.EndPoint.Address, Port = fm.EndPoint.Port },
                 Guid=fm.Guid
             });
             
@@ -267,16 +262,26 @@ namespace Chatter.MetroClient.UI
                    
             }
 
+        public void BeginTCPHolePunching(MyEndPoint endPoint)
+        {
+            transferFileUtil.Transfer(endPoint);
+
+        }
+
+
        /// <summary>
        /// 初始化socket，并开始发送
        /// </summary>
        /// <param name="endpoint"></param>
         public void BeginSendFile(MyEndPoint endpoint)
         {
-            fm.EndPoint = endpoint;
-             transferFileUtil = new SendFileUtil(fm,this);
+           
+                fm.EndPoint = endpoint;
+                transferFileUtil = new SendFileUtil(fm, this);
 
-             transferFileUtil.Transfer();
+              
+            
+           
         }
 
 

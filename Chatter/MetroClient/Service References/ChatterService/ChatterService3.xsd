@@ -212,12 +212,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendMyEndPoint">
+  <xs:element name="SendUDPEndPoint">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="endPoint" nillable="true" type="q20:MyEndPoint" />
         <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="member" nillable="true" type="q21:Member" />
         <xs:element minOccurs="0" name="isFrom" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendTCPEndPoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Chatter.Contract.DataContract" minOccurs="0" name="endPoint" nillable="true" type="q22:MyEndPoint" />
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -9,7 +9,7 @@ using Chatter.Contract.DataContract;
 using Chatter.Log;
 using Chatter.Service;
 
-namespace Service
+namespace Chatter.Service
 {
     class UDPHolePunching
     {
@@ -55,8 +55,8 @@ namespace Service
                     {
                         udpserver.ReceiveFrom(buffer, ref remoteEP);
                         string s = Encoding.UTF8.GetString(buffer);
-                        
-                        if(s=="1")
+
+                        if (s == "1")
                         {
                             if (isFromBack)
                                 continue;
@@ -74,13 +74,13 @@ namespace Service
 
                         if (isFromBack && isToBack)
                         {
-                            this.from.callback.SendMyEndPoint(new MyEndPoint()
+                            this.from.callback.SendUDPEndPoint(new MyEndPoint()
                             {
                                 Address = (toRemoteEP as IPEndPoint).Address.ToString(),
                                 Port = (toRemoteEP as IPEndPoint).Port
-                            },to.member,true);
+                            }, to.member, true);
 
-                            this.to.callback.SendMyEndPoint(new MyEndPoint()
+                            this.to.callback.SendUDPEndPoint(new MyEndPoint()
                             {
                                 Address = (fromRemoteEP as IPEndPoint).Address.ToString(),
                                 Port = (fromRemoteEP as IPEndPoint).Port
@@ -88,13 +88,13 @@ namespace Service
                             break;
                         }
                     }
-                    Console.WriteLine("打洞去吧");
+                    Console.WriteLine("udp打洞");
                 }
                 catch (Exception ex)
                 {
                     MyLogger.Logger.Error("接收udp包出错", ex);
                 }
-            }).Start();
+            }) { IsBackground=true}.Start();
 
 
 

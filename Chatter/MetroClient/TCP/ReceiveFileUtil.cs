@@ -16,7 +16,7 @@ namespace Chatter.MetroClient.TCP
 {
     public class ReceiveFileUtil : TransferFileUtil
     {
-        private TcpListener myListener;
+       
 
 
         public ReceiveFileUtil(FileMessage fm, UI.FileTransferGrid fileTransferGrid)
@@ -25,31 +25,46 @@ namespace Chatter.MetroClient.TCP
         }
 
 
-        public int initTcpHost()
+        public void initTcpHost()
         {
             try
             {
-              
-              
-
-                myListener = new TcpListener(DataUtil.LocalIPAddress, 0);
 
 
-                myListener.Start();
+                Socket socket = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
+                socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
+                 localEP = new IPEndPoint(DataUtil.LocalIPAddress, 0);
+
+                socket.Bind(localEP);
+                socket.Connect(new IPEndPoint(IPAddress.Parse(fm.EndPoint.Address),fm.EndPoint.Port));
+
+                byte[] buffer = Encoding.UTF8.GetBytes("2");
+
+                socket.Send(buffer);
+
+                localEP = socket.LocalEndPoint as IPEndPoint;
+                myListener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+                myListener.SetSocketOption(SocketOptionLevel.Socket,SocketOptionName.ReuseAddress, true);
 
 
+                myListener.Bind(localEP);
+                myListener.Listen(1);
 
-                return Convert.ToInt32(myListener.LocalEndpoint.ToString().Split(':')[1]);
+                MyLogger.Logger.Info("receive :"+myListener.LocalEndPoint.ToString());
+               
             }
             catch (Exception ex)
             {
                 MyLogger.Logger.Error("初始化接收文件服务器时出现错误"+fm.EndPoint.Address,ex);
-                return -1;
+               
             }
         }
 
-        public override void Transfer()
+        public override void Transfer(MyEndPoint endPoint)
         {
+            this.remoteEP = new IPEndPoint(IPAddress.Parse(endPoint.Address), endPoint.Port);
             Receive();
         }
 
@@ -60,10 +75,32 @@ namespace Chatter.MetroClient.TCP
                 return;
             try
             {
+
+                new Thread(() =>
+                {
+                    int i = 0;
+                    while (i++ < 2)
+                    {
+                        Socket punchingSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        punchingSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                        try
+                        {
+                            punchingSocket.Bind(localEP);
+                       
+                            punchingSocket.Connect(remoteEP);
+                            break;
+                        }
+                        catch (Exception ex)
+                        {
+                            MyLogger.Logger.Info("tcp打洞", ex);
+                        }
+                    }
+                   
+                }).Start();
                  new Thread(new ThreadStart(() =>
                 {
-                   
-                    client = myListener.AcceptTcpClient();
+
+                    client = myListener.Accept();
                     BeginReceive();
                     SoundPlayer.Play();
                     
@@ -81,16 +118,14 @@ namespace Chatter.MetroClient.TCP
         private void BeginReceive()
         {
             FileStream fs = null;
-            NetworkStream ns = null;
+            
             try
             {
 
                 transferState = TransferState.Running;
-                using (ns = client.GetStream())
-                {
+               
 
-                    using (BufferedStream bs = new BufferedStream(ns))
-                    {
+                  
 
                         using (File.Create(fm.Path))
                         {
@@ -108,7 +143,7 @@ namespace Chatter.MetroClient.TCP
                             while (length < fm.Size && transferState == TransferState.Running)
                             {
 
-                                int n = bs.Read(array, 0, BufferSize);
+                                int n = client.Receive(array);
 
                                 if (n == 0)
                                     throw new IOException();
@@ -123,8 +158,8 @@ namespace Chatter.MetroClient.TCP
 
 
                         }
-                    }
-                }
+                    
+                
 
 
              
@@ -162,10 +197,7 @@ namespace Chatter.MetroClient.TCP
                     fs.Close();
 
                 }
-                if (ns != null)
-                {
-                    ns.Close();
-                }
+              
                 transferState = TransferState.CanceledByTheOther;
                 MyLogger.Logger.Info("对方取消发送", ex);
                 if (File.Exists(fm.Path))
@@ -182,10 +214,7 @@ namespace Chatter.MetroClient.TCP
                     fs.Close();
 
                 }
-                if (ns != null)
-                {
-                    ns.Close();
-                }
+              
                 transferState = TransferState.InternetError;
                 MyLogger.Logger.Info("网络出现问题", ex);
                 if (File.Exists(fm.Path))
@@ -202,10 +231,7 @@ namespace Chatter.MetroClient.TCP
                     fs.Close();
 
                 }
-                if (ns != null)
-                {
-                    ns.Close();
-                }
+               
             }
 
 

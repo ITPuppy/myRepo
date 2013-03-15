@@ -12,7 +12,7 @@ using Chatter.Log;
 using System.Threading;
 using System.ServiceModel.PeerResolvers;
 using System.Net;
-using Service;
+
 
 
 
@@ -108,7 +108,7 @@ namespace Chatter.Service
         }
 
         private Hashtable groupHost = null;
-        public static bool isAlive=true;
+        public static bool isAlive = true;
 
         #endregion
 
@@ -198,10 +198,10 @@ namespace Chatter.Service
             //获取传进的消息属性
             System.ServiceModel.Channels.MessageProperties properties = context.IncomingMessageProperties;
             //获取消息发送的远程终结点IP和端口
-           var ep = properties[System.ServiceModel.Channels.RemoteEndpointMessageProperty.Name] as System.ServiceModel.Channels.RemoteEndpointMessageProperty;
-           endpoint = new MyEndPoint();
-           endpoint.Address = ep.Address;
-           endpoint.Port = ep.Port;
+            var ep = properties[System.ServiceModel.Channels.RemoteEndpointMessageProperty.Name] as System.ServiceModel.Channels.RemoteEndpointMessageProperty;
+            endpoint = new MyEndPoint();
+            endpoint.Address = ep.Address;
+            endpoint.Port = ep.Port;
         }
 
 
@@ -251,10 +251,10 @@ namespace Chatter.Service
             }
             catch (Exception ex)
             {
-                MyLogger.Logger.Error("获取好友列表失败",ex);
+                MyLogger.Logger.Error("获取好友列表失败", ex);
                 return null;
             }
-            
+
         }
 
 
@@ -269,12 +269,12 @@ namespace Chatter.Service
         public Result AddGroup(Group group)
         {
 
-           string groupId= DALService.AddGroup(group);
+            string groupId = DALService.AddGroup(group);
 
-           if (groupId == null)
+            if (groupId == null)
                 return new Result() { Status = MessageStatus.Failed };
             else
-                return new Result() { Status = MessageStatus.OK,Group=new Group(){ GroupId=groupId,Name=group.Name, OwnerId=group.OwnerId}};
+                return new Result() { Status = MessageStatus.OK, Group = new Group() { GroupId = groupId, Name = group.Name, OwnerId = group.OwnerId } };
         }
 
         public void AddFriend2Group(string friendId, string groupId)
@@ -302,9 +302,9 @@ namespace Chatter.Service
             }
             catch (Exception ex)
             {
-                MyLogger.Logger.Error("服务器添加成员到组出现错误",ex);
+                MyLogger.Logger.Error("服务器添加成员到组出现错误", ex);
             }
-            
+
         }
         #endregion
 
@@ -325,7 +325,7 @@ namespace Chatter.Service
                 }
                 else if (mesg is CommandMessage)
                 {
-                   return SendTextMessage(mesg);
+                    return SendTextMessage(mesg);
                 }
                 else if (mesg is AudioMessage)
                 {
@@ -367,15 +367,15 @@ namespace Chatter.Service
                     return MessageStatus.Refuse;
                 }
 
-                UDPHolePunching udp = new UDPHolePunching(this,service);
+                UDPHolePunching udp = new UDPHolePunching(this, service);
 
-               var serverEndPoint=udp.GetServerEndPoint();
-                if(serverEndPoint==null)
+                var serverEndPoint = udp.GetServerEndPoint();
+                if (serverEndPoint == null)
                 {
-                    throw(new Exception("UDP打洞Server Endpoint 初始化失败"));
+                    throw (new Exception("UDP打洞:Server Endpoint 初始化失败"));
                 }
                 AudioMessage am = mesg as AudioMessage;
-                am.ServerEndPoint = new MyEndPoint() {  Address=serverEndPoint.Address.ToString(),Port=serverEndPoint.Port};
+                am.ServerEndPoint = new MyEndPoint() { Address = serverEndPoint.Address.ToString(), Port = serverEndPoint.Port };
                 mesg = am;
                 service.callback.OnSendMessage(mesg);
 
@@ -409,14 +409,19 @@ namespace Chatter.Service
                     return MessageStatus.Refuse;
                 }
 
-               
-                
-                FileMessage fm=mesg as FileMessage;
-                fm.EndPoint = service.endpoint;
+                FileMessage fm = mesg as FileMessage;
+                TCPHolePunching tcpServer = new TCPHolePunching(this,service, fm.Guid) ;
+                var serverEndPoint = tcpServer.GetServerEndPoint();
+                if (serverEndPoint == null)
+                {
+                    throw (new Exception("TCP打洞:Server Endpoint 初始化失败"));
+                }
+
+                fm.EndPoint = new MyEndPoint() { Address = serverEndPoint.Address.ToString(), Port = serverEndPoint.Port };
                 mesg = fm;
                 service.callback.OnSendMessage(mesg);
 
-              
+
 
 
 
@@ -630,7 +635,7 @@ namespace Chatter.Service
             {
                 new Thread(new ThreadStart(() =>
                 {
-                    callback.ReponseToSouceClient(new Result() { Type= MessageType.AddFriend ,Status = MessageStatus.Failed, Mesg = "对方不在线" });
+                    callback.ReponseToSouceClient(new Result() { Type = MessageType.AddFriend, Status = MessageStatus.Failed, Mesg = "对方不在线" });
 
                 })).Start();
                 return;
@@ -658,7 +663,7 @@ namespace Chatter.Service
             ChatterService service = handler.Target as ChatterService;
             if (result.Status == MessageStatus.Accept)
             {
-                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Accept, Member = this.member, Type = MessageType.Audio , EndPoint = result.EndPoint });
+                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Accept, Member = this.member, Type = MessageType.Audio, EndPoint = result.EndPoint });
             }
 
             else if (result.Status == MessageStatus.Refuse)
@@ -671,12 +676,12 @@ namespace Chatter.Service
 
         public Result ResponseToSendFile(Result result)
         {
-           
+
             ChatEventHandler handler = Online[result.Member.Id] as ChatEventHandler;
             ChatterService service = handler.Target as ChatterService;
             if (result.Status == MessageStatus.Accept)
             {
-                service.callback.ReponseToSouceClient(new Result() {Status=MessageStatus.Accept,Member=this.member,Type=MessageType.File, Guid=result.Guid, EndPoint=result.EndPoint });
+                service.callback.ReponseToSouceClient(new Result() { Status = MessageStatus.Accept, Member = this.member, Type = MessageType.File, Guid = result.Guid, EndPoint = result.EndPoint });
             }
 
             else if (result.Status == MessageStatus.Refuse)
@@ -685,9 +690,9 @@ namespace Chatter.Service
             }
 
             return new Result();
-        
+
         }
-        
+
         /// <summary>
         /// 目的好友收到加好友请求调用
         /// 将是否接受的信息发给服务器
@@ -760,7 +765,7 @@ namespace Chatter.Service
 
             else if (result.Status == MessageStatus.Refuse)
             {
-                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方拒绝了您的添加好友请求", Status = MessageStatus.Refuse, Member = this.member, UserGroup = result.UserGroup ,Type=MessageType.AddFriend});
+                service.callback.ReponseToSouceClient(new Result() { Mesg = "对方拒绝了您的添加好友请求", Status = MessageStatus.Refuse, Member = this.member, UserGroup = result.UserGroup, Type = MessageType.AddFriend });
                 return new Result() { Status = MessageStatus.Refuse, Mesg = "成功通知对方", Type = MessageType.AddFriend };
             }
 
@@ -823,14 +828,14 @@ namespace Chatter.Service
             else
             {
                 this.Login(this.member);
-              
-                MyLogger.Logger.Debug(member.Id+" "+member.NickName+"重新上线");
+
+                MyLogger.Logger.Debug(member.Id + " " + member.NickName + "重新上线");
             }
         }
         #endregion
 
 
-        
+
 
 
 
@@ -844,9 +849,9 @@ namespace Chatter.Service
         {
             if (result.Type == MessageType.AddFriend)
             {
-               return ResponseToAddFriend(result);
+                return ResponseToAddFriend(result);
             }
-            else if(result.Type==MessageType.File)
+            else if (result.Type == MessageType.File)
             {
                 return ResponseToSendFile(result);
             }
@@ -861,7 +866,7 @@ namespace Chatter.Service
 
 
 
-        
+
     }
 
 

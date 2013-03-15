@@ -366,7 +366,7 @@ namespace Chatter.MetroClient.Callback
         }
 
 
-        public void SendMyEndPoint(MyEndPoint endPoint, Member member, bool isFrom)
+        public void SendUDPEndPoint(MyEndPoint endPoint, Member member, bool isFrom)
         {
 
             DataUtil.AudioForms[member.id].Start(endPoint);
@@ -374,7 +374,16 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-
+        public void SendTCPEndPoint(MyEndPoint endPoint, string guid)
+        {
+            if (DataUtil.HasTransfer())
+            {
+                if (DataUtil.Transfer.transferTask.ContainsKey(guid))
+                {
+                    DataUtil.Transfer.transferTask[guid].BeginTCPHolePunching(endPoint);
+                }
+            }
+        }
 
 
         #region useless
@@ -413,12 +422,12 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-        public IAsyncResult BeginSendMyEndPoint(MyEndPoint endPoint, Member member, bool isFrom, AsyncCallback callback, object asyncState)
+        public IAsyncResult BeginSendUDPEndPoint(MyEndPoint endPoint, Member member, bool isFrom, AsyncCallback callback, object asyncState)
         {
             throw new NotImplementedException();
         }
 
-        public void EndSendMyEndPoint(IAsyncResult result)
+        public void EndSendUDPEndPoint(IAsyncResult result)
         {
             throw new NotImplementedException();
         }
@@ -449,9 +458,24 @@ namespace Chatter.MetroClient.Callback
         {
             throw new NotImplementedException();
         }
+
+
+
+        public IAsyncResult BeginSendTCPEndPoint(MyEndPoint endPoint, string guid, AsyncCallback callback, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndSendTCPEndPoint(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
 
 
+
+
+      
     }
 }
