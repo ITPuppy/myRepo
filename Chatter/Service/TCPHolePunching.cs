@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using Chatter.Contract.DataContract;
+using Chatter.Log;
 
 namespace Chatter.Service
 {
@@ -72,17 +73,22 @@ namespace Chatter.Service
 
                     if (isFromBack && isToBack)
                     {
-                        this.from.callback.SendTCPEndPoint(new MyEndPoint()
-                        {
-                            Address = (toRemoteEP as IPEndPoint).Address.ToString(),
-                            Port = (toRemoteEP as IPEndPoint).Port
-                        }, guid);
+                       
 
                         this.to.callback.SendTCPEndPoint(new MyEndPoint()
                         {
                             Address = (fromRemoteEP as IPEndPoint).Address.ToString(),
                             Port = (fromRemoteEP as IPEndPoint).Port
                         }, guid);
+
+                        this.from.callback.SendTCPEndPoint(new MyEndPoint()
+                        {
+                            Address = (toRemoteEP as IPEndPoint).Address.ToString(),
+                            Port = (toRemoteEP as IPEndPoint).Port
+                        }, guid);
+
+                        MyLogger.Logger.Info("from:" + fromRemoteEP.ToString());
+                        MyLogger.Logger.Info("to:" + toRemoteEP.ToString());
 
                         break;
                     }

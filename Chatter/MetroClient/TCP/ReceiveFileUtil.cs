@@ -16,7 +16,7 @@ namespace Chatter.MetroClient.TCP
 {
     public class ReceiveFileUtil : TransferFileUtil
     {
-       
+        Thread t = null;
 
 
         public ReceiveFileUtil(FileMessage fm, UI.FileTransferGrid fileTransferGrid)
@@ -42,8 +42,9 @@ namespace Chatter.MetroClient.TCP
                 byte[] buffer = Encoding.UTF8.GetBytes("2");
 
                 socket.Send(buffer);
-
+              
                 localEP = socket.LocalEndPoint as IPEndPoint;
+                socket.Close();
                 myListener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 myListener.SetSocketOption(SocketOptionLevel.Socket,SocketOptionName.ReuseAddress, true);
@@ -51,9 +52,23 @@ namespace Chatter.MetroClient.TCP
 
                 myListener.Bind(localEP);
                 myListener.Listen(1);
-
-                MyLogger.Logger.Info("receive :"+myListener.LocalEndPoint.ToString());
+                t = new Thread(() =>
+                 {
+                     try
+                     {
+                         MyLogger.Logger.Info("我是接收端，开始等待发送端的connect");
+                         client = myListener.Accept();
+                         MyLogger.Logger.Info("我是接收端，accept发送端的connect");
+                     }
+                     catch (Exception) 
+                     {
+                         MyLogger.Logger.Info("接收端与发送端连接成功，停止accept");
+                     }
+                 }) { IsBackground = true };
+                t.Start();
+                MyLogger.Logger.Info("receive :" + myListener.LocalEndPoint.ToString());
                
+
             }
             catch (Exception ex)
             {
@@ -63,7 +78,7 @@ namespace Chatter.MetroClient.TCP
         }
 
         public override void Transfer(MyEndPoint endPoint)
-        {
+        { 
             this.remoteEP = new IPEndPoint(IPAddress.Parse(endPoint.Address), endPoint.Port);
             Receive();
         }
@@ -79,28 +94,40 @@ namespace Chatter.MetroClient.TCP
                 new Thread(() =>
                 {
                     int i = 0;
-                    while (i++ < 2)
+                    while (i++ < 10)
                     {
                         Socket punchingSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                         punchingSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                         try
                         {
+                            if (client != null)
+                                break;
                             punchingSocket.Bind(localEP);
-                       
+
                             punchingSocket.Connect(remoteEP);
+
+                            t.Abort();
+
+
+
+                            if (client == null)
+                                client = punchingSocket;
+                            MyLogger.Logger.Info("接收端与发送端连接成功" + remoteEP.Address + ":" + remoteEP.Port);
+                            t.Join();
                             break;
                         }
                         catch (Exception ex)
                         {
-                            MyLogger.Logger.Info("tcp打洞", ex);
+                            Thread.Sleep(1000);
+                            MyLogger.Logger.Info("receive 端异常，也正常" + remoteEP.Address + ":" + remoteEP.Port);
                         }
                     }
-                   
-                }).Start();
+
+                }) { IsBackground=true}.Start();
                  new Thread(new ThreadStart(() =>
                 {
 
-                    client = myListener.Accept();
+                    while (client == null) ;
                     BeginReceive();
                     SoundPlayer.Play();
                     
@@ -231,6 +258,8 @@ namespace Chatter.MetroClient.TCP
                     fs.Close();
 
                 }
+                if(client!=null)
+                    client.Close();
                
             }
 
