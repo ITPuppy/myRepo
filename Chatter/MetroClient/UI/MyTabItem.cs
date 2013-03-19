@@ -209,8 +209,7 @@ namespace Chatter.MetroClient.UI
                 {
 
 
-                    ///将组添加到记录里面
-                    DataUtil.Groups.Add(e.Result.Group);
+                   
 
                     ///在界面上添加组
                     myGrid.AddButton(MyType.Group, e.Result.Group);
@@ -343,7 +342,7 @@ namespace Chatter.MetroClient.UI
                     tabControl.Items.Add(tabItem);
                     DataUtil.FriendTabItems.Add(ug.userGroupId,tabItem);
                      ///将分组添加到记录里面
-                    DataUtil.UserGroups.Add(ug);
+                  //  DataUtil.UserGroups.Add(ug);
                     
                 }
             }

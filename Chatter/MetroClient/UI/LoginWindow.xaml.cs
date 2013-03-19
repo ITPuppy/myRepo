@@ -80,7 +80,7 @@ namespace Chatter.MetroClient.UI
             begin++;
             IsCurrentCanceled = false;
 
-            DataUtil.Client.GetFriends(member.id);
+          
 
             DataUtil.Client.LoginCompleted += client_LoginCompleted;
             DataUtil.Client.LoginAsync(member);

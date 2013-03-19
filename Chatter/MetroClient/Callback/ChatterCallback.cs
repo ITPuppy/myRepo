@@ -224,7 +224,7 @@ namespace Chatter.MetroClient.Callback
                         DataUtil.Client.ResponseToRequestCompleted += Client_ResponseToAddFriendCompleted;
                         Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                         {
-                            DataUtil.Client.ResponseToRequestAsync(new Result() { Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
+                            DataUtil.Client.ResponseToRequestAsync(new Result() {  Type= MessageType.AddFriend,Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
                         }));
                         break;
                     }
@@ -233,8 +233,7 @@ namespace Chatter.MetroClient.Callback
                     {
                         Group group = mesg.from as Group;
 
-                        ///将组添加到记录里面
-                        DataUtil.Groups.Add(group);
+                       
                         Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
                             {
                                 MyTabItem groupTabItem = DataUtil.TabControl.groupTabItem as MyTabItem;
@@ -289,7 +288,7 @@ namespace Chatter.MetroClient.Callback
                     MyMessageTabItem item = new MyMessageTabItem(MyType.User, e.Result.Member);
                     DataUtil.FriendMessageTabItems.Add(e.Result.Member.id, item);
                     DataUtil.MessageTabControl.Items.Add(item);
-
+                    
                 }
             }
             catch (Exception ex)
@@ -321,6 +320,7 @@ namespace Chatter.MetroClient.Callback
                     if (result.Status == MessageStatus.Accept)
                     {
                         MessageBox.Show("您已经与" + result.Member.nickName + "成为好友");
+
                         MyTabItem tabItem = DataUtil.FriendTabItems[result.UserGroup.userGroupId];
                         result.Member.status = MemberStatus.Online;
                         tabItem.myGrid.AddButton(MyType.User, result.Member);
@@ -328,7 +328,7 @@ namespace Chatter.MetroClient.Callback
                         MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.Member);
                         DataUtil.FriendMessageTabItems.Add(result.Member.id, item);
                         DataUtil.MessageTabControl.Items.Add(item);
-                        DataUtil.AddFriendTo(result.Member, result.UserGroup.userGroupId);
+                        //DataUtil.AddFriendTo(result.Member, result.UserGroup.userGroupId);
                     }
                     else
                     {

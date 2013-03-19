@@ -588,7 +588,15 @@ namespace Chatter.MetroClient.UI
         {
             
         
+            
             Member member= this.baseRole as Member;
+
+
+            if (member.id == DataUtil.Member.id)
+            {
+                MessageBox.Show("不能删除自己，请使用解散群功能");
+                return;
+            }
             DataUtil.Client.DeleteMemberCompleted += Client_DeleteMemberCompleted;
             DataUtil.Client.DeleteMemberAsync(member.id, baseRoleId);
            

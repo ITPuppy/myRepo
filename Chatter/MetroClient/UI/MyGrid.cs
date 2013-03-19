@@ -176,6 +176,8 @@ namespace Chatter.MetroClient.UI
 
             if (type == MyType.UserGroup)
             {
+
+                UserGroup userGroup = role as UserGroup;
                 int index = DataUtil.UserGroups.Count;
 
                 rowCount = (index) / columnCount + 1;
@@ -188,12 +190,15 @@ namespace Chatter.MetroClient.UI
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
-                // DataUtil.UserGroups.Add(userGroup);
+               // if(!DataUtil.UserGroups.Contains(userGroup))
+                 DataUtil.UserGroups.Add(userGroup);
 
             }
 
             else if (type == MyType.User)
             {
+
+                Member member = role as Member;
                 int index = DataUtil.GetMemberList(baseRoleId).Count;
 
                 rowCount = (index) / columnCount + 1;
@@ -208,13 +213,14 @@ namespace Chatter.MetroClient.UI
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
 
-
-                // DataUtil.AddMemberTo(member,userGroupId);
+               if( !DataUtil.IsFriend(member.id))
+                 DataUtil.AddFriendTo(member,baseRoleId);
             }
 
             else if (type == MyType.Group)
             {
-                int index = DataUtil.Groups.Count - 1;
+                Group g = role as Group;
+                int index = DataUtil.Groups.Count ;
 
                 rowCount = (index) / columnCount + 1;
                 InitRowAndColumn();
@@ -227,7 +233,9 @@ namespace Chatter.MetroClient.UI
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
-
+                ///将组添加到记录里面
+                if(!DataUtil.Groups.Contains(g))
+                    DataUtil.Groups.Add(role as Group);
 
             }
             else if (type == MyType.UserInGroup)
@@ -245,6 +253,8 @@ namespace Chatter.MetroClient.UI
                 Grid.SetColumn(button, index % columnCount);
                 Grid.SetRow(button, index / columnCount);
                 this.Children.Add(button);
+
+                DataUtil.AddMember2Group(role as Member, baseRoleId);
             }
 
 
@@ -352,6 +362,11 @@ namespace Chatter.MetroClient.UI
                             defaultTabItem.myGrid.AddButton(MyType.User, (friendArray[i].baseRole as Member));
                         }
 
+
+                        foreach (Member member in userGroup.members)
+                        {
+                            DataUtil.AddFriendTo(member, "0");
+                        }
 
 
                         int currentIndex = this.Children.IndexOf(btn);

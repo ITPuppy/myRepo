@@ -32,7 +32,7 @@ namespace Chatter.MetroClient.P2P
             {
                 var tabItem = DataUtil.GroupMemberTabItems[groupId];
                 tabItem.myGrid.AddButton(MyType.UserInGroup, member);
-                DataUtil.AddMember2Group(member, groupId);
+               
             }
             catch (Exception ex)
             {
