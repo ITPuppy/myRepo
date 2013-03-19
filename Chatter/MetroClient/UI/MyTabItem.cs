@@ -151,7 +151,7 @@ namespace Chatter.MetroClient.UI
                             cm.Items.Add(addGroupMenuItem);
                             this.ContextMenu = cm;
 
-                            myGrid = new MyGrid(MyType.Group);
+                            myGrid = new MyGrid(MyType.Group,this.baseRoleId);
                             DataUtil.Client.AddGroupCompleted += Client_AddGroupCompleted;
                             break;
                         }
@@ -208,7 +208,9 @@ namespace Chatter.MetroClient.UI
                 else
                 {
 
-                  
+
+                    ///将组添加到记录里面
+                    DataUtil.Groups.Add(e.Result.Group);
 
                     ///在界面上添加组
                     myGrid.AddButton(MyType.Group, e.Result.Group);
@@ -219,12 +221,14 @@ namespace Chatter.MetroClient.UI
                     tabControl.Items.Add(tabItem);
                    
                     DataUtil.GroupMemberTabItems.Add(e.Result.Group.GroupId, tabItem);
-                    ///将组添加到记录里面
-                    DataUtil.Groups.Add(e.Result.Group);
 
+                    ///添加group messageTabItem
+                    var msgTabItem = new MyMessageTabItem(MyType.Group, e.Result.Group);
+                    DataUtil.MessageTabControl.Items.Add(msgTabItem);
+                    DataUtil.GroupMessageTabItems.Add(e.Result.Group.GroupId, msgTabItem);
 
-                   
-
+                    ///群组udpclinet
+                    DataUtil.P2PClients.Add(e.Result.Group.GroupId, P2PClient.GetP2PClient(e.Result.Group.GroupId));
 
                 }
             }

@@ -64,6 +64,12 @@
   <wsdl:message name="IChatter_AddFriend2Group_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFriend2Group" />
   </wsdl:message>
+  <wsdl:message name="IChatter_DeleteMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMember" />
+  </wsdl:message>
+  <wsdl:message name="IChatter_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
   <wsdl:message name="IChatter_SendMesg_InputMessage">
     <wsdl:part name="parameters" element="tns:SendMesg" />
   </wsdl:message>
@@ -148,6 +154,12 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="AddFriend2Group">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/AddFriend2Group" message="tns:IChatter_AddFriend2Group_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="DeleteMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/DeleteMember" message="tns:IChatter_DeleteMember_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatter/DeleteGroup" message="tns:IChatter_DeleteGroup_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="SendMesg">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatter/SendMesg" message="tns:IChatter_SendMesg_InputMessage" />
@@ -266,6 +278,18 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/DeleteMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap12:operation soapAction="http://tempuri.org/IChatter/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="SendMesg">
       <soap12:operation soapAction="http://tempuri.org/IChatter/SendMesg" style="document" />
       <wsdl:input>
@@ -356,9 +380,9 @@
   </wsdl:binding>
   <wsdl:service name="ChatterService">
     <wsdl:port name="NetTcpBinding_IChatter" binding="tns:NetTcpBinding_IChatter">
-      <soap12:address location="net.tcp://222.26.186.164:9877/ChatterService" />
+      <soap12:address location="net.tcp://10.2.5.57:9877/ChatterService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://222.26.186.164:9877/ChatterService</wsa10:Address>
+        <wsa10:Address>net.tcp://10.2.5.57:9877/ChatterService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

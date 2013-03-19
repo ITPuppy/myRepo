@@ -579,6 +579,7 @@ namespace Chatter.DAL
                 cmd.Parameters.AddWithValue("groupId", group.GroupId);
                 cmd.Parameters.AddWithValue("name", group.Name);
                 cmd.Parameters.AddWithValue("ownerId", group.OwnerId);
+               
                 Prepare(cmd.Parameters);
                 StringBuilder sb = new StringBuilder();
                 if (group.GroupMember != null)
@@ -727,7 +728,7 @@ namespace Chatter.DAL
                         {
                             temp = reader["groupMember"].ToString();
                             MyLogger.Logger.Debug("删除前" + temp);
-                            temp = temp.Replace(groupId + ";", "");
+                            temp = temp.Replace(memberId + ";", "");
                             MyLogger.Logger.Debug("删除后" + temp);
                         }
                         else
@@ -747,8 +748,8 @@ namespace Chatter.DAL
 
                 sql = String.Format("update tblGroup set groupMember=?groupMember where groupId=?groupId");
                 cmd = new MySqlCommand(sql, Conn);
-
-                cmd.Parameters.AddWithValue("groupId", temp);
+                cmd.Parameters.AddWithValue("groupId", groupId);
+                cmd.Parameters.AddWithValue("groupMember", temp);
                 Prepare(cmd.Parameters);
                 int i = cmd.ExecuteNonQuery();
 

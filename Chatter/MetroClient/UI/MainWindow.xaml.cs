@@ -144,6 +144,7 @@ namespace Chatter.MetroClient.UI
             {
                 isAlive = false;
 
+               
                 DataUtil.Client.Abort();
             }
             catch (Exception ex)

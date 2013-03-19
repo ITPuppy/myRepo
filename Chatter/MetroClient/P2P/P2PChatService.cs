@@ -42,12 +42,63 @@ namespace Chatter.MetroClient.P2P
 
         public void DeleteMember(string memberId, string groupId)
         {
+            try
+            {
+
+
+                var tabItem = DataUtil.GroupMemberTabItems[groupId];
+                var button = tabItem.myGrid.GetButton(MyType.UserInGroup, memberId);
+                tabItem.myGrid.RemoveButton(MyType.UserInGroup, button);
+
+                if ((button.baseRole as Member).id == DataUtil.Member.id)
+                {
+                    DeleteGroup(groupId);
+                   
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("界面上删除群组成员时候出错", ex);
+            }
         }
+
 
 
         public void Join()
         {
 
+        }
+
+
+
+        public void Dispose()
+        {
+
+        }
+
+
+
+
+
+
+
+
+        public void DeleteGroup(string groupId)
+        {
+            try
+            {
+                var groupTabItems = DataUtil.TabControl.groupTabItem as MyTabItem;
+                var btn = groupTabItems.myGrid.GetButton(MyType.Group, groupId);
+                groupTabItems.myGrid.RemoveButton(MyType.Group, btn);
+
+                P2PClient.RemoveClient(groupId);
+
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("界面上删除群组时候出错", ex);
+            }
         }
     }
 }

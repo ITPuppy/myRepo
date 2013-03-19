@@ -330,5 +330,43 @@ namespace Chatter.MetroClient
             }
             return null;
         }
+
+        internal static void DeleteMemberFromGroup(string memberId, string groupId)
+        {
+            try
+            {
+                Group g = Groups.Find(new Predicate<Group>((tempG) =>
+                {
+                    return tempG.GroupId == groupId;
+                }));
+
+                if (g != null)
+                {
+                    List<Member> members = g.GroupMember.ToList<Member>();
+
+                    members.RemoveAt(members.FindIndex(new Predicate<Member>((m) => { return m.id == memberId; })));
+                    g.GroupMember = members.ToArray<Member>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("删除群组成员出错");
+                MyLogger.Logger.Error("删除群组成员出错", ex);
+            }
+        }
+
+        internal static void DeleteGroup(string groupId)
+        {
+            Group g = Groups.Find(new Predicate<Group>((tempG) => { return tempG.GroupId == groupId; }));
+
+            if (g != null)
+            {
+
+                Groups.Remove(g);
+            }
+            else
+                throw new Exception("没找到群组");
+        
+        }
     }
 }

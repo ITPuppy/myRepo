@@ -47,6 +47,12 @@ namespace Chatter.Contract.ServiceContract
         [OperationContract(IsInitiating = false, IsTerminating = false,IsOneWay=true)]
         void AddFriend2Group(string friendId, string groupId);
 
+        [OperationContract(IsInitiating = false, IsTerminating = false, IsOneWay = true)]
+        void DeleteMember(string memberId, string groupId);
+
+        [OperationContract(IsInitiating = false, IsTerminating = false, IsOneWay = true)]
+        void DeleteGroup( string groupId);
+
         #endregion
 
         #region 发送消息

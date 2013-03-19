@@ -246,13 +246,13 @@ namespace Chatter.MetroClient.UI
                 this.RowDefinitions.Add(row1);
                 this.RowDefinitions.Add(row2);
 
-                ///用户头像
+                ///成员头像
                 image = new Image();
                 image.Source = new BitmapImage(new Uri(imagesouce, UriKind.Relative));
                 image.Height = imageSize;
                 image.Width = imageSize;
                 Grid.SetRow(image, 0);
-                ///用户昵称
+                ///成员昵称
                 txtName = new TextBlock();
                 txtName.Text = member.nickName;
                 txtName.FontSize = fontSize;
@@ -260,7 +260,7 @@ namespace Chatter.MetroClient.UI
                 txtName.VerticalAlignment = VerticalAlignment.Center;
                 txtName.HorizontalAlignment = HorizontalAlignment.Center;
                 Grid.SetRow(txtName, 1);
-                ///添加用户头像
+                ///添加成员头像
                 this.Children.Add(image);
                 ///添加昵称
                 this.Children.Add(txtName);
@@ -400,42 +400,44 @@ namespace Chatter.MetroClient.UI
                 {
 
                     Member member = this.baseRole as Member;
-
-
                     ///删除好友图标。并将后面的好友前移
                     MyGrid myGrid = this.Parent as MyGrid;
 
-                    int currentIndex = myGrid.Children.IndexOf(this);
+                    myGrid.RemoveButton(MyType.User,this);
 
-                    ///删掉分组
-                    myGrid.Children.Remove(this);
+                    #region comment
+                   
+                    //int currentIndex = myGrid.Children.IndexOf(this);
 
-                    ///删除全局的分组记录
-                    DataUtil.DeleteFriend(member.id, this.baseRoleId);
+                    /////删掉分组
+                    //myGrid.Children.Remove(this);
 
-                    ///将后面的分组移除
-                    List<MyButton> temp = new List<MyButton>();
-                    for (; currentIndex < myGrid.Children.Count; )
-                    {
-                        temp.Add(myGrid.Children[currentIndex] as MyButton);
-                        myGrid.Children.RemoveAt(currentIndex);
+                    /////删除全局的分组记录
+                    //DataUtil.DeleteFriend(member.id, this.baseRoleId);
 
-                    }
-                    ///将后面的分组前移后加上
-                    foreach (MyButton button in temp)
-                    {
-                        Grid.SetRow(button, currentIndex / 3);
-                        Grid.SetColumn(button, currentIndex % 3);
-                        myGrid.Children.Add(button);
-                        currentIndex++;
-                    }
+                    /////将后面的分组移除
+                    //List<MyButton> temp = new List<MyButton>();
+                    //for (; currentIndex < myGrid.Children.Count; )
+                    //{
+                    //    temp.Add(myGrid.Children[currentIndex] as MyButton);
+                    //    myGrid.Children.RemoveAt(currentIndex);
 
-
-                    ///将message windows 删掉
-                    DataUtil.MessageTabControl.Items.Remove(DataUtil.FriendMessageTabItems[member.id]);
-                    DataUtil.FriendMessageTabItems.Remove(member.id);
+                    //}
+                    /////将后面的分组前移后加上
+                    //foreach (MyButton button in temp)
+                    //{
+                    //    Grid.SetRow(button, currentIndex / 3);
+                    //    Grid.SetColumn(button, currentIndex % 3);
+                    //    myGrid.Children.Add(button);
+                    //    currentIndex++;
+                    //}
 
 
+                    /////将message windows 删掉
+                    //DataUtil.MessageTabControl.Items.Remove(DataUtil.FriendMessageTabItems[member.id]);
+                    //DataUtil.FriendMessageTabItems.Remove(member.id);
+
+                    #endregion
 
                 }
 
@@ -519,48 +521,52 @@ namespace Chatter.MetroClient.UI
                 UserGroup userGroup = baseRole as UserGroup;
 
 
-                ///将好友移至默认分组
-
-                MyTabItem tabItem = DataUtil.FriendTabItems[userGroup.userGroupId];
-                MyButton[] friendArray = new MyButton[tabItem.myGrid.Children.Count];
-                tabItem.myGrid.Children.CopyTo(friendArray, 0);
-
-                MyTabItem defaultTabItem = DataUtil.FriendTabItems["0"];
-                for (int i = 0; i < friendArray.Length; i++)
-                {
-                    defaultTabItem.myGrid.AddButton(MyType.User, (friendArray[i].baseRole as Member));
-                }
-
-
-                ///删除原分组。并将后面的分组前移
                 MyGrid myGrid = this.Parent as MyGrid;
+                myGrid.RemoveButton(MyType.UserGroup, this);
 
-                int currentIndex = myGrid.Children.IndexOf(this);
-                ///删掉分组对应的好友分组
-                ParentTabControl.Items.Remove(DataUtil.FriendTabItems[userGroup.userGroupId]);
-                DataUtil.FriendTabItems.Remove(userGroup.userGroupId);
-                ///删掉分组
-                myGrid.Children.Remove(this);
 
-                ///删除全局的分组记录
-                DataUtil.DeleteUserGroup(userGroup.userGroupId);
+                #region comment
+                /////将好友移至默认分组
 
-                ///将后面的分组移除
-                List<MyButton> temp = new List<MyButton>();
-                for (; currentIndex < myGrid.Children.Count; )
-                {
-                    temp.Add(myGrid.Children[currentIndex] as MyButton);
-                    myGrid.Children.RemoveAt(currentIndex);
+                //MyTabItem tabItem = DataUtil.FriendTabItems[userGroup.userGroupId];
+                //MyButton[] friendArray = new MyButton[tabItem.myGrid.Children.Count];
+                //tabItem.myGrid.Children.CopyTo(friendArray, 0);
 
-                }
-                ///将后面的分组前移后加上
-                foreach (MyButton button in temp)
-                {
-                    Grid.SetRow(button, currentIndex / 3);
-                    Grid.SetColumn(button, currentIndex % 3);
-                    myGrid.Children.Add(button);
-                    currentIndex++;
-                }
+                //MyTabItem defaultTabItem = DataUtil.FriendTabItems["0"];
+                //for (int i = 0; i < friendArray.Length; i++)
+                //{
+                //    defaultTabItem.myGrid.AddButton(MyType.User, (friendArray[i].baseRole as Member));
+                //}
+
+
+               
+                //int currentIndex = myGrid.Children.IndexOf(this);
+                /////删掉分组对应的好友分组
+                //ParentTabControl.Items.Remove(DataUtil.FriendTabItems[userGroup.userGroupId]);
+                //DataUtil.FriendTabItems.Remove(userGroup.userGroupId);
+                /////删掉分组
+                //myGrid.Children.Remove(this);
+
+                /////删除全局的分组记录
+                //DataUtil.DeleteUserGroup(userGroup.userGroupId);
+
+                /////将后面的分组移除
+                //List<MyButton> temp = new List<MyButton>();
+                //for (; currentIndex < myGrid.Children.Count; )
+                //{
+                //    temp.Add(myGrid.Children[currentIndex] as MyButton);
+                //    myGrid.Children.RemoveAt(currentIndex);
+
+                //}
+                /////将后面的分组前移后加上
+                //foreach (MyButton button in temp)
+                //{
+                //    Grid.SetRow(button, currentIndex / 3);
+                //    Grid.SetColumn(button, currentIndex % 3);
+                //    myGrid.Children.Add(button);
+                //    currentIndex++;
+                //}
+                #endregion
             }
             catch (Exception ex)
             {
@@ -580,7 +586,33 @@ namespace Chatter.MetroClient.UI
         /// <param name="e"></param>
         private void deleteMemberFromGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            
+        
+            Member member= this.baseRole as Member;
+            DataUtil.Client.DeleteMemberCompleted += Client_DeleteMemberCompleted;
+            DataUtil.Client.DeleteMemberAsync(member.id, baseRoleId);
+           
+        }
 
+        void Client_DeleteMemberCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+
+            try
+            {
+                if (e.Error != null)
+                    throw e.Error;
+                Member member = this.baseRole as Member;
+                DataUtil.P2PClients[baseRoleId].DeleteGroupMember(member.id);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("删除成员时候出错", ex);
+                MessageBox.Show("网络出现异常");
+            }
+            finally
+            {
+                DataUtil.Client.DeleteMemberCompleted -= Client_DeleteMemberCompleted;
+            }
         }
 
         /// <summary>
@@ -590,7 +622,31 @@ namespace Chatter.MetroClient.UI
         /// <param name="e"></param>
         void dismissGroupMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            
+            Group group=baseRole as Group;
+            DataUtil.Client.DeleteGroupCompleted += Client_DeleteGroupCompleted;
+            DataUtil.Client.DeleteGroupAsync(group.GroupId);
+        }
+
+        void Client_DeleteGroupCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+
+            try
+            {
+                if (e.Error != null)
+                    throw e.Error;
+                Group group = baseRole as Group;
+                DataUtil.P2PClients[group.GroupId].DeleteGroup(group.GroupId);
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.Error("删除群组时候出错", ex);
+                MessageBox.Show("网络出现异常");
+            }
+            finally
+            {
+                DataUtil.Client.DeleteGroupCompleted -= Client_DeleteGroupCompleted;
+            }
+           
         }
         /// <summary>
         /// 点击事件

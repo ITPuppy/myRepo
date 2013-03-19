@@ -1,0 +1,5318 @@
+日 志 时 间:  2013-03-19 11:25:06,978 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 11:25:07,057 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 11:25:07,061 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 11:25:25,786 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.<.cctor>b__1(e:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 11:25:25,799 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:25:26,221 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:25:26,222 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:25:46,740 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:25:46,741 
+日 志 级 别:  ERROR
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:142)
+日 志 内 容:  776041669登录时候出现错误
+ System.ArgumentException: Item has already been added. Key in dictionary: '776041669'  Key being added: '776041669'
+   at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at Chatter.Service.ChatterService.Login(Member member) in e:\code\myRepo\Chatter\Service\ChatterService.cs:line 142
+
+
+日 志 时 间:  2013-03-19 11:25:49,771 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:25:49,776 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:25:49,778 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 11:25:59,917 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.TCPHolePunching+<>c__DisplayClass6.<.ctor>b__3(e:\code\myRepo\Chatter\Service\TCPHolePunching.cs:90)
+日 志 内 容:  from:10.2.5.57:50717
+ 
+
+日 志 时 间:  2013-03-19 11:25:59,918 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.TCPHolePunching+<>c__DisplayClass6.<.ctor>b__3(e:\code\myRepo\Chatter\Service\TCPHolePunching.cs:91)
+日 志 内 容:  to:10.2.5.57:50716
+ 
+
+日 志 时 间:  2013-03-19 11:26:52,654 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:26:52,655 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:27:08,088 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:27:08,089 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:27:08,090 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 11:27:40,081 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 11:27:40,082 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:27:41,821 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:27:41,821 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:27:42,882 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:27:42,883 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:27:42,884 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:27:45,147 
+日 志 级 别:  WARN
+日 志 来 源: [13]::Chatter.Service.ChatterService.HandleEvent(e:\code\myRepo\Chatter\Service\ChatterService.cs:564)
+日 志 内 容:  回调失败776041669
+ 
+
+日 志 时 间:  2013-03-19 11:27:46,526 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:27:46,528 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:27:46,529 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 11:28:16,738 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:28:16,739 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:28:16,998 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:28:17,003 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:28:17,004 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 11:28:17,006 
+日 志 级 别:  DEBUG
+日 志 来 源: [17]::Chatter.Service.ChatterService.SendHeartBeat(e:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 11:28:29,827 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:28:29,828 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:28:30,829 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 11:28:30,830 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:28:37,695 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:28:37,696 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:29:25,013 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:29:26,215 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 11:30:36,226 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:30:37,866 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:30:37,867 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:30:37,875 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:30:37,875 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:54:20,906 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:54:20,907 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:54:21,818 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:54:21,820 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:54:21,820 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:54:26,759 
+日 志 级 别:  DEBUG
+日 志 来 源: [37]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:424)
+日 志 内 容:  删除前4177319;88888888;776041668;1234002;1234001;
+ 
+
+日 志 时 间:  2013-03-19 11:54:26,761 
+日 志 级 别:  DEBUG
+日 志 来 源: [37]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:428)
+日 志 内 容:  删除后4177319;88888888;776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 11:55:11,561 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:424)
+日 志 内 容:  删除前4177319;88888888;776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 11:55:11,563 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:428)
+日 志 内 容:  删除后4177319;88888888;776041668;
+ 
+
+日 志 时 间:  2013-03-19 11:55:16,690 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:55:16,691 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:55:16,988 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:55:16,996 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:55:16,998 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:55:17,001 
+日 志 级 别:  DEBUG
+日 志 来 源: [37]::Chatter.Service.ChatterService.SendHeartBeat(e:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 11:55:21,913 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:55:21,913 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:55:27,083 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:55:27,086 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:55:27,087 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:55:27,090 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.Service.ChatterService.SendHeartBeat(e:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 11:55:38,925 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:55:38,925 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:56:09,778 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 11:56:09,779 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 11:56:09,780 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 11:56:14,534 
+日 志 级 别:  DEBUG
+日 志 来 源: [26]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:424)
+日 志 内 容:  删除前4177319;88888888;776041668;
+ 
+
+日 志 时 间:  2013-03-19 11:56:14,537 
+日 志 级 别:  DEBUG
+日 志 来 源: [26]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:428)
+日 志 内 容:  删除后4177319;776041668;
+ 
+
+日 志 时 间:  2013-03-19 11:56:27,644 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:56:27,645 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 11:56:34,297 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Logoff(e:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 11:56:34,298 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 12:53:55,115 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 12:53:55,117 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.Login(e:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 12:53:55,117 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.PrintOnLineNumber(e:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:05:04,030 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:05:04,075 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:05:04,078 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:50:28,706 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 13:50:28,721 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:50:29,342 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:50:29,343 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:50:35,234 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:50:35,237 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:50:35,237 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:50:42,409 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:50:42,412 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:50:42,431 
+日 志 级 别:  ERROR
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:753)
+日 志 内 容:  从群组中删除用户出现错误
+
+ MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?groupMember' must be defined.
+   at MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   at MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   at MySql.Data.MySqlClient.Statement.BindParameters()
+   at MySql.Data.MySqlClient.PreparableStatement.Execute()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at Chatter.DAL.DALService.DeleteMemberFromGroup(String groupId, String memberId) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 753
+
+
+日 志 时 间:  2013-03-19 13:51:08,055 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,059 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,060 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,060 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,061 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,066 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,067 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,069 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,070 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,071 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,075 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:51:08,077 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 13:51:21,396 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:51:21,398 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:51:21,404 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:51:21,405 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:51:31,812 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:51:34,639 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:52:02,222 
+日 志 级 别:  ERROR
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:753)
+日 志 内 容:  从群组中删除用户出现错误
+
+ MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?groupMember' must be defined.
+   at MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   at MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   at MySql.Data.MySqlClient.Statement.BindParameters()
+   at MySql.Data.MySqlClient.PreparableStatement.Execute()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at Chatter.DAL.DALService.DeleteMemberFromGroup(String groupId, String memberId) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 753
+
+
+日 志 时 间:  2013-03-19 13:52:02,671 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,179 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,181 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,182 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,183 
+日 志 级 别:  ERROR
+日 志 来 源: [3]::Chatter.DAL.DALService.IsMember(f:\code\myRepo\Chatter\DAL\DALService.cs:317)
+日 志 内 容:  查询是否为合法用户时出现错误
+ MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at Chatter.DAL.DALService.IsMember(String id, String pwd) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 317
+
+
+日 志 时 间:  2013-03-19 13:52:15,185 
+日 志 级 别:  DEBUG
+日 志 来 源: [10]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,186 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:135)
+日 志 内 容:  用户776041669 walle登录失败
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,188 
+日 志 级 别:  DEBUG
+日 志 来 源: [3]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,190 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:52:15,192 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:52:19,234 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:52:19,235 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:52:20,193 
+日 志 级 别:  WARN
+日 志 来 源: [11]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:564)
+日 志 内 容:  回调失败776041668
+ 
+
+日 志 时 间:  2013-03-19 13:52:20,194 
+日 志 级 别:  WARN
+日 志 来 源: [12]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:564)
+日 志 内 容:  回调失败776041668
+ 
+
+日 志 时 间:  2013-03-19 13:52:28,839 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:52:28,927 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:52:28,931 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:52:31,230 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 13:52:31,249 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:52:31,656 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:52:31,657 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:52:37,599 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:52:37,601 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:52:37,602 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:52:47,188 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:52:47,190 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 13:52:47,193 
+日 志 级 别:  ERROR
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:753)
+日 志 内 容:  从群组中删除用户出现错误
+
+ MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?groupMember' must be defined.
+   at MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   at MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   at MySql.Data.MySqlClient.Statement.BindParameters()
+   at MySql.Data.MySqlClient.PreparableStatement.Execute()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at Chatter.DAL.DALService.DeleteMemberFromGroup(String groupId, String memberId) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 753
+
+
+日 志 时 间:  2013-03-19 13:53:56,099 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:53:56,103 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:53:57,084 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:53:57,088 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:54:36,922 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:54:36,988 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:54:36,991 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:54:44,449 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 13:54:44,462 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:54:44,809 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:54:44,810 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:54:49,406 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:54:49,409 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:54:49,409 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:54:53,962 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:54:53,964 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 13:54:53,967 
+日 志 级 别:  ERROR
+日 志 来 源: [9]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:753)
+日 志 内 容:  从群组中删除用户出现错误
+
+ MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?groupId' must be defined.
+   at MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   at MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   at MySql.Data.MySqlClient.Statement.BindParameters()
+   at MySql.Data.MySqlClient.PreparableStatement.Execute()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at Chatter.DAL.DALService.DeleteMemberFromGroup(String groupId, String memberId) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 753
+
+
+日 志 时 间:  2013-03-19 13:55:29,084 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:55:29,087 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:55:30,057 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:55:30,061 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:55:46,379 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:55:46,423 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:55:46,426 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 13:55:49,923 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 13:55:49,935 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:55:50,235 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:55:50,236 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:55:59,006 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:55:59,009 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:55:59,010 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:56:01,404 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:56:01,406 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 13:56:35,535 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:56:35,537 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:56:36,710 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:56:36,710 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:56:39,468 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:56:39,469 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:56:39,469 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:56:43,305 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:56:43,307 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:56:43,307 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:56:54,931 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:56:54,931 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:56:54,932 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:56:54,932 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 13:57:16,110 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:57:16,112 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:57:16,113 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:57:19,592 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:57:19,593 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:57:19,594 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:57:37,217 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户771234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:57:37,218 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:135)
+日 志 内 容:  用户771234001 登录失败
+ 
+
+日 志 时 间:  2013-03-19 13:57:41,477 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:57:41,479 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:57:41,480 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 13:57:50,264 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:57:50,265 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:57:50,371 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:57:50,374 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:57:50,375 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 13:57:50,376 
+日 志 级 别:  DEBUG
+日 志 来 源: [13]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 13:57:51,111 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:57:51,112 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:57:51,233 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 13:57:51,237 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 13:57:51,239 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 13:57:51,243 
+日 志 级 别:  DEBUG
+日 志 来 源: [5]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 13:58:27,221 
+日 志 级 别:  DEBUG
+日 志 来 源: [10]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 13:58:27,223 
+日 志 级 别:  DEBUG
+日 志 来 源: [10]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 13:59:25,966 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 13:59:25,967 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 13:59:25,967 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 13:59:25,967 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 13:59:25,968 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 13:59:25,968 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:00:21,287 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:00:21,288 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:00:21,475 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:00:21,476 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:00:21,479 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:00:21,479 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:03:00,554 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:03:00,556 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:03:00,556 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:03:06,739 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:03:06,740 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:03:06,740 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:03:10,377 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:03:10,378 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:03:10,379 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:03:22,993 
+日 志 级 别:  DEBUG
+日 志 来 源: [22]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:729)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:03:22,995 
+日 志 级 别:  DEBUG
+日 志 来 源: [22]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:731)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 14:03:39,905 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:03:39,906 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:03:40,486 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:03:40,486 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:03:45,016 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:03:45,016 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:04:40,870 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:04:40,871 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:09:58,720 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:09:58,722 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:09:58,724 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:10:02,332 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:10:02,333 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:10:02,334 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:10:10,090 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:10:10,091 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:10:10,092 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:11:48,094 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:11:48,094 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:11:53,933 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:13:53,092 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:13:57,058 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:02,966 
+日 志 级 别:  INFO
+日 志 来 源: [34]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,419 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,423 
+日 志 级 别:  ERROR
+日 志 来 源: [37]::Chatter.DAL.DALService.IsMember(f:\code\myRepo\Chatter\DAL\DALService.cs:317)
+日 志 内 容:  查询是否为合法用户时出现错误
+ MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at Chatter.DAL.DALService.IsMember(String id, String pwd) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 317
+
+
+日 志 时 间:  2013-03-19 14:14:04,427 
+日 志 级 别:  ERROR
+日 志 来 源: [34]::Chatter.DAL.DALService.IsMember(f:\code\myRepo\Chatter\DAL\DALService.cs:317)
+日 志 内 容:  查询是否为合法用户时出现错误
+ MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at Chatter.DAL.DALService.IsMember(String id, String pwd) in f:\code\myRepo\Chatter\DAL\DALService.cs:line 317
+
+
+日 志 时 间:  2013-03-19 14:14:04,429 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,442 
+日 志 级 别:  INFO
+日 志 来 源: [37]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:135)
+日 志 内 容:  用户1234001 登录失败
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,444 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,438 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,446 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,449 
+日 志 级 别:  INFO
+日 志 来 源: [34]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:135)
+日 志 内 容:  用户776041669 登录失败
+ 
+
+日 志 时 间:  2013-03-19 14:14:04,450 
+日 志 级 别:  DEBUG
+日 志 来 源: [32]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:14:08,444 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:14:16,789 
+日 志 级 别:  INFO
+日 志 来 源: [42]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:18,513 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:14:18,516 
+日 志 级 别:  INFO
+日 志 来 源: [42]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:18,517 
+日 志 级 别:  INFO
+日 志 来 源: [42]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:14:22,313 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:23,203 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:23,204 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:14:31,034 
+日 志 级 别:  INFO
+日 志 来 源: [34]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:31,037 
+日 志 级 别:  INFO
+日 志 来 源: [34]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:31,037 
+日 志 级 别:  INFO
+日 志 来 源: [34]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:14:39,138 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:14:39,139 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:14:39,610 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:39,612 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:39,613 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:14:39,622 
+日 志 级 别:  DEBUG
+日 志 来 源: [32]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,432 
+日 志 级 别:  INFO
+日 志 来 源: [42]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,432 
+日 志 级 别:  INFO
+日 志 来 源: [42]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,589 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,589 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,590 
+日 志 级 别:  WARN
+日 志 来 源: [35]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:564)
+日 志 内 容:  回调失败776041669
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,590 
+日 志 级 别:  WARN
+日 志 来 源: [40]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:564)
+日 志 内 容:  回调失败776041669
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,614 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,616 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,616 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,617 
+日 志 级 别:  DEBUG
+日 志 来 源: [32]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,786 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 Tom请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,788 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 Tom登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,789 
+日 志 级 别:  INFO
+日 志 来 源: [32]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:14:48,790 
+日 志 级 别:  DEBUG
+日 志 来 源: [32]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  1234001 Tom重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:17:02,499 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:17:02,500 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:17:03,882 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:17:03,884 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:17:03,887 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:17:03,888 
+日 志 级 别:  DEBUG
+日 志 来 源: [33]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:17:08,499 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:17:08,499 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:17:16,482 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:17:16,485 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:17:16,486 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:17:16,494 
+日 志 级 别:  DEBUG
+日 志 来 源: [29]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:17:20,499 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:17:20,499 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:17:24,205 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:17:24,208 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:17:24,213 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:17:24,214 
+日 志 级 别:  DEBUG
+日 志 来 源: [29]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:17:47,500 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:17:47,500 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:18:18,159 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:18:18,161 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:18:18,163 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:18:18,164 
+日 志 级 别:  DEBUG
+日 志 来 源: [20]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:19:18,047 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:19:18,049 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:19:19,069 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:19:19,073 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:19:22,212 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:19:22,214 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:19:24,432 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:19:24,434 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:19:24,434 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:19:39,501 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:19:39,501 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:19:44,955 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:19:44,956 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:19:44,956 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:20:02,502 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:20:02,502 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:20:02,926 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:20:02,931 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:20:02,932 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:20:02,934 
+日 志 级 别:  DEBUG
+日 志 来 源: [14]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:20:35,656 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:20:35,657 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:20:46,503 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:20:46,503 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:20:50,458 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:20:50,461 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:20:50,462 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:20:50,463 
+日 志 级 别:  DEBUG
+日 志 来 源: [26]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:21:19,505 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:21:19,505 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:21:21,937 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:21:21,938 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:21:21,939 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:21:44,506 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:21:44,506 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:21:45,134 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:21:45,149 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:21:45,154 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:21:45,160 
+日 志 级 别:  DEBUG
+日 志 来 源: [33]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:22:02,507 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:22:02,508 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:22:10,459 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:22:10,462 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:22:10,463 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:22:10,467 
+日 志 级 别:  DEBUG
+日 志 来 源: [24]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:22:15,233 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:22:15,234 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:22:15,336 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:22:15,340 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:22:15,341 
+日 志 级 别:  INFO
+日 志 来 源: [26]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:22:15,343 
+日 志 级 别:  DEBUG
+日 志 来 源: [26]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:22:23,508 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:22:23,508 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:22:36,816 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:22:36,818 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:22:36,819 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:22:36,827 
+日 志 级 别:  DEBUG
+日 志 来 源: [17]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:22:41,509 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:22:41,509 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:23:13,245 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:23:13,246 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:23:13,247 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:23:33,510 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:23:33,510 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:23:36,816 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:23:36,817 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:23:41,850 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:23:41,863 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:23:41,864 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:23:41,871 
+日 志 级 别:  DEBUG
+日 志 来 源: [17]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:23:48,511 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:23:48,511 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:24:44,105 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:24:44,106 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:26:28,846 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:26:28,848 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:26:28,849 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:27:22,512 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:27:22,512 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:27:41,323 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:27:41,326 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:27:41,327 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:27:41,328 
+日 志 级 别:  DEBUG
+日 志 来 源: [19]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:832)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:27:54,258 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:27:54,259 
+日 志 级 别:  INFO
+日 志 来 源: [33]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:30:00,575 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:30:00,577 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:30:00,578 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:30:25,535 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:30:25,536 
+日 志 级 别:  ERROR
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:142)
+日 志 内 容:  776041669登录时候出现错误
+ System.ArgumentException: Item has already been added. Key in dictionary: '776041669'  Key being added: '776041669'
+   at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at Chatter.Service.ChatterService.Login(Member member) in f:\code\myRepo\Chatter\Service\ChatterService.cs:line 142
+
+
+日 志 时 间:  2013-03-19 14:30:27,514 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:30:27,514 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:30:30,280 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:30:30,283 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:30:30,283 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:30:33,695 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:30:33,697 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:30:33,697 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:30:43,346 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:30:43,347 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:30:43,347 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:31:22,770 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:31:22,771 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:31:22,914 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:31:22,915 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:31:26,515 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:31:26,515 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:31:42,866 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:31:42,868 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:31:42,868 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:31:54,516 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:31:54,516 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:31:55,528 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:31:55,529 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:32:21,237 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:32:21,238 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:32:21,940 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:32:21,941 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:32:50,456 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:32:50,456 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:584)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:38:14,811 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 14:38:14,883 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 14:38:14,886 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 14:40:25,586 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 14:40:25,598 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:40:25,942 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:40:25,943 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:41:48,449 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:41:48,454 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:41:48,454 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:42:11,650 
+日 志 级 别:  DEBUG
+日 志 来 源: [7]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前776041669;
+ 
+
+日 志 时 间:  2013-03-19 14:42:11,652 
+日 志 级 别:  DEBUG
+日 志 来 源: [7]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 14:42:19,360 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:42:19,361 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:42:34,600 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:42:34,601 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:43:30,194 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:43:30,194 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:46:15,278 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:46:15,279 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:46:15,280 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:46:26,068 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:46:26,070 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:46:26,070 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:46:33,179 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:46:33,181 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:46:33,182 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 14:46:59,043 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 14:46:59,044 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:47:00,264 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:47:00,264 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:47:01,095 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:47:01,096 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:47:59,588 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:47:59,589 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:47:59,589 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:48:04,835 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:48:04,837 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:48:04,837 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:48:25,936 
+日 志 级 别:  DEBUG
+日 志 来 源: [15]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:48:25,937 
+日 志 级 别:  DEBUG
+日 志 来 源: [15]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 14:48:36,466 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:48:36,467 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:48:42,625 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:48:42,625 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:49:38,616 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:49:38,617 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:50:10,600 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:50:10,602 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:50:10,602 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:50:17,714 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:50:17,716 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:50:17,716 
+日 志 级 别:  INFO
+日 志 来 源: [22]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:51:09,626 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:51:09,626 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:51:10,443 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 Tom请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:51:10,445 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 Tom登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:51:10,445 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:51:10,446 
+日 志 级 别:  DEBUG
+日 志 来 源: [11]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  1234001 Tom重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:51:14,627 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:51:14,627 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:51:31,498 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 Tom请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:51:31,501 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 Tom登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:51:31,502 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:51:31,503 
+日 志 级 别:  DEBUG
+日 志 来 源: [11]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  1234001 Tom重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:51:35,629 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:51:35,629 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:52:42,498 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:52:42,499 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:54:14,023 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:54:14,024 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:54:14,025 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:54:14,659 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:54:14,659 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:54:21,792 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:54:21,793 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:54:21,793 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:54:36,729 
+日 志 级 别:  DEBUG
+日 志 来 源: [31]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:54:36,750 
+日 志 级 别:  DEBUG
+日 志 来 源: [31]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 14:54:53,340 
+日 志 级 别:  DEBUG
+日 志 来 源: [33]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:54:53,342 
+日 志 级 别:  DEBUG
+日 志 来 源: [33]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 14:55:10,007 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:55:10,008 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:55:10,387 
+日 志 级 别:  INFO
+日 志 来 源: [36]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:55:10,389 
+日 志 级 别:  INFO
+日 志 来 源: [36]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:55:10,390 
+日 志 级 别:  INFO
+日 志 来 源: [36]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:55:10,391 
+日 志 级 别:  DEBUG
+日 志 来 源: [36]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:56:59,676 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:56:59,676 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:57:02,674 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:57:02,678 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:57:02,679 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:57:02,680 
+日 志 级 别:  DEBUG
+日 志 来 源: [30]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:57:09,372 
+日 志 级 别:  DEBUG
+日 志 来 源: [31]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:57:09,373 
+日 志 级 别:  DEBUG
+日 志 来 源: [31]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 14:58:40,166 
+日 志 级 别:  INFO
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:58:40,168 
+日 志 级 别:  ERROR
+日 志 来 源: [31]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:142)
+日 志 内 容:  776041669登录时候出现错误
+ System.ArgumentException: Item has already been added. Key in dictionary: '776041669'  Key being added: '776041669'
+   at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at Chatter.Service.ChatterService.Login(Member member) in f:\code\myRepo\Chatter\Service\ChatterService.cs:line 142
+
+
+日 志 时 间:  2013-03-19 14:58:40,687 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:58:40,687 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:58:41,687 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:58:41,687 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 14:58:41,804 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:58:41,807 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:58:41,807 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:58:48,286 
+日 志 级 别:  INFO
+日 志 来 源: [36]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:58:48,288 
+日 志 级 别:  INFO
+日 志 来 源: [36]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:58:48,288 
+日 志 级 别:  INFO
+日 志 来 源: [36]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:58:55,117 
+日 志 级 别:  DEBUG
+日 志 来 源: [39]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:424)
+日 志 内 容:  删除前4177319;776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:58:55,119 
+日 志 级 别:  DEBUG
+日 志 来 源: [39]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:428)
+日 志 内 容:  删除后4177319;776041668;
+ 
+
+日 志 时 间:  2013-03-19 14:59:03,363 
+日 志 级 别:  DEBUG
+日 志 来 源: [36]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:59:03,364 
+日 志 级 别:  DEBUG
+日 志 来 源: [36]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 14:59:36,435 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 14:59:36,436 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:59:36,555 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:59:36,557 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:59:36,558 
+日 志 级 别:  INFO
+日 志 来 源: [35]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:59:36,559 
+日 志 级 别:  DEBUG
+日 志 来 源: [35]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,424 
+日 志 级 别:  INFO
+日 志 来 源: [39]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,425 
+日 志 级 别:  INFO
+日 志 来 源: [39]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,447 
+日 志 级 别:  WARN
+日 志 来 源: [34]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:568)
+日 志 内 容:  回调失败1234001
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,447 
+日 志 级 别:  WARN
+日 志 来 源: [6]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:568)
+日 志 内 容:  回调失败1234001
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,449 
+日 志 级 别:  WARN
+日 志 来 源: [37]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:568)
+日 志 内 容:  回调失败1234001
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,787 
+日 志 级 别:  INFO
+日 志 来 源: [39]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 Tom请求登录
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,790 
+日 志 级 别:  INFO
+日 志 来 源: [39]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 Tom登录成功
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,791 
+日 志 级 别:  INFO
+日 志 来 源: [39]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 14:59:37,791 
+日 志 级 别:  DEBUG
+日 志 来 源: [39]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  1234001 Tom重新上线
+ 
+
+日 志 时 间:  2013-03-19 14:59:42,519 
+日 志 级 别:  DEBUG
+日 志 来 源: [35]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 14:59:42,521 
+日 志 级 别:  DEBUG
+日 志 来 源: [35]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 15:00:43,706 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:00:43,707 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:00:43,707 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:00:43,708 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:01:10,162 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:01:10,163 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:01:39,013 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:01:39,015 
+日 志 级 别:  INFO
+日 志 来 源: [28]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:01:39,794 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:01:39,795 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:02:44,697 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:02:44,698 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:02:44,699 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:02:51,435 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:02:51,436 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:02:51,437 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:03:04,851 
+日 志 级 别:  DEBUG
+日 志 来 源: [27]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前1234001;
+ 
+
+日 志 时 间:  2013-03-19 15:03:04,852 
+日 志 级 别:  DEBUG
+日 志 来 源: [27]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 15:03:31,725 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:03:31,725 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:03:35,011 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 Tom请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:03:35,017 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 Tom登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:03:35,018 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:03:35,018 
+日 志 级 别:  DEBUG
+日 志 来 源: [24]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  1234001 Tom重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:03:50,729 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:03:50,729 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:04:46,116 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:04:46,117 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:10:05,637 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:10:05,638 
+日 志 级 别:  ERROR
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:142)
+日 志 内 容:  776041669登录时候出现错误
+ System.ArgumentException: Item has already been added. Key in dictionary: '776041669'  Key being added: '776041669'
+   at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at Chatter.Service.ChatterService.Login(Member member) in f:\code\myRepo\Chatter\Service\ChatterService.cs:line 142
+
+
+日 志 时 间:  2013-03-19 15:10:06,783 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:10:06,783 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:10:07,477 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:10:07,479 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:10:07,480 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:10:10,497 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:10:10,500 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:10:10,500 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:10:28,834 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前776041669;
+ 
+
+日 志 时 间:  2013-03-19 15:10:28,835 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后
+ 
+
+日 志 时 间:  2013-03-19 15:10:58,796 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:10:58,796 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:11:02,684 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:11:02,685 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:11:03,099 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:11:03,100 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:11:03,100 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:11:03,101 
+日 志 级 别:  DEBUG
+日 志 来 源: [21]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:11:08,203 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:11:08,207 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:11:08,208 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:11:08,209 
+日 志 级 别:  DEBUG
+日 志 来 源: [20]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:11:19,799 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:11:19,800 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:11:21,808 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:11:21,816 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:11:21,817 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:11:21,818 
+日 志 级 别:  DEBUG
+日 志 来 源: [4]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:11:33,728 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:11:33,729 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:11:47,576 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:11:47,577 
+日 志 级 别:  ERROR
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:142)
+日 志 内 容:  776041669登录时候出现错误
+ System.ArgumentException: Item has already been added. Key in dictionary: '776041669'  Key being added: '776041669'
+   at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at Chatter.Service.ChatterService.Login(Member member) in f:\code\myRepo\Chatter\Service\ChatterService.cs:line 142
+
+
+日 志 时 间:  2013-03-19 15:11:50,649 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:11:50,652 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:11:50,653 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:12:13,805 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:12:13,806 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:12:14,806 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:12:14,806 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:12:47,567 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:12:47,568 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:13:05,628 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:13:05,629 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:13:09,424 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:13:09,425 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:13:10,333 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:13:10,334 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:18:32,354 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:18:32,356 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:18:32,357 
+日 志 级 别:  INFO
+日 志 来 源: [23]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:18:37,537 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:18:37,538 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:18:37,539 
+日 志 级 别:  INFO
+日 志 来 源: [24]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:19:13,858 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:19:13,859 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:19:26,819 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:19:26,822 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:135)
+日 志 内 容:  用户776041668 登录失败
+ 
+
+日 志 时 间:  2013-03-19 15:19:31,110 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:19:31,114 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:19:31,115 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:19:34,581 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:19:34,582 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:19:45,668 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:19:45,672 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:19:45,673 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:20:09,665 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:20:09,667 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:20:10,163 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:20:10,166 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:20:10,167 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:20:10,169 
+日 志 级 别:  DEBUG
+日 志 来 源: [25]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:836)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:20:16,867 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:20:16,867 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:20:26,321 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:20:26,323 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:20:26,325 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:20:37,870 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:20:37,870 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:20:44,872 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:20:44,872 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:588)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:21:12,372 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:21:34,008 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:21:40,889 
+日 志 级 别:  INFO
+日 志 来 源: [29]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:25:45,987 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 15:25:46,041 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 15:25:46,044 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 15:25:49,729 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 15:25:49,741 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:25:50,033 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:25:50,034 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:26:19,261 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:26:19,263 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:26:19,263 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:26:40,943 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:26:40,946 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:181)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:26:40,947 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 15:27:18,629 
+日 志 级 别:  INFO
+日 志 来 源: [6]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:27:18,630 
+日 志 级 别:  INFO
+日 志 来 源: [6]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:27:23,739 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:27:23,740 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:27:27,741 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:27:27,741 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:28:19,644 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:28:19,645 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:28:23,269 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:211)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:28:23,270 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:601)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:37:42,270 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 15:37:42,335 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 15:37:42,340 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 15:37:46,074 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 15:37:46,091 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:37:46,439 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:37:46,440 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:37:51,540 
+日 志 级 别:  DEBUG
+日 志 来 源: [6]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:424)
+日 志 内 容:  删除前4177319;88888888;776041669;1234001;1234002;
+ 
+
+日 志 时 间:  2013-03-19 15:37:51,543 
+日 志 级 别:  DEBUG
+日 志 来 源: [6]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:428)
+日 志 内 容:  删除后4177319;88888888;776041669;1234002;
+ 
+
+日 志 时 间:  2013-03-19 15:38:03,134 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:38:03,138 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:38:03,138 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:38:09,692 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:38:09,693 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:38:24,973 
+日 志 级 别:  INFO
+日 志 来 源: [6]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:38:24,975 
+日 志 级 别:  INFO
+日 志 来 源: [6]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:38:24,975 
+日 志 级 别:  INFO
+日 志 来 源: [6]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:38:47,082 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:38:47,082 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:39:43,068 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:39:43,069 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:40:42,620 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:40:42,621 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:40:51,152 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:40:51,154 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:40:51,155 
+日 志 级 别:  INFO
+日 志 来 源: [17]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:41:23,374 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:41:23,376 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:41:36,710 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:41:36,711 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:41:54,253 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:41:54,255 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:41:54,256 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:42:02,739 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:42:02,742 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:42:02,742 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:42:06,099 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:42:06,102 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:42:06,103 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 15:42:19,676 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 15:42:19,677 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 15:42:38,656 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:42:38,656 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:42:45,956 
+日 志 级 别:  DEBUG
+日 志 来 源: [13]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:424)
+日 志 内 容:  删除前4177319;776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 15:42:45,957 
+日 志 级 别:  DEBUG
+日 志 来 源: [13]::Chatter.DAL.DALService.DeleteFriend(f:\code\myRepo\Chatter\DAL\DALService.cs:428)
+日 志 内 容:  删除后4177319;776041668;
+ 
+
+日 志 时 间:  2013-03-19 15:43:26,089 
+日 志 级 别:  DEBUG
+日 志 来 源: [23]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 15:43:26,091 
+日 志 级 别:  DEBUG
+日 志 来 源: [23]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 15:43:31,577 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:43:31,581 
+日 志 级 别:  ERROR
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:142)
+日 志 内 容:  776041668登录时候出现错误
+ System.ArgumentException: Item has already been added. Key in dictionary: '776041668'  Key being added: '776041668'
+   at System.Collections.Hashtable.Insert(Object key, Object nvalue, Boolean add)
+   at Chatter.Service.ChatterService.Login(Member member) in f:\code\myRepo\Chatter\Service\ChatterService.cs:line 142
+
+
+日 志 时 间:  2013-03-19 15:43:32,663 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:43:32,663 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:43:32,664 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:43:32,665 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:43:33,325 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:43:33,328 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:43:33,329 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:43:34,572 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:43:34,577 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:43:36,600 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:43:36,603 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:43:36,604 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:43:39,579 
+日 志 级 别:  WARN
+日 志 来 源: [10]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:594)
+日 志 内 容:  回调失败776041668
+ 
+
+日 志 时 间:  2013-03-19 15:43:42,117 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:43:42,119 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:43:42,120 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 15:44:24,671 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:44:24,672 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,455 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,456 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,820 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,821 
+日 志 级 别:  WARN
+日 志 来 源: [10]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:594)
+日 志 内 容:  回调失败776041668
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,822 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,843 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,847 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,848 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,851 
+日 志 级 别:  DEBUG
+日 志 来 源: [27]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:862)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,930 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 eva请求登录
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,934 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 eva登录成功
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,936 
+日 志 级 别:  INFO
+日 志 来 源: [27]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 15:44:28,938 
+日 志 级 别:  DEBUG
+日 志 来 源: [27]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:862)
+日 志 内 容:  776041668 eva重新上线
+ 
+
+日 志 时 间:  2013-03-19 15:44:51,677 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:44:51,678 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 15:44:52,678 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:44:52,679 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:44:56,679 
+日 志 级 别:  WARN
+日 志 来 源: [10]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:594)
+日 志 内 容:  回调失败776041669
+ 
+
+日 志 时 间:  2013-03-19 15:44:56,679 
+日 志 级 别:  WARN
+日 志 来 源: [20]::Chatter.Service.ChatterService.HandleEvent(f:\code\myRepo\Chatter\Service\ChatterService.cs:594)
+日 志 内 容:  回调失败776041669
+ 
+
+日 志 时 间:  2013-03-19 15:45:20,108 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 15:45:20,110 
+日 志 级 别:  INFO
+日 志 来 源: [21]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:45:31,573 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:45:31,574 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:45:47,150 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 15:45:47,152 
+日 志 级 别:  INFO
+日 志 来 源: [25]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 15:45:48,363 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 15:45:48,364 
+日 志 级 别:  INFO
+日 志 来 源: [30]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:614)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 16:00:10,033 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:00:10,115 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:00:10,119 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:01:05,696 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 16:01:05,719 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:01:08,910 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:01:08,910 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 16:01:22,274 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:01:22,284 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:01:22,284 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:01:29,029 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 16:01:29,030 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 16:01:44,057 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:01:44,059 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:01:44,059 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:01:52,604 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 16:01:52,604 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 16:02:12,825 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:02:12,827 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:02:12,828 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:02:17,165 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:02:17,168 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:02:17,168 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 16:02:28,924 
+日 志 级 别:  DEBUG
+日 志 来 源: [3]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:730)
+日 志 内 容:  删除前776041668;1234001;
+ 
+
+日 志 时 间:  2013-03-19 16:02:28,932 
+日 志 级 别:  DEBUG
+日 志 来 源: [3]::Chatter.DAL.DALService.DeleteMemberFromGroup(f:\code\myRepo\Chatter\DAL\DALService.cs:732)
+日 志 内 容:  删除后776041668;
+ 
+
+日 志 时 间:  2013-03-19 16:02:48,251 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 16:02:48,252 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:02:48,315 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 walle请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:02:48,319 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 walle登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:02:48,320 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 16:02:48,322 
+日 志 级 别:  DEBUG
+日 志 来 源: [9]::Chatter.Service.ChatterService.SendHeartBeat(f:\code\myRepo\Chatter\Service\ChatterService.cs:874)
+日 志 内 容:  776041669 walle重新上线
+ 
+
+日 志 时 间:  2013-03-19 16:03:34,615 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 16:03:34,615 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:04:30,100 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 16:04:30,101 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:05:31,331 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:05:31,334 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:05:31,335 
+日 志 级 别:  INFO
+日 志 来 源: [19]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:3
+ 
+
+日 志 时 间:  2013-03-19 16:05:40,217 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 16:05:40,219 
+日 志 级 别:  INFO
+日 志 来 源: [20]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:05:48,630 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041669 walle退出
+ 
+
+日 志 时 间:  2013-03-19 16:05:48,630 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 16:05:55,631 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户776041668 eva退出
+ 
+
+日 志 时 间:  2013-03-19 16:05:55,631 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:0
+ 
+
+日 志 时 间:  2013-03-19 16:06:15,493 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__1(f:\code\myRepo\Chatter\Host\Program.cs:52)
+日 志 内 容:  RegisterService已经关闭
+ 
+
+日 志 时 间:  2013-03-19 16:06:15,634 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:105)
+日 志 内 容:  停止接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 16:06:22,681 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:06:22,751 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:06:22,755 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:06:28,286 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 16:06:28,299 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户1234001 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:06:28,643 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户1234001 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:06:28,644 
+日 志 级 别:  INFO
+日 志 来 源: [5]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 16:06:35,599 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041669 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:06:35,602 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041669 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:06:35,602 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:06:42,782 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.Logoff(f:\code\myRepo\Chatter\Service\ChatterService.cs:224)
+日 志 内 容:  用户1234001 Tom退出
+ 
+
+日 志 时 间:  2013-03-19 16:06:42,783 
+日 志 级 别:  INFO
+日 志 来 源: [4]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:1
+ 
+
+日 志 时 间:  2013-03-19 16:06:59,023 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:127)
+日 志 内 容:  用户776041668 请求登录
+ 
+
+日 志 时 间:  2013-03-19 16:06:59,025 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.Login(f:\code\myRepo\Chatter\Service\ChatterService.cs:194)
+日 志 内 容:  用户776041668 登录成功
+ 
+
+日 志 时 间:  2013-03-19 16:06:59,025 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.Service.ChatterService.PrintOnLineNumber(f:\code\myRepo\Chatter\Service\ChatterService.cs:634)
+日 志 内 容:  当前在线人数:2
+ 
+
+日 志 时 间:  2013-03-19 16:10:33,266 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:10:33,345 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:10:33,349 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+
+日 志 时 间:  2013-03-19 16:11:11,251 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:74)
+日 志 内 容:  开始接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 16:11:11,251 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__1(f:\code\myRepo\Chatter\Host\Program.cs:52)
+日 志 内 容:  RegisterService已经关闭
+ 
+
+日 志 时 间:  2013-03-19 16:11:11,253 
+日 志 级 别:  INFO
+日 志 来 源: [7]::Chatter.Service.ChatterService.<.cctor>b__1(f:\code\myRepo\Chatter\Service\ChatterService.cs:105)
+日 志 内 容:  停止接收心跳包
+ 
+
+日 志 时 间:  2013-03-19 16:11:11,254 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__1(f:\code\myRepo\Chatter\Host\Program.cs:52)
+日 志 内 容:  ChatterService已经关闭
+ 
+
+日 志 时 间:  2013-03-19 16:11:11,255 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__1(f:\code\myRepo\Chatter\Host\Program.cs:52)
+日 志 内 容:  CustomPeerResolverService已经关闭
+ 
+

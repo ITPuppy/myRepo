@@ -22,17 +22,27 @@ namespace Chatter.MetroClient.Callback
     {
         public void OnLogin(string id)
         {
-            string userGroupId = DataUtil.GetUserGroupIdByMember(id);
-            if (userGroupId != null)
+          
+
+            foreach (MyTabItem item in DataUtil.FriendTabItems.Values)
             {
-                MyTabItem tabItem = DataUtil.FriendTabItems[userGroupId];
-                MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
-
-                btn.ChangeMemberStatus(MemberStatus.Online);
-                DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
-                DataUtil.FriendMessageTabItems[id].audioMenu.SetStatus(MemberStatus.Online);
+                var btn = item.myGrid.GetButton(MyType.User, id);
+                if (btn != null)
+                {
+                    btn.ChangeMemberStatus(MemberStatus.Online);
+                    DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Online);
+                    DataUtil.FriendMessageTabItems[id].audioMenu.SetStatus(MemberStatus.Online);
+                    break;
+                }
             }
-
+            foreach(MyTabItem item in DataUtil.GroupMemberTabItems.Values)
+            {
+                var btn=item.myGrid.GetButton(MyType.UserInGroup, id);
+                if (btn != null)
+                {
+                    btn.ChangeMemberStatus(MemberStatus.Online);
+                }
+            }
 
         }
 
@@ -40,15 +50,26 @@ namespace Chatter.MetroClient.Callback
 
         public void OnLogoff(string id)
         {
-            string userGroupId = DataUtil.GetUserGroupIdByMember(id);
-            if (userGroupId != null)
-            {
-                MyTabItem tabItem = DataUtil.FriendTabItems[userGroupId];
-                MyButton btn = tabItem.myGrid.GetButton(MyType.User, id);
 
-                btn.ChangeMemberStatus(MemberStatus.Offline);
-                DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
-                DataUtil.FriendMessageTabItems[id].audioMenu.SetStatus(MemberStatus.Offline);
+            foreach (MyTabItem item in DataUtil.FriendTabItems.Values)
+            {
+                var btn = item.myGrid.GetButton(MyType.User, id);
+                if (btn != null)
+                {
+                    btn.ChangeMemberStatus(MemberStatus.Offline);
+                    DataUtil.FriendMessageTabItems[id].sendFileMenu.SetStatus(MemberStatus.Offline);
+                    DataUtil.FriendMessageTabItems[id].audioMenu.SetStatus(MemberStatus.Offline);
+                    break;
+                }
+            }
+
+            foreach (MyTabItem item in DataUtil.GroupMemberTabItems.Values)
+            {
+                var btn = item.myGrid.GetButton(MyType.UserInGroup, id);
+                if (btn != null)
+                {
+                    btn.ChangeMemberStatus(MemberStatus.Offline);
+                }
             }
 
         }

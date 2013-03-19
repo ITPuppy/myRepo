@@ -118,10 +118,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IChatter" contract="ChatterService.IChatter" bindingType="netTcpBinding" address="net.tcp://222.26.186.164:9877/ChatterService" bindingConfiguration="NetTcpBinding_IChatter">
+    <endpoint name="NetTcpBinding_IChatter" contract="ChatterService.IChatter" bindingType="netTcpBinding" address="net.tcp://10.2.5.57:9877/ChatterService" bindingConfiguration="NetTcpBinding_IChatter">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://222.26.186.164:9877/ChatterService</serializedValue>
+          <serializedValue>net.tcp://10.2.5.57:9877/ChatterService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

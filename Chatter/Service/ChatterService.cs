@@ -89,7 +89,7 @@ namespace Chatter.Service
                                 if (service != null)
                                 {
 
-                                    service.Dispose();
+                                  service.Dispose();
 
                                 }
                             }
@@ -166,7 +166,20 @@ namespace Chatter.Service
                     }
                 }
 
+                var groups = DALService.GetAllGroups(member.Id);
+                foreach (var group in groups)
+                {
+                    foreach (Member m in group.GroupMember)
+                    {
+                        if (Online.ContainsKey(m.Id)&&!(friends.ContainsKey(m.Id)))
+                        {
 
+                            ChatEvent += Online[m.Id] as ChatEventHandler;
+                        }
+                    }
+                }
+
+                
                 ///广播消息 将登录退出的消息发给好友
                 BroadCatMessage(e);
                 ///加锁，防止多线程同时访问
@@ -260,7 +273,20 @@ namespace Chatter.Service
 
         public List<Group> GetGroups(string id)
         {
-            return DALService.GetAllGroups(id);
+            var groups= DALService.GetAllGroups(id);
+
+            foreach (var group in groups)
+            {
+                foreach (Member member in group.GroupMember)
+                {
+                    if (Online.ContainsKey(member.Id))
+                        member.Status = MemberStatus.Online;
+                    else
+                        member.Status = MemberStatus.Offline;
+                }
+            }
+            return groups;
+
         }
         #endregion
 
@@ -274,7 +300,11 @@ namespace Chatter.Service
             if (groupId == null)
                 return new Result() { Status = MessageStatus.Failed };
             else
-                return new Result() { Status = MessageStatus.OK, Group = new Group() { GroupId = groupId, Name = group.Name, OwnerId = group.OwnerId } };
+                return new Result() { Status = MessageStatus.OK, Group = new Group() { 
+                    GroupId = groupId, 
+                    Name = group.Name,
+                    OwnerId = group.OwnerId,
+                    GroupMember = new List<Member>() { DALService.GetMember(group.OwnerId) } } };
         }
 
         public void AddFriend2Group(string friendId, string groupId)
@@ -287,17 +317,37 @@ namespace Chatter.Service
                     return;
                 ChatEventHandler handler = Online[friendId] as ChatEventHandler;
                 ChatterService service = handler.Target as ChatterService;
-
+                var g=DALService.GetGroupByGroupId(groupId);
                 new Thread(new ThreadStart(() =>
                 {
                     service.callback.RequestToTargetClient(new Message()
                     {
                         Type = MessageType.AddFriend2Group,
-                        From = DALService.GetGroupByGroupId(groupId),
+                        From = g,
 
                         To = service.member
                     });
                 })).Start();
+
+                foreach (Member m in g.GroupMember)
+                {
+                    if (Online.ContainsKey(m.Id))
+                    {
+                        ChatEventHandler h = Online[friendId] as ChatEventHandler;
+                        ChatterService s = h.Target as ChatterService;
+
+                        if (!s.friends.ContainsKey(friendId))
+                        {
+                            s.BindEventHandler(service.myEventHandler);
+                        }
+                        if (!service.friends.ContainsKey(m.Id))
+                        {
+                            service.BindEventHandler(s.myEventHandler);
+                        }
+                        
+                    }
+                }
+
 
             }
             catch (Exception ex)
@@ -537,8 +587,8 @@ namespace Chatter.Service
             ChatterService friendChatterService = sender as ChatterService;
 
 
-            ///    判断是否为自己的好友，正常情况都是 ，因为只给好友广播消息
-            if (friends.ContainsKey(e.Id) && Online.ContainsKey(member.Id))
+          
+            if (Online.ContainsKey(member.Id))
             {
                 try
                 {
@@ -717,40 +767,10 @@ namespace Chatter.Service
 
                 ChatEventHandler sourceHandler = Online[result.Member.Id] as ChatEventHandler;
 
-                bool isHandlerExist = false;
-                if (ChatEvent != null)
-                {
-                    foreach (ChatEventHandler tempHandler in ChatEvent.GetInvocationList())
-                    {
-                        if (tempHandler.Equals(sourceHandler))
-                        {
-                            isHandlerExist = true;
-                            break;
-                        }
-                    }
-                }
-                if (!isHandlerExist)
-                {
-                    ChatEvent += Online[result.Member.Id] as ChatEventHandler;
+                BindEventHandler( sourceHandler);
 
-                }
-                isHandlerExist = false;
-                if (service.ChatEvent != null)
-                {
-                    foreach (ChatEventHandler tempHandler in service.ChatEvent.GetInvocationList())
-                    {
-                        if (tempHandler.Equals(sourceHandler))
-                        {
-                            isHandlerExist = true;
-                            break;
-                        }
-                    }
-                }
-                if (!isHandlerExist)
-                {
-                    service.ChatEvent += this.myEventHandler;
-                    isHandlerExist = false;
-                }
+                service.BindEventHandler(myEventHandler);
+               
                 if (!DALService.IsFriend(this.member.Id, result.Member.Id))
                     DALService.AddFriend(this.member.Id, result.Member.Id);
                 if (!DALService.IsFriend(result.Member.Id, this.member.Id))
@@ -770,6 +790,28 @@ namespace Chatter.Service
             }
 
             return new Result() { Status = MessageStatus.OK, Mesg = "成功通知对方", Member = result.Member, Type = MessageType.AddFriend };
+        }
+
+        public void BindEventHandler( ChatEventHandler handler)
+        {
+            bool isHandlerExist = false;
+            if (ChatEvent != null)
+            {
+                foreach (ChatEventHandler tempHandler in ChatEvent.GetInvocationList())
+                {
+                    if (tempHandler.Equals(handler))
+                    {
+                        isHandlerExist = true;
+                        break;
+                    }
+                }
+            }
+            if (!isHandlerExist)
+            {
+                ChatEvent += handler;
+
+            }
+            
         }
 
         /// <summary>
@@ -867,6 +909,17 @@ namespace Chatter.Service
 
 
 
+
+
+        public void DeleteMember(string memberId, string groupId)
+        {
+            DALService.DeleteMemberFromGroup(groupId, memberId);
+        }
+
+        public void DeleteGroup(string groupId)
+        {
+            DALService.DeleteGroup(groupId);
+        }
     }
 
 

@@ -933,6 +933,22 @@ namespace MetroClient.ChatterService {
         
         void EndAddFriend2Group(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, Action="http://tempuri.org/IChatter/DeleteMember")]
+        void DeleteMember(string memberId, string groupId);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/DeleteMember")]
+        System.IAsyncResult BeginDeleteMember(string memberId, string groupId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteMember(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, Action="http://tempuri.org/IChatter/DeleteGroup")]
+        void DeleteGroup(string groupId);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsInitiating=false, AsyncPattern=true, Action="http://tempuri.org/IChatter/DeleteGroup")]
+        System.IAsyncResult BeginDeleteGroup(string groupId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteGroup(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/IChatter/SendMesg", ReplyAction="http://tempuri.org/IChatter/SendMesgResponse")]
         MetroClient.ChatterService.MessageStatus SendMesg(MetroClient.ChatterService.Message mesg);
         
@@ -1286,6 +1302,18 @@ namespace MetroClient.ChatterService {
         
         private System.Threading.SendOrPostCallback onAddFriend2GroupCompletedDelegate;
         
+        private BeginOperationDelegate onBeginDeleteMemberDelegate;
+        
+        private EndOperationDelegate onEndDeleteMemberDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteMemberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteGroupDelegate;
+        
+        private EndOperationDelegate onEndDeleteGroupDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteGroupCompletedDelegate;
+        
         private BeginOperationDelegate onBeginSendMesgDelegate;
         
         private EndOperationDelegate onEndSendMesgDelegate;
@@ -1353,6 +1381,10 @@ namespace MetroClient.ChatterService {
         public event System.EventHandler<AddGroupCompletedEventArgs> AddGroupCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddFriend2GroupCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteMemberCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteGroupCompleted;
         
         public event System.EventHandler<SendMesgCompletedEventArgs> SendMesgCompleted;
         
@@ -1817,6 +1849,106 @@ namespace MetroClient.ChatterService {
             base.InvokeAsync(this.onBeginAddFriend2GroupDelegate, new object[] {
                         friendId,
                         groupId}, this.onEndAddFriend2GroupDelegate, this.onAddFriend2GroupCompletedDelegate, userState);
+        }
+        
+        public void DeleteMember(string memberId, string groupId) {
+            base.Channel.DeleteMember(memberId, groupId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteMember(string memberId, string groupId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteMember(memberId, groupId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteMember(System.IAsyncResult result) {
+            base.Channel.EndDeleteMember(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteMember(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string memberId = ((string)(inValues[0]));
+            string groupId = ((string)(inValues[1]));
+            return this.BeginDeleteMember(memberId, groupId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteMember(System.IAsyncResult result) {
+            this.EndDeleteMember(result);
+            return null;
+        }
+        
+        private void OnDeleteMemberCompleted(object state) {
+            if ((this.DeleteMemberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteMemberCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteMemberAsync(string memberId, string groupId) {
+            this.DeleteMemberAsync(memberId, groupId, null);
+        }
+        
+        public void DeleteMemberAsync(string memberId, string groupId, object userState) {
+            if ((this.onBeginDeleteMemberDelegate == null)) {
+                this.onBeginDeleteMemberDelegate = new BeginOperationDelegate(this.OnBeginDeleteMember);
+            }
+            if ((this.onEndDeleteMemberDelegate == null)) {
+                this.onEndDeleteMemberDelegate = new EndOperationDelegate(this.OnEndDeleteMember);
+            }
+            if ((this.onDeleteMemberCompletedDelegate == null)) {
+                this.onDeleteMemberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteMemberCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteMemberDelegate, new object[] {
+                        memberId,
+                        groupId}, this.onEndDeleteMemberDelegate, this.onDeleteMemberCompletedDelegate, userState);
+        }
+        
+        public void DeleteGroup(string groupId) {
+            base.Channel.DeleteGroup(groupId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteGroup(string groupId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteGroup(groupId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteGroup(System.IAsyncResult result) {
+            base.Channel.EndDeleteGroup(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteGroup(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string groupId = ((string)(inValues[0]));
+            return this.BeginDeleteGroup(groupId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteGroup(System.IAsyncResult result) {
+            this.EndDeleteGroup(result);
+            return null;
+        }
+        
+        private void OnDeleteGroupCompleted(object state) {
+            if ((this.DeleteGroupCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteGroupCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteGroupAsync(string groupId) {
+            this.DeleteGroupAsync(groupId, null);
+        }
+        
+        public void DeleteGroupAsync(string groupId, object userState) {
+            if ((this.onBeginDeleteGroupDelegate == null)) {
+                this.onBeginDeleteGroupDelegate = new BeginOperationDelegate(this.OnBeginDeleteGroup);
+            }
+            if ((this.onEndDeleteGroupDelegate == null)) {
+                this.onEndDeleteGroupDelegate = new EndOperationDelegate(this.OnEndDeleteGroup);
+            }
+            if ((this.onDeleteGroupCompletedDelegate == null)) {
+                this.onDeleteGroupCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteGroupCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteGroupDelegate, new object[] {
+                        groupId}, this.onEndDeleteGroupDelegate, this.onDeleteGroupCompletedDelegate, userState);
         }
         
         public MetroClient.ChatterService.MessageStatus SendMesg(MetroClient.ChatterService.Message mesg) {

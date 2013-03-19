@@ -214,9 +214,6 @@
     <None Include="Service References\RegisterService\RegisterService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterService\RegisterService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\RegisterService\RegisterService2.xsd">
       <SubType>Designer</SubType>
     </None>

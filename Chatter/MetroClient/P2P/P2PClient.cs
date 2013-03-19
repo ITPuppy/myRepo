@@ -7,10 +7,11 @@ using System.Threading;
 using MetroClient.ChatterService;
 using Chatter.Log;
 using System.Configuration;
+using Chatter.MetroClient.UI;
 
 namespace Chatter.MetroClient.P2P
 {
-    public class P2PClient
+    public class P2PClient:IDisposable
     {
 
         private static Dictionary<string,P2PClient> clients=new Dictionary<string,P2PClient>();
@@ -22,6 +23,14 @@ namespace Chatter.MetroClient.P2P
             StartP2PClient();
         }
 
+        public static void RemoveClient(string groupId)
+        {
+            if (clients.ContainsKey(groupId))
+            {
+                clients[groupId].Dispose();
+                clients.Remove(groupId);
+            }
+        }
         public static P2PClient GetP2PClient(string groupId)
         {
            if(clients.ContainsKey(groupId))
@@ -65,6 +74,12 @@ namespace Chatter.MetroClient.P2P
            
         }
 
+
+        private void StopP2PClient()
+        {
+            channel.Dispose();
+        }
+
         public void SendP2PMessage(Message mesg)
 
         {
@@ -94,6 +109,22 @@ namespace Chatter.MetroClient.P2P
                 return;
             }
             channel.DeleteMember(memberId, this.groupId);
+        }
+
+        internal void DeleteGroup(string groupId)
+        {
+            string s = ConfigurationManager.AppSettings["IsSupportGroup"];
+            if (s.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+
+            channel.DeleteGroup(groupId);
+        }
+
+        public void Dispose()
+        {
+            channel.Dispose();   
         }
     }
 }
