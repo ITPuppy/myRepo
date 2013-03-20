@@ -182,6 +182,12 @@ namespace Chatter.MetroClient.UI
                     MessageBox.Show("不是好友");
                     return;
                 }
+                if (DataUtil.IsAlreadyMember(memberId, baseRoleId))
+                {
+                    MessageBox.Show("已经是组内成员");
+                    return;
+                }
+
                 DataUtil.Client.AddFriend2Group(memberId, this.baseRoleId);
                 P2PClient.GetP2PClient(baseRoleId).AddGroupMember(DataUtil.GetFriendById(memberId));
             }
@@ -252,6 +258,12 @@ namespace Chatter.MetroClient.UI
                 string groupName = dialog.GetString();
                 if (String.IsNullOrEmpty(groupName))
                 {
+                    return;
+                }
+
+                if (DataUtil.IsGroupNameExist(groupName))
+                {
+                    MessageBox.Show("群组名字已经存在");
                     return;
                 }
 

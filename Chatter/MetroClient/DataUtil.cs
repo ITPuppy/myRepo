@@ -368,5 +368,37 @@ namespace Chatter.MetroClient
                 throw new Exception("没找到群组");
         
         }
+
+        internal static bool IsAlreadyMember(string memberId, string groupId)
+        {
+            Group group = null;
+            foreach (Group g in Groups)
+            {
+                if (g.GroupId == groupId)
+                {
+                    group = g;
+                    break;
+                }
+            }
+            if (group == null)
+                return false;
+            else if (group.GroupMember.FirstOrDefault(new Func<Member, bool>((member) => { return member.id == memberId; })) != null)
+                    return true;
+            
+            return false;
+        }
+
+        internal static bool IsGroupNameExist(string groupName)
+        {
+            foreach (Group g in Groups)
+            {
+                if (g.Name == groupName)
+                {
+
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
