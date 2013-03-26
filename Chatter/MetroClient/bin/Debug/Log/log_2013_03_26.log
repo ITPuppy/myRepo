@@ -1,0 +1,276 @@
+日 志 时 间:  2013-03-26 15:57:46,058 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :10.2.5.57:52639
+ 
+
+日 志 时 间:  2013-03-26 15:57:46,058 
+日 志 级 别:  INFO
+日 志 来 源: [10]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-03-26 15:57:46,221 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__5(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功10.2.5.57:52640
+ 
+
+日 志 时 间:  2013-03-26 15:57:46,384 
+日 志 级 别:  INFO
+日 志 来 源: [ReceiveThread]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__6(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:134)
+日 志 内 容:  接收文件线程退出
+ 
+
+日 志 时 间:  2013-03-26 16:13:42,903 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.InvalidOperationException: Content of a ContentControl must be a single element.
+   at System.Windows.Controls.ContentControl.AddChild(Object value)
+   at Chatter.MetroClient.UI.TransferFileWindow..ctor() in f:\code\myRepo\Chatter\MetroClient\UI\TransferFileWindow.xaml.cs:line 44
+   at Chatter.MetroClient.DataUtil.get_Transfer() in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 279
+   at Chatter.MetroClient.UI.MyMenu.MyMenu_MouseLeftButtonDown(Object sender, MouseButtonEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MyMenu.xaml.cs:line 163
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Application.RunInternal(Window window)
+   at MetroClient.App.Main() in f:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:line 0
+
+
+日 志 时 间:  2013-03-26 16:14:17,715 
+日 志 级 别:  ERROR
+日 志 来 源: [9]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.InvalidOperationException: Content of a ContentControl must be a single element.
+   at System.Windows.Controls.ContentControl.AddChild(Object value)
+   at Chatter.MetroClient.UI.TransferFileWindow..ctor() in f:\code\myRepo\Chatter\MetroClient\UI\TransferFileWindow.xaml.cs:line 44
+   at Chatter.MetroClient.DataUtil.get_Transfer() in f:\code\myRepo\Chatter\MetroClient\DataUtil.cs:line 279
+   at Chatter.MetroClient.UI.MyMenu.MyMenu_MouseLeftButtonDown(Object sender, MouseButtonEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\MyMenu.xaml.cs:line 163
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Application.RunInternal(Window window)
+   at MetroClient.App.Main() in f:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:line 0
+   at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+
+
+日 志 时 间:  2013-03-26 16:17:29,125 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Chatter.MetroClient.UI.FileTransferGrid.RemoveMySelf() in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 217
+   at Chatter.MetroClient.UI.FileTransferGrid.cancleBtn_MouseLeftButtonDown(Object sender, MouseButtonEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 151
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Application.RunInternal(Window window)
+   at MetroClient.App.Main() in f:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:line 0
+
+
+日 志 时 间:  2013-03-26 16:17:31,584 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Chatter.MetroClient.UI.FileTransferGrid.RemoveMySelf() in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 217
+   at Chatter.MetroClient.UI.FileTransferGrid.cancleBtn_MouseLeftButtonDown(Object sender, MouseButtonEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 171
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Application.RunInternal(Window window)
+   at MetroClient.App.Main() in f:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:line 0
+
+
+日 志 时 间:  2013-03-26 16:18:31,210 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Chatter.MetroClient.UI.FileTransferGrid.RemoveMySelf() in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 217
+   at Chatter.MetroClient.UI.FileTransferGrid.cancleBtn_MouseLeftButtonDown(Object sender, MouseButtonEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 151
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Application.RunInternal(Window window)
+   at MetroClient.App.Main() in f:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:line 0
+
+
+日 志 时 间:  2013-03-26 16:18:32,731 
+日 志 级 别:  ERROR
+日 志 来 源: [9]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Chatter.MetroClient.UI.FileTransferGrid.RemoveMySelf() in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 217
+   at Chatter.MetroClient.UI.FileTransferGrid.cancleBtn_MouseLeftButtonDown(Object sender, MouseButtonEventArgs e) in f:\code\myRepo\Chatter\MetroClient\UI\FileTransferGrid.cs:line 171
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Application.RunInternal(Window window)
+   at MetroClient.App.Main() in f:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:line 0
+   at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+
+
+日 志 时 间:  2013-03-26 16:22:34,723 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-03-26 16:22:34,723 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :10.2.5.57:53131
+ 
+
+日 志 时 间:  2013-03-26 16:22:34,792 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__5(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功10.2.5.57:53132
+ 
+
+日 志 时 间:  2013-03-26 16:22:35,030 
+日 志 级 别:  INFO
+日 志 来 源: [ReceiveThread]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__6(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:134)
+日 志 内 容:  接收文件线程退出
+ 
+
+日 志 时 间:  2013-03-26 16:29:13,520 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :10.2.5.57:53336
+ 
+
+日 志 时 间:  2013-03-26 16:29:13,520 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(f:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+

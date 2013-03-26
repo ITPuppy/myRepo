@@ -25,7 +25,7 @@ namespace Chatter.MetroClient.UI
 
 
       public  Dictionary<string, FileTransferGrid> transferTask = new Dictionary<string, FileTransferGrid>();
-
+      public List<string> runningTask = new List<string>();
         int count = 0;
         StackPanel sp = new StackPanel();
         Border border = new Border();
@@ -41,11 +41,12 @@ namespace Chatter.MetroClient.UI
              border.BorderBrush = new SolidColorBrush(Colors.White);
              border.BorderThickness = new Thickness(1);
              border.Child = sv;
-            this.AddChild(border);
+           
+            grid.Children.Add(border);
 
            
             this.AddHandler(MouseLeftButtonDownEvent, new MouseButtonEventHandler(Move), true);
-
+            this.minBtn.AddHandler(MouseLeftButtonDownEvent, new MouseButtonEventHandler(minBtn_Click), true);
 
         }
 
@@ -76,10 +77,12 @@ namespace Chatter.MetroClient.UI
 
         private void Move(object sender, MouseButtonEventArgs e)
         {
+          
             if (e.ButtonState == MouseButtonState.Pressed)
             {
 
                 base.DragMove();
+              
 
             }
         }
@@ -96,5 +99,12 @@ namespace Chatter.MetroClient.UI
             if (count <= 0)
                 this.Close();
         }
+
+
+        private void minBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
+ 

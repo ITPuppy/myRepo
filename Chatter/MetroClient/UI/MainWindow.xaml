@@ -13,9 +13,27 @@
        
          
         >
+
+
+    <Window.Resources>
+      
+        <!-- 引用外部资源文件 -->
+       
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="Dictionary.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+           
+        </ResourceDictionary>
+       
+    </Window.Resources>
+
     <Border 
         Background="#4c8dae"
-      
+         Opacity="0.9"
         CornerRadius="5,5,5,5"
         >
         <Grid >
@@ -82,100 +100,12 @@
                     <TextBlock Name="txtNickName"  FontSize="40" Margin="20,20,0,0"></TextBlock>
                 </Grid>
 
-                <!--下面的grid，好友-->
-
-                <!--<TabControl Name="tab"  Grid.Row="1" Margin="0,0,0,0" Background="#4c8dae">
-
-                    <TabControl.ItemContainerStyle>
-                        <Style>
-                            <Setter Property="TabItem.Visibility" Value="Collapsed"/>
-                        </Style>
-                    </TabControl.ItemContainerStyle>
-                    <TabItem>
-                        
-                    <ScrollViewer  VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-                        <ScrollViewer.Content>
-                            <Grid  Name="friendGrid">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="100"/>
-                                    <RowDefinition Height="100"/>
-                                    <RowDefinition Height="100"/>
-                                </Grid.RowDefinitions>
-
-
-                                <MyControl:MyButton   Text="asdf"  Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
-                                <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
-                                <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
-                                <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
-
-
-                            </Grid>
-                        </ScrollViewer.Content>
-                    </ScrollViewer >
-                    </TabItem>
-                    <TabItem>
-                        <ScrollViewer  VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-                        <ScrollViewer.Content>
-                            <Grid  Name="grid1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="100"/>
-                                    <RowDefinition Height="100"/>
-                                    <RowDefinition Height="100"/>
-                                </Grid.RowDefinitions>
-
-
-                                <MyControl:MyButton   Text="asdf"  Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
-                                <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
-                                <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
-                                <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
-
-
-                            </Grid>
-                        </ScrollViewer.Content>
-                    </ScrollViewer >
-                        
-                    </TabItem>
-                    <TabItem>
-                        
-                        <ScrollViewer  VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-                            <ScrollViewer.Content>
-                                <Grid  Name="grid2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100"/>
-                                        <ColumnDefinition Width="100"/>
-                                        <ColumnDefinition Width="100"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="100"/>
-                                        <RowDefinition Height="100"/>
-                                        <RowDefinition Height="100"/>
-                                    </Grid.RowDefinitions>
-
-
-                                    <MyControl:MyButton   Text="asdf"  Grid.Row="0" Grid.Column="0"    Background="#b7ba6b" ></MyControl:MyButton>
-                                    <MyControl:MyButton   Grid.Row="0" Grid.Column="1" Background="#faa755" ></MyControl:MyButton>
-                                    <MyControl:MyButton    Grid.Row="0" Grid.Column="2" Background="#8a5d19" ></MyControl:MyButton>
-                                    <MyControl:MyButton     Grid.Row="1" Grid.Column="0" Background="#d71345" ></MyControl:MyButton>
-
-
-                                </Grid>
-                            </ScrollViewer.Content>
-                        </ScrollViewer >
-
-                    </TabItem>
-                </TabControl>-->
-                
+      
             </Grid>
+            
+            
+            
+            <!--右边的Grid-->
             <Grid
                
                 Name="RightGrid"
@@ -183,15 +113,15 @@
                 Opacity="1"
                 >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="0"/>
                     <RowDefinition Height="50*"/>
                    
                    
                 </Grid.RowDefinitions >
-                <StackPanel Orientation="Horizontal">
-                   
-                </StackPanel>
-                <Border  Grid.Row="1"  BorderThickness="1"  BorderBrush="LightGray">
+                
+               
+               
+                <Border  Grid.Row="1" >
                     <TabControl Name="mesgTabControl" Background="Transparent" >
                         <TabControl.ItemContainerStyle>
                             <Style>
@@ -199,21 +129,15 @@
                             </Style>
                         </TabControl.ItemContainerStyle>
                         
-                            <!--<TabItem>
-                            <RichTextBox Name="txtDisplay" Background="Transparent" Foreground="White" FontSize="15"  ScrollViewer.VerticalScrollBarVisibility="Auto" >
-                                <FlowDocument LineHeight="0.1">
-                                    
-                                </FlowDocument>
-                            </RichTextBox>
-                        </TabItem>-->
+                          
                     </TabControl>
                 </Border>
-                <!--<Border Grid.Row="2" BorderBrush="SkyBlue"   BorderThickness="2">
-                    <TextBox Name="txtInput" TextWrapping="Wrap" Background="White" FontSize="15" Margin="2,3,0,20" ScrollViewer.VerticalScrollBarVisibility="Auto"  KeyDown="txtInput_KeyDown" >
-                       
-                    </TextBox>
-                </Border>-->
+                <Button  HorizontalAlignment="Right" Margin="0,2,2,0" Grid.RowSpan="2" VerticalAlignment="Top" Style="{StaticResource closeBtnStyle}" Click="closeBtn_Click" />
+
+                <Button  HorizontalAlignment="Right" Margin="0,2,26,0" Grid.RowSpan="2" VerticalAlignment="Top" Style="{StaticResource minBtnStyle}" Click="minBtn_Click"/>
+
             </Grid>
         </Grid>
     </Border>
+  
 </Window>

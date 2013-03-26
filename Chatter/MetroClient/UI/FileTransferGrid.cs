@@ -213,7 +213,7 @@ namespace Chatter.MetroClient.UI
             StackPanel sp = this.Parent as StackPanel;
             ScrollViewer scrollViewer = sp.Parent as ScrollViewer;
             Border border = scrollViewer.Parent as Border;
-            TransferFileWindow tfw = border.Parent as TransferFileWindow;
+            TransferFileWindow tfw = (border.Parent as Grid).Parent as TransferFileWindow;
             tfw.Remove(fm.Guid);
         }
 

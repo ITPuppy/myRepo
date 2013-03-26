@@ -9,22 +9,25 @@
         WindowStyle="None"
         MouseLeftButtonDown="RegisterWindow_Drag"
         >
+   
+
+
     <Window.Resources>
 
-        <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-        <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-        <SolidColorBrush x:Key="brushWatermarkBorder" Color="Indigo" />
+        <!-- 引用外部资源文件 -->
 
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-   
-        <Style x:Key="EntryFieldStyle" TargetType="Grid" >
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="20,0" />
-        </Style>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Dictionary.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
 
     </Window.Resources>
-   
+
     <Border
         Background="#4c8dae"
         Opacity="0.99"
@@ -90,6 +93,16 @@
             <Label Foreground="White"  FontFamily="宋体" Content="确认密码" HorizontalAlignment="Left" Margin="25,13,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.5,-1.962"/>
             <Label Foreground="White"  FontFamily="宋体" Content="性别" HorizontalAlignment="Left" Margin="25,13,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.559,2.577"/>
             <Label Foreground="White"  FontFamily="宋体" Content="生日" HorizontalAlignment="Left" Margin="25,15,0,0" Grid.Row="5" VerticalAlignment="Top" RenderTransformOrigin="0.559,2.577"/>
+
+
+            <Button  HorizontalAlignment="Right" Margin="0,2,2,0" Grid.RowSpan="2" VerticalAlignment="Top" Style="{StaticResource closeBtnStyle}" Click="closeBtn_Click" />
+
+            <Button  HorizontalAlignment="Right" Margin="0,2,26,0" Grid.RowSpan="2" VerticalAlignment="Top" Style="{StaticResource minBtnStyle}" Click="minBtn_Click"/>
+
         </Grid>
+        
     </Border>
+    
+    
+    
 </Window>

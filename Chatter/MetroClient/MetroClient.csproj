@@ -44,8 +44,10 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -86,6 +88,9 @@
     </Compile>
     <Compile Include="UI\AudioForm.xaml.cs">
       <DependentUpon>AudioForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CloseButton.xaml.cs">
+      <DependentUpon>CloseButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\FileTransferGrid.cs" />
     <Compile Include="UI\MyMenu.xaml.cs">
@@ -128,6 +133,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\AudioForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CloseButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
