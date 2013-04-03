@@ -39,16 +39,16 @@ namespace Chatter.MetroClient.TCP
                 Completed();
             }
         }
-
+        /// <summary>
+        /// 该接收的接收，该发送的发送
+        /// </summary>
+        /// <param name="endPoint"></param>
         public abstract void Transfer(MyEndPoint endPoint);
 
         public abstract void Completed();
 
 
-        public void Punch(MyEndPoint endPoint)
-        {
-            
-        }
+      
     }
 
 

@@ -53,7 +53,10 @@ namespace Chatter.MetroClient.UI
 
         
 
-
+        /// <summary>
+        /// 初始化界面，准备发送
+        /// </summary>
+        /// <param name="fm"></param>
         public void SendFile( FileMessage fm)
         {
             
@@ -64,7 +67,10 @@ namespace Chatter.MetroClient.UI
             count++;
 
         }
-
+        /// <summary>
+        /// 初始化界面，准备接收
+        /// </summary>
+        /// <param name="fm"></param>
         public void ReceiveFile( FileMessage fm)
         {
            

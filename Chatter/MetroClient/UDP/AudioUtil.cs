@@ -23,7 +23,11 @@ namespace Chatter.MetroClient.UDP
         private SoundManager sm = null;
         private AudioForm af;
 
-
+        /// <summary>
+        /// 实例化
+        /// </summary>
+        /// <param name="endPoint">此处endPoint是服务器的，用来打洞</param>
+        /// <param name="af"></param>
         public AudioUtil(MyEndPoint endPoint, AudioForm af)
         {
 
@@ -32,12 +36,17 @@ namespace Chatter.MetroClient.UDP
 
             this.endPoint = new IPEndPoint(IPAddress.Parse(endPoint.Address), endPoint.Port);
 
-
         }
+        /// <summary>
+        /// 向服务器发送数据，用来打洞
+        /// </summary>
         abstract public void InitWithServerHelp();
 
 
-
+        /// <summary>
+        /// 开始语音
+        /// </summary>
+        /// <param name="endPoint">语音对象endPoint</param>
         public void Start(MyEndPoint endPoint)
         {
 
@@ -48,6 +57,7 @@ namespace Chatter.MetroClient.UDP
             sm.StartRecordAndSend();
             Thread t = new Thread(() =>
               {
+                  ///当Stop时，isAlive设置为false
                   while (isAlive)
                   {
                       try
@@ -60,6 +70,7 @@ namespace Chatter.MetroClient.UDP
                           string s = Encoding.UTF8.GetString(cmd);
                           switch (s)
                           {
+                                  ///语音数据
                               case "D":
                                   {
                                       byte[] buffer = new byte[n - 1];
@@ -67,6 +78,7 @@ namespace Chatter.MetroClient.UDP
                                       sm.Play(buffer);
                                       break;
                                   }
+                                  ///停止命令
                               case "S":
                                   {
                                       Stop();
@@ -111,16 +123,24 @@ namespace Chatter.MetroClient.UDP
         }
 
 
-
-
-
+        /// <summary>
+        /// 停止语音
+        /// </summary>
         internal void Stop()
         {
             isAlive = false;
+            if (af.timer.IsEnabled)
+            {
+                af.timer.Stop();
+                af.timer.IsEnabled = false;
+            }
             sm.Stop();
         }
 
-
+        /// <summary>
+        /// 向目的端发送数据
+        /// </summary>
+        /// <param name="buffer">要发送的数据</param>
         public void Send(byte[] buffer)
         {
             socket.SendTo(buffer, endPoint);

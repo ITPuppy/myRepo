@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Chatter.MetroClient.UDP;
 using MetroClient.ChatterService;
 
@@ -27,15 +28,28 @@ namespace Chatter.MetroClient.UI
         private AudioMessage am;
         bool flag = true;
         private bool isFrom;
-        FromAudioUtil fau = null;
-        ToAudioUtil tau = null;
+        AudioUtil fau = null;
+        AudioUtil tau = null;
         private bool isStart=false;
         private BaseRole role;
+        private int timerCount = 0;
+        public DispatcherTimer timer = new DispatcherTimer();
         public AudioForm()
         {
             InitializeComponent();
             image.Source = new BitmapImage(new Uri(imageSouce, UriKind.Relative));
             image.Stretch = Stretch.Fill;
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            timerCount++;
+            int min = timerCount / 60;
+            int sec = timerCount % 60;
+            string s = String.Format("{0:##}:{1:##}",min,sec);
+            timerTxt.Text = s;
         }
 
         public AudioForm(AudioMessage am,bool isFrom)
@@ -50,7 +64,7 @@ namespace Chatter.MetroClient.UI
             Member from=am.from as Member;
             Member to =am.to as Member;
             this.Closed += AudioForm_Closed;
-
+            ///语音发起者
             if (isFrom)
             {
                 btnAccept.Visibility = Visibility.Collapsed;
@@ -60,6 +74,7 @@ namespace Chatter.MetroClient.UI
                 nickName.Text = to.nickName;
                 DataUtil.AudioForms.Add(to.id, this);
             }
+            ///语音接受者
             else
             {
                 this.role = am.from;
@@ -68,7 +83,11 @@ namespace Chatter.MetroClient.UI
             }
            
         }
-
+        /// <summary>
+        /// 语音窗口关闭
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AudioForm_Closed(object sender, EventArgs e)
         {
             if (!isFrom)
@@ -95,7 +114,11 @@ namespace Chatter.MetroClient.UI
         }
 
 
-
+        /// <summary>
+        /// 语音接受者接受语音请求
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAccept_Click(object sender, MouseButtonEventArgs e)
         {
             btnAccept.Visibility = Visibility.Collapsed;
@@ -119,19 +142,24 @@ namespace Chatter.MetroClient.UI
 
         
 
-
+        /// <summary>
+        /// 关闭按钮按下
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStop_Click(object sender, MouseButtonEventArgs e)
         {
 
             Shut();
         }
 
+       
        public  void Shut()
         {
-
+           ///语音接受者
             if (!isFrom)
             {
-                ///拒绝语音请求
+                ///还没接受，拒绝语音请求
                 if (flag)
                 {
                    Thread t= new Thread(() =>
@@ -149,7 +177,7 @@ namespace Chatter.MetroClient.UI
                    t.Start();
                 }
 
-                ///挂断语音
+                ///已经接受，挂断语音
                 else
                 {
 
@@ -158,13 +186,15 @@ namespace Chatter.MetroClient.UI
               
 
             }
-
+            ///语音发起者
             else
             {
+                ///已经开始语音，取消语音
                 if (isStart)
                 {
                     fau.Stop();
                 }
+                ///还没开始语音，发送取消指令
                 else
                 {
                     CommandMessage cm = new CommandMessage()
@@ -191,6 +221,7 @@ namespace Chatter.MetroClient.UI
        internal void Start(MyEndPoint endPoint)
        {
            isStart = true;
+           timer.Start();
            if (isFrom)
            {
               
@@ -202,18 +233,26 @@ namespace Chatter.MetroClient.UI
                tau.Start(endPoint);
            }
        }
-
+        /// <summary>
+        /// 向服务器发送'1'，以便udp打洞
+        /// </summary>
+        /// <param name="myEndPoint"></param>
        internal void InitSend(MyEndPoint myEndPoint)
        {
             fau = new FromAudioUtil(myEndPoint,this);
            fau.InitWithServerHelp();
        }
+        /// <summary>
+        /// 向服务器发送'2'，以供udp打洞使用
+        /// </summary>
        private void InitReceive()
        {
             tau = new ToAudioUtil(am.ServerEndPoint,this);
            tau.InitWithServerHelp();
        }
-
+        /// <summary>
+        /// 语音发起者取消语音请求
+        /// </summary>
        internal void TheOtherCanceled()
        {
            if (tau != null)

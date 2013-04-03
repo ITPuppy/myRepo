@@ -17,7 +17,7 @@
 
         </Image>
         <TextBlock Name="nickName" Grid.Column="1"/>
-        <TextBlock Name="timer" Grid.Column="2"/>
+        <TextBlock Name="timerTxt" Grid.Column="2"/>
         <Border Grid.Column="3" >
         <TextBlock Name="btnStop" 
                    

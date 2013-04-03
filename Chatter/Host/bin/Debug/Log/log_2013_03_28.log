@@ -1,0 +1,18 @@
+日 志 时 间:  2013-03-28 12:47:06,154 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  RegisterService已经启动
+ 
+
+日 志 时 间:  2013-03-28 12:47:06,218 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  ChatterService已经启动
+ 
+
+日 志 时 间:  2013-03-28 12:47:06,220 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.Host.Program+<>c__DisplayClass4.<Main>b__0(f:\code\myRepo\Chatter\Host\Program.cs:47)
+日 志 内 容:  CustomPeerResolverService已经启动
+ 
+

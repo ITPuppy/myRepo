@@ -20,10 +20,15 @@ namespace Chatter.MetroClient.Callback
 {
     class ChatterCallback : IChatterCallback
     {
+
+        /// <summary>
+        /// 有人登陆
+        /// </summary>
+        /// <param name="id"></param>
         public void OnLogin(string id)
         {
-          
 
+            ///如果是好友把好友点亮
             foreach (MyTabItem item in DataUtil.FriendTabItems.Values)
             {
                 var btn = item.myGrid.GetButton(MyType.User, id);
@@ -35,9 +40,10 @@ namespace Chatter.MetroClient.Callback
                     break;
                 }
             }
-            foreach(MyTabItem item in DataUtil.GroupMemberTabItems.Values)
+            ///如果是群组成员，也点亮
+            foreach (MyTabItem item in DataUtil.GroupMemberTabItems.Values)
             {
-                var btn=item.myGrid.GetButton(MyType.UserInGroup, id);
+                var btn = item.myGrid.GetButton(MyType.UserInGroup, id);
                 if (btn != null)
                 {
                     btn.ChangeMemberStatus(MemberStatus.Online);
@@ -47,7 +53,10 @@ namespace Chatter.MetroClient.Callback
         }
 
 
-
+        /// <summary>
+        /// 有人退出
+        /// </summary>
+        /// <param name="id"></param>
         public void OnLogoff(string id)
         {
 
@@ -74,32 +83,38 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-
+        /// <summary>
+        /// 收到消息
+        /// </summary>
+        /// <param name="mesg"></param>
         public void OnSendMessage(Message mesg)
         {
 
 
-
+            ///播放声音
             SoundPlayer.Play();
 
 
             try
             {
 
-
+                ///文本消息
                 if (mesg is TextMessage)
                 {
                     ReceiveTextMessage(mesg);
                 }
+                ///文件请求
                 else if (mesg is FileMessage)
                 {
                     ReceiveFileMessage(mesg);
                 }
+                ///命令
                 else if (mesg is CommandMessage)
                 {
 
                     ReceiveCommandMessage(mesg);
                 }
+                ///语音请求
                 else if (mesg is AudioMessage)
                 {
                     ReceiveAudioMessage(mesg);
@@ -112,14 +127,20 @@ namespace Chatter.MetroClient.Callback
 
 
         }
-
+        /// <summary>
+        /// 处理语音请求消息
+        /// </summary>
+        /// <param name="mesg"></param>
         private void ReceiveAudioMessage(Message mesg)
         {
-
+            ///已经语音，不能再跟其他人语音
             DataUtil.FriendMessageTabItems[(mesg.from as Member).id].audioMenu.IsEnabled = false;
+
             AudioMessage am = mesg as AudioMessage;
             AudioForm af = new AudioForm(am, false);
-            af.Closed += new EventHandler((obj, args) => 
+
+            ///结束语音，enable语音按钮，能继续跟其他人语音
+            af.Closed += new EventHandler((obj, args) =>
             {
                 DataUtil.FriendMessageTabItems[(mesg.from as Member).id].audioMenu.IsEnabled = true;
             }
@@ -128,23 +149,30 @@ namespace Chatter.MetroClient.Callback
 
 
         }
-
+        /// <summary>
+        /// 处理命令消息
+        /// </summary>
+        /// <param name="mesg"></param>
         private void ReceiveCommandMessage(Message mesg)
         {
 
             try
             {
                 CommandMessage cmdMesg = mesg as CommandMessage;
+                ///取消发送文件
                 if (cmdMesg.CommandType == MyCommandType.CanceledSendFile)
                 {
+                    ///判断文件传输窗口是否存在
                     if (DataUtil.HasTransfer())
                     {
+                        ///判断是否存在想取消的传输项
                         if (DataUtil.Transfer.transferTask.ContainsKey(cmdMesg.Guid))
                         {
                             DataUtil.Transfer.transferTask[cmdMesg.Guid].TheOtherCancel(false);
                         }
                     }
                 }
+                ///取消语音请求
                 else if (cmdMesg.CommandType == MyCommandType.CanceledAudioRequest)
                 {
                     DataUtil.AudioForms[(mesg.from as Member).id].TheOtherCanceled();
@@ -155,7 +183,10 @@ namespace Chatter.MetroClient.Callback
                 MyLogger.Logger.Error("收到命令Message，处理出错", ex);
             }
         }
-
+        /// <summary>
+        /// 处理发送文件请求
+        /// </summary>
+        /// <param name="mesg"></param>
         private void ReceiveFileMessage(Message mesg)
         {
 
@@ -163,9 +194,12 @@ namespace Chatter.MetroClient.Callback
 
         }
 
+        /// <summary>
+        /// 处理文本消息
+        /// </summary>
+        /// <param name="mesg"></param>
         private void ReceiveTextMessage(Message mesg)
         {
-
 
 
             if (mesg.from is Member)
@@ -179,7 +213,10 @@ namespace Chatter.MetroClient.Callback
 
 
         }
-
+        /// <summary>
+        /// 处理服务器发过来的请求
+        /// </summary>
+        /// <param name="mesg"></param>
         public void RequestToTargetClient(Message mesg)
         {
 
@@ -187,6 +224,7 @@ namespace Chatter.MetroClient.Callback
 
             switch (mesg.type)
             {
+                ///添加好友请求
                 case MessageType.AddFriend:
                     {
 
@@ -194,6 +232,7 @@ namespace Chatter.MetroClient.Callback
 
                         Member friend = mesg.from as Member;
                         MessageStatus status = MessageStatus.Refuse;
+                        ///判断是否为好友
                         if (DataUtil.IsFriend(friend.id))
                         {
                             this.OnLogin(friend.id);
@@ -220,20 +259,20 @@ namespace Chatter.MetroClient.Callback
                             return;
                         }
 
-
+                        ///注册添加好友成功事件
                         DataUtil.Client.ResponseToRequestCompleted += Client_ResponseToAddFriendCompleted;
                         Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                         {
-                            DataUtil.Client.ResponseToRequestAsync(new Result() {  Type= MessageType.AddFriend,Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
+                            DataUtil.Client.ResponseToRequestAsync(new Result() { Type = MessageType.AddFriend, Member = friend, UserGroup = mesg.to as UserGroup, Status = status });
                         }));
                         break;
                     }
-
+                ///添加好友到群组请求
                 case MessageType.AddFriend2Group:
                     {
                         Group group = mesg.from as Group;
 
-                       
+
                         Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
                             {
                                 MyTabItem groupTabItem = DataUtil.TabControl.groupTabItem as MyTabItem;
@@ -288,7 +327,7 @@ namespace Chatter.MetroClient.Callback
                     MyMessageTabItem item = new MyMessageTabItem(MyType.User, e.Result.Member);
                     DataUtil.FriendMessageTabItems.Add(e.Result.Member.id, item);
                     DataUtil.MessageTabControl.Items.Add(item);
-                    
+
                 }
             }
             catch (Exception ex)
@@ -301,19 +340,17 @@ namespace Chatter.MetroClient.Callback
             }
         }
 
-
+        /// <summary>
+        /// 收到服务器响应消息
+        /// </summary>
+        /// <param name="result"></param>
         public void ReponseToSouceClient(Result result)
         {
 
 
-
-
-
-
-
             try
             {
-
+                ///响应添加好友消息
                 if (result.Type == MessageType.AddFriend)
                 {
 
@@ -328,40 +365,35 @@ namespace Chatter.MetroClient.Callback
                         MyMessageTabItem item = new MyMessageTabItem(MyType.User, result.Member);
                         DataUtil.FriendMessageTabItems.Add(result.Member.id, item);
                         DataUtil.MessageTabControl.Items.Add(item);
-                        //DataUtil.AddFriendTo(result.Member, result.UserGroup.userGroupId);
+
                     }
                     else
                     {
                         MessageBox.Show(result.Mesg);
                     }
                 }
+                ///响应发送文件请求消息
                 else if (result.Type == MessageType.File)
                 {
-                    if (result.Status == MessageStatus.Accept)
-                    {
 
-                        if (DataUtil.HasTransfer())
+                    if (DataUtil.HasTransfer())
+                    {
+                        if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
                         {
-                            if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
+                            if (result.Status == MessageStatus.Accept)
                             {
+
                                 DataUtil.Transfer.transferTask[result.Guid].BeginSendFile(result.EndPoint);
                             }
-                        }
-                    }
-
-                    else
-                    {
-
-                        if (DataUtil.HasTransfer())
-                        {
-                            if (DataUtil.Transfer.transferTask.ContainsKey(result.Guid))
+                            else
                             {
                                 DataUtil.Transfer.transferTask[result.Guid].TheOtherCancel(true);
+
                             }
                         }
                     }
                 }
-
+                    ///响应语音请求消息
                 else if (result.Type == MessageType.Audio)
                 {
                     if (result.Status == MessageStatus.Accept)
@@ -386,7 +418,12 @@ namespace Chatter.MetroClient.Callback
 
         }
 
-
+        /// <summary>
+        /// 服务器发来对方endpoint，用来语音
+        /// </summary>
+        /// <param name="endPoint"></param>
+        /// <param name="member"></param>
+        /// <param name="isFrom"></param>
         public void SendUDPEndPoint(MyEndPoint endPoint, Member member, bool isFrom)
         {
 
@@ -394,7 +431,11 @@ namespace Chatter.MetroClient.Callback
 
 
         }
-
+        /// <summary>
+        /// 服务器发来对方endpoint,用来发文件
+        /// </summary>
+        /// <param name="endPoint"></param>
+        /// <param name="guid"></param>
         public void SendTCPEndPoint(MyEndPoint endPoint, string guid)
         {
             if (DataUtil.HasTransfer())
@@ -497,6 +538,6 @@ namespace Chatter.MetroClient.Callback
 
 
 
-      
+
     }
 }

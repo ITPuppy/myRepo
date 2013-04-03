@@ -261,7 +261,10 @@ namespace Chatter.MetroClient.UI
 
                    
             }
-
+       /// <summary>
+       /// 开始打洞
+       /// </summary>
+       /// <param name="endPoint"></param>
         public void BeginTCPHolePunching(MyEndPoint endPoint)
         {
             transferFileUtil.Transfer(endPoint);
