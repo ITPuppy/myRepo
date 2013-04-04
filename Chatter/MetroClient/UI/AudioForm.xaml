@@ -16,8 +16,8 @@
    
 
         </Image>
-        <TextBlock Name="nickName" Grid.Column="1"/>
-        <TextBlock Name="timerTxt" Grid.Column="2"/>
+        <TextBlock Name="nickName" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <TextBlock Name="timerTxt" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
         <Border Grid.Column="3" >
         <TextBlock Name="btnStop" 
                    

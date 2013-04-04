@@ -1,0 +1,11 @@
+日 志 时 间:  2013-04-04 20:07:46,348 
+日 志 级 别:  INFO
+日 志 来 源: [11]::Chatter.MetroClient.UDP.AudioUtil.<Start>b__0(e:\code\myRepo\Chatter\MetroClient\UDP\AudioUtil.cs:78)
+日 志 内 容:  接收不到数据，对方可能关闭
+ System.ObjectDisposedException: 无法访问已释放的对象。
+对象名:“WaveOut”。
+   在 LumiSoft.Media.Wave.WaveOut.Play(Byte[] audioData, Int32 offset, Int32 count) 位置 e:\code\myRepo\Chatter\MetroClient\Wave\WaveOut.cs:行号 268
+   在 Chatter.MetroClient.Audio.SoundManager.Play(Byte[] buffer) 位置 e:\code\myRepo\Chatter\MetroClient\Audio\SoundManager.cs:行号 90
+   在 Chatter.MetroClient.UDP.AudioUtil.<Start>b__0() 位置 e:\code\myRepo\Chatter\MetroClient\UDP\AudioUtil.cs:行号 78
+
+

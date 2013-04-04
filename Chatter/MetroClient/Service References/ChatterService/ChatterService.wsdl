@@ -380,9 +380,9 @@
   </wsdl:binding>
   <wsdl:service name="ChatterService">
     <wsdl:port name="NetTcpBinding_IChatter" binding="tns:NetTcpBinding_IChatter">
-      <soap12:address location="net.tcp://10.2.5.57:9877/ChatterService" />
+      <soap12:address location="net.tcp://222.26.186.164:9877/ChatterService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://10.2.5.57:9877/ChatterService</wsa10:Address>
+        <wsa10:Address>net.tcp://222.26.186.164:9877/ChatterService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

@@ -48,7 +48,7 @@ namespace Chatter.MetroClient.UI
             timerCount++;
             int min = timerCount / 60;
             int sec = timerCount % 60;
-            string s = String.Format("{0:##}:{1:##}",min,sec);
+            string s = String.Format("{0:00}:{1:00}",min,sec);
             timerTxt.Text = s;
         }
 
@@ -81,6 +81,9 @@ namespace Chatter.MetroClient.UI
                 nickName.Text = from.nickName;
                 DataUtil.AudioForms.Add(from.id, this);
             }
+
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
            
         }
         /// <summary>
