@@ -62,7 +62,6 @@ E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AudioForm.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AudioForm.g.cs
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.baml
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.g.cs
-F:\code\myRepo\Chatter\MetroClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\Dictionary.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\Dictionary.baml

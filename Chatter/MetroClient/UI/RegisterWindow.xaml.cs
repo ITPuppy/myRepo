@@ -105,6 +105,11 @@ namespace Chatter.MetroClient.UI
                 MessageBox.Show("密码不能为空");
                 return;
             }
+            if (!SecurityUtil.IsPasswordLegal(txtPwd.Password))
+            {
+                MessageBox.Show("密码必须为6-16位数字字母下划线或者点的组合");
+                return;
+            }
             if (txtPwd.Password.Trim() != txtRepeatPwd.Password.Trim())
             {
                 MessageBox.Show("密码不一致");
@@ -124,7 +129,7 @@ namespace Chatter.MetroClient.UI
 
             Member member = new Member();
             member.nickName = txtNickName.Text.Trim();
-            member.password = txtPwd.Password.Trim();
+            member.password = SecurityUtil.EncryptToSHA1(txtPwd.Password.Trim());
             member.sex = cmboSex.SelectedItem.ToString();
             member.birthday = new DateTime(Convert.ToInt32(cmboYear.SelectedItem.ToString()), Convert.ToInt32(cmboMonth.SelectedItem.ToString()),Convert.ToInt32( cmboDay.SelectedItem.ToString()));
 
@@ -147,7 +152,7 @@ namespace Chatter.MetroClient.UI
             if (e.Error == null)
             {
                 File.AppendAllText("c:/user_" + e.Result.id + ".txt","账号：" + e.Result.id );
-                File.AppendAllText("c:/user_" + e.Result.id + ".txt","密码：" + e.Result.password );
+                File.AppendAllText("c:/user_" + e.Result.id + ".txt","密码：" + txtPwd.Password );
                 MessageBox.Show("成功注册，用户信息保存在c:/user_" + e.Result.id + ".txt");
 
                 this.Close();

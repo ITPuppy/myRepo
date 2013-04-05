@@ -73,7 +73,7 @@ namespace Chatter.MetroClient.UI
             }
 
             member.id = txtId.Text;
-            member.password = txtPwd.Password;
+            member.password = SecurityUtil.EncryptToSHA1(txtPwd.Password.Trim());
 
             InstanceContext context = new InstanceContext(new ChatterCallback());
             DataUtil.Client = new ChatterClient(context);
@@ -206,7 +206,7 @@ namespace Chatter.MetroClient.UI
                     fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
 
                     StringBuilder data = new StringBuilder();
-                    data.Append(member.id + "_" + member.password + "_");
+                    data.Append(member.id + ":" + txtPwd.Password.Trim() + ":");
                     bool isAutoLogin = false;
                     if ((bool)cbAutoLogin.IsChecked)
                     {
@@ -263,7 +263,7 @@ namespace Chatter.MetroClient.UI
                 fs.Close();
 
                 string text = Encoding.ASCII.GetString(Decrypt(byteArray, "netalk24"));
-                string[] s = text.Split('_');
+                string[] s = text.Split(':');
                 txtId.Text = s[0];
                 txtPwd.Password = s[1];
                 cbAutoLogin.IsChecked = Boolean.Parse(s[2]);

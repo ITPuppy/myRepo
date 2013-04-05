@@ -68,6 +68,7 @@
     <Compile Include="Audio\SoundManager.cs" />
     <Compile Include="Callback\ChatterCallback.cs" />
     <Compile Include="DataUtil.cs" />
+    <Compile Include="SecurityUtil.cs" />
     <Compile Include="P2P\IP2PChatService.cs" />
     <Compile Include="P2P\P2PChatService.cs" />
     <Compile Include="P2P\P2PClient.cs" />

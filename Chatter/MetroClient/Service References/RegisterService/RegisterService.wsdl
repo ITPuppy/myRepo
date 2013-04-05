@@ -46,9 +46,9 @@
   </wsdl:binding>
   <wsdl:service name="RegisterService">
     <wsdl:port name="NetTcpBinding_IRegister" binding="tns:NetTcpBinding_IRegister">
-      <soap12:address location="net.tcp://222.26.186.164:9877/RegisterService" />
+      <soap12:address location="net.tcp://10.2.5.57:9877/RegisterService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://222.26.186.164:9877/RegisterService</wsa10:Address>
+        <wsa10:Address>net.tcp://10.2.5.57:9877/RegisterService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

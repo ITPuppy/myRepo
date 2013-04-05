@@ -1,0 +1,9 @@
+日 志 时 间:  2013-04-05 11:50:12,803 
+日 志 级 别:  WARN
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.LoadIDAndPwd(f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:269)
+日 志 内 容:  创建信息文件出错
+ System.FormatException: String was not recognized as a valid Boolean.
+   at System.Boolean.Parse(String value)
+   at Chatter.MetroClient.UI.LoginWindow.LoadIDAndPwd() in f:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:line 269
+
+
