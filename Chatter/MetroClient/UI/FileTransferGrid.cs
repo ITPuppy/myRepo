@@ -21,6 +21,8 @@ namespace Chatter.MetroClient.UI
         TextBlock saveAsBtn;
         TextBlock cancleBtn;
         Border saveBorder;
+        public TextBlock tb;
+            
         FileMessage fm;
         private TransferFileUtil transferFileUtil;
         public FileTransferGrid(bool isSend,FileMessage fm)
@@ -37,6 +39,7 @@ namespace Chatter.MetroClient.UI
             this.RowDefinitions.Add(row1);
             this.RowDefinitions.Add(row2);
             this.RowDefinitions.Add(row3);
+
 
             ColumnDefinition column1 = new ColumnDefinition();
             column1.Width = new GridLength(200);
@@ -69,6 +72,10 @@ namespace Chatter.MetroClient.UI
             this.Children.Add(bar);
 
 
+            tb = new TextBlock();
+            Grid.SetRow(tb, 2);
+            Grid.SetColumn(tb, 1);
+            this.Children.Add(tb);
            
             saveAsBtn = new TextBlock();
             saveAsBtn.Background = new SolidColorBrush(Colors.Transparent);

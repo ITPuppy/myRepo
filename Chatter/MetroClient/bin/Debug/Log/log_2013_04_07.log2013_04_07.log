@@ -1,0 +1,161 @@
+日 志 时 间:  2013-04-07 19:58:07,697 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.SendFileUtil.initTCPClient(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:66)
+日 志 内 容:  send :222.26.186.164:62703
+ 
+
+日 志 时 间:  2013-04-07 19:58:07,699 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:55)
+日 志 内 容:  我是发送端，开始等待接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 19:58:07,856 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:58)
+日 志 内 容:  我是发送端，accept接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 19:58:08,163 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(e:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.FormatException: 输入字符串的格式不正确。
+   在 System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   在 System.String.Format(IFormatProvider provider, String format, Object[] args)
+   在 Chatter.MetroClient.TCP.SendFileUtil.<SetProgress>b__7() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 214
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle._InvokeMethodFast(Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   在 System.Delegate.DynamicInvokeImpl(Object[] args)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Windows.Threading.DispatcherOperation.Invoke()
+   在 System.Windows.Threading.Dispatcher.ProcessQueue()
+   在 System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   在 MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   在 MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   在 System.Windows.Application.RunInternal(Window window)
+   在 MetroClient.App.Main() 位置 e:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:行号 0
+
+
+日 志 时 间:  2013-04-07 19:59:43,953 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:55)
+日 志 内 容:  我是发送端，开始等待接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 19:59:43,955 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.SendFileUtil.initTCPClient(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:66)
+日 志 内 容:  send :222.26.186.164:62757
+ 
+
+日 志 时 间:  2013-04-07 19:59:44,156 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:58)
+日 志 内 容:  我是发送端，accept接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 19:59:44,437 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(e:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.FormatException: 输入字符串的格式不正确。
+   在 System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   在 System.String.Format(IFormatProvider provider, String format, Object[] args)
+   在 Chatter.MetroClient.TCP.SendFileUtil.<SetProgress>b__7() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 214
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle._InvokeMethodFast(Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   在 System.Delegate.DynamicInvokeImpl(Object[] args)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Windows.Threading.DispatcherOperation.Invoke()
+   在 System.Windows.Threading.Dispatcher.ProcessQueue()
+   在 System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   在 MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   在 MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   在 System.Windows.Application.RunInternal(Window window)
+   在 MetroClient.App.Main() 位置 e:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:行号 0
+
+
+日 志 时 间:  2013-04-07 20:05:01,947 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:55)
+日 志 内 容:  我是发送端，开始等待接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 20:05:02,002 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.SendFileUtil.initTCPClient(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:66)
+日 志 内 容:  send :222.26.186.164:63122
+ 
+
+日 志 时 间:  2013-04-07 20:05:02,182 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:58)
+日 志 内 容:  我是发送端，accept接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 20:07:03,299 
+日 志 级 别:  INFO
+日 志 来 源: [SendThread]::Chatter.MetroClient.TCP.SendFileUtil.<Send>b__5(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:130)
+日 志 内 容:  发送文件线程退出
+ 
+
+日 志 时 间:  2013-04-07 20:17:47,929 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:55)
+日 志 内 容:  我是发送端，开始等待接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 20:17:47,958 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.SendFileUtil.initTCPClient(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:66)
+日 志 内 容:  send :222.26.186.164:63577
+ 
+
+日 志 时 间:  2013-04-07 20:17:48,551 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.MetroClient.TCP.SendFileUtil.<initTCPClient>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:58)
+日 志 内 容:  我是发送端，accept接收端的connect
+ 
+
+日 志 时 间:  2013-04-07 20:18:06,197 
+日 志 级 别:  INFO
+日 志 来 源: [SendThread]::Chatter.MetroClient.TCP.SendFileUtil.BeginSend(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:165)
+日 志 内 容:  网络出现问题
+ System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 Chatter.MetroClient.TCP.SendFileUtil.BeginSend() 位置 e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:行号 165
+
+
+日 志 时 间:  2013-04-07 20:18:06,282 
+日 志 级 别:  INFO
+日 志 来 源: [SendThread]::Chatter.MetroClient.TCP.SendFileUtil.<Send>b__5(e:\code\myRepo\Chatter\MetroClient\TCP\SendFileUtil.cs:130)
+日 志 内 容:  发送文件线程退出
+ 
+

@@ -16,7 +16,7 @@ namespace Chatter.MetroClient.TCP
         protected FileMessage fm;
         protected Socket client;
         protected Socket myListener;
-        protected int BufferSize = 1024 * 1024;
+        protected int BufferSize = 2<<16;
         protected long progress;
         protected UI.FileTransferGrid fileTransferGrid;
         protected TransferState transferState = TransferState.Wating;
@@ -45,7 +45,15 @@ namespace Chatter.MetroClient.TCP
         /// <param name="endPoint"></param>
         public abstract void Transfer(MyEndPoint endPoint);
 
-        public abstract void Completed();
+        public void Completed()
+        {
+            fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
+            {
+                fileTransferGrid.CompletReceive(transferState);
+                fileTransferGrid.tb.Text = String.Format("{0}", 100);
+
+            }));
+        }
 
 
       

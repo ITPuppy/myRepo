@@ -1,0 +1,92 @@
+日 志 时 间:  2013-04-07 19:00:18,818 
+日 志 级 别:  WARN
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.LoadIDAndPwd(e:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:268)
+日 志 内 容:  创建信息文件出错
+ System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 Chatter.MetroClient.UI.LoginWindow.LoadIDAndPwd() 位置 e:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:行号 268
+
+
+日 志 时 间:  2013-04-07 19:58:06,606 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-04-07 19:58:06,606 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :222.26.186.164:62701
+ 
+
+日 志 时 间:  2013-04-07 19:58:06,912 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__5(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功222.26.186.164:62703
+ 
+
+日 志 时 间:  2013-04-07 19:59:42,878 
+日 志 级 别:  INFO
+日 志 来 源: [15]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-04-07 19:59:42,878 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :222.26.186.164:62755
+ 
+
+日 志 时 间:  2013-04-07 19:59:43,193 
+日 志 级 别:  INFO
+日 志 来 源: [16]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__5(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功222.26.186.164:62757
+ 
+
+日 志 时 间:  2013-04-07 20:05:00,383 
+日 志 级 别:  INFO
+日 志 来 源: [9]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-04-07 20:05:00,390 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :222.26.186.164:63120
+ 
+
+日 志 时 间:  2013-04-07 20:05:00,567 
+日 志 级 别:  INFO
+日 志 来 源: [8]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__5(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功222.26.186.164:63122
+ 
+
+日 志 时 间:  2013-04-07 20:07:04,857 
+日 志 级 别:  INFO
+日 志 来 源: [ReceiveThread]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__6(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:134)
+日 志 内 容:  接收文件线程退出
+ 
+
+日 志 时 间:  2013-04-07 20:17:45,335 
+日 志 级 别:  INFO
+日 志 来 源: [12]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__2(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-04-07 20:17:45,540 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :222.26.186.164:63575
+ 
+
+日 志 时 间:  2013-04-07 20:17:46,015 
+日 志 级 别:  INFO
+日 志 来 源: [13]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__6(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功222.26.186.164:63577
+ 
+
+日 志 时 间:  2013-04-07 20:18:06,196 
+日 志 级 别:  INFO
+日 志 来 源: [ReceiveThread]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__7(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:134)
+日 志 内 容:  接收文件线程退出
+ 
+

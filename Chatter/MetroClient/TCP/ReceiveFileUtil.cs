@@ -281,6 +281,7 @@ namespace Chatter.MetroClient.TCP
                     fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
                     {
                         fileTransferGrid.bar.Value = progress;
+                        fileTransferGrid.tb.Text = String.Format("{0:00.0}%", progress);
 
                     }));
 
@@ -300,14 +301,7 @@ namespace Chatter.MetroClient.TCP
 
         }
 
-       override public void Completed()
-        {
-            fileTransferGrid.bar.Dispatcher.Invoke(new Action(()=>
-            {
-                fileTransferGrid.CompletReceive(transferState);
-
-            }));
-        }
+       
 
 
     }
