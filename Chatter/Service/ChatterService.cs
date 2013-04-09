@@ -129,6 +129,8 @@ namespace Chatter.Service
 
             try
             {
+              
+
                 ///判断用户名和密码是否正确
                 if (!DALService.IsMember(member.Id, member.Password))
                 {
@@ -137,6 +139,7 @@ namespace Chatter.Service
 
                 }
 
+                member.Password = null;
                 this.member = DALService.GetMember(member.Id);
 
                 lastUpdateTable.Add(this.member.Id, DateTime.Now);
@@ -869,7 +872,9 @@ namespace Chatter.Service
             }
             else
             {
-                this.Login(this.member);
+
+                this.Login(DALService.GetMember(member.Id, true));
+               
 
                 MyLogger.Logger.Debug(member.Id + " " + member.NickName + "重新上线");
             }

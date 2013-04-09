@@ -111,13 +111,16 @@ namespace Chatter.MetroClient.UI
                     throw (e.Error);
                 if (e.Result.Status == MessageStatus.OK)
                 {
+                    
                     DataUtil.Member = e.Result.Member;
 
                     this.IsVisibleChanged += LoginWindow_IsVisibleChanged;
 
                     this.Visibility = Visibility.Collapsed;
-                   
-                    
+
+                    DataUtil.Member.password = String.Empty;
+                    this.member.password = String.Empty;
+                    WriteIDAndPwd();
 
                 }
                 else
@@ -127,7 +130,7 @@ namespace Chatter.MetroClient.UI
                     LoginGrid.Visibility = Visibility.Visible;
                 }
 
-                WriteIDAndPwd();
+               
             }
 
             catch (EndpointNotFoundException ex)
@@ -207,6 +210,7 @@ namespace Chatter.MetroClient.UI
 
                     StringBuilder data = new StringBuilder();
                     data.Append(member.id + ":" + txtPwd.Password.Trim() + ":");
+                    txtPwd.Password = String.Empty;
                     bool isAutoLogin = false;
                     if ((bool)cbAutoLogin.IsChecked)
                     {
@@ -217,13 +221,15 @@ namespace Chatter.MetroClient.UI
                         isAutoLogin = false;
                     }
                     data.Append(isAutoLogin.ToString());
+                    
+                    byte[] byteArray = SecurityUtil.Encrypt(Encoding.ASCII.GetBytes(data.ToString()), "netalk24");
 
-                    byte[] byteArray = Encrypt(Encoding.ASCII.GetBytes(data.ToString()), "netalk24");
-
+                    
                     fs.Write(byteArray, 0, byteArray.Length);
 
                     fs.Flush();
-
+                    data.Remove(0,data.Length);
+                    byteArray = null;
 
                 }
                 else
@@ -262,7 +268,7 @@ namespace Chatter.MetroClient.UI
                 int n = fs.Read(byteArray, 0, byteArray.Length);
                 fs.Close();
 
-                string text = Encoding.ASCII.GetString(Decrypt(byteArray, "netalk24"));
+                string text = Encoding.ASCII.GetString(SecurityUtil.Decrypt(byteArray, "netalk24"));
                 string[] s = text.Split(':');
                 txtId.Text = s[0];
                 txtPwd.Password = s[1];
@@ -274,6 +280,8 @@ namespace Chatter.MetroClient.UI
                 {
                     this.btnLogin_Click(btnLogin, null);
                 }
+                text = String.Empty;
+                
             }
             catch (Exception ex)
             {
@@ -284,31 +292,7 @@ namespace Chatter.MetroClient.UI
 
         }
 
-        private byte[] Encrypt(byte[] sourcebytes, string key)
-        {
-            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
-            byte[] keyIV = keyBytes;
-            byte[] inputByteArray = sourcebytes;
-            DESCryptoServiceProvider desProvider = new DESCryptoServiceProvider();
-            MemoryStream memStream = new MemoryStream();
-            CryptoStream crypStream = new CryptoStream(memStream, desProvider.CreateEncryptor(keyBytes, keyIV), CryptoStreamMode.Write);
-            crypStream.Write(inputByteArray, 0, inputByteArray.Length);
-            crypStream.FlushFinalBlock();
-            return memStream.ToArray();
-        }
-
-        private byte[] Decrypt(byte[] encryptBytes, string key)
-        {
-            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
-            byte[] keyIV = keyBytes;
-            byte[] inputByteArray = encryptBytes;
-            DESCryptoServiceProvider desProvider = new DESCryptoServiceProvider();
-            MemoryStream memStream = new MemoryStream();
-            CryptoStream crypStream = new CryptoStream(memStream, desProvider.CreateDecryptor(keyBytes, keyIV), CryptoStreamMode.Write);
-            crypStream.Write(inputByteArray, 0, inputByteArray.Length);
-            crypStream.FlushFinalBlock();
-            return memStream.ToArray();
-        }
+     
         private void btnCancel_Quit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

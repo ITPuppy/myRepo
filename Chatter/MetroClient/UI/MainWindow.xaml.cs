@@ -75,14 +75,6 @@ namespace Chatter.MetroClient.UI
 
 
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-
-
-            init();
-
-
-        }
 
         public void init()
         {

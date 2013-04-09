@@ -167,7 +167,7 @@ namespace Chatter.DAL
 
             }
         }
-        static public Member GetMember(string id)
+        static public Member GetMember(string id,bool IncludePWD=false)
         {
             MySqlCommand cmd = null;
             Member member = null;
@@ -185,7 +185,10 @@ namespace Chatter.DAL
                     {
                         member = new Member();
                         member.Id = id;
-                        member.Password = reader["password"].ToString();
+                        if (IncludePWD)
+                        {
+                            member.Password = reader["password"].ToString();
+                        }
                         member.Sex = reader["sex"].ToString();
                         member.NickName = reader["nickName"].ToString();
                         member.Birthday = Convert.ToDateTime(reader["birthday"]);
