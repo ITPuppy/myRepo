@@ -301,8 +301,21 @@ namespace Chatter.MetroClient.TCP
 
         }
 
-       
 
 
+
+
+        public override void Completed()
+        {
+            {
+                fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
+                {
+                    fileTransferGrid.CompletReceive(transferState);
+                    if (transferState == TransferState.Running)
+                        fileTransferGrid.tb.Text = String.Format("{0}", 100);
+
+                }));
+            }
+        }
     }
 }

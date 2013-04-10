@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.IO;
+using System.Reflection;
 using log4net;
 using log4net.Appender;
 using log4net.Core;
@@ -28,8 +29,8 @@ namespace Chatter.Log
         }
         static private ILog GetLogger()
         {
-            FileInfo fi = new FileInfo("../../../App.config");
-            log4net.Config.XmlConfigurator.Configure(fi);
+            FileInfo config = new FileInfo("log.config");
+            log4net.Config.XmlConfigurator.Configure(config);
             log = log4net.LogManager.GetLogger("");
 
             return log;

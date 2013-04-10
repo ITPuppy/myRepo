@@ -180,6 +180,11 @@ namespace Chatter.MetroClient.TCP
                 transferState = TransferState.CanceledByTheOther;
                 MyLogger.Logger.Info("对方取消接收", ex);
             }
+            catch (SocketException ex)
+            {
+                transferState = TransferState.CanceledByTheOther;
+                MyLogger.Logger.Info("对方取消接收", ex);
+            }
             catch (Exception ex)
             {
                 transferState = TransferState.InternetError;
@@ -231,6 +236,19 @@ namespace Chatter.MetroClient.TCP
 
         }
 
-       
+
+
+        public override void Completed()
+        {
+            {
+                fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
+                {
+                    fileTransferGrid.CompletSend(transferState);
+                    if (transferState == TransferState.Running)
+                        fileTransferGrid.tb.Text = String.Format("{0}", 100);
+
+                }));
+            }
+        }
     }
 }

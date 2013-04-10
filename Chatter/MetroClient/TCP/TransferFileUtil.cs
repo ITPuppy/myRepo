@@ -45,15 +45,8 @@ namespace Chatter.MetroClient.TCP
         /// <param name="endPoint"></param>
         public abstract void Transfer(MyEndPoint endPoint);
 
-        public void Completed()
-        {
-            fileTransferGrid.bar.Dispatcher.Invoke(new Action(() =>
-            {
-                fileTransferGrid.CompletReceive(transferState);
-                fileTransferGrid.tb.Text = String.Format("{0}", 100);
-
-            }));
-        }
+        abstract public void Completed();
+        
 
 
       
