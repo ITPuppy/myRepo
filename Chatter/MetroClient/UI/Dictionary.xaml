@@ -12,11 +12,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid>
-                            <Rectangle x:Name="borderBtn" Width="22" Height="18" StrokeThickness="1"  Stroke="White" ></Rectangle>
+                            <Rectangle x:Name="borderBtn" Width="22" Height="18" StrokeThickness="1"  Stroke="White" Fill="Chocolate" ></Rectangle>
 
                             <!--按钮内容-->
                             <Grid>
-                                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5">
+                                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" >
                                     <Line StrokeThickness="2" Stroke="White" X1="0" Y1="0" X2="13" Y2="8"></Line>
                                     <Line StrokeThickness="2" Stroke="White" X1="0" Y1="8" X2="13" Y2="0"></Line>
                                 </Canvas>
@@ -43,7 +43,7 @@
                     <ControlTemplate TargetType="Button">
                         <Grid>
 
-                            <Rectangle Width="22" Height="18" StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Width="22" Height="18" StrokeThickness="1" Stroke="White"   Fill="Chocolate"></Rectangle>
                             <!--按钮内容-->
                             <Grid>
                                 <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5">

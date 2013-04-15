@@ -93,9 +93,6 @@
     <Compile Include="UI\AudioForm.xaml.cs">
       <DependentUpon>AudioForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\CloseButton.xaml.cs">
-      <DependentUpon>CloseButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\FileTransferGrid.cs" />
     <Compile Include="UI\MyMenu.xaml.cs">
       <DependentUpon>MyMenu.xaml</DependentUpon>
@@ -137,10 +134,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\AudioForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\CloseButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

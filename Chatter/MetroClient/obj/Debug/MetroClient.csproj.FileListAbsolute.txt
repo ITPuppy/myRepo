@@ -29,8 +29,6 @@ F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.Properties.Resources.re
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csproj.GenerateResource.Cache
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.exe
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.pdb
-F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.baml
-F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.g.cs
 F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\Dictionary.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AddBaseRoleDialog.baml
