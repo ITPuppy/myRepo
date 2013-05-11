@@ -16,6 +16,7 @@ namespace Chatter.Contract.DataContract
         [EnumMember]
         Accept = 2,
         [EnumMember]
-        Refuse = 3
+        Refuse = 3,
+      
     }
 }

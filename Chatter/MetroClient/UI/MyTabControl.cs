@@ -26,7 +26,9 @@ namespace Chatter.MetroClient.UI
         {
             
            
-            this.Background = new SolidColorBrush(Color.FromArgb(255, 76, 141, 174));
+            //this.Background = new SolidColorBrush(Color.FromArgb(255, 76, 141, 174));
+           // this.Background = new SolidColorBrush(Colors.White);
+            this.Background = new SolidColorBrush(Colors.Transparent);
             Style s = new Style();
             s.TargetType = typeof(TabItem);
             s.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));

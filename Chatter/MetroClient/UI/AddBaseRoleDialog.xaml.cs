@@ -56,5 +56,15 @@ namespace Chatter.MetroClient.UI
             return txtName.Text.Trim();
             
         }
+
+        private void DragMove(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+
+                base.DragMove();
+
+            }
+        }
     }
 }

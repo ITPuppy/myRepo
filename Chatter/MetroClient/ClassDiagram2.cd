@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MetroClient.App" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.Audio.SoundManager" Collapsed="true">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAgAAQEAgAAAAAAAoAAAAAAAAAA=</HashCode>
+      <FileName>Audio\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.Callback.ChatterCallback" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAIAABEIAQQEEGCAAAAgAIIACwAEBEQAiAEAAAAAA=</HashCode>
+      <FileName>Callback\ChatterCallback.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Chatter.MetroClient.DataUtil" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ATBAAEAQAAgAqAYQAAIAAQDC4KksAACAAAAoAAEABBY=</HashCode>
+      <FileName>DataUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.SecurityUtil" Collapsed="true">
+    <Position X="22" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>SecurityUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.P2P.P2PChatService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAAAACAAQAAAAAAAAAAAAAgABA=</HashCode>
+      <FileName>P2P\P2PChatService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Chatter.MetroClient.P2P.P2PClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAAJAAQEAAAAABgAAAAAAAABAAAIAAgABA=</HashCode>
+      <FileName>P2P\P2PClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroClient.Properties.Resources" Collapsed="true">
+    <Position X="16.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.Properties.Settings" Collapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.BaseRole" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetroClient.ChatterService.Group" Collapsed="true">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAOAAAAgAAAAAAgAAQAAAAAAAIAAQAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.UserGroup" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAQARQgAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.Member" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAwAAAAAAAAAAgAAAAQAABgAAQAAACAAAAAIAgAEIgA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.Result" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgAEIGAIAAQQAAEAAAAAAQgAAIBAIcAQAAAAIAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroClient.ChatterService.MyEndPoint" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAACAAAAAAAAAAAAEAAAiAAAAAAGAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroClient.ChatterService.Message" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAICAAASAAAAAAAAAAgAgAABAEAEgAAAAAIAEAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetroClient.ChatterService.CommandMessage" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAABAgIAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.FileMessage" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAwBMAAAAAAAAAAAAABAAYAAAAAARAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.AudioMessage" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.TextMessage" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.LoginCompletedEventArgs" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.GetFriendsCompletedEventArgs" Collapsed="true">
+    <Position X="20.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.GetGroupsCompletedEventArgs" Collapsed="true">
+    <Position X="22" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.IsOnlieCompletedEventArgs" Collapsed="true">
+    <Position X="23.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.DeleteFriendCompletedEventArgs" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.AddGroupCompletedEventArgs" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.SendMesgCompletedEventArgs" Collapsed="true">
+    <Position X="23.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.AddUserGroupCompletedEventArgs" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.DeleteUserGroupCompletedEventArgs" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.ResponseToRequestCompletedEventArgs" Collapsed="true">
+    <Position X="18.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.ChatterService.ChatterClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>76dTE1d0WCvBSJhG+a2VA3GPaDkh8sZO3u43ma+I7ZA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroClient.RegisterService.BaseRole" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetroClient.RegisterService.Group" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAOAAAAgAAAAAAgAAQAAAAAAAIAAQAAAAAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.RegisterService.UserGroup" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAQARQgAAAAAAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.RegisterService.Member" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAwAAAAAAAAAAgAAAAQAABgAAQAAACAAAAAIAgAEIgA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.RegisterService.RegisterCompletedEventArgs" Collapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroClient.RegisterService.RegisterClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAABAABEAAAIAAAAAAAADAAAgCAAQACAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Chatter.MetroClient.Sound.SoundPlayer" Collapsed="true">
+    <Position X="16.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgEAAAAAAAAA=</HashCode>
+      <FileName>sound\SoundPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.TCP.ReceiveFileUtil" Collapsed="true">
+    <Position X="10.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAICAQAAAAAAAAAQAAQAAAAEAAA=</HashCode>
+      <FileName>TCP\ReceiveFileUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.TCP.SendFileUtil" Collapsed="true">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAEACAQAABAAAAAAAAAQAAAAAIAA=</HashCode>
+      <FileName>TCP\SendFileUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.TCP.TransferFileUtil" Collapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAIAACIAKAAAAQAgAAAAAAAAAIAABASAAAA=</HashCode>
+      <FileName>TCP\TransferFileUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UDP.AudioUtil" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAEIAAAAEAAAAAAAAAAAAAAIAEAAAEAAAA=</HashCode>
+      <FileName>UDP\AudioUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UDP.FromAudioUtil" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UDP\FromAudioUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UDP.ToAudioUtil" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>UDP\ToAudioUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.AddBaseRoleDialog" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\AddBaseRoleDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.AudioForm" Collapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAiAAAOAAABABAIBARLIAAAAIAADAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\AudioForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.FileTransferGrid" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAIqAAQAAQAATAAAgABAEIAAAAAAAAIBAAAAgAIAAA=</HashCode>
+      <FileName>UI\FileTransferGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.LoginWindow" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAQCAAMAACAAAAAAAEgQAQCAiAAQiwAAABAAAAA=</HashCode>
+      <FileName>UI\LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MainWindow" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIABAEAAAAAAgAAAAAYAAAIARAAAAAEAEEA=</HashCode>
+      <FileName>UI\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MyButton" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAhAAQgEQABIBwCAAIAKIABIABBAEBgAAIACAICCAE=</HashCode>
+      <FileName>UI\MyButton.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MyGrid" Collapsed="true">
+    <Position X="23.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAgAAQAAAAAIAAAAAAAAAAAAAgAAAAEAAAIACQAA=</HashCode>
+      <FileName>UI\MyGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MyMenu" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAACAAgwCAAAAIIAAYABBAAAgIAAAAAIADAE=</HashCode>
+      <FileName>UI\MyMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MyMessageTabItem" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAgAAABIAAAAACCAAABAAMSABAAAgACAAAAAAAAQ=</HashCode>
+      <FileName>UI\MyMessageTabItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MyTabControl" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAgAAAAAAAAAQAAAAAQAAAAAACAAAAAAACAAAAAAA=</HashCode>
+      <FileName>UI\MyTabControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.MyTabItem" Collapsed="true">
+    <Position X="18.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAgAQAAAAAEQgAAAAAACAAAiAACCAA=</HashCode>
+      <FileName>UI\MyTabItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.RegisterWindow" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAgAAAAAAAQAAAAAAYAgAAAAAEAA=</HashCode>
+      <FileName>UI\RegisterWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.MetroClient.UI.TransferFileWindow" Collapsed="true">
+    <Position X="18.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAIAAMAAABAAABABAAAAAAAAAAAgAgAAAEAA=</HashCode>
+      <FileName>UI\TransferFileWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.Native.MMSYSERR" Collapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACABABAIwAAAACABkAAEAAAoBAAACAgABAAICIA=</HashCode>
+      <FileName>Wave\native\MMSYSERR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.Native.WavConstants" Collapsed="true">
+    <Position X="20.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEBAACABACCAACCAAAAAAAANCAAAAAAAAAAE=</HashCode>
+      <FileName>Wave\native\WavConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.Native.WAVEFORMATEX" Collapsed="true">
+    <Position X="22" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAACAkAABAAAAAAAAAAIAAAQAAAAAQAAA=</HashCode>
+      <FileName>Wave\native\WAVEFORMATEX.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.Native.WavFormat" Collapsed="true">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wave\native\WavFormat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.Native.WavMethods" Collapsed="true">
+    <Position X="18.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAABAAIAAAIMAgAQAABihAAIAAAAGAAIYgIg=</HashCode>
+      <FileName>Wave\native\WavMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.WaveIn" Collapsed="true">
+    <Position X="23.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABEAASAAAAQACKYAEHAARAgACgAAIAgAACAAUoA=</HashCode>
+      <FileName>Wave\WaveIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.WaveOut" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAggGAASAEAAQAACAAEhAAQAwACgCAgACAAKAAUAA=</HashCode>
+      <FileName>Wave\WaveOut.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.WavInDevice" Collapsed="true">
+    <Position X="16.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAEAAAAAAAACAAAAQAAAAAAAAAAAEAAAAAEAA=</HashCode>
+      <FileName>Wave\WavInDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LumiSoft.Media.Wave.WavOutDevice" Collapsed="true">
+    <Position X="20.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAEAAAAAAAACAAAAQAAAAAAAAAAAEAAAAAEAA=</HashCode>
+      <FileName>Wave\WavOutDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="LumiSoft.Media.Wave.Native.WAVEHDR" Collapsed="true">
+    <Position X="13.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAhIAAAECAAAAAAAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>Wave\native\WAVEHDR.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LumiSoft.Media.Wave.Native.WAVEOUTCAPS" Collapsed="true">
+    <Position X="15" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAAAAAAAAAAAAAAgAgAAQAAAAAAAACAAgAAAAEA=</HashCode>
+      <FileName>Wave\native\WAVEOUTCAPS.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Chatter.MetroClient.P2P.IP2PChatService" Collapsed="true">
+    <Position X="15" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAACAAQAAAAAAAAAAAAAgABA=</HashCode>
+      <FileName>P2P\IP2PChatService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetroClient.ChatterService.IChatter" Collapsed="true">
+    <Position X="3.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIECABA0QAgBCABEyCAFAgCJAAggEgIEkAIzEAMAgJA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetroClient.ChatterService.IChatterCallback" Collapsed="true">
+    <Position X="13.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAABEAAAQEEGCAAAAgAAIACwAEBEQAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetroClient.ChatterService.IChatterChannel" Collapsed="true">
+    <Position X="3.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetroClient.RegisterService.IRegister" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetroClient.RegisterService.IRegisterChannel" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MetroClient.ChatterService.MemberStatus" Collapsed="true">
+    <Position X="13.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAgAEAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetroClient.ChatterService.MessageStatus" Collapsed="true">
+    <Position X="16.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAABABAAAAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetroClient.ChatterService.MessageType" Collapsed="true">
+    <Position X="18.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAgAAAAAAAEABAAAAAAkAAAAAAAQAQAAAAg=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetroClient.ChatterService.MyCommandType" Collapsed="true">
+    <Position X="20.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Service References\ChatterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetroClient.RegisterService.MemberStatus" Collapsed="true">
+    <Position X="15" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAgAEAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Service References\RegisterService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Chatter.MetroClient.TCP.TransferState" Collapsed="true">
+    <Position X="23.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACAAAAAAAACAAACAAAAAAAAAIAAIAAAAAAAI=</HashCode>
+      <FileName>TCP\TransferFileUtil.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Chatter.MetroClient.UI.MyType" Collapsed="true">
+    <Position X="22" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAAAIAAAAAAAAAAAAAAAAAAAAAAAggAAAAAAAA=</HashCode>
+      <FileName>UI\MyButton.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="LumiSoft.Media.Wave.Native.waveOutProc" Collapsed="true">
+    <Position X="16.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAgAAAAECAQAAAAAAAA=</HashCode>
+      <FileName>Wave\native\WavMethods.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="LumiSoft.Media.Wave.Native.waveInProc" Collapsed="true">
+    <Position X="15" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAgAAAAECAQAAAAAAAA=</HashCode>
+      <FileName>Wave\native\WavMethods.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="LumiSoft.Media.Wave.BufferFullHandler" Collapsed="true">
+    <Position X="13.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wave\WaveIn.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

@@ -33,7 +33,6 @@ F:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\Dictionary.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\MetroClient.csprojResolveAssemblyReference.cache
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AddBaseRoleDialog.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AudioForm.baml
-E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\Dictionary.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyMenu.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.baml
@@ -42,7 +41,6 @@ E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyButton.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\TransferFileWindow.baml
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AddBaseRoleDialog.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\AudioForm.g.cs
-E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\CloseButton.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\MyMenu.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\RegisterWindow.g.cs
 E:\code\myRepo\Chatter\MetroClient\obj\Debug\UI\LoginWindow.g.cs

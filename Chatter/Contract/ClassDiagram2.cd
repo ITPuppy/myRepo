@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
+  <Class Name="Chatter.Contract.DataContract.AudioMessage">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataContract\AudioMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.BaseRole" Collapsed="true">
+    <Position X="3.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataContract\BaseRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.CommandMessage">
+    <Position X="3" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataContract\CommandMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.FileMessage">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAwAIAAAAAAAAAAAAABAAAAAAAAABAAAA=</HashCode>
+      <FileName>DataContract\FileMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.Group" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAMAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>DataContract\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.Member" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAEAAAABAAAEAQAABgAAQAIAAECAAAAAgAAAgA=</HashCode>
+      <FileName>DataContract\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.Message" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAIAAAAAAAAAAAAAAAgAAAAJAAAAAQAAAAAAEAA=</HashCode>
+      <FileName>DataContract\Message.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.MyEndPoint" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>DataContract\MyEndPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.Result" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAIAAQAAAAAAAAAAAAAAIBAIAAQAAAAAAAAA=</HashCode>
+      <FileName>DataContract\Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.TextMessage">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DataContract\TextMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chatter.Contract.DataContract.UserGroup" Collapsed="true">
+    <Position X="5.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAIAAAAAAAAEAAAAAAIAAAAAAAQQAAAEAAAAAAA=</HashCode>
+      <FileName>DataContract\UserGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Chatter.Contract.ServiceContract.IChatter" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAUAAgBCABAACAAAACAAAAgAAAEAAIQAAAAABA=</HashCode>
+      <FileName>ServiceContract\IChatter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Chatter.Contract.ServiceContract.IChatterCallback" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEEEAAAAAgAAIACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceContract\IChatterCallback.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Chatter.Contract.ServiceContract.IRegister" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceContract\IRegister.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Chatter.Contract.DataContract.MemberStatus">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAgAEAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DataContract\MemeberStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Chatter.Contract.DataContract.MessageStatus">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAABABAAAAAAA=</HashCode>
+      <FileName>DataContract\MessageStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Chatter.Contract.DataContract.MessageType">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAgAAAAAAAEABAAAAAAkAAAAAAAQAQAAAAg=</HashCode>
+      <FileName>DataContract\MessageType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Chatter.Contract.DataContract.MyCommandType">
+    <Position X="11.75" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>DataContract\MyCommandType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

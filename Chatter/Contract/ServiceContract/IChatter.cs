@@ -60,7 +60,7 @@ namespace Chatter.Contract.ServiceContract
         MessageStatus SendMesg(Message mesg);
         #endregion
 
-
+        
       
         #region 分组相关
 

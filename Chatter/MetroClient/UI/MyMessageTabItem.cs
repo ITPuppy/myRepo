@@ -100,7 +100,7 @@ namespace Chatter.MetroClient.UI
                         TextBlock txtName = new TextBlock();
                         txtName.Text = member.nickName;
                         txtName.FontSize = 25;
-                        txtName.Foreground = new SolidColorBrush(Colors.SandyBrown);
+                        txtName.Foreground = new SolidColorBrush(Colors.White);
 
 
 
@@ -208,7 +208,7 @@ namespace Chatter.MetroClient.UI
                         TextBlock txtName = new TextBlock();
                         txtName.Text = group.Name;
                         txtName.FontSize = 25;
-                        txtName.Foreground = new SolidColorBrush(Colors.SandyBrown);
+                        txtName.Foreground = new SolidColorBrush(Colors.White);
 
 
 
@@ -334,12 +334,12 @@ namespace Chatter.MetroClient.UI
 
 
                 string nickName = DataUtil.Member.nickName + "   " + DateTime.Now.ToLongTimeString() + Environment.NewLine;
-                pa.Inlines.Add(new Run(nickName) { FontSize = 20, Foreground = new SolidColorBrush(Colors.Wheat), FontFamily = new FontFamily("Avenir Book") });
+                pa.Inlines.Add(new Run(nickName) { FontSize = 15, Foreground=new SolidColorBrush(Colors.White), FontFamily = new FontFamily("Avenir Book") });
 
 
 
 
-                pa.Inlines.Add(new Run(mesg));
+                pa.Inlines.Add(new Run(mesg) {  FontSize = 20,Foreground = new SolidColorBrush(Color.FromArgb(255, 172, 32, 9))});
                 rtxtBox.Document.Blocks.Add(pa);
                 pa.LineStackingStrategy = LineStackingStrategy.MaxHeight;
                 rtxtBox.ScrollToEnd();
@@ -404,9 +404,9 @@ namespace Chatter.MetroClient.UI
 
 
                     string nickName = m.nickName + "   " + mesg.sendTime.ToLongTimeString() + Environment.NewLine;
-                    pa.Inlines.Add(new Run(nickName) { FontSize = 20, Foreground = new SolidColorBrush(Colors.Tomato), FontFamily = new FontFamily("Avenir Book") });
+                    pa.Inlines.Add(new Run(nickName) { FontSize = 15, Foreground = new SolidColorBrush(Colors.WhiteSmoke), FontFamily = new FontFamily("Avenir Book") });
 
-                    pa.Inlines.Add(new Run(tMsg.msg));
+                    pa.Inlines.Add(new Run(tMsg.msg) {  FontSize = 20,Foreground = new SolidColorBrush(Colors.Black) });
                     rtxtBox.Document.Blocks.Add(pa);
 
                     rtxtBox.ScrollToEnd();

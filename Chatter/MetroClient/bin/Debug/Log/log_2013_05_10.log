@@ -1,0 +1,1661 @@
+日 志 时 间:  2013-05-10 19:41:27,513 
+日 志 级 别:  ERROR
+日 志 来 源: [1]::Chatter.MetroClient.UI.LoginWindow.UnhandledExceptionHandler(e:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:48)
+日 志 内 容:  Unhandled Exception
+ System.IO.IOException: 客户端没有所需的特权。
+
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   在 System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   在 System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding)
+   在 System.IO.File.AppendAllText(String path, String contents, Encoding encoding)
+   在 Chatter.MetroClient.UI.RegisterWindow.registerClient_RegisterCompleted(Object sender, RegisterCompletedEventArgs e) 位置 e:\code\myRepo\Chatter\MetroClient\UI\RegisterWindow.xaml.cs:行号 154
+   在 MetroClient.RegisterService.RegisterClient.OnRegisterCompleted(Object state) 位置 e:\code\myRepo\Chatter\MetroClient\Service References\RegisterService\Reference.cs:行号 405
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Windows.Threading.DispatcherOperation.Invoke()
+   在 System.Windows.Threading.Dispatcher.ProcessQueue()
+   在 System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   在 MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   在 MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   在 System.Windows.Window.ShowHelper(Object booleanBox)
+   在 System.Windows.Window.Show()
+   在 System.Windows.Window.ShowDialog()
+   在 Chatter.MetroClient.UI.LoginWindow.register_Click(Object sender, RoutedEventArgs e) 位置 e:\code\myRepo\Chatter\MetroClient\UI\LoginWindow.xaml.cs:行号 316
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.Documents.Hyperlink.OnClick()
+   在 System.Windows.Documents.Hyperlink.DoUserInitiatedNavigation(Object sender)
+   在 System.Windows.Documents.Hyperlink.OnMouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.ContentElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Boolean isSingleParameter)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Boolean isSingleParameter, Delegate catchHandler)
+   在 System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Boolean isSingleParameter)
+   在 MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   在 MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.TranslateAndDispatchMessage(MSG& msg)
+   在 System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   在 System.Windows.Application.RunInternal(Window window)
+   在 MetroClient.App.Main() 位置 e:\code\myRepo\Chatter\MetroClient\obj\Debug\App.g.cs:行号 0
+
+
+日 志 时 间:  2013-05-10 19:46:02,051 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  52886
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,134 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  52886 2
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,143 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  2390
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,144 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  2390 4
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,261 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  80464
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,266 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  80464 6
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,267 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  80464
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,267 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  80464 5
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,277 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  16345
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,278 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  16345 3
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,281 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  16345
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,282 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  16345 4
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,283 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  16345
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,284 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  16345 0
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,287 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  16345
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,288 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  16345 4
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,291 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  16345
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,291 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  16345 3
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,292 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  16345
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,293 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  16345 4
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,295 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  52225
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,296 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  52225 6
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,304 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  52225
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,305 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  52225 6
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,306 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  52225
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,307 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  52225 6
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,309 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  35863
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,310 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  35863 3
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,320 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  35863
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,321 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  35863 0
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,322 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  35863
+ 
+
+日 志 时 间:  2013-05-10 19:46:02,323 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  35863 4
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,936 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  25492
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,937 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  25492 1
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,985 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  28648
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,986 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  28648 6
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,987 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  28648
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,988 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  28648 2
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,992 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  28648
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,993 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  28648 0
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,994 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  64529
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,995 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  64529 6
+ 
+
+日 志 时 间:  2013-05-10 19:46:03,997 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  64529
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,003 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  64529 1
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,005 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  64529
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,005 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  64529 5
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,010 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  409
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,010 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  409 1
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,012 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  409
+ 
+
+日 志 时 间:  2013-05-10 19:46:04,012 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  409 1
+ 
+
+日 志 时 间:  2013-05-10 19:47:22,771 
+日 志 级 别:  INFO
+日 志 来 源: [14]::Chatter.MetroClient.UDP.AudioUtil.<Start>b__0(e:\code\myRepo\Chatter\MetroClient\UDP\AudioUtil.cs:78)
+日 志 内 容:  接收不到数据，对方可能关闭
+ System.ObjectDisposedException: 无法访问已释放的对象。
+对象名:“WaveOut”。
+   在 LumiSoft.Media.Wave.WaveOut.Play(Byte[] audioData, Int32 offset, Int32 count) 位置 e:\code\myRepo\Chatter\MetroClient\Wave\WaveOut.cs:行号 268
+   在 Chatter.MetroClient.Audio.SoundManager.Play(Byte[] buffer) 位置 e:\code\myRepo\Chatter\MetroClient\Audio\SoundManager.cs:行号 90
+   在 Chatter.MetroClient.UDP.AudioUtil.<Start>b__0() 位置 e:\code\myRepo\Chatter\MetroClient\UDP\AudioUtil.cs:行号 78
+
+
+日 志 时 间:  2013-05-10 19:48:28,498 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.TCP.ReceiveFileUtil.initTcpHost(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:69)
+日 志 内 容:  receive :222.26.186.164:4274
+ 
+
+日 志 时 间:  2013-05-10 19:48:28,501 
+日 志 级 别:  INFO
+日 志 来 源: [3]::Chatter.MetroClient.TCP.ReceiveFileUtil.<initTcpHost>b__1(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:59)
+日 志 内 容:  我是接收端，开始等待发送端的connect
+ 
+
+日 志 时 间:  2013-05-10 19:48:28,542 
+日 志 级 别:  INFO
+日 志 来 源: [18]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__5(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:115)
+日 志 内 容:  接收端与发送端连接成功222.26.186.164:4276
+ 
+
+日 志 时 间:  2013-05-10 19:48:28,729 
+日 志 级 别:  INFO
+日 志 来 源: [ReceiveThread]::Chatter.MetroClient.TCP.ReceiveFileUtil.<Receive>b__6(e:\code\myRepo\Chatter\MetroClient\TCP\ReceiveFileUtil.cs:134)
+日 志 内 容:  接收文件线程退出
+ 
+
+日 志 时 间:  2013-05-10 21:14:50,964 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  45421
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,089 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  45421 1
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,099 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  83467
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,101 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  83467 0
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,114 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  19348
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,115 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  19348 0
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,163 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58385
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,166 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58385 0
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,167 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58385
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,168 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58385 1
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,171 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58385
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,172 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58385 3
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,175 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58385
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,177 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58385 5
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,178 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94265
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,181 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94265 4
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,185 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94265
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,186 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94265 1
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,190 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94265
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,192 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94265 6
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,193 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94265
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,194 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94265 3
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,198 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  77903
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,199 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  77903 4
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,204 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  77903
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,204 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  77903 1
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,206 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  77903
+ 
+
+日 志 时 间:  2013-05-10 21:14:51,206 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  77903 2
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,389 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  37546
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,390 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  37546 4
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,446 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  76583
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,460 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  76583 0
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,466 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  12463
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,466 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  12463 4
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,476 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  96101
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,477 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  96101 1
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,479 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  96101
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,480 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  96101 0
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,484 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  96101
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,484 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  96101 1
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,486 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  96101
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,487 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  96101 2
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,489 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  31982
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,490 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  31982 5
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,491 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  31982
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,492 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  31982 6
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,494 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  31982
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,494 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  31982 0
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,496 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  31982
+ 
+
+日 志 时 间:  2013-05-10 21:14:52,497 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  31982 4
+ 
+
+日 志 时 间:  2013-05-10 21:26:17,928 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  2544
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,191 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  2544 1
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,194 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  40261
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,196 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  40261 4
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,219 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  76141
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,220 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  76141 2
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,324 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  70577
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,328 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  70577 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,362 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  25976
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,372 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  25976 5
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,376 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  25976
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,377 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  25976 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,387 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  61856
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,388 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  61856 3
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,389 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  61856
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,390 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  61856 2
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,394 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  61856
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,394 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  61856 4
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,436 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  65013
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,438 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  65013 2
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,439 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  65013
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,440 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  65013 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,443 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  893
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,444 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  893 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,453 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  893
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,454 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  893 2
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,456 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  36774
+ 
+
+日 志 时 间:  2013-05-10 21:26:18,456 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  36774 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,739 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  54972
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,749 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  54972 1
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,760 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  38610
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,762 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  38610 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,770 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  74490
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,780 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  74490 5
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,797 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94009
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,798 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94009 4
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,802 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94009
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,803 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94009 2
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,806 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94009
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,809 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94009 1
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,811 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  94009
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,812 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  94009 0
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,814 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  29889
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,819 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  29889 5
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,820 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  29889
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,821 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  29889 4
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,823 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  29889
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,824 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  29889 6
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,827 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  29889
+ 
+
+日 志 时 间:  2013-05-10 21:26:19,828 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  29889 1
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,469 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  96239
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,605 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  96239 6
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,609 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  64932
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,609 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  64932 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,620 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  64932
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,620 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  64932 6
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,686 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  39849
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,688 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  39849 6
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,696 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  39849
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,696 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  39849 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,700 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  75730
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,700 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  75730 2
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,704 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  75730
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,705 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  75730 1
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,706 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  75730
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,712 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  75730 6
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,715 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  59368
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,720 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  59368 5
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,727 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  59368
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,728 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  59368 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,730 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  59368
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,730 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  59368 3
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,734 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  95248
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,735 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  95248 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,741 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  95248
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,743 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  95248 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,746 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  95248
+ 
+
+日 志 时 间:  2013-05-10 21:53:46,747 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  95248 2
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,716 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  49657
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,742 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  49657 1
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,787 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  88694
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,788 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  88694 2
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,793 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  24574
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,794 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  24574 5
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,820 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  8212
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,821 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  8212 3
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,822 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  8212
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,823 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  8212 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,826 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  44093
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,827 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  44093 4
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,828 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  44093
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,834 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  44093 2
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,839 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  79973
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,859 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  79973 2
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,865 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  63611
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,865 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  63611 1
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,867 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  63611
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,868 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  63611 2
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,870 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  99492
+ 
+
+日 志 时 间:  2013-05-10 21:53:47,871 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  99492 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,749 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  83957
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,850 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  83957 2
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,852 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  27897
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,853 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  27897 0
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,862 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  27897
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,863 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  27897 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,902 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  83296
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,904 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  83296 2
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,905 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  83296
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,906 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  83296 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,909 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  83296
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,910 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  83296 2
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,913 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  19177
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,914 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  19177 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,917 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  19177
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,918 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  19177 4
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,968 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  74576
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,969 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  74576 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,972 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58214
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,973 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58214 6
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,974 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58214
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,975 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58214 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,978 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58214
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,979 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58214 4
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,981 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58214
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,982 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58214 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,983 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58214
+ 
+
+日 志 时 间:  2013-05-10 21:57:37,984 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58214 1
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,752 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  7388
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,754 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  7388 4
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,825 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  98668
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,826 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  98668 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,854 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  18186
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,856 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  18186 1
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,952 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  76742
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,953 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  76742 4
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,955 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  12622
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,955 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  12622 3
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,958 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  12622
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,967 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  12622 1
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,969 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  12622
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,969 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  12622 1
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,971 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  48503
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,972 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  48503 6
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,973 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  48503
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,974 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  48503 1
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,975 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  48503
+ 
+
+日 志 时 间:  2013-05-10 21:57:38,976 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  48503 0
+ 
+
+日 志 时 间:  2013-05-10 21:57:39,004 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  68021
+ 
+
+日 志 时 间:  2013-05-10 21:57:39,005 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  68021 3
+ 
+
+日 志 时 间:  2013-05-10 21:59:24,446 
+日 志 级 别:  WARN
+日 志 来 源: [11]::Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0(e:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:116)
+日 志 内 容:  发送心跳包出现错误
+ System.TimeoutException: 发送到 net.tcp://127.0.0.1:9877/ChatterService 的请求操作在配置的超时(00:01:10)内未收到回复。分配给该操作的时间可能是更长超时的一部分。这可能由于服务仍在处理操作或服务无法发送回复消息。请考虑增加操作超时(将通道/代理转换为 IContextChannel 并设置 OperationTimeout 属性)并确保服务能够连接到客户端。
+
+Server stack trace: 
+   在 System.ServiceModel.Dispatcher.DuplexChannelBinder.SyncDuplexRequest.WaitForReply(TimeSpan timeout)
+   在 System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 MetroClient.ChatterService.IChatter.SendHeartBeat()
+   在 MetroClient.ChatterService.ChatterClient.SendHeartBeat() 位置 e:\code\myRepo\Chatter\MetroClient\Service References\ChatterService\Reference.cs:行号 2107
+   在 Chatter.MetroClient.UI.MainWindow.<SendHeartBeat>b__0() 位置 e:\code\myRepo\Chatter\MetroClient\UI\MainWindow.xaml.cs:行号 116
+
+
+日 志 时 间:  2013-05-10 21:59:38,167 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  22367
+ 
+
+日 志 时 间:  2013-05-10 21:59:38,169 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  22367 3
+ 
+
+日 志 时 间:  2013-05-10 21:59:38,178 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58248
+ 
+
+日 志 时 间:  2013-05-10 21:59:38,179 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58248 1
+ 
+
+日 志 时 间:  2013-05-10 21:59:38,180 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:255)
+日 志 内 容:  58248
+ 
+
+日 志 时 间:  2013-05-10 21:59:38,181 
+日 志 级 别:  INFO
+日 志 来 源: [1]::Chatter.MetroClient.DataUtil.GetRandomColor(e:\code\myRepo\Chatter\MetroClient\DataUtil.cs:257)
+日 志 内 容:  58248 3
+ 
+

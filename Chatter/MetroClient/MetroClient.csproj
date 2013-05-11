@@ -193,12 +193,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ChatterService\ChatterService.wsdl" />
+    <None Include="Service References\ChatterService\ChatterService.wsdl">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ChatterService\ChatterService.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -296,6 +299,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="20130408090154218_32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\img\IMG_0650.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\img\wood.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

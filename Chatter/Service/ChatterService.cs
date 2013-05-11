@@ -684,6 +684,16 @@ namespace Chatter.Service
             ///得先请求好友同意
             ///
 
+            if (!DALService.IsExistMember(friendId))
+            {
+                new Thread(new ThreadStart(() =>
+                {
+                    callback.ReponseToSouceClient(new Result() { Type = MessageType.AddFriend, Status = MessageStatus.Failed, Mesg = "不存在用户id："+friendId });
+
+                })).Start();
+                return;
+            }
+
             if (!Online.ContainsKey(friendId))
             {
                 new Thread(new ThreadStart(() =>

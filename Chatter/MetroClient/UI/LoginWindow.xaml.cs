@@ -75,18 +75,27 @@ namespace Chatter.MetroClient.UI
             member.id = txtId.Text;
             member.password = SecurityUtil.EncryptToSHA1(txtPwd.Password.Trim());
 
-            InstanceContext context = new InstanceContext(new ChatterCallback());
-            DataUtil.Client = new ChatterClient(context);
+
             begin++;
             IsCurrentCanceled = false;
-
-          
-
-            DataUtil.Client.LoginCompleted += client_LoginCompleted;
-            DataUtil.Client.LoginAsync(member);
-
             LoginGrid.Visibility = Visibility.Collapsed;
             WaitGrid.Visibility = Visibility.Visible;
+
+
+            new Thread(() =>
+                {
+                    InstanceContext context = new InstanceContext(new ChatterCallback());
+                    DataUtil.Client = new ChatterClient(context);
+                    DataUtil.Client.LoginCompleted += client_LoginCompleted;
+
+                    Dispatcher.Invoke(new Action(() =>
+                    {
+
+                        DataUtil.Client.LoginAsync(member);
+                    }));
+                }) {  IsBackground=true}.Start();
+
+          
 
 
 
@@ -177,7 +186,8 @@ namespace Chatter.MetroClient.UI
 
             
             IsCurrentCanceled = true;
-            DataUtil.Client.Abort();
+           if(DataUtil.Client!=null&&DataUtil.Client.State== CommunicationState.Opened)
+                DataUtil.Client.Abort();
         }
 
         private void LoginForm_Loaded(object sender, RoutedEventArgs e)

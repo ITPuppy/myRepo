@@ -23,35 +23,20 @@ namespace Chatter.MetroClient
        static private int[,] colors = new int[,]
         {
                                   
-            ///faa755" 
-              // #8a5d19"
-               //"#d71345
-               ///b7ba6b
-               {250,167,85},
-               {138,93,27},
-               {215,147,69},
-               {183,186,107},
-               {238,130,238},
-    {255,69,0},
-     {60,179,113},
                ///石板蓝
                {106,90,205},
                ///橙色
                {255,97,0},
-             ///沙棕色
-            {244,164,0},
-            ///暗青色
-            { 0, 139, 139 }, 
-                              
+       
+            {255,215,0},
+            {   255,20,147},
               ///草绿色
                 {124,252,0},
-                ///桔黄
-                       {255,128,0},
+               
                    ///桔红
                        {255,69,0},
-                   ///土耳其玉色
-                    {0,199,140},
-                              
+                   
+                       {0,255,255}
                    
 
                                 };
@@ -264,9 +249,12 @@ namespace Chatter.MetroClient
 
         public static Color GetRandomColor()
         {
-            Random random = new Random((int)DateTime.UtcNow.Ticks);
-            int j = random.Next(colors.Length / 3);
+            int seed = new Random().Next(100000);
+            Random random = new Random((int)(seed*DateTime.UtcNow.Ticks));
 
+            MyLogger.Logger.Info(seed);
+            int j = random.Next(seed+colors.Length)%(colors.Length/3);
+            MyLogger.Logger.Info(seed+" "+j);
 
             return Color.FromArgb(255, (byte)colors[j, 0], (byte)colors[j, 1], (byte)colors[j, 2]);
         }
